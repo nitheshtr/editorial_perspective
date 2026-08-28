@@ -1,6 +1,6 @@
 # Editorial Perspective Map — Implementation Specification
 
-**Version 0.2 · Companion to SPECv4 · August 27, 2026**
+**Version 0.3 · Companion to SPECv4 · August 27, 2026**
 
 SPECv4 defines *what* the product is and *why* (editorial methodology, data
 model, agents, orchestration, roadmap). This document defines *how exactly*:
@@ -175,6 +175,65 @@ data/runs/{runId}/
 - Raw responses are kept so future prompt/parser improvements can re-extract
   from old runs without re-generation
 
+### ADR-006: Artifact Storage Backends — Git Default, S3 Overflow, DB as Index
+
+**Status:** Accepted · 2026-08-27
+
+**Context.** ADR-005 makes runs replayable without LLM calls. The open
+question is *where artifacts live* as volume grows: files/git, object storage
+(S3), or a database.
+
+**Decision.** Three distinct roles, never conflated:
+
+1. **Git = source of truth (default).** `manifest.json` and
+   `analysis/proposals.json` are small and replay-critical — they always live
+   in git. Replay (review, re-approve, re-apply) works from any clone,
+   offline, forever.
+2. **S3/object storage = overflow for bulk raw blobs.** When raw LLM
+   responses and telemetry streams grow large, they move to S3 via the
+   artifact sink; git keeps manifest + proposals; the manifest records the
+   S3 location of every offloaded blob. Replay needs nothing beyond git;
+   re-extraction fetches blobs on demand.
+3. **DB = derived index for analytics, never source of truth.** SQLite
+   (zero-ops) populated by `pipeline index --run <id>` for cross-run queries:
+   cost trends, proposal acceptance rates, confidence drift over time.
+   Postgres only if multi-writer/remote access is needed. The index is
+   disposable — drop it and rebuild from committed artifacts at any time.
+
+**Implementation:** an `ArtifactSink` interface behind the repository layer
+(ADR-004):
+
+```ts
+// pipeline/src/tools/artifacts.ts
+export interface ArtifactSink {
+  put(runId: string, path: string, content: string | Buffer): Promise<string>; // → location URI
+  get(location: string): Promise<string | Buffer>;
+  list(runId?: string): Promise<string[]>;
+}
+// Implementations: GitSink (default) · S3Sink (optional) · CompositeSink
+// (config rule: replay-critical core → git, bulk raw → S3)
+```
+
+- `git` (default): writes under `data/runs/`, returns a repo-relative path
+- `s3` (optional): `PutObject`/`GetObject` with key
+  `{prefix}/{runId}/{path}`, returns `s3://bucket/key`; the
+  `@aws-sdk/client-s3` dependency is added **only when this sink is enabled**
+- `composite`: per the `artifacts` config block (§7.4)
+- `pipeline replay` is sink-agnostic — it resolves locations through the
+  manifest
+
+**Trigger conditions (anti-speculation — do not build ahead):**
+
+- Enable the **S3 sink** when: total `data/runs/` exceeds ~50 MB, or > ~200
+  runs, or a team/CI setup needs a central blob store
+- Add the **DB index** when: you actually query across runs (> ~1k runs, or
+  the analytics need arrives). Until then `pipeline report` covers it
+
+**Consequences:** replay never depends on LLM calls *or* on S3/DB
+availability (the replay-critical core is always in git); storage can scale
+to S3/DB without touching agent definitions, stage code, or the approval
+flow; the DB is disposable by design.
+
 ---
 
 ## 2. Tooling Stack
@@ -220,7 +279,8 @@ editorial_perspective/
 │       ├── tools/
 │       │   ├── websearch.ts                # Tavily / provider search
 │       │   ├── webfetch.ts                 # fetch + cheerio metadata extraction
-│       │   └── store.ts                    # repository layer (guarded writes)
+│       │   ├── store.ts                    # repository layer (guarded writes)
+│       │   └── artifacts.ts                # ArtifactSink: git | s3 | composite (ADR-006)
 │       ├── guards.ts                       # path allowlists per agent (code-enforced)
 │       ├── telemetry.ts                    # event emitter + sinks (ADR-003)
 │       ├── replay.ts                       # replay / rerun commands (ADR-005)
@@ -973,7 +1033,12 @@ approval record exists, and emits telemetry throughout.
   "budget": { "maxCostUsdPerRun": 5.0, "actionOnExceed": "halt" },
   "search": { "provider": "tavily", "maxResults": 10 },
   "concurrency": { "maxParallelFetches": 4 },
-  "telemetry": { "sink": "jsonl", "dir": "data/telemetry" }
+  "telemetry": { "sink": "jsonl", "dir": "data/telemetry" },
+  "artifacts": {
+    "sink": "git",
+    "rawToS3": false,
+    "s3": { "bucket": "", "prefix": "runs/" }
+  }
 }
 ```
 
@@ -1130,6 +1195,7 @@ Usage:
   npm run pipeline -- rerun  --run <id> --from <stage>  # reuse upstream artifacts
   npm run pipeline -- approve --run <id>                # interactive approval helper
   npm run pipeline -- report [--run <id> | --last]
+  npm run pipeline -- index  [--run <id> | --all]      # build/refresh SQLite analytics index
 
 Behavior:
   - workflow = preset sequence of stages (skills/*.md define what each does)
@@ -1373,6 +1439,7 @@ Playwright screenshot diff behind `RUN_VISUAL=1`.
 - `replay.test.ts`: applying a fixed run's approval record produces identical
   topic output — replay determinism (ADR-005)
 - `budget.test.ts`: run halts at maxCostUsdPerRun
+- `artifacts.test.ts`: sink round-trips (git, mocked S3), composite routing rules, manifest location resolution (ADR-006)
 
 ---
 
@@ -1428,6 +1495,8 @@ conditions for each scale-up. Do not build ahead of these triggers.
 | Telemetry dashboards | Add an OTLP/HTTP sink behind the telemetry emitter interface (JSONL stays the default) |
 | Provider rate limits / outages | `failover` model lists per stage; retries with backoff already configured |
 | Cost growth | Budgets per run (§10.4); GLM defaults keep per-run cost low; per-stage model pinning when analysis quality demands it |
+| `data/runs/` > ~50 MB or > ~200 runs | Enable the S3 artifact sink (ADR-006) — raw blobs move to object storage; manifest + proposals stay in git |
+| Need cross-run analytics (cost trends, acceptance rates, drift) | `pipeline index` → SQLite index (ADR-006); Postgres only for multi-writer/remote access |
 
 Explicitly deferred until triggered: queues, databases, dashboards, backend
 services. The trigger conditions above are the anti-speculation gate.
