@@ -433,6 +433,12 @@ Four agents with explicit contracts. Each contract defines inputs, outputs,
 workflow, and constraints so agents can be run independently, in parallel where
 lanes allow, and reconciled by the orchestration model in Section 7.
 
+Agent definitions are **tool-neutral files under `agents/` in the repository**
+(IMPLEMENTATION.md §6): the repo-owned pipeline runtime executes them via
+providers configured in `config/pipeline.json` — no agent host is required,
+and run artifacts, approvals, and telemetry are committed to the repo
+(IMPLEMENTATION.md ADR-002/003/005).
+
 ---
 
 ### 6.1 Research Agent
