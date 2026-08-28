@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Editorial — Perspective Map</title>
+<style>
+:root{
+  --bg:#f5f5f7;--card:#fff;--ink:#1d1d1f;--muted:#6e6e73;--line:#d2d2d7;
+  --blue:#0071e3;--green:#27804f;--orange:#b45b00;--purple:#6c56b8;
+  --shadow:0 18px 55px rgba(0,0,0,.12);--blue-soft:#e9f3ff
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.app{max-width:1180px;margin:auto;padding:0 28px 70px}
+header{height:68px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:40;background:#f5f5f7dd;backdrop-filter:blur(20px);border-bottom:1px solid #d2d2d780}
+.brand{font-size:21px;font-weight:700;letter-spacing:-.5px}.right{display:flex;gap:10px;align-items:center}.date{font-size:11px;color:var(--muted)}
+.circle{border:0;border-radius:50%;width:34px;height:34px;background:#fff;cursor:pointer}
+.hero{padding:62px 0 20px}.eyebrow,.kicker{font-size:11px;letter-spacing:1.4px;color:var(--blue);font-weight:750}
+h1{font-size:54px;line-height:1.02;letter-spacing:-2.7px;max-width:800px;margin:12px 0}
+.sub{font-size:19px;line-height:1.5;color:var(--muted);max-width:700px}
+nav{display:flex;gap:5px;margin:30px 0 10px;padding-bottom:12px;border-bottom:1px solid var(--line);overflow:auto}
+nav button{border:0;background:transparent;color:var(--muted);padding:9px 15px;border-radius:999px;white-space:nowrap;cursor:pointer;font-size:13px}
+nav button.active{background:var(--ink);color:#fff}
+.topic{margin-top:38px}.label{font-size:11px;color:var(--muted);letter-spacing:1.2px;font-weight:700}
+.topic h2{font-size:38px;letter-spacing:-1.5px;margin:6px 0}.dek{font-size:16px;color:var(--muted);line-height:1.5;max-width:780px}
+
+.map{position:relative;height:clamp(680px,58vw,760px);min-height:680px;margin-top:25px;overflow:hidden;border-radius:32px;background:radial-gradient(circle at 50% 50%,#0071e30d,transparent 28%),#ffffff85;border:1px solid #d2d2d7cc}
+.map-lines{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.orbit{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:485px;height:485px;border:1px solid #d2d2d78c;border-radius:50%;z-index:0}.orbit.two{width:305px;height:305px;border-color:#d2d2d759}
+.center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:190px;height:190px;border:0;border-radius:50%;background:var(--ink);color:#fff;z-index:6;cursor:pointer;box-shadow:0 25px 65px #0003;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px}
+.center small{font-size:9px;letter-spacing:1.5px;opacity:.55;font-weight:700}.center .q-micro{font-size:7px;letter-spacing:1.3px;opacity:.45;margin-bottom:3px}.center strong{display:block;font-size:25px;line-height:1.05;margin:5px 0 6px}.center .question{font-size:11px;opacity:.72;display:block;transition:opacity .25s ease}
+
+.blob{position:absolute;z-index:5;border:1px solid #fff;cursor:pointer;padding:22px;text-align:left;color:var(--ink);background:var(--blob-bg,#fff);
+  left:var(--x);top:var(--y);width:var(--w);height:var(--h);opacity:var(--o,1);border-radius:var(--br);box-shadow:var(--glow,0 16px 45px rgba(0,0,0,.1));
+  transition:left .85s cubic-bezier(.25,1,.5,1), top .85s cubic-bezier(.25,1,.5,1), width .85s cubic-bezier(.25,1,.5,1), height .85s cubic-bezier(.25,1,.5,1), opacity .55s ease, border-radius .85s ease, box-shadow .55s ease, transform .25s ease}
+.blob:hover{transform:scale(1.035)}
+.blob h3{font-size:18px;letter-spacing:-.4px;margin:0 0 7px}.blob p{font-size:12px;line-height:1.42;color:#555;margin:0;max-width:230px}.blob .sources{font-size:10px;color:var(--blue);font-weight:700;margin-top:12px;display:inline-block}.blob .trend{position:absolute;right:17px;top:15px;font-size:9px;font-weight:750}
+.up{color:var(--green)}.down{color:var(--orange)}.new{color:var(--purple)}.dominant{color:#fff;background:var(--ink);padding:2px 6px;border-radius:999px}
+.tech{--blob-bg:#e9f3ff}.human{--blob-bg:#f2edff}.econ{--blob-bg:#fff0df}.infra{--blob-bg:#eaf7ef}.platform{--blob-bg:#f4f4f5}
+
+.timeline{margin-top:15px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 22px;box-shadow:0 8px 28px rgba(0,0,0,.04)}
+.trow{display:flex;justify-content:space-between;align-items:center}.timeline b{font-size:12px}.state{font-size:11px;color:var(--blue);font-weight:700}
+input[type=range]{width:100%;accent-color:var(--blue);margin:16px 0 5px}.ticks{display:flex;justify-content:space-between;color:var(--muted);font-size:10px}
+.what-changed-btn{border:0;background:var(--ink);color:#fff;border-radius:999px;padding:9px 16px;font-size:11px;font-weight:700;cursor:pointer;margin-top:10px}
+.what-changed-btn:hover{opacity:.9}
+
+.change-sheet{position:absolute;inset:10px;z-index:8;background:rgba(255,255,255,.88);backdrop-filter:blur(24px);border:1px solid rgba(210,210,215,.7);border-radius:24px;padding:28px;display:none;flex-direction:column;overflow:auto}
+.change-sheet.show{display:flex;animation:fade .25s ease}
+.change-sheet-head{display:flex;justify-content:space-between;align-items:start;margin-bottom:18px}
+.change-sheet-head button{border:0;background:#f1f1f3;border-radius:50%;width:32px;height:32px;font-size:18px;line-height:1;cursor:pointer}
+.change-sheet h2{font-size:27px;letter-spacing:-1px;margin:6px 0 0}
+.change-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.changeCard{padding:18px;border-radius:17px;background:#f7f7f8}.changeCard .arrow{width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;font-weight:800;font-size:13px;margin-bottom:8px}.changeCard .arrow.up{background:#e8f5ec;color:var(--green)}.changeCard .arrow.down{background:#fff2e8;color:var(--orange)}.changeCard .arrow.new{background:#f2edff;color:var(--purple)}.changeCard h3{font-size:16px;margin:7px 0 5px}.changeCard p{font-size:12px;line-height:1.48;color:var(--muted);margin:0}
+.question-shift{margin-top:auto;padding:20px 22px;background:var(--blue-soft);border-radius:17px;text-align:center}.question-shift small{font-size:10px;letter-spacing:1.2px;color:var(--blue);font-weight:800}.question-shift p{font-size:18px;margin:8px 0 0;line-height:1.4}.question-shift span{color:var(--blue)}
+
+.synthesis{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:29px;box-shadow:0 18px 55px rgba(0,0,0,.08)}
+.synthesis h2{font-size:27px;letter-spacing:-1px;margin:6px 0 0}.synthesis p{font-size:16px;line-height:1.55;color:#4b4b4d;max-width:880px}
+
+.sourcesPanel{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:29px;box-shadow:0 18px 55px rgba(0,0,0,.08);display:none}.sourcesPanel.show{display:block;animation:fade .25s ease}
+.sourcesPanel h2{font-size:27px;letter-spacing:-1px;margin:6px 0 0}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}
+.head button{border:0;background:#f1f1f3;border-radius:999px;padding:9px 14px;font-size:11px;cursor:pointer}
+.panelSummary{font-size:13px;color:var(--muted);line-height:1.5;max-width:730px}
+.articleList{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}.article{border:1px solid #e0e0e3;border-radius:17px;padding:18px;background:#fbfbfc}.pub{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--muted)}.article h3{font-size:16px;line-height:1.25;margin:9px 0}.article p{font-size:12px;line-height:1.45;color:var(--muted)}.article a{color:var(--blue);font-size:11px;font-weight:700;text-decoration:none}
+
+.lens-backdrop{position:fixed;inset:0;z-index:50;background:rgba(29,29,31,.22);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px}
+.lens-modal{background:#fff;border-radius:28px;max-width:620px;width:100%;max-height:85vh;overflow:auto;padding:34px;box-shadow:0 30px 80px rgba(0,0,0,.2);position:relative}
+.lens-close{position:absolute;top:16px;right:16px;width:34px;height:34px;border:0;border-radius:50%;background:#f1f1f3;font-size:20px;cursor:pointer}
+.lens-eyebrow{font-size:10px;letter-spacing:1.2px;color:var(--blue);font-weight:800;text-transform:uppercase}
+.lens-title{font-size:32px;letter-spacing:-1px;margin:6px 0 16px}
+.lens-summary{font-size:14px;line-height:1.5;color:var(--muted);margin-bottom:22px}
+.sparkline{width:100%;height:64px;background:#fbfbfc;border:1px solid #ececee;border-radius:14px;padding:10px;margin-bottom:22px}.sparkline svg{width:100%;height:100%;overflow:visible}
+.lens-steps{margin-bottom:22px}.lens-step{position:relative;padding:0 0 20px 24px;border-left:2px solid #e1e1e4}.lens-step:last-child{padding-bottom:0;border-left-color:transparent}.lens-step .when{position:absolute;left:-28px;top:0;width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid var(--blue);font-size:8px;color:var(--blue);font-weight:800;display:flex;align-items:center;justify-content:center}.lens-step .when-label{font-size:9px;letter-spacing:1px;color:var(--blue);font-weight:800;text-transform:uppercase;margin-bottom:2px}.lens-step p{margin:4px 0 0;font-size:13px;line-height:1.5;color:#4b4b4d}
+.lens-sources{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}.lens-source{border:1px solid #e0e0e3;border-radius:16px;padding:16px;background:#fbfbfc}.lens-source .pub{font-size:9px;font-weight:700;letter-spacing:1px;color:var(--muted)}.lens-source h4{font-size:14px;line-height:1.25;margin:8px 0}.lens-source p{font-size:11px;line-height:1.45;color:var(--muted);margin:0 0 8px}.lens-source a{color:var(--blue);font-size:10px;font-weight:700;text-decoration:none}
+.lens-view{width:100%;border:0;background:var(--ink);color:#fff;border-radius:999px;padding:12px;font-size:12px;font-weight:700;cursor:pointer}
+
+.footer{margin-top:55px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:10px;display:flex;justify-content:space-between}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+@media(max-width:850px){
+  .app{padding:0 18px 55px}.hero{padding-top:45px}h1{font-size:43px}
+  .map{height:700px;min-height:700px}.orbit{width:430px;height:430px}.orbit.two{width:280px;height:280px}
+  .lens-sources{grid-template-columns:1fr}
+  .change-grid,.articleList{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .date{display:none}h1{font-size:39px}.topic h2{font-size:30px}
+  .map{height:820px;min-height:820px}.orbit{width:310px;height:310px}.orbit.two{width:210px;height:210px}
+  .center{width:150px;height:150px;top:72%}.center strong{font-size:21px}.center .question{font-size:10px}
+  .blob{padding:16px}.blob h3{font-size:15px}.blob p{font-size:10px;max-width:none}.blob .sources{font-size:9px;margin-top:8px}.blob .trend{right:12px;top:10px;font-size:8px}
+  .change-sheet{padding:18px}.change-sheet h2{font-size:23px}.question-shift p{font-size:15px}
+  .synthesis{padding:22px}.synthesis h2{font-size:23px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="brand">Editorial</div><div class="right"><span class="date">THURSDAY · AUGUST 27, 2026</span><button class="circle">⌕</button><button class="circle">♡</button></div></header>
+
+<section class="hero"><div class="eyebrow">THE OPEN EDITION</div><h1>The world, understood through its arguments.</h1><div class="sub">One topic. Different perspectives. One clear synthesis. See not only what is being discussed, but how the conversation is changing.</div></section>
+
+<nav><button class="active">Today</button><button>Conflicts</button><button>Global Economy</button><button>AI Superrace</button></nav>
+
+<section class="topic"><div class="label">AI SUPERRACE · PERSPECTIVE MAP</div><h2>The AI race is moving beyond foundation models.</h2><div class="dek">The editorial conversation is widening toward agents, distribution, infrastructure, economics and human impact.</div>
+
+<div class="map">
+  <svg class="map-lines" id="lines" xmlns="http://www.w3.org/2000/svg"></svg>
+  <div class="orbit"></div><div class="orbit two"></div>
+  <button class="blob tech" data-id="Technology" onclick="openPerspectiveLens('Technology')"><span class="trend down">↓ COOLING</span><h3>Technology</h3><p>Frontier model capability remains important, but raw benchmarks are becoming a smaller part of the story.</p><div class="sources">14 SOURCES →</div></button>
+  <button class="blob human" data-id="Human Impact" onclick="openPerspectiveLens('Human Impact')"><span class="trend new">✦ EMERGING</span><h3>Human Impact</h3><p>Jobs, education and creativity are becoming a much larger part of the AI conversation.</p><div class="sources">13 SOURCES →</div></button>
+  <button class="blob econ" data-id="Economics" onclick="openPerspectiveLens('Economics')"><span class="trend up">↑ ACCELERATING</span><h3>Economics</h3><p>Falling inference costs are raising new questions about productivity, margins and value capture.</p><div class="sources">19 SOURCES →</div></button>
+  <button class="blob infra" data-id="Infrastructure" onclick="openPerspectiveLens('Infrastructure')"><span class="trend up">↑ ACCELERATING</span><h3>Infrastructure</h3><p>Chips, compute, power and data centers are becoming strategic constraints.</p><div class="sources">22 SOURCES →</div></button>
+  <button class="blob platform" data-id="Platform" onclick="openPerspectiveLens('Platform')"><span class="trend up">● DOMINANT</span><h3>Platform</h3><p>Distribution and ecosystem integration may matter more than marginal model gains.</p><div class="sources">24 SOURCES →</div></button>
+  <button class="center" onclick="document.getElementById('synthesis').scrollIntoView({behavior:'smooth'})"><small>CENTRAL TOPIC</small><span class="q-micro">THE QUESTION IS CHANGING</span><strong>AI<br>SUPERRACE</strong><span class="question" id="question">Who can deploy AI at scale—and who benefits?</span></button>
+
+  <div class="change-sheet" id="changeSheet" onclick="if(event.target===this)closeChangeSheet()">
+    <div class="change-sheet-head"><div><div class="kicker">WHAT CHANGED</div><h2 id="sheetTitle">What changed?</h2></div><button onclick="closeChangeSheet()" aria-label="Close">×</button></div>
+    <div class="change-grid" id="changeGrid"></div>
+    <div class="question-shift"><small>THE QUESTION IS CHANGING</small><p>From <span id="sheetFrom">“Who has the smartest model?”</span> to <span id="sheetTo">“Who can deploy AI at scale—and who benefits?”</span></p></div>
+  </div>
+</div>
+
+<div class="timeline">
+  <div class="trow"><b>Perspective evolution</b><span class="state" id="state">TODAY</span></div>
+  <input id="range" type="range" min="0" max="2" value="2" step="1" oninput="timeChange(this.value)">
+  <div class="ticks"><span>90 DAYS AGO</span><span>30 DAYS AGO</span><span>TODAY</span></div>
+  <div class="trow" style="justify-content:center"><button class="what-changed-btn" onclick="openChangeSheet()">What changed?</button></div>
+</div>
+
+<div class="synthesis" id="synthesis">
+  <div class="kicker">EDITORIAL PULSE</div>
+  <h2>What the perspectives collectively tell us.</h2>
+  <p id="synthesisText">The conversation has widened into a contest over agents, infrastructure, economics and human impact. The central uncertainty is where durable advantage—and public value—will ultimately settle.</p>
+</div>
+
+<div class="sourcesPanel" id="sourcesPanel">
+  <div class="head"><div><div class="kicker" id="panelKicker">PERSPECTIVE</div><h2 id="panelTitle">Human Impact</h2><div class="panelSummary" id="panelSummary"></div></div><button onclick="toggle('sourcesPanel')">×</button></div>
+  <div class="articleList" id="panelArticles"></div>
+</div>
+</section>
+
+<div class="lens-backdrop" id="lensBackdrop" onclick="closeLens(event)">
+  <div class="lens-modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+    <button class="lens-close" onclick="closeLens()" aria-label="Close">×</button>
+    <div class="lens-eyebrow" id="lensEyebrow">EMERGING · 13 SOURCES</div>
+    <h2 class="lens-title" id="lensTitle">Human Impact</h2>
+    <div class="lens-summary" id="lensSummary"></div>
+    <div class="sparkline"><svg id="lensSparkline"></svg></div>
+    <div class="lens-steps" id="lensSteps"></div>
+    <div class="lens-sources" id="lensSources"></div>
+    <button class="lens-view" id="lensView">View all sources</button>
+  </div>
+</div>
+
+<footer class="footer"><span>EDITORIAL · TOPIC → PERSPECTIVES → SYNTHESIS → EVOLUTION</span><span>Original publishers are always attributed.</span></footer>
+</div>
+
+<script>
+const states=[
+  {
+    label:'90 DAYS AGO',
+    question:'Who has the smartest model?',
+    synthesis:'The editorial conversation is narrowly focused on model capability and benchmark leadership. Infrastructure and platform questions are present, but human impact is barely visible.',
+    lineStrength:.35,
+    nodes:{
+      Technology:{x:10,y:8,w:28,h:22,br:'44% 56% 51% 49% / 54% 43% 57% 46%',sources:24,status:'Dominant',opacity:1,
+        mobile:{x:5,y:6,w:44,h:15}},
+      Platform:{x:40,y:4,w:24,h:18,br:'50% 42% 57% 44% / 47% 57% 43% 53%',sources:15,status:'Growing',opacity:1,
+        mobile:{x:52,y:6,w:44,h:15}},
+      Infrastructure:{x:6,y:62,w:24,h:20,br:'53% 47% 44% 56% / 45% 56% 44% 55%',sources:12,status:'Growing',opacity:1,
+        mobile:{x:5,y:24,w:44,h:15}},
+      Economics:{x:64,y:60,w:22,h:18,br:'48% 52% 57% 43% / 57% 47% 53% 43%',sources:10,status:'Growing',opacity:1,
+        mobile:{x:52,y:24,w:44,h:15}},
+      'Human Impact':{x:74,y:20,w:18,h:16,br:'57% 43% 48% 52% / 44% 57% 43% 56%',sources:0,status:'Emerging',opacity:0,
+        mobile:{x:18,y:42,w:64,h:12,opacity:0}}
+    }
+  },
+  {
+    label:'30 DAYS AGO',
+    question:'Who controls the platform?',
+    synthesis:'Attention is shifting from raw benchmarks toward distribution, agents and infrastructure economics. Human impact begins to appear as a faint but recurring theme.',
+    lineStrength:.6,
+    nodes:{
+      Technology:{x:8,y:8,w:24,h:20,br:'46% 54% 53% 47% / 52% 45% 55% 48%',sources:18,status:'Cooling',opacity:1,
+        mobile:{x:5,y:6,w:44,h:15}},
+      Platform:{x:42,y:2,w:26,h:20,br:'52% 40% 59% 46% / 49% 59% 41% 51%',sources:20,status:'Accelerating',opacity:1,
+        mobile:{x:52,y:6,w:44,h:15}},
+      Infrastructure:{x:5,y:58,w:27,h:22,br:'55% 45% 42% 58% / 47% 54% 46% 53%',sources:19,status:'Accelerating',opacity:1,
+        mobile:{x:5,y:24,w:44,h:15}},
+      Economics:{x:60,y:56,w:25,h:20,br:'50% 50% 55% 45% / 55% 49% 51% 45%',sources:16,status:'Growing',opacity:1,
+        mobile:{x:52,y:24,w:44,h:15}},
+      'Human Impact':{x:72,y:16,w:20,h:17,br:'59% 41% 46% 54% / 46% 55% 45% 54%',sources:6,status:'Emerging',opacity:.55,
+        mobile:{x:18,y:42,w:64,h:13,opacity:.6}}
+    }
+  },
+  {
+    label:'TODAY',
+    question:'Who can deploy AI at scale—and who benefits?',
+    synthesis:'The conversation has widened into a contest over agents, infrastructure, economics and human impact. The central uncertainty is where durable advantage—and public value—will settle.',
+    lineStrength:1,
+    nodes:{
+      Technology:{x:6,y:8,w:21,h:18,br:'48% 52% 55% 45% / 50% 47% 53% 50%',sources:14,status:'Cooling',opacity:1,
+        mobile:{x:5,y:6,w:44,h:14}},
+      Platform:{x:44,y:2,w:25,h:18,br:'54% 42% 57% 44% / 48% 56% 44% 52%',sources:24,status:'Dominant',opacity:1,
+        mobile:{x:52,y:6,w:44,h:14}},
+      Infrastructure:{x:4,y:56,w:29,h:23,br:'51% 49% 46% 54% / 44% 55% 45% 56%',sources:22,status:'Accelerating',opacity:1,
+        mobile:{x:5,y:24,w:44,h:15}},
+      Economics:{x:58,y:54,w:27,h:21,br:'49% 51% 58% 42% / 58% 48% 52% 42%',sources:19,status:'Accelerating',opacity:1,
+        mobile:{x:52,y:24,w:44,h:15}},
+      'Human Impact':{x:68,y:12,w:27,h:22,br:'56% 44% 49% 51% / 45% 56% 44% 55%',sources:13,status:'Emerging',opacity:1,
+        mobile:{x:18,y:42,w:64,h:16}}
+    }
+  }
+];
+const nodeOrder=['Technology','Platform','Infrastructure','Economics','Human Impact'];
+const relations=[['Infrastructure','Economics'],['Economics','Human Impact']];
+const perspectiveBodies={
+  Technology:['Frontier model capability and benchmark leadership dominate the editorial frame.','Model releases still matter, but coverage is shifting toward agents and integration.','Raw capability is now table stakes; the story is what models enable.'],
+  Platform:['Distribution is a secondary theme in the shadow of model releases.','Ecosystem lock-in and default agents rise as a source of durable advantage.','Platform control is treated as a primary axis of the AI race.'],
+  Infrastructure:['Compute is mentioned as context for model performance.','Chips, power and data centers become a constraint narrative.','Infrastructure scarcity is seen as a strategic lever that shapes who can compete.'],
+  Economics:['Inference costs appear occasionally at the margin.','Productivity and margin debates multiply as prices fall.','Value capture is the central unanswered economic question.'],
+  'Human Impact':['Jobs, education and creativity are rarely discussed.','Labor and learning enter the margins of the debate.','Who benefits and who is displaced is now a recurring editorial lens.']
+};
+const details={
+  Technology:{
+    summary:'The technology perspective has moved from leaderboard dominance to a quieter assumption: capability matters, but it is no longer the whole story.',
+    sparkline:[24,18,14],
+    history:['Benchmarks and model releases set the editorial agenda.','Agents and product integration begin to rival raw capability.','Capability is assumed; the question is what it enables and who controls it.'],
+    sources:[
+      {pub:'MIT TECHNOLOGY REVIEW · ANALYSIS',title:'After the benchmark boom',desc:'Why raw model performance is becoming background noise in the AI race.'},
+      {pub:'ARS TECHNICA · TECH',title:'From models to agents',desc:'How the product layer is reshaping what “better AI” means.'},
+      {pub:'THE VERGE · REPORT',title:'The new AI interface wars',desc:'Why the user-facing layer may matter more than the model underneath.'}
+    ]
+  },
+  Platform:{
+    summary:'Platform has grown from a supporting argument into a central thesis: distribution, defaults and ecosystems may decide who captures value.',
+    sparkline:[15,20,24],
+    history:['Distribution is discussed as a consequence of model quality.','Default agents and ecosystem lock-in gain editorial weight.','Platform control is treated as a primary axis of competition.'],
+    sources:[
+      {pub:'WIRED · STRATEGY',title:'The operating system for AI',desc:'Why the company that owns the default agent may own the user.'},
+      {pub:'BLOOMBERG · TECH',title:'APIs, agents and moats',desc:'How platform economics are changing the AI investment story.'},
+      {pub:'THE INFORMATION · ANALYSIS',title:'The app store moment',desc:'Lessons from past platform shifts for the AI era.'}
+    ]
+  },
+  Infrastructure:{
+    summary:'Infrastructure has accelerated from background context to a strategic constraint: chips, power and data centers now shape what is possible.',
+    sparkline:[12,19,22],
+    history:['Compute is treated as context for model releases.','Chips, energy and data centers become a recurring constraint.','Infrastructure scarcity is seen as a lever of national and corporate power.'],
+    sources:[
+      {pub:'FINANCIAL TIMES · ENERGY',title:'AI’s power problem',desc:'Data-center demand is colliding with grid and climate reality.'},
+      {pub:'REUTERS · SEMICONDUCTORS',title:'The chip ceiling',desc:'Why advanced-processor supply may limit who can compete at scale.'},
+      {pub:'WALL STREET JOURNAL · TECH',title:'Data centers as strategy',desc:'How physical capacity became a front in the AI race.'}
+    ]
+  },
+  Economics:{
+    summary:'The economics perspective has accelerated around a single question: if inference keeps getting cheaper, where does durable value accrue?',
+    sparkline:[10,16,19],
+    history:['Inference costs appear occasionally in the margins.','Productivity, margins and value capture enter the debate.','Economics is now a primary lens for judging AI winners and losers.'],
+    sources:[
+      {pub:'THE ECONOMIST · BUSINESS',title:'The productivity paradox',desc:'Why falling AI prices have not yet answered the value question.'},
+      {pub:'BLOOMBERG OPINION · ECONOMICS',title:'Who captures the surplus?',desc:'A close look at margins, labor and the AI value chain.'},
+      {pub:'FT ALPHAVILLE · ANALYSIS',title:'Cheap inference, expensive questions',desc:'What plummeting model costs mean for pricing power.'}
+    ]
+  },
+  'Human Impact':{
+    summary:'Human impact has emerged from near-invisibility into a recurring lens: the AI race is increasingly judged by who benefits and who is displaced.',
+    sparkline:[0,6,13],
+    history:['Jobs, education and creativity are rarely part of the framing.','Labor and learning enter the margins of coverage.','Who benefits and who bears the cost is now part of the central question.'],
+    sources:[
+      {pub:'THE GUARDIAN · SOCIETY',title:'AI and the future of work',desc:'How editorial coverage is reconnecting automation with workers.'},
+      {pub:'EDUCATION WEEK · OPINION',title:'The classroom after ChatGPT',desc:'Why schools have become a proving ground for AI’s human impact.'},
+      {pub:'VOX · CULTURE',title:'Creativity, credit and AI',desc:'An editorial exploration of who benefits when machines generate.'}
+    ]
+  }
+};
+let current=2;
+
+function statusMeta(status){
+  switch(status){
+    case 'Accelerating': return {text:'↑ ACCELERATING', cls:'up'};
+    case 'Growing': return {text:'↑ GROWING', cls:'up'};
+    case 'Cooling': return {text:'↓ COOLING', cls:'down'};
+    case 'Emerging': return {text:'✦ EMERGING', cls:'new'};
+    case 'Dominant': return {text:'● DOMINANT', cls:'dominant'};
+    default: return {text:status, cls:''};
+  }
+}
+function glowFor(status){
+  if(status==='Accelerating') return '0 16px 45px rgba(0,0,0,.1), 0 0 45px rgba(0,113,227,.24)';
+  if(status==='Emerging') return '0 16px 45px rgba(0,0,0,.1), 0 0 45px rgba(108,86,184,.28)';
+  return '0 16px 45px rgba(0,0,0,.1)';
+}
+
+function applyState(idx,initial){
+  current=+idx;
+  const s=states[current];
+  const isMobile=window.innerWidth<=560;
+  document.getElementById('state').textContent=s.label;
+  document.getElementById('range').value=current;
+  const q=document.getElementById('question');
+  if(q && q.textContent!==s.question){
+    if(initial){ q.textContent=s.question; }
+    else{
+      q.style.opacity=0;
+      setTimeout(()=>{ q.textContent=s.question; q.style.opacity=0.72; },260);
+    }
+  }
+  document.getElementById('synthesisText').textContent=s.synthesis;
+  nodeOrder.forEach(k=>{
+    const data=s.nodes[k];
+    const pos=(isMobile && data.mobile) ? data.mobile : data;
+    const el=document.querySelector(`.blob[data-id="${k}"]`);
+    if(!el) return;
+    el.style.setProperty('--x', pos.x+'%');
+    el.style.setProperty('--y', pos.y+'%');
+    el.style.setProperty('--w', pos.w+'%');
+    el.style.setProperty('--h', pos.h+'%');
+    el.style.setProperty('--o', (typeof pos.opacity==='number' ? pos.opacity : data.opacity));
+    el.style.pointerEvents = ((typeof pos.opacity==='number' ? pos.opacity : data.opacity) < 0.05) ? 'none' : 'auto';
+    el.style.setProperty('--br', pos.br || data.br);
+    el.style.setProperty('--glow', glowFor(data.status));
+    el.querySelector('h3').textContent=k;
+    el.querySelector('p').textContent=perspectiveBodies[k][current];
+    el.querySelector('.sources').textContent=`${data.sources} SOURCES →`;
+    const meta=statusMeta(data.status);
+    const trend=el.querySelector('.trend');
+    trend.textContent=meta.text;
+    trend.className='trend '+meta.cls;
+  });
+  drawLines();
+  if(!initial) animateLines(860);
+}
+function timeChange(v){ applyState(v); }
+
+function getRect(key){
+  const el=document.querySelector(`.blob[data-id="${key}"]`);
+  if(!el) return null;
+  const r=el.getBoundingClientRect();
+  const map=document.querySelector('.map').getBoundingClientRect();
+  return {x:r.left+r.width/2-map.left, y:r.top+r.height/2-map.top};
+}
+function drawLines(){
+  const svg=document.getElementById('lines');
+  if(!svg) return;
+  const s=states[current];
+  const centerEl=document.querySelector('.center');
+  const map=document.querySelector('.map');
+  if(!centerEl || !map) return;
+  const mapRect=map.getBoundingClientRect();
+  const cr=centerEl.getBoundingClientRect();
+  const center={x:cr.left+cr.width/2-mapRect.left, y:cr.top+cr.height/2-mapRect.top};
+  const visible=nodeOrder.filter(k=>s.nodes[k].opacity>0.05);
+  let html='';
+  const strength=s.lineStrength;
+  visible.forEach(k=>{
+    const p=getRect(k);
+    if(!p) return;
+    html+=`<line x1="${center.x}" y1="${center.y}" x2="${p.x}" y2="${p.y}" stroke="#0071e3" stroke-width="${1+strength*1.2}" stroke-opacity="${0.1+strength*.22}" stroke-linecap="round"/>`;
+  });
+  relations.forEach(([a,b])=>{
+    if(!visible.includes(a) || !visible.includes(b)) return;
+    const ra=getRect(a), rb=getRect(b);
+    if(!ra||!rb) return;
+    html+=`<line x1="${ra.x}" y1="${ra.y}" x2="${rb.x}" y2="${rb.y}" stroke="#6c56b8" stroke-width="${1.2+strength*.8}" stroke-opacity="${0.12+strength*.28}" stroke-linecap="round"/>`;
+  });
+  svg.innerHTML=html;
+}
+let lineRaf;
+function animateLines(duration){
+  if(lineRaf) cancelAnimationFrame(lineRaf);
+  const start=performance.now();
+  function step(now){
+    drawLines();
+    if(now-start<duration) lineRaf=requestAnimationFrame(step);
+  }
+  lineRaf=requestAnimationFrame(step);
+}
+
+function changeCard(arrow,title,body){
+  const cls=arrow==='↓'?'down':(arrow==='✦'?'new':'up');
+  return `<div class="changeCard"><div class="arrow ${cls}">${arrow}</div><h3>${title}</h3><p>${body}</p></div>`;
+}
+function renderChangeSheet(){
+  const prevIdx=Math.max(0,current-1);
+  const prev=states[prevIdx], cur=states[current];
+  document.getElementById('sheetTitle').textContent = prevIdx===current ? 'The baseline conversation' : `From ${prev.label.toLowerCase()} to ${cur.label.toLowerCase()}`;
+  const grid=document.getElementById('changeGrid');
+  grid.innerHTML='';
+  if(prevIdx===current){
+    nodeOrder.forEach(k=>{
+      const n=cur.nodes[k];
+      const meta=statusMeta(n.status);
+      grid.innerHTML+=changeCard(meta.cls==='down'?'↓':(meta.cls==='new'?'✦':'↑'), `${k} — ${n.status}`,`${n.sources} sources. ${perspectiveBodies[k][current]}`);
+    });
+  }else{
+    nodeOrder.forEach(k=>{
+      const p=prev.nodes[k], c=cur.nodes[k];
+      if(c.opacity<0.05 && p.opacity<0.05) return;
+      const delta=c.sources-p.sources;
+      let card=null;
+      if(p.opacity<0.05 && c.opacity>=0.05){
+        card=changeCard('✦', `${k} emerged`,`Sources went from ${p.sources} to ${c.sources}. Now ${c.status.toLowerCase()}.`);
+      }else if(c.status==='Cooling' && delta<0){
+        card=changeCard('↓', `${k} cooled`,`Sources fell from ${p.sources} to ${c.sources}. The perspective is ${c.status.toLowerCase()}.`);
+      }else if((c.status==='Accelerating' || c.status==='Growing' || c.status==='Dominant') && delta>0){
+        card=changeCard('↑', `${k} ${c.status.toLowerCase()}`,`Sources rose from ${p.sources} to ${c.sources}.`);
+      }
+      if(card) grid.innerHTML+=card;
+    });
+  }
+  document.getElementById('sheetFrom').textContent=prevIdx===current ? `“${cur.question}”` : `“${prev.question}”`;
+  document.getElementById('sheetTo').textContent=`“${cur.question}”`;
+}
+function openChangeSheet(){ renderChangeSheet(); document.getElementById('changeSheet').classList.add('show'); }
+function closeChangeSheet(){ document.getElementById('changeSheet').classList.remove('show'); }
+
+function drawSparkline(svg,data){
+  const w=200,h=50,pad=6;
+  const max=Math.max(...data,1), min=Math.min(...data,0);
+  const range=max-min||1;
+  const pts=data.map((v,i)=>{
+    const x=pad+(i*(w-2*pad)/(data.length-1));
+    const y=h-pad-((v-min)/range*(h-2*pad));
+    return [x,y];
+  });
+  svg.setAttribute('viewBox',`0 0 ${w} ${h}`);
+  const poly=pts.map(p=>p.join(',')).join(' ');
+  const last=pts[pts.length-1];
+  svg.innerHTML=`<polyline points="${poly}" fill="none" stroke="#0071e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="#0071e3" stroke="#fff" stroke-width="1.5"/>`;
+}
+function openPerspectiveLens(name){
+  const d=details[name];
+  const cur=states[current].nodes[name];
+  const meta=statusMeta(cur.status);
+  document.getElementById('lensEyebrow').textContent=`${meta.text} · ${cur.sources} SOURCES`;
+  document.getElementById('lensTitle').textContent=name;
+  document.getElementById('lensSummary').textContent=d.summary;
+  drawSparkline(document.getElementById('lensSparkline'), d.sparkline);
+  document.getElementById('lensSteps').innerHTML=d.history.map((txt,i)=>`<div class="lens-step"><div class="when">${i+1}</div><div class="when-label">${states[i].label}</div><p>${txt}</p></div>`).join('');
+  document.getElementById('lensSources').innerHTML=d.sources.map(s=>`<div class="lens-source"><div class="pub">${s.pub}</div><h4>${s.title}</h4><p>${s.desc}</p><a href="#">READ ORIGINAL ↗</a></div>`).join('');
+  const viewBtn=document.getElementById('lensView');
+  viewBtn.textContent=`View all ${cur.sources} sources`;
+  viewBtn.onclick=()=>{ closeLens(); openPerspective(name); };
+  document.getElementById('lensBackdrop').style.display='flex';
+}
+function closeLens(e){
+  if(e && e.target!==e.currentTarget) return;
+  document.getElementById('lensBackdrop').style.display='none';
+}
+
+function openPerspective(name){
+  const d=details[name];
+  document.getElementById('panelTitle').textContent=name;
+  document.getElementById('panelKicker').textContent=name.toUpperCase()+' · PERSPECTIVE';
+  document.getElementById('panelSummary').textContent=(d&&d.summary)||'';
+  const list=document.getElementById('panelArticles');
+  list.innerHTML=(d&&d.sources?d.sources:[]).map(s=>`<article class="article"><div class="pub">${s.pub}</div><h3>${s.title}</h3><p>${s.desc}</p><a href="#">READ ORIGINAL ↗</a></article>`).join('');
+  const p=document.getElementById('sourcesPanel');
+  p.classList.add('show');
+  setTimeout(()=>p.scrollIntoView({behavior:'smooth',block:'start'}),30);
+}
+function toggle(id){ document.getElementById(id).classList.toggle('show'); }
+
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    closeChangeSheet();
+    closeLens();
+  }
+});
+window.addEventListener('resize',()=>{ applyState(current,true); animateLines(860); });
+document.addEventListener('DOMContentLoaded',()=>{ applyState(2,true); });
+</script>
+</body>
+</html>
