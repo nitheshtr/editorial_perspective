@@ -1,0 +1,11 @@
+{"ts":"2026-08-28T07:20:07.117Z","run":"c3dbff45-5583-4ebf-988b-cdf758cb7879","level":"info","event":"run_start","data":{"workflow":"period-update"}}
+{"ts":"2026-08-28T07:20:07.123Z","run":"c3dbff45-5583-4ebf-988b-cdf758cb7879","level":"info","event":"stage_start","stage":"research","data":{}}
+{"ts":"2026-08-28T07:20:07.373Z","run":"c3dbff45-5583-4ebf-988b-cdf758cb7879","level":"info","event":"tool_call","stage":"research","data":{"tool":"websearch","count":10}}
+{"ts":"2026-08-28T07:20:08.699Z","run":"c3dbff45-5583-4ebf-988b-cdf758cb7879","level":"info","event":"tool_call","stage":"research","data":{"tool":"webfetch","count":6}}
+{"ts":"2026-08-28T07:20:08.702Z","run":"c3dbff45-5583-4ebf-988b-cdf758cb7879","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: Inside Anthropic: Moving Beyond Bigger AI Models To Win The Enterprise AI Race: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T07:20:08.702Z","run":"c3dbff45-5583-4ebf-988b-cdf758cb7879","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: Amazon is proving you don't need the best model to win the AI race: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T07:20:08.702Z","run":"c3dbff45-5583-4ebf-988b-cdf758cb7879","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: The AI 'death zone' is here and most corporate AI strategies are standing in it | Fortune: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T07:20:08.705Z","run":"c3dbff45-5583-4ebf-988b-cdf758cb7879","level":"info","event":"stage_end","stage":"research","data":{"articlesAdded":0,"articlesSkipped":3,"newPublishers":0}}
+{"ts":"2026-08-28T07:20:08.706Z","run":"c3dbff45-5583-4ebf-988b-cdf758cb7879","level":"info","event":"stage_start","stage":"analysis","data":{}}
+{"ts":"2026-08-28T07:24:15.809Z","run":"c3dbff45-5583-4ebf-988b-cdf758cb7879","level":"info","event":"llm_call","stage":"analysis","data":{"provider":"openrouter","model":"z-ai/glm-5.3-flash","tokensIn":2162,"tokensOut":8192,"costUsd":0,"latencyMs":247100,"attempt":1}}
+{"ts":"2026-08-28T07:24:15.821Z","run":"c3dbff45-5583-4ebf-988b-cdf758cb7879","level":"info","event":"error","stage":"analysis","data":{"message":"Failed to parse LLM response as JSON","recoverable":false}}

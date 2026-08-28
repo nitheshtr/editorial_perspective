@@ -431,6 +431,30 @@
       "perspectives": [
         "technology"
       ]
+    },
+    {
+      "id": "source-025",
+      "publisher": "TIME",
+      "title": "World Models Are AI’s Next Frontier",
+      "description": "The potential for solving problems in climate, oceans, the biosphere, and the biology of disease is vast, writes Celine Herweijer. The question is what we build them for.",
+      "date": "2026-07-15",
+      "type": "REPORT",
+      "url": "https://time.com/article/2026/07/15/world-models-are-ai-s-next-frontier/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-25",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
     }
   ],
   "migratedFrom": "editorial_perspective_evolution_v3.html"

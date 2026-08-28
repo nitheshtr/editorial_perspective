@@ -195,19 +195,19 @@ const states=[
   },
   {
     label:'TODAY',
-    question:'Who can deploy AI at scale—and who benefits?',
-    synthesis:'The conversation has widened into a contest over agents, infrastructure, economics and human impact. The central uncertainty is where durable advantage—and public value—will settle.',
+    question:'As AI deployment scales, who captures the value—and who is left behind?',
+    synthesis:'Model leadership is now table stakes: the live contest is over who owns agents and defaults (Platform, clusters 2-6), who can secure the chips and power to deploy at scale (Infrastructure, clusters 7-9), and who captures the surplus as inference costs collapse (Economics, clusters 10-12) — while a fast-rising human-impact lens (clusters 13-15) asks who benefits and who is displaced, making public value the race\'s new scoreboard.',
     lineStrength:1,
     nodes:{
-      Technology:{x:6,y:8,w:21,h:18,br:'48% 52% 55% 45% / 50% 47% 53% 50%',sources:14,status:'Cooling',opacity:1,
+      Technology:{x:6,y:8,w:21,h:18,br:'48% 52% 55% 45% / 50% 47% 53% 50%',sources:5,status:'Cooling',opacity:1,
         mobile:{x:5,y:6,w:44,h:14}},
-      Platform:{x:44,y:2,w:25,h:18,br:'54% 42% 57% 44% / 48% 56% 44% 52%',sources:24,status:'Dominant',opacity:1,
+      Platform:{x:44,y:2,w:25,h:18,br:'54% 42% 57% 44% / 48% 56% 44% 52%',sources:5,status:'Dominant',opacity:1,
         mobile:{x:52,y:6,w:44,h:14}},
-      Infrastructure:{x:4,y:56,w:29,h:23,br:'51% 49% 46% 54% / 44% 55% 45% 56%',sources:22,status:'Accelerating',opacity:1,
+      Infrastructure:{x:4,y:56,w:29,h:23,br:'51% 49% 46% 54% / 44% 55% 45% 56%',sources:3,status:'Accelerating',opacity:1,
         mobile:{x:5,y:24,w:44,h:15}},
-      Economics:{x:58,y:54,w:27,h:21,br:'49% 51% 58% 42% / 58% 48% 52% 42%',sources:19,status:'Accelerating',opacity:1,
+      Economics:{x:58,y:54,w:27,h:21,br:'49% 51% 58% 42% / 58% 48% 52% 42%',sources:3,status:'Accelerating',opacity:1,
         mobile:{x:52,y:24,w:44,h:15}},
-      'Human Impact':{x:68,y:12,w:27,h:22,br:'56% 44% 49% 51% / 45% 56% 44% 55%',sources:13,status:'Emerging',opacity:1,
+      'Human Impact':{x:68,y:12,w:27,h:22,br:'56% 44% 49% 51% / 45% 56% 44% 55%',sources:3,status:'Growing',opacity:1,
         mobile:{x:18,y:42,w:64,h:16}}
     }
   }
@@ -223,7 +223,7 @@ const perspectiveBodies={
 };
 const details={
   Technology:{
-    summary:'The technology perspective has moved from leaderboard dominance to a quieter assumption: capability matters, but it is no longer the whole story.',
+    summary:'The technology perspective has retreated from leaderboard dominance to a quieter premise: capability still matters, but benchmarks no longer decide outcomes. Coverage now treats model performance as table stakes, framing frontier gains as background conditions rather than headline events. The open question is which capabilities—reasoning, reliability, autonomy—translate into durable advantage once parity becomes the norm.',
     sparkline:[24,18,14],
     history:['Benchmarks and model releases set the editorial agenda.','Agents and product integration begin to rival raw capability.','Capability is assumed; the question is what it enables and who controls it.'],
     sources:[
@@ -233,7 +233,7 @@ const details={
     ]
   },
   Platform:{
-    summary:'Platform has grown from a supporting argument into a central thesis: distribution, defaults and ecosystems may decide who captures value.',
+    summary:'The platform perspective has matured from supporting argument into the race\'s central thesis. Coverage concentrates on distribution, defaults and ecosystems: agent interfaces, API moats and app-store analogies dominate the current conversation. The argument is that whoever owns the default entry point to AI—where users and developers actually land—captures the value that raw capability alone cannot secure.',
     sparkline:[15,20,24],
     history:['Distribution is discussed as a consequence of model quality.','Default agents and ecosystem lock-in gain editorial weight.','Platform control is treated as a primary axis of competition.'],
     sources:[
@@ -243,7 +243,7 @@ const details={
     ]
   },
   Infrastructure:{
-    summary:'Infrastructure has accelerated from background context to a strategic constraint: chips, power and data centers now shape what is possible.',
+    summary:'The infrastructure perspective has moved from background context to binding constraint. Coverage focuses on physical limits: grid capacity, semiconductor supply and data-center buildouts now determine what deployment is feasible and at what pace. The argument is that compute access, not model access, separates serious competitors from aspirants—and that these constraints favor incumbents with capital and land.',
     sparkline:[12,19,22],
     history:['Compute is treated as context for model releases.','Chips, energy and data centers become a recurring constraint.','Infrastructure scarcity is seen as a lever of national and corporate power.'],
     sources:[
@@ -253,7 +253,7 @@ const details={
     ]
   },
   Economics:{
-    summary:'The economics perspective has accelerated around a single question: if inference keeps getting cheaper, where does durable value accrue?',
+    summary:'The economics perspective has accelerated around a single unresolved question: as inference costs collapse, where does durable value accrue? Coverage weighs a productivity paradox, competing theories of surplus capture, and cost-driven model selection. The through-line is that cheap intelligence may compress margins everywhere except at the choke points—distribution, compute and trust—where scarcity persists.',
     sparkline:[10,16,19],
     history:['Inference costs appear occasionally in the margins.','Productivity, margins and value capture enter the debate.','Economics is now a primary lens for judging AI winners and losers.'],
     sources:[
@@ -263,7 +263,7 @@ const details={
     ]
   },
   'Human Impact':{
-    summary:'Human impact has emerged from near-invisibility into a recurring lens: the AI race is increasingly judged by who benefits and who is displaced.',
+    summary:'The human-impact perspective has emerged from near-invisibility into a recurring editorial lens. Coverage now spans the future of work, education and creative attribution, asking who benefits from scaled deployment and who is displaced. Though still the newest perspective by volume, it increasingly supplies the evaluative standard against which the rest of the race is judged.',
     sparkline:[0,6,13],
     history:['Jobs, education and creativity are rarely part of the framing.','Labor and learning enter the margins of coverage.','Who benefits and who bears the cost is now part of the central question.'],
     sources:[

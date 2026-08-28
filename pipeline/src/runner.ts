@@ -598,6 +598,34 @@ async function stageResearch(ctx: RunContext): Promise<void> {
   });
 }
 
+/** Compact, non-truncated topic digest for LLM prompts. */
+function compactTopicDigest(topic: Record<string, unknown>): string {
+  const lines: string[] = [];
+  lines.push(`slug: ${topic.slug}`);
+  lines.push(`title: ${topic.title}`);
+  for (const [i, s] of ((topic.states as Array<Record<string, unknown>>) ?? []).entries()) {
+    lines.push(`state[${i}] ${s.label}: question="${s.question}" | synthesis="${s.synthesis}"`);
+    const nodes = (s.nodes as Record<string, { metrics?: { status?: string; sourceVolume?: number } }>) ?? {};
+    for (const [name, n] of Object.entries(nodes)) {
+      lines.push(`  ${name}: status=${n?.metrics?.status} sources=${n?.metrics?.sourceVolume}`);
+    }
+  }
+  for (const [i, p] of ((topic.perspectives as Array<Record<string, unknown>>) ?? []).entries()) {
+    lines.push(`perspective[${i}] ${p.name} (id=${p.id}): summary="${p.summary}"`);
+  }
+  return lines.join("\n");
+}
+
+/** Compact one-line-per-article digest for LLM prompts. */
+function compactArticlesDigest(articles: Array<Record<string, unknown>>): string {
+  return (articles ?? [])
+    .map(
+      (a) =>
+        `- ${a.id} [${a.publisher}] (${a.date}) ${a.storyCluster} ${a.title} :: ${String(a.description).slice(0, 140)}`,
+    )
+    .join("\n");
+}
+
 async function stageAnalysis(ctx: RunContext, allowStale = false): Promise<void> {
   const telemetry = ctx.telemetry;
   telemetry.stageStart("analysis");
@@ -630,16 +658,29 @@ async function stageAnalysis(ctx: RunContext, allowStale = false): Promise<void>
     }
   }
 
-  // Build prompt
-  const cacheExcerpt = JSON.stringify(articles).slice(0, 2000);
+  // Build prompt — compact digests, never truncated mid-JSON
+  const articleList = (articles.articles ?? []) as Array<Record<string, unknown>>;
+  const cacheExcerpt = compactArticlesDigest(articleList);
   const systemPrompt = `${agent.body}
 
 INSTRUCTIONS:
 Respond with ONLY a JSON object in the following format (no markdown, no explanation):
 {"proposals":[{"id":"P-001","kind":"metrics|status|question|synthesis|perspective|narrative","path":"states.0.nodes.Technology.metrics","value":{...},"confidence":0.85,"evidence":"Based on X articles"}]}
 
-Topic context: ${JSON.stringify(topicData).slice(0, 500)}
-Articles cache excerpt: ${cacheExcerpt}`;
+HARD CONTRACT (violations are auto-rejected):
+- Output ONLY the JSON object. No reasoning, no markdown fences, no prose before or after. Keep it compact.
+- sourceVolume: INTEGER count of cached articles supporting the perspective in the CURRENT period (count them from the cache listing below). Never a fraction.
+- independentSignals: INTEGER count of DISTINCT storyClusters supporting it (must be <= sourceVolume).
+- momentum, emergence, editorialWeight, confidence: numbers in [0,1]. momentum is the current-period attention share, not a percentage change.
+- Paths MUST reference EXISTING paths. Valid states: states.0, states.1, states.2. Node keys are EXACTLY: Technology, Platform, Infrastructure, Economics, Human Impact (with a space — e.g. "states.2.nodes.Human Impact.metrics").
+- Do NOT invent states.3 or new node keys. If you suggest a new period or new perspective, say so in the "evidence" text of a proposal targeting states.2 instead.
+- storyCluster references in evidence must use real ids from the cache listing (cluster-N).
+
+Topic context:
+${compactTopicDigest(topicData)}
+
+Articles cache (${articleList.length} articles):
+${cacheExcerpt}`;
 
   const { provider, config: modelCfg } = getProviderForModel(agent.model);
   const modelName = modelCfg.model as string ?? agent.model;
@@ -655,10 +696,11 @@ Articles cache excerpt: ${cacheExcerpt}`;
   let response: LlmCompleteResponse;
   try {
     response = await provider.complete({
-      model: agent.model,
+      model: modelName,
       system: systemPrompt,
       messages: [{ role: "user", content: `Analyze topic "${ctx.topic}" and return proposals.` }],
       temperature: (modelCfg.temperature as number) ?? 0.3,
+      reasoning: modelCfg.reasoning as "off" | "low" | undefined,
     });
   } catch (err: unknown) {
     telemetry.emit({ event: "error", stage: "analysis", data: { message: (err as Error).message, recoverable: false } });
@@ -688,8 +730,15 @@ Articles cache excerpt: ${cacheExcerpt}`;
   try {
     parsed = JSON.parse(jsonStr) as Record<string, unknown>;
   } catch {
-    telemetry.emit({ event: "error", stage: "analysis", data: { message: "Failed to parse LLM response as JSON", recoverable: true } });
-    return;
+    mkdirSync(join(runDir, "analysis"), { recursive: true });
+    const rawDump = JSON.stringify({ textLen: response.text.length, raw: response.raw }, null, 2);
+    writeFileSync(
+      join(runDir, "analysis", "response.failed.txt"),
+      rawDump.slice(0, 4000),
+      "utf-8",
+    );
+    telemetry.emit({ event: "error", stage: "analysis", data: { message: "Failed to parse LLM response as JSON", recoverable: false } });
+    throw new GuardError("Analysis stage failed: LLM response was not parseable JSON (raw saved to analysis/response.failed.txt)");
   }
 
   const proposals = parsed.proposals as Array<Record<string, unknown>> | undefined;
@@ -742,8 +791,10 @@ INSTRUCTIONS:
 Respond with ONLY a JSON object in the following format (no markdown, no explanation):
 {"narrative":[{"path":"perspectives.0.summary","value":"Updated summary text"},{"path":"states.0.question","value":"Updated question"}]}
 
-Topic context: ${JSON.stringify(topicData).slice(0, 500)}
-Proposals: ${JSON.stringify({ proposals }).slice(0, 2000)}`;
+Topic context:
+${compactTopicDigest(topicData)}
+Proposals:
+${JSON.stringify({ proposals })}`;
 
   const { provider, config: modelCfg } = getProviderForModel(agent.model);
   const modelName = modelCfg.model as string ?? agent.model;
@@ -758,10 +809,11 @@ Proposals: ${JSON.stringify({ proposals }).slice(0, 2000)}`;
   let response: LlmCompleteResponse;
   try {
     response = await provider.complete({
-      model: agent.model,
+      model: modelName,
       system: systemPrompt,
       messages: [{ role: "user", content: `Write narrative for topic "${ctx.topic}".` }],
       temperature: (modelCfg.temperature as number) ?? 0.4,
+      reasoning: modelCfg.reasoning as "off" | "low" | undefined,
     });
   } catch (err: unknown) {
     telemetry.emit({ event: "error", stage: "writing", data: { message: (err as Error).message, recoverable: false } });
@@ -790,14 +842,14 @@ Proposals: ${JSON.stringify({ proposals }).slice(0, 2000)}`;
   try {
     parsed = JSON.parse(jsonStr) as Record<string, unknown>;
   } catch {
-    telemetry.emit({ event: "error", stage: "writing", data: { message: "Failed to parse LLM response as JSON", recoverable: true } });
-    return;
+    telemetry.emit({ event: "error", stage: "writing", data: { message: "Failed to parse LLM response as JSON", recoverable: false } });
+    throw new GuardError("Writing stage failed: LLM response was not parseable JSON");
   }
 
   const narrative = parsed.narrative as Array<Record<string, unknown>> | undefined;
   if (!narrative || !Array.isArray(narrative)) {
-    telemetry.emit({ event: "error", stage: "writing", data: { message: "LLM response missing 'narrative' array", recoverable: true } });
-    return;
+    telemetry.emit({ event: "error", stage: "writing", data: { message: "LLM response missing 'narrative' array", recoverable: false } });
+    throw new GuardError("Writing stage failed: LLM response missing 'narrative' array");
   }
 
   // Fold narrative entries into the proposal set so the approval gate covers

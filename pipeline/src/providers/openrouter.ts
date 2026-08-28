@@ -75,6 +75,8 @@ export class OpenRouterProvider implements LlmProvider {
               messages,
               temperature: req.temperature ?? 0.3,
               max_tokens: maxTokens,
+              ...(req.reasoning === "off" ? { reasoning: { enabled: false } } : {}),
+              ...(req.reasoning === "low" ? { reasoning: { effort: "low" } } : {}),
             }),
             signal: controller.signal,
           });

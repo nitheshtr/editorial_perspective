@@ -1,0 +1,10 @@
+{"ts":"2026-08-28T07:01:58.578Z","run":"3ec52ae4-96cd-423a-8f6e-7b765cc3bdfb","level":"info","event":"run_start","data":{"workflow":"period-update"}}
+{"ts":"2026-08-28T07:01:58.587Z","run":"3ec52ae4-96cd-423a-8f6e-7b765cc3bdfb","level":"info","event":"stage_start","stage":"research","data":{}}
+{"ts":"2026-08-28T07:01:58.857Z","run":"3ec52ae4-96cd-423a-8f6e-7b765cc3bdfb","level":"info","event":"tool_call","stage":"research","data":{"tool":"websearch","count":10}}
+{"ts":"2026-08-28T07:02:00.201Z","run":"3ec52ae4-96cd-423a-8f6e-7b765cc3bdfb","level":"info","event":"tool_call","stage":"research","data":{"tool":"webfetch","count":6}}
+{"ts":"2026-08-28T07:02:00.206Z","run":"3ec52ae4-96cd-423a-8f6e-7b765cc3bdfb","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: Inside Anthropic: Moving Beyond Bigger AI Models To Win The Enterprise AI Race: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T07:02:00.207Z","run":"3ec52ae4-96cd-423a-8f6e-7b765cc3bdfb","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: Amazon is proving you don't need the best model to win the AI race: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T07:02:00.207Z","run":"3ec52ae4-96cd-423a-8f6e-7b765cc3bdfb","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: The AI 'death zone' is here and most corporate AI strategies are standing in it | Fortune: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T07:02:00.221Z","run":"3ec52ae4-96cd-423a-8f6e-7b765cc3bdfb","level":"info","event":"stage_end","stage":"research","data":{"articlesAdded":0,"articlesSkipped":3,"newPublishers":0}}
+{"ts":"2026-08-28T07:02:00.223Z","run":"3ec52ae4-96cd-423a-8f6e-7b765cc3bdfb","level":"info","event":"stage_start","stage":"analysis","data":{}}
+{"ts":"2026-08-28T07:02:06.368Z","run":"3ec52ae4-96cd-423a-8f6e-7b765cc3bdfb","level":"info","event":"error","stage":"analysis","data":{"message":"OpenRouter HTTP 400: {\"error\":{\"message\":\"analysis is not a valid model ID\",\"code\":400},\"user_id\":\"user_3IWSxp3rzbEJ4ZJyJVz3qpdTyj3\"}","recoverable":false}}

@@ -13,6 +13,9 @@ export interface LlmCompleteRequest {
   messages: ChatMessage[];
   temperature?: number;
   maxTokens?: number;
+  /** "off" disables reasoning tokens (hybrid models like GLM-5.3-flash starve
+   * content otherwise on complex tasks); "low" reduces reasoning effort. */
+  reasoning?: "off" | "low";
 }
 
 export interface LlmCompleteResponse {

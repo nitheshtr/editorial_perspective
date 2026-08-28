@@ -305,8 +305,8 @@
     {
       "period": "2026-08",
       "label": "TODAY",
-      "question": "As AI deployment scales, who captures the value—and who is left behind?",
-      "synthesis": "Model leadership is now table stakes: the live contest is over who owns agents and defaults (Platform, clusters 2-6), who can secure the chips and power to deploy at scale (Infrastructure, clusters 7-9), and who captures the surplus as inference costs collapse (Economics, clusters 10-12) — while a fast-rising human-impact lens (clusters 13-15) asks who benefits and who is displaced, making public value the race's new scoreboard.",
+      "question": "Who can deploy AI at scale—and who benefits?",
+      "synthesis": "The conversation has widened into a contest over agents, infrastructure, economics and human impact. The central uncertainty is where durable advantage—and public value—will settle.",
       "lineStrength": 1,
       "nodes": {
         "Technology": {
@@ -327,12 +327,12 @@
             "h": 14
           },
           "metrics": {
-            "sourceVolume": 5,
-            "independentSignals": 5,
-            "momentum": 0.26,
-            "emergence": 0.3,
-            "editorialWeight": 0.65,
-            "confidence": 0.85,
+            "editorialWeight": 0.58,
+            "sourceVolume": 14,
+            "independentSignals": 8,
+            "momentum": 0,
+            "emergence": 0.5,
+            "confidence": 0.5,
             "status": "Cooling"
           }
         },
@@ -354,12 +354,12 @@
             "h": 14
           },
           "metrics": {
-            "sourceVolume": 5,
-            "independentSignals": 5,
-            "momentum": 0.26,
-            "emergence": 0.3,
-            "editorialWeight": 0.8,
-            "confidence": 0.9,
+            "editorialWeight": 1,
+            "sourceVolume": 24,
+            "independentSignals": 14,
+            "momentum": 0.2,
+            "emergence": 0.5,
+            "confidence": 0.5,
             "status": "Dominant"
           }
         },
@@ -381,12 +381,12 @@
             "h": 15
           },
           "metrics": {
-            "sourceVolume": 3,
-            "independentSignals": 3,
+            "editorialWeight": 0.92,
+            "sourceVolume": 22,
+            "independentSignals": 13,
             "momentum": 0.16,
-            "emergence": 0.3,
-            "editorialWeight": 0.85,
-            "confidence": 0.8,
+            "emergence": 0.5,
+            "confidence": 0.5,
             "status": "Accelerating"
           }
         },
@@ -408,12 +408,12 @@
             "h": 15
           },
           "metrics": {
-            "sourceVolume": 3,
-            "independentSignals": 3,
-            "momentum": 0.16,
-            "emergence": 0.35,
-            "editorialWeight": 0.85,
-            "confidence": 0.85,
+            "editorialWeight": 0.79,
+            "sourceVolume": 19,
+            "independentSignals": 11,
+            "momentum": 0.19,
+            "emergence": 0.5,
+            "confidence": 0.5,
             "status": "Accelerating"
           }
         },
@@ -435,13 +435,13 @@
             "h": 16
           },
           "metrics": {
-            "sourceVolume": 3,
-            "independentSignals": 3,
-            "momentum": 0.16,
-            "emergence": 0.6,
-            "editorialWeight": 0.65,
-            "confidence": 0.7,
-            "status": "Growing"
+            "editorialWeight": 0.54,
+            "sourceVolume": 13,
+            "independentSignals": 8,
+            "momentum": 1,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Emerging"
           }
         }
       }
@@ -452,7 +452,7 @@
       "id": "technology",
       "name": "Technology",
       "category": "tech",
-      "summary": "The technology perspective has retreated from leaderboard dominance to a quieter premise: capability still matters, but benchmarks no longer decide outcomes. Coverage now treats model performance as table stakes, framing frontier gains as background conditions rather than headline events. The open question is which capabilities—reasoning, reliability, autonomy—translate into durable advantage once parity becomes the norm.",
+      "summary": "The technology perspective has moved from leaderboard dominance to a quieter assumption: capability matters, but it is no longer the whole story.",
       "coreArgument": "Raw capability is now table stakes; the story is what models enable.",
       "counterArgument": "Migrated placeholder — pending Analysis Agent review.",
       "bodies": [
@@ -480,7 +480,7 @@
       "id": "platform",
       "name": "Platform",
       "category": "platform",
-      "summary": "The platform perspective has matured from supporting argument into the race's central thesis. Coverage concentrates on distribution, defaults and ecosystems: agent interfaces, API moats and app-store analogies dominate the current conversation. The argument is that whoever owns the default entry point to AI—where users and developers actually land—captures the value that raw capability alone cannot secure.",
+      "summary": "Platform has grown from a supporting argument into a central thesis: distribution, defaults and ecosystems may decide who captures value.",
       "coreArgument": "Platform control is treated as a primary axis of the AI race.",
       "counterArgument": "Migrated placeholder — pending Analysis Agent review.",
       "bodies": [
@@ -508,7 +508,7 @@
       "id": "infrastructure",
       "name": "Infrastructure",
       "category": "infra",
-      "summary": "The infrastructure perspective has moved from background context to binding constraint. Coverage focuses on physical limits: grid capacity, semiconductor supply and data-center buildouts now determine what deployment is feasible and at what pace. The argument is that compute access, not model access, separates serious competitors from aspirants—and that these constraints favor incumbents with capital and land.",
+      "summary": "Infrastructure has accelerated from background context to a strategic constraint: chips, power and data centers now shape what is possible.",
       "coreArgument": "Infrastructure scarcity is seen as a strategic lever that shapes who can compete.",
       "counterArgument": "Migrated placeholder — pending Analysis Agent review.",
       "bodies": [
@@ -536,7 +536,7 @@
       "id": "economics",
       "name": "Economics",
       "category": "econ",
-      "summary": "The economics perspective has accelerated around a single unresolved question: as inference costs collapse, where does durable value accrue? Coverage weighs a productivity paradox, competing theories of surplus capture, and cost-driven model selection. The through-line is that cheap intelligence may compress margins everywhere except at the choke points—distribution, compute and trust—where scarcity persists.",
+      "summary": "The economics perspective has accelerated around a single question: if inference keeps getting cheaper, where does durable value accrue?",
       "coreArgument": "Value capture is the central unanswered economic question.",
       "counterArgument": "Migrated placeholder — pending Analysis Agent review.",
       "bodies": [
@@ -564,7 +564,7 @@
       "id": "human-impact",
       "name": "Human Impact",
       "category": "human",
-      "summary": "The human-impact perspective has emerged from near-invisibility into a recurring editorial lens. Coverage now spans the future of work, education and creative attribution, asking who benefits from scaled deployment and who is displaced. Though still the newest perspective by volume, it increasingly supplies the evaluative standard against which the rest of the race is judged.",
+      "summary": "Human impact has emerged from near-invisibility into a recurring lens: the AI race is increasingly judged by who benefits and who is displaced.",
       "coreArgument": "Who benefits and who is displaced is now a recurring editorial lens.",
       "counterArgument": "Migrated placeholder — pending Analysis Agent review.",
       "bodies": [

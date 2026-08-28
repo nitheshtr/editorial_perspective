@@ -1,0 +1,12 @@
+{"ts":"2026-08-28T07:13:55.036Z","run":"fa9dd04a-e4e5-47b5-8dca-e1e5981220de","level":"info","event":"run_start","data":{"workflow":"period-update"}}
+{"ts":"2026-08-28T07:13:55.052Z","run":"fa9dd04a-e4e5-47b5-8dca-e1e5981220de","level":"info","event":"stage_start","stage":"research","data":{}}
+{"ts":"2026-08-28T07:13:55.306Z","run":"fa9dd04a-e4e5-47b5-8dca-e1e5981220de","level":"info","event":"tool_call","stage":"research","data":{"tool":"websearch","count":10}}
+{"ts":"2026-08-28T07:13:56.613Z","run":"fa9dd04a-e4e5-47b5-8dca-e1e5981220de","level":"info","event":"tool_call","stage":"research","data":{"tool":"webfetch","count":6}}
+{"ts":"2026-08-28T07:13:56.615Z","run":"fa9dd04a-e4e5-47b5-8dca-e1e5981220de","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: Inside Anthropic: Moving Beyond Bigger AI Models To Win The Enterprise AI Race: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T07:13:56.616Z","run":"fa9dd04a-e4e5-47b5-8dca-e1e5981220de","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: Amazon is proving you don't need the best model to win the AI race: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T07:13:56.617Z","run":"fa9dd04a-e4e5-47b5-8dca-e1e5981220de","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: The AI 'death zone' is here and most corporate AI strategies are standing in it | Fortune: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T07:13:56.621Z","run":"fa9dd04a-e4e5-47b5-8dca-e1e5981220de","level":"info","event":"tool_call","stage":"research","data":{"tool":"cache-append","count":1}}
+{"ts":"2026-08-28T07:13:56.634Z","run":"fa9dd04a-e4e5-47b5-8dca-e1e5981220de","level":"info","event":"stage_end","stage":"research","data":{"articlesAdded":1,"articlesSkipped":3,"newPublishers":0}}
+{"ts":"2026-08-28T07:13:56.635Z","run":"fa9dd04a-e4e5-47b5-8dca-e1e5981220de","level":"info","event":"stage_start","stage":"analysis","data":{}}
+{"ts":"2026-08-28T07:15:33.287Z","run":"fa9dd04a-e4e5-47b5-8dca-e1e5981220de","level":"info","event":"llm_call","stage":"analysis","data":{"provider":"openrouter","model":"z-ai/glm-5.3-flash","tokensIn":2138,"tokensOut":4096,"costUsd":0,"latencyMs":96646,"attempt":1}}
+{"ts":"2026-08-28T07:15:33.293Z","run":"fa9dd04a-e4e5-47b5-8dca-e1e5981220de","level":"info","event":"error","stage":"analysis","data":{"message":"Failed to parse LLM response as JSON","recoverable":false}}

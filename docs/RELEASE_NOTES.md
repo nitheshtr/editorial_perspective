@@ -64,3 +64,26 @@ agents/ and skills/ authored from spec.
 - **96 tests green** (unit + pipeline + golden parity), `tsc --noEmit` clean.
 - Remaining human steps: GitHub Pages → Source: GitHub Actions; `.env` keys
   (OPENROUTER_API_KEY, TAVILY_API_KEY); publisher license verification queue.
+
+## 2026-08-28 — First real data cycle published
+
+- **Real research integration live:** Tavily search → page fetch → metadata
+  extraction → accessPolicy resolution → append-only cache. 3+ real articles
+  ingested (CNBC, TIME, Investor's Business Daily) with tier-3 policy
+  queueing for unverified publishers.
+- **First full proposal → approval → apply cycle** (run 5eee94ce): 24
+  proposals generated from the real corpus; human approval record with 17
+  approved/edited + 7 rejected; apply merged, re-validated, saved.
+  ai-superrace metrics now reflect real source counts (5/5/3/3/3 vs mock
+  24/22/19/14/13); Human Impact crossed Emerging → Growing; central question
+  updated to "As AI deployment scales, who captures the value—and who is
+  left behind?"
+- **Golden re-blessed** (36,288 chars) per Visual Fidelity Lock procedure —
+  drift was the approved data change itself.
+- **Pipeline hardening along the way:** analysis/writing stages now fail the
+  run loudly on unparseable LLM output (were silently succeeding); reasoning
+  starvation on GLM-5.3-flash fixed via `reasoning: "low"` config +
+  maxTokens 32768; hard output contract in prompts (integer counts, [0,1]
+  ranges, exact node keys incl. "Human Impact", no invented states.3);
+  root-relative guard fix in store (agent scopes vs DATA_DIR mismatch);
+  failed LLM responses dumped to the run dir for diagnosis.

@@ -1,0 +1,169 @@
+{
+  "run": "5eee94ce-3e36-4f9a-beca-c6abc2881c8b",
+  "decidedBy": "nitheshtr",
+  "decidedAt": "2026-08-28T07:45:11.823Z",
+  "decisions": [
+    {
+      "proposalId": "P-001",
+      "decision": "edit",
+      "editedPayload": {
+        "sourceVolume": 5,
+        "independentSignals": 5,
+        "momentum": 0.26,
+        "emergence": 0.3,
+        "editorialWeight": 0.65,
+        "confidence": 0.85,
+        "status": "Cooling"
+      },
+      "note": "Folded proposed status \"Cooling\" into complete metrics object (LLM emitted status at node level; schema nests it in metrics)"
+    },
+    {
+      "proposalId": "P-003",
+      "decision": "edit",
+      "editedPayload": {
+        "sourceVolume": 5,
+        "independentSignals": 5,
+        "momentum": 0.26,
+        "emergence": 0.3,
+        "editorialWeight": 0.8,
+        "confidence": 0.9,
+        "status": "Dominant"
+      },
+      "note": "Folded proposed status \"Dominant\" into complete metrics object (LLM emitted status at node level; schema nests it in metrics)"
+    },
+    {
+      "proposalId": "P-005",
+      "decision": "edit",
+      "editedPayload": {
+        "sourceVolume": 3,
+        "independentSignals": 3,
+        "momentum": 0.16,
+        "emergence": 0.3,
+        "editorialWeight": 0.85,
+        "confidence": 0.8,
+        "status": "Accelerating"
+      },
+      "note": "Folded proposed status \"Accelerating\" into complete metrics object (LLM emitted status at node level; schema nests it in metrics)"
+    },
+    {
+      "proposalId": "P-007",
+      "decision": "edit",
+      "editedPayload": {
+        "sourceVolume": 3,
+        "independentSignals": 3,
+        "momentum": 0.16,
+        "emergence": 0.35,
+        "editorialWeight": 0.85,
+        "confidence": 0.85,
+        "status": "Accelerating"
+      },
+      "note": "Folded proposed status \"Accelerating\" into complete metrics object (LLM emitted status at node level; schema nests it in metrics)"
+    },
+    {
+      "proposalId": "P-009",
+      "decision": "edit",
+      "editedPayload": {
+        "sourceVolume": 3,
+        "independentSignals": 3,
+        "momentum": 0.16,
+        "emergence": 0.6,
+        "editorialWeight": 0.65,
+        "confidence": 0.7,
+        "status": "Growing"
+      },
+      "note": "Folded proposed status \"Growing\" into complete metrics object (LLM emitted status at node level; schema nests it in metrics)"
+    },
+    {
+      "proposalId": "P-101",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-102",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-103",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-104",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-105",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-011",
+      "decision": "edit",
+      "editedPayload": "As AI deployment scales, who captures the value—and who is left behind?",
+      "note": "Extracted \"proposed\" string — raw value was an object, schema requires a string"
+    },
+    {
+      "proposalId": "P-012",
+      "decision": "edit",
+      "editedPayload": "Model leadership is now table stakes: the live contest is over who owns agents and defaults (Platform, clusters 2-6), who can secure the chips and power to deploy at scale (Infrastructure, clusters 7-9), and who captures the surplus as inference costs collapse (Economics, clusters 10-12) — while a fast-rising human-impact lens (clusters 13-15) asks who benefits and who is displaced, making public value the race's new scoreboard.",
+      "note": "Extracted \"draft\" string — raw value was an object, schema requires a string"
+    },
+    {
+      "proposalId": "P-002",
+      "decision": "reject",
+      "note": "Status folded into P-001 metrics edit (node-level path invalid per schema)"
+    },
+    {
+      "proposalId": "P-004",
+      "decision": "reject",
+      "note": "Status folded into P-003 metrics edit (node-level path invalid per schema)"
+    },
+    {
+      "proposalId": "P-006",
+      "decision": "reject",
+      "note": "Status folded into P-005 metrics edit (node-level path invalid per schema)"
+    },
+    {
+      "proposalId": "P-008",
+      "decision": "reject",
+      "note": "Status folded into P-007 metrics edit (node-level path invalid per schema)"
+    },
+    {
+      "proposalId": "P-010",
+      "decision": "reject",
+      "note": "Status folded into P-009 metrics edit (node-level path invalid per schema)"
+    },
+    {
+      "proposalId": "P-013",
+      "decision": "reject",
+      "note": "Structural report object would overwrite the states.2 object"
+    },
+    {
+      "proposalId": "P-106",
+      "decision": "reject",
+      "note": "Historical rewrite, conf 0.5 — keep baseline stable"
+    },
+    {
+      "proposalId": "P-107",
+      "decision": "reject",
+      "note": "Historical rewrite, conf 0.5 — keep baseline stable"
+    },
+    {
+      "proposalId": "P-108",
+      "decision": "reject",
+      "note": "Historical rewrite, conf 0.5 — keep baseline stable"
+    },
+    {
+      "proposalId": "P-109",
+      "decision": "reject",
+      "note": "Historical rewrite, conf 0.5 — keep baseline stable"
+    },
+    {
+      "proposalId": "P-110",
+      "decision": "reject",
+      "note": "Conflicts with approved P-011 (same path)"
+    },
+    {
+      "proposalId": "P-111",
+      "decision": "reject",
+      "note": "Conflicts with approved P-012 (same path)"
+    }
+  ]
+}

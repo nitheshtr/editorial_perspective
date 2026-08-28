@@ -1,0 +1,9 @@
+{"ts":"2026-08-28T07:32:48.390Z","run":"d66b73f5-cddb-4791-a3d0-d5ae477d057d","level":"info","event":"run_start","data":{"workflow":"period-update"}}
+{"ts":"2026-08-28T07:32:48.393Z","run":"d66b73f5-cddb-4791-a3d0-d5ae477d057d","level":"info","event":"stage_start","stage":"research","data":{}}
+{"ts":"2026-08-28T07:32:48.666Z","run":"d66b73f5-cddb-4791-a3d0-d5ae477d057d","level":"info","event":"tool_call","stage":"research","data":{"tool":"websearch","count":10}}
+{"ts":"2026-08-28T07:32:49.828Z","run":"d66b73f5-cddb-4791-a3d0-d5ae477d057d","level":"info","event":"tool_call","stage":"research","data":{"tool":"webfetch","count":4}}
+{"ts":"2026-08-28T07:32:49.830Z","run":"d66b73f5-cddb-4791-a3d0-d5ae477d057d","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: Amazon is proving you don't need the best model to win the AI race: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T07:32:49.832Z","run":"d66b73f5-cddb-4791-a3d0-d5ae477d057d","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: The AI 'death zone' is here and most corporate AI strategies are standing in it | Fortune: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T07:32:49.845Z","run":"d66b73f5-cddb-4791-a3d0-d5ae477d057d","level":"info","event":"stage_end","stage":"research","data":{"articlesAdded":0,"articlesSkipped":2,"newPublishers":0}}
+{"ts":"2026-08-28T07:32:49.847Z","run":"d66b73f5-cddb-4791-a3d0-d5ae477d057d","level":"info","event":"stage_start","stage":"analysis","data":{}}
+{"ts":"2026-08-28T07:32:56.039Z","run":"d66b73f5-cddb-4791-a3d0-d5ae477d057d","level":"info","event":"error","stage":"analysis","data":{"message":"OpenRouter HTTP 400: {\"error\":{\"message\":\"Reasoning is mandatory for this endpoint and cannot be disabled.\",\"code\":400,\"metadata\":{\"provider_name\":null}}}","recoverable":false}}

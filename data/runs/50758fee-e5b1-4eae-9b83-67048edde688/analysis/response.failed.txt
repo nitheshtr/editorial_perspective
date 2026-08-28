@@ -1,0 +1,21 @@
+{
+  "textLen": 0,
+  "raw": {
+    "id": "gen-1787902056-Gxaehv6XpOWe05uZ4p5N",
+    "object": "chat.completion",
+    "created": 1787902056,
+    "model": "z-ai/glm-5.3-flash",
+    "provider": "Cloudflare",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "length",
+        "message": {
+          "role": "assistant",
+          "content": null,
+          "refusal": null,
+          "reasoning": "Let me analyze the corpus carefully.\n\nTopic: ai-superrace — \"The AI race is moving beyond foundation models.\"\n\nCurrent state (state[2], TODAY):\n- Technology: Cooling, sources=14\n- Platform: Dominant, sources=24\n- Infrastructure: Accelerating, sources=22\n- Economics: Accelerating, sources=19\n- Human Impact: Emerging, sources=13\n\nArticle cache (19 articles):\n1. source-001 MIT Tech Review, cluster-1, \"After the benchmark boom\" — Technology (capability becoming background noise)\n2. source-002 Ars Technica, cluster-2, \"From models to agents\" — Platform/Technology (product layer)\n3. source-003 The Verge, cluster-3, \"The new AI interface wars\" — Platform\n4. source-004 WIRED, cluster-4, \"The operating system for AI\" — Platform\n5. source-005 Bloomberg, cluster-5, \"APIs, agents and moats\" — Platform/Economics\n6. source-006 The Information, cluster-6, \"The app store moment\" — Platform\n7. source-007 FT, cluster-7, \"AI's power problem\" — Infrastructure\n8. source-008 Reuters, cluster-8, \"The chip ceiling\" — Infrastructure\n9. source-009 WSJ, cluster-9, \"Data centers as strategy\" — Infrastructure\n10. source-010 The Economist, cluster-10, \"The productivity paradox\" — Economics\n11. source-011 Bloomberg Opinion, cluster-11, \"Who captures the surplus?\" — Economics\n12. source-012 FT Alphaville, cluster-12, \"Cheap inference, expensive questions\" — Economics\n13. source-013 The Guardian, cluster-13, \"AI and the future of work\" — Human Impact\n14. source-014 Education Week, cluster-14, \"The classroom after ChatGPT\" — Human Impact\n15. source-015 Vox, cluster-15, \"Creativity, credit and AI\" — Human Impact\n16. source-016 CNBC, cluster-16, \"AI race shifting from bigger models to cheaper, smarter systems\" — Technology/Economics (2026-07-10)\n17. source-020 IBD, cluster-20, \"Self-Improving Models... Superintelligence Race\" — Technology (2026-07-08)\n18. source-021 TIME, cluster-21, \"Inside the Race to Make AI Build Itself\" — Technology (2026-08-07)\n19. source-025 TIME, cluster-25, \"World Models Are AI's Next Frontier\" — Technology (2026-07-15)\n\nStale-cache guard: The period under analysis — the current state is \"TODAY\" and the cache's latest articles are dated 2026-08-28, which matches the current period (the bulk of articles dated 2026-08-28). The cache includes recent articles, so not stale. Proceed.\n\nNow let me count articles per perspective in the CURRENT period.\n\nThe cache has 19 articles. Most are dated 2026-08-28 (15 articles), and 4 are older (2026-07-08, 2026-07-10, 2026-07-15, 2026-08-07).\n\nPerspective assignment:\n\nTechnology (cluster-1, cluster-2?, cluster-16, cluster-20, cluster-21, cluster-25):\n- source-001 (cluster-1): benchmark boom — Technology\n- source-016 (cluster-16): shifting from bigger models to cheaper smarter systems — Technology\n- source-020 (cluster-20): self-improving models — Technology\n- source-021 (cluster-21): AI build itself — Technology\n- source-025 (cluster-25): world models — Technology\n- source-002 (cluster-2): \"From models to agents: How the product layer is reshaping what 'better AI' means\" — could be Technology or Platform. The title says \"product layer\" — Platform. But \"what better AI means\" — Technology. Hmm. I'll assign to Platform since it's about the product layer. Actually it could count for both. Let me be careful: sourceVolume should be integer count of cached articles supporting the perspecti

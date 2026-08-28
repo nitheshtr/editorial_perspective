@@ -1,0 +1,174 @@
+{
+  "slug": "test-topic",
+  "title": "Test Topic for Validation",
+  "subtitle": "A comprehensive test fixture",
+  "kicker": "Testing",
+  "date": "2026-08-01",
+  "nav": [
+    "Intro",
+    "Current",
+    "Outlook"
+  ],
+  "activeNav": "Current",
+  "states": [
+    {
+      "period": "2026-01",
+      "label": "January 2026 baseline",
+      "question": "What is the initial state of the topic?",
+      "synthesis": "Initial analysis shows two competing perspectives with moderate coverage.",
+      "lineStrength": 0.5,
+      "nodes": {
+        "technology": {
+          "position": {
+            "x": 50,
+            "y": 50
+          },
+          "size": {
+            "w": 30,
+            "h": 30
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 0.9,
+          "metrics": {
+            "editorialWeight": 0.5,
+            "sourceVolume": 10,
+            "independentSignals": 5,
+            "momentum": 0.5,
+            "emergence": 0.3,
+            "confidence": 0.7,
+            "status": "Growing"
+          }
+        },
+        "human-impact": {
+          "position": {
+            "x": 30,
+            "y": 70
+          },
+          "size": {
+            "w": 25,
+            "h": 25
+          },
+          "borderRadius": "50% 50% 50% 50% / 50% 50% 50% 50%",
+          "opacity": 0.8,
+          "metrics": {
+            "editorialWeight": 0.3,
+            "sourceVolume": 8,
+            "independentSignals": 3,
+            "momentum": 0.4,
+            "emergence": 0.2,
+            "confidence": 0.6,
+            "status": "Emerging"
+          }
+        }
+      }
+    },
+    {
+      "period": "2026-08",
+      "label": "August 2026 current state",
+      "question": "How has the topic evolved?",
+      "synthesis": "Technology perspective has gained momentum while human impact shows cooling signals.",
+      "lineStrength": 0.7,
+      "nodes": {
+        "technology": {
+          "position": {
+            "x": 55,
+            "y": 45
+          },
+          "size": {
+            "w": 35,
+            "h": 35
+          },
+          "borderRadius": "40% 60% 45% 55% / 50% 40% 60% 50%",
+          "opacity": 0.95,
+          "metrics": {
+            "editorialWeight": 0.7,
+            "sourceVolume": 15,
+            "independentSignals": 8,
+            "momentum": 0.6,
+            "emergence": 0.4,
+            "confidence": 0.8,
+            "status": "Accelerating"
+          }
+        },
+        "human-impact": {
+          "position": {
+            "x": 35,
+            "y": 65
+          },
+          "size": {
+            "w": 28,
+            "h": 28
+          },
+          "borderRadius": "45% 55% 50% 50% / 55% 45% 50% 50%",
+          "opacity": 0.85,
+          "metrics": {
+            "editorialWeight": 0.4,
+            "sourceVolume": 10,
+            "independentSignals": 4,
+            "momentum": 0.5,
+            "emergence": 0.25,
+            "confidence": 0.65,
+            "status": "Cooling"
+          }
+        }
+      }
+    }
+  ],
+  "perspectives": [
+    {
+      "id": "technology",
+      "name": "Technology",
+      "category": "tech",
+      "summary": "Technology perspective analysis showing growing influence.",
+      "coreArgument": "Technology drives transformative change across all sectors.",
+      "counterArgument": "Technology adoption faces regulatory and ethical hurdles.",
+      "bodies": [
+        "Technology body for state 1.",
+        "Technology body for state 2."
+      ],
+      "sparkline": [
+        0.5,
+        0.7
+      ],
+      "history": [
+        "Initial technology analysis.",
+        "Updated technology analysis."
+      ],
+      "sources": [
+        "source-001",
+        "source-002"
+      ]
+    },
+    {
+      "id": "human-impact",
+      "name": "Human Impact",
+      "category": "human",
+      "summary": "Human impact perspective on the technology shifts.",
+      "coreArgument": "People and communities bear the direct consequences.",
+      "counterArgument": "Human impact is diffuse and hard to measure precisely.",
+      "bodies": [
+        "Human impact body for state 1.",
+        "Human impact body for state 2."
+      ],
+      "sparkline": [
+        0.3,
+        0.4
+      ],
+      "history": [
+        "Initial human impact analysis.",
+        "Updated human impact analysis."
+      ],
+      "sources": [
+        "source-001"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "technology",
+      "to": "human-impact",
+      "strength": 0.6,
+      "reason": "Technology changes directly affect human experience."
+    }
+  ]
+}
