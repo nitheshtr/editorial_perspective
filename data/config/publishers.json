@@ -606,6 +606,19 @@
         "pendingVerification": true
       },
       "notes": "Curated 2026-08-28 (operator): mainstream AI-race coverage. Legacy mock entry \"WALL STREET JOURNAL · TECH\" exists from v3 migration; this clean entry is for live ingestion. License unverified."
+    },
+    {
+      "name": "Carnegie Endowment for International Peace",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
     }
   ]
 }

@@ -37,7 +37,7 @@ interface TavilyResponse {
  */
 export function createTavilySearch(
   opts?: { apiKey?: string; fetchImpl?: FetchImpl },
-): (query: string, opts2?: { maxResults?: number; days?: number }) => Promise<SearchResult[]> {
+): (query: string, opts2?: { maxResults?: number; days?: number; includeDomains?: string[] }) => Promise<SearchResult[]> {
   const apiKey = opts?.apiKey ?? process.env.TAVILY_API_KEY;
   if (!apiKey) {
     throw new Error(
@@ -46,7 +46,7 @@ export function createTavilySearch(
   }
   const doFetch: FetchImpl = opts?.fetchImpl ?? globalThis.fetch;
 
-  return async (query: string, opts2?: { maxResults?: number; days?: number }): Promise<SearchResult[]> => {
+  return async (query: string, opts2?: { maxResults?: number; days?: number; includeDomains?: string[] }): Promise<SearchResult[]> => {
     const maxResults = opts2?.maxResults ?? 10;
     const days = opts2?.days ?? 90;
 
@@ -57,6 +57,7 @@ export function createTavilySearch(
       topic: "news" as const,
       days,
       search_depth: "basic" as const,
+      ...(opts2?.includeDomains?.length ? { include_domains: opts2.includeDomains } : {}),
     };
 
     let response: Response;

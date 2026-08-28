@@ -455,6 +455,246 @@
       "perspectives": [
         "technology"
       ]
+    },
+    {
+      "id": "source-031",
+      "publisher": "Carnegie Endowment for International Peace",
+      "title": "A Path Forward on AI Safety for the United States and China",
+      "description": "“AI safety in parallel” is modest and pragmatic but vital.",
+      "date": "2026-07-23",
+      "type": "REPORT",
+      "url": "https://carnegieendowment.org/emissary/2026/07/ai-safety-parallel-us-china",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-31",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-035",
+      "publisher": "Carnegie Endowment for International Peace",
+      "title": "AI Adoption Journey for Population Scale",
+      "description": "Connecting real-world AI use cases across sectors such as health, education, agriculture, and livelihoods can help policymakers, innovators, and institutions align around a shared goal. This article looks at a framework ensuring that AI works for everyone.",
+      "date": "2026-01-12",
+      "type": "REPORT",
+      "url": "https://carnegieendowment.org/posts/2026/01/ai-adoption-journey-for-population-scale",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-35",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-036",
+      "publisher": "Brookings",
+      "title": "China is running multiple AI races | Brookings",
+      "description": "Driven by both industry constraints and Beijing’s policy focus, Chinese AI developers are racing along other axes of progress.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.brookings.edu/articles/china-is-running-multiple-ai-races/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "storyCluster": "cluster-36",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-037",
+      "publisher": "Brookings",
+      "title": "To unleash AI innovation, stop model providers from picking the winners | Brookings",
+      "description": "Asad Ramzanali and Tom Wheeler explain why competition is the best route to the future of inventive AI applications. ",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.brookings.edu/articles/to-unleash-ai-innovation-stop-model-providers-from-picking-the-winners/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "storyCluster": "cluster-37",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-038",
+      "publisher": "Brookings",
+      "title": "Governing the AI transition: Lessons from the 1996 Telecommunications Act | Brookings",
+      "description": "Tom Wheeler reflects on the Telecommunications Act of 1996 and how oversight for AI must focus on how the owners of the technology behave.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.brookings.edu/articles/governing-the-ai-transition-lessons-from-the-1996-telecommunications-act/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "storyCluster": "cluster-38",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-039",
+      "publisher": "Brookings",
+      "title": "Competing AI strategies for the US and China | Brookings",
+      "description": "The U.S.-China AI race is a competition across multiple dimensions: compute, models, adoption, integration, and deployment.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.brookings.edu/articles/competing-ai-strategies-for-the-us-and-china/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "storyCluster": "cluster-39",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-040",
+      "publisher": "Brookings",
+      "title": "What happens when AI companies compete with their customers? | Brookings",
+      "description": "Mark MacCarthy discusses the competition challenges posed by big AI companies moving into the application space.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.brookings.edu/articles/what-happens-when-ai-companies-compete-with-their-customers/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "storyCluster": "cluster-40",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-041",
+      "publisher": "Brookings",
+      "title": "How to bridge the global AI divide | Brookings",
+      "description": "Landry Signé explains that there is still an opportunity to shape the future of AI and promote inclusive and sustainable prosperity for all.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.brookings.edu/articles/how-to-bridge-the-global-ai-divide/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "storyCluster": "cluster-41",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-042",
+      "publisher": "Brookings",
+      "title": "Turning the data center boom into long-term, local prosperity | Brookings",
+      "description": "Local leaders are questioning the credibility of Big Tech’s promises of spillover effects that will produce high-quality economic development beyond near-term construction.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.brookings.edu/articles/turning-the-data-center-boom-into-long-term-local-prosperity/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "storyCluster": "cluster-42",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-043",
+      "publisher": "Brookings",
+      "title": "What national AI plans get wrong and how to fix them | Brookings",
+      "description": "Cameron Kerry and Saurabh Mishra discuss how countries can build cognitive infrastructure to operationalize AI for real-world impact.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.brookings.edu/articles/what-national-ai-plans-get-wrong-and-how-to-fix-them/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "storyCluster": "cluster-43",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
     }
   ],
   "migratedFrom": "editorial_perspective_evolution_v3.html"

@@ -384,6 +384,10 @@ interface RunContext {
   topic: string;
   telemetry: TelemetryEmitter;
   config: Record<string, unknown>;
+  /** Optional domain scope for the research stage (comma-separated CLI param). */
+  domains?: string[];
+  /** Optional query override for the research stage. */
+  queryOverride?: string;
 }
 
 function getRunDir(runId: string): string {
@@ -438,14 +442,15 @@ async function stageResearch(ctx: RunContext): Promise<void> {
   const searchCfg = ctx.config.search as Record<string, unknown> | undefined;
   const maxResults = (searchCfg?.maxResults as number) ?? 10;
 
-  // ── (a) Build query from topic title ──────────────────────────────────
-  const query = title;
+  // ── (a) Build query from topic title (or explicit query= override) ────
+  const query = (ctx.queryOverride as string | undefined) ?? title;
+  const domainScope = (ctx.domains as string[] | undefined) ?? [];
 
   // ── (b) Tavily search ─────────────────────────────────────────────────
   const tavilySearch = createTavilySearch({ apiKey: tavilyApiKey });
   let searchResults: SearchResult[];
   try {
-    searchResults = await tavilySearch(query, { maxResults, days: 90 });
+    searchResults = await tavilySearch(query, { maxResults, days: 90, includeDomains: domainScope });
   } catch (err: unknown) {
     telemetry.emit({
       event: "error",
@@ -485,9 +490,15 @@ async function stageResearch(ctx: RunContext): Promise<void> {
       // Map og:type to SourceType
       const type = ogTypeToSourceType(meta.ogType);
 
-      // Date: prefer article published time, fall back to search result date, then today
+      // Date: prefer article published time, fall back to search result date, then today.
+      // Only accept a strict ISO date (YYYY-MM-DD) — non-parseable strings
+      // (e.g. "August 28, 2026", "Invalid Date") must fall back to today,
+      // otherwise the Source schema rejects the candidate.
       const rawDate = meta.publishedTime || result.publishedDate || "";
-      const date = rawDate.slice(0, 10) || new Date().toISOString().slice(0, 10);
+      const isoCandidate = rawDate.slice(0, 10);
+      const date = /^\d{4}-\d{2}-\d{2}$/.test(isoCandidate)
+        ? isoCandidate
+        : new Date().toISOString().slice(0, 10);
 
       candidates.push({
         title: meta.title || result.title,
@@ -590,6 +601,10 @@ async function stageResearch(ctx: RunContext): Promise<void> {
 
   summaryLines.push("");
   writeFileSync(join(runDir, "research", "summary.md"), summaryLines.join("\n"), "utf-8");
+  console.log(
+    `research complete: ${searchResults.length} search results | ${candidates.length} candidates` +
+      (domainScope.length ? ` | domain scope: ${domainScope.join(", ")}` : " | scope: all sources"),
+  );
 
   telemetry.stageEnd("research", {
     articlesAdded: ingestResult.stats.added,
@@ -1227,6 +1242,11 @@ async function main(): Promise<void> {
   const fromStage = params.from;
   const decisionsPath = params.decisions;
   const allowStale = flags.includes("allow-stale");
+  const domainsParam = params.domains
+    ?.split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const queryParam = params.query;
 
   // ── replay command ─────────────────────────────────────────────────────
   if (flags.includes("run") && args.includes("replay")) {
@@ -1242,7 +1262,7 @@ async function main(): Promise<void> {
     }
     const config = loadConfig();
     const telemetry = new TelemetryEmitter(params.run!, topic ?? "unknown");
-    const ctx: RunContext = { runId: params.run!, topic: topic ?? "unknown", telemetry, config };
+    const ctx: RunContext = { runId: params.run!, topic: topic ?? "unknown", telemetry, config, domains: domainsParam, queryOverride: queryParam };
     await cmdRerun(params.run!, fromStage, ctx);
     return;
   }
@@ -1268,7 +1288,7 @@ async function main(): Promise<void> {
 
     const config = loadConfig();
     const telemetry = new TelemetryEmitter(runId, topic);
-    const ctx: RunContext = { runId, topic, telemetry, config };
+    const ctx: RunContext = { runId, topic, telemetry, config, domains: domainsParam, queryOverride: queryParam };
 
     telemetry.emit({ event: "run_start", data: { workflow } });
 
@@ -1294,7 +1314,7 @@ async function main(): Promise<void> {
 
     const config = loadConfig();
     const telemetry = new TelemetryEmitter(runId, topic);
-    const ctx: RunContext = { runId, topic, telemetry, config };
+    const ctx: RunContext = { runId, topic, telemetry, config, domains: domainsParam, queryOverride: queryParam };
 
     telemetry.emit({ event: "run_start", data: { stage } });
 
