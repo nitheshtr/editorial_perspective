@@ -5,42 +5,42 @@
       "tier": 1,
       "policy": {
         "access": "open",
-        "license": "CC",
+        "license": "CC-BY-ND",
         "reuse": "allowed_with_attribution",
         "fullText": false,
         "summary": true,
         "link": true,
-        "pendingVerification": true
+        "pendingVerification": false
       },
-      "notes": "Republication generally permitted under Creative Commons with attribution; verify per-article license and no-derivatives scope before any excerpt use."
+      "notes": "VERIFIED 2026-08-28 via theconversation.com/republishing-guidelines: CC BY-ND 4.0 — free republication with attribution (authors + The Conversation link-back), no derivative edits, verbatim quotes allowed. fullText remains disabled per project v0.3 policy (excerpt handling not built)."
     },
     {
       "name": "Public Knowledge",
-      "tier": 1,
+      "tier": 2,
       "policy": {
         "access": "open",
-        "license": "unknown",
+        "license": "copyright",
         "reuse": "link_only",
         "fullText": false,
         "summary": true,
         "link": true,
-        "pendingVerification": true
+        "pendingVerification": false
       },
-      "notes": "Open-access analytical material; license unverified."
+      "notes": "VERIFIED 2026-08-28 via publicknowledge.org (privacy/terms pages): no explicit content license found; default copyright applies (© 2026 Public Knowledge). Link + summarize only."
     },
     {
       "name": "Brookings",
-      "tier": 1,
+      "tier": 2,
       "policy": {
         "access": "open",
-        "license": "unknown",
+        "license": "copyright",
         "reuse": "link_only",
         "fullText": false,
         "summary": true,
         "link": true,
-        "pendingVerification": true
+        "pendingVerification": false
       },
-      "notes": "Freely readable ≠ CC-licensed; verify per article."
+      "notes": "VERIFIED 2026-08-28 via brookings.edu/terms-of-use: no CC license; content is Brookings property; personal non-commercial use only; reuse requires express written consent. Link + summarize only."
     },
     {
       "name": "Carnegie Endowment",
@@ -58,17 +58,17 @@
     },
     {
       "name": "Chatham House",
-      "tier": 1,
+      "tier": 2,
       "policy": {
         "access": "open",
-        "license": "unknown",
+        "license": "copyright",
         "reuse": "link_only",
         "fullText": false,
         "summary": true,
         "link": true,
-        "pendingVerification": true
+        "pendingVerification": false
       },
-      "notes": "Freely readable ≠ CC-licensed; verify per article."
+      "notes": "VERIFIED 2026-08-28 via chathamhouse.org/terms-and-conditions + publications page: all rights reserved (Royal Institute of International Affairs); reuse licensed via PLSclear (charges >400 words). Link + summarize only."
     },
     {
       "name": "Reuters",
@@ -424,6 +424,160 @@
         "link": true,
         "pendingVerification": true
       }
+    },
+    {
+      "name": "McKinsey & Company",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28: 4 appearances in live AI-Superrace scan (agentic orgs, $7T data-center buildout, State of AI 2026). License unverified."
+    },
+    {
+      "name": "SemiAnalysis",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28: premier AI industry analysis ('AI Value Capture — The Shift To Model Labs'). License unverified."
+    },
+    {
+      "name": "Council on Foreign Relations",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28: U.S.-China AI rivalry analysis (2 results). License unverified."
+    },
+    {
+      "name": "Atlantic Council",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28: 'Powering AI' — AI energy/infrastructure analysis. License unverified."
+    },
+    {
+      "name": "World Economic Forum",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28: grid bottleneck + AI workforce education (2 lanes). License unverified."
+    },
+    {
+      "name": "Goldman Sachs Research",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28: 'Assumptions Shaping the Scale of the AI Build-Out'. License unverified."
+    },
+    {
+      "name": "Pew Research Center",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28: 'Views of AI Around the World' — public-opinion data. License unverified."
+    },
+    {
+      "name": "Bipartisan Policy Center",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28: 'AI and the Workforce' — jobs/displacement analysis. License unverified."
+    },
+    {
+      "name": "Interconnects",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28: independent specialist (Nathan Lambert) on AI labs/geopolitics. License unverified."
+    },
+    {
+      "name": "Astral Codex Ten",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28: independent analysis ('If Anyone Builds It, Everyone Dies' review). License unverified."
+    },
+    {
+      "name": "Works in Progress",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28: 'Why American data centers can't plug in' — infrastructure essays. License unverified."
     }
   ]
 }

@@ -62,8 +62,23 @@ agents/ and skills/ authored from spec.
   (Tavily websearch integration deferred to Phase 2); providers default cost
   to 0 when config lacks price fields.
 - **96 tests green** (unit + pipeline + golden parity), `tsc --noEmit` clean.
-- Remaining human steps: GitHub Pages → Source: GitHub Actions; `.env` keys
-  (OPENROUTER_API_KEY, TAVILY_API_KEY); publisher license verification queue.
+failed LLM responses dumped to the run dir for diagnosis.
+
+## 2026-08-28 — Publisher registry: license verification + curated expansion
+
+- **License verification completed** (evidence from publisher terms pages):
+  The Conversation **CC BY-ND 4.0 confirmed** (tier 1, republication with
+  attribution); Brookings, Chatham House, Public Knowledge **confirmed
+  copyright / link+summarize only** (all pendingVerification flags cleared).
+  Carnegie Endowment remains unverified (no terms page found — flagged for
+  manual follow-up).
+- **11 curated sources added** from a live 66-result AI-Superrace source
+  scan (6 perspective lanes): McKinsey, SemiAnalysis, CFR, Atlantic Council,
+  WEF, Goldman Sachs Research, Pew Research, Bipartisan Policy Center,
+  Fortune (already present), Interconnects, Astral Codex Ten, Works in
+  Progress — all tier 3 / link_only pending license verification.
+- Registry now 42 publishers. Geopolitics (U.S.–China AI race) identified as
+  a candidate 6th perspective from live coverage patterns.
 
 ## 2026-08-28 — First real data cycle published
 
