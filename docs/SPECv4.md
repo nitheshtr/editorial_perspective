@@ -384,13 +384,25 @@ Sources live in the article store and are referenced by ID from perspectives.
   "date": "2026-08-20",
   "type": "ANALYSIS",          // ANALYSIS | REPORT | OPINION | FEATURE
   "url": "https://...",
-  "access": "open",            // open | metered | paywalled
+  "accessPolicy": {
+    "access": "open",                      // open | metered | paywalled
+    "license": "copyright",                // CC | CC-BY | CC-BY-ND | CC-BY-SA | copyright | unknown
+    "reuse": "link_only",                  // allowed_with_attribution | link_only | none
+    "fullText": false,
+    "summary": true,
+    "link": true,
+    "pendingVerification": false
+  },
   "storyCluster": "cluster-17", // dedup group for independence counting
   "originalReporting": true,
   "stance": "supporting",      // supporting | challenging | neutral
   "perspectives": ["human-impact"]
 }
 ```
+
+Policies are resolved from the publisher registry (`data/config/publishers.json`)
+at ingestion — unknown publishers default to `link_only` pending human license
+verification. Full semantics and enforcement points: **IMPLEMENTATION.md §5**.
 
 ### 5.5 Status Enum
 
@@ -440,7 +452,9 @@ priority publisher list
 ```
 1. Read topic JSON → extract keywords and publisher preferences
 2. Search recent editorial coverage (websearch)
-3. Verify open-access eligibility per candidate
+3. Resolve accessPolicy per candidate from the publisher registry;
+   unregistered publishers are appended as tier 3 (unknown/link_only)
+   and queued for human license verification
 4. Extract metadata only — never reproduce protected article content
    (title, publisher, date, type, description/snippet, URL)
 5. Detect duplicates and story-level relationships → assign storyCluster
@@ -629,7 +643,7 @@ rather than isolated tools.
 
 | Handoff | Artifact | Acceptance criteria |
 |---------|----------|--------------------|
-| Research → Analysis | Article cache entries | Valid schema; storyCluster assigned; access verified; no duplicates |
+| Research → Analysis | Article cache entries | Valid schema; storyCluster assigned; accessPolicy resolved; no duplicates |
 | Analysis → Writing | Proposal set | Every status has confidence; every claim cites clusters; question drafted |
 | Writing → Human | Narrative + proposals | Audit passed; counterarguments present; length discipline met |
 | Human → Content Manager | Approval record | Explicit approve/reject per proposal; edits captured |
@@ -742,7 +756,10 @@ Evidence:
   ☐ Every perspective has core argument AND counterargument
   ☐ Source IDs resolve to article-store entries
   ☐ storyCluster assigned to every source; duplicates identified
-  ☐ Publisher attribution + URL present; open-access verified
+  ☐ Publisher attribution + URL present; accessPolicy resolved for every source
+  ☐ reuse 'allowed_with_attribution' requires license ≠ unknown
+  ☐ No source has fullText: true (excerpts disabled at v0.4)
+  ☐ pendingVerification sources listed in the report for human review
   ☐ Relations reference real perspective IDs; strength ∈ [0,1]
 ```
 
@@ -827,7 +844,7 @@ The Data Validation skill (8.3) is the mechanical enforcement of:
 - Duplicate/syndicated stories identified
 - Central-question progression meaningful
 - Synthesis integrates multiple perspectives
-- Publisher attribution + links present; open-access verified
+- Publisher attribution + links present; accessPolicy resolved for every source
 
 ### 10.4 Visual Semantics
 
