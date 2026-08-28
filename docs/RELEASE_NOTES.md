@@ -42,3 +42,25 @@ agents/ and skills/ authored from spec.
 - **GOLDEN PARITY LOCKED:** generated `dist/index.html` is byte-identical to
   the original V3 file (34,677 chars) — the Phase 1 acceptance gate passes;
   validation of migrated data passes all four checks.
+
+## 2026-08-27 — Phase 1 complete: pipeline runtime
+
+- **pipeline/** runtime per IMPLEMENTATION.md §7/§10/§13: three LLM provider
+  adapters (OpenRouter default, OpenAI, Anthropic — retry/backoff/failover,
+  mocked-transport tests), telemetry emitter (zod-validated JSONL per run +
+  cross-run summary), path-scope guards with append-only article-cache
+  enforcement, repository store with topic backup, agent frontmatter loader,
+  runner CLI (stage=/workflow=/replay/rerun/approve/report), approval gate,
+  stale-cache guard, per-run cost budget.
+- **schema/src/proposal.ts** added (Proposal/ProposalSet) — the one schema
+  extension beyond the spec, shared by analysis/writing/apply.
+- **Approval-gate hardening (orchestrator review fix):** writing-stage
+  narrative entries are folded into the proposal set (P-101+) and merge only
+  through approved decisions — no LLM text reaches topic data unapproved
+  (SPECv4 §7.1 structural gate).
+- **Known MVP simplifications:** research stage calls the LLM directly
+  (Tavily websearch integration deferred to Phase 2); providers default cost
+  to 0 when config lacks price fields.
+- **96 tests green** (unit + pipeline + golden parity), `tsc --noEmit` clean.
+- Remaining human steps: GitHub Pages → Source: GitHub Actions; `.env` keys
+  (OPENROUTER_API_KEY, TAVILY_API_KEY); publisher license verification queue.

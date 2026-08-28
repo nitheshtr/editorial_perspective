@@ -1,0 +1,7 @@
+{
+  "runId": "test-run-001",
+  "topic": "test-topic",
+  "startedAt": "2026-08-28T00:00:00.000Z",
+  "params": { "stage": "apply" },
+  "models": {}
+}

@@ -1,0 +1,28 @@
+{
+  "proposals": [
+    {
+      "id": "P-001",
+      "kind": "metrics",
+      "path": "states.0.nodes.technology.metrics.editorialWeight",
+      "value": 0.75,
+      "confidence": 0.85,
+      "evidence": "Based on increased coverage volume"
+    },
+    {
+      "id": "P-002",
+      "kind": "status",
+      "path": "states.0.nodes.technology.metrics.status",
+      "value": "Accelerating",
+      "confidence": 0.8,
+      "evidence": "Momentum indicators suggest acceleration"
+    },
+    {
+      "id": "P-003",
+      "kind": "synthesis",
+      "path": "states.1.synthesis",
+      "value": "Updated synthesis showing accelerated technology growth with balanced human impact perspective.",
+      "confidence": 0.75,
+      "evidence": "Cross-perspective analysis"
+    }
+  ]
+}
