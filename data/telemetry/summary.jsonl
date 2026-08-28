@@ -1,0 +1,12 @@
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-28T06:49:32.067Z","finishedAt":"2026-08-28T06:49:32.068Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-28T06:49:32.077Z","finishedAt":"2026-08-28T06:49:32.079Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-28T06:50:07.091Z","finishedAt":"2026-08-28T06:50:07.092Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-28T06:50:07.104Z","finishedAt":"2026-08-28T06:50:07.106Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-28T06:50:28.776Z","finishedAt":"2026-08-28T06:50:28.777Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-28T06:50:28.788Z","finishedAt":"2026-08-28T06:50:28.791Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-28T06:51:24.955Z","finishedAt":"2026-08-28T06:51:24.956Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-28T06:51:24.974Z","finishedAt":"2026-08-28T06:51:24.978Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-28T06:52:52.426Z","finishedAt":"2026-08-28T06:52:52.427Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-28T06:52:52.438Z","finishedAt":"2026-08-28T06:52:52.440Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"bf0c7ff0-3446-4f60-8ce2-414ad89889b7","topic":"ai-superrace","startedAt":"2026-08-28T06:53:03.447Z","finishedAt":"2026-08-28T06:53:06.757Z","totals":{"research":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":4,"retries":0}}}
+{"run":"e30707d4-4cf0-4b77-bc2d-b221dacc25e0","topic":"ai-superrace","startedAt":"2026-08-28T06:53:20.198Z","finishedAt":"2026-08-28T06:53:21.236Z","totals":{"research":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":2,"retries":0}}}

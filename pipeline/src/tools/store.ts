@@ -46,12 +46,15 @@ export function readJson<T = unknown>(relPath: string): T {
  */
 export function writeJson<T>(relPath: string, data: T, scopes: string[]): void {
   const absPath = resolve(DATA_DIR, relPath);
+  // Agent scopes and the append-only registry are ROOT-relative (frontmatter
+  // contract: "data/...") — normalize before guarding.
+  const rootRel = relative(ROOT, absPath).replace(/\\/g, "/");
 
   // Guard: check write scope
-  assertWriteAllowed(DATA_DIR, scopes, absPath);
+  assertWriteAllowed(ROOT, scopes, absPath);
 
   // Append-only check for articles cache
-  if (isAppendOnly(relPath) && existsSync(absPath)) {
+  if (isAppendOnly(rootRel) && existsSync(absPath)) {
     const prev = readJson<ArticlesCache>(relPath);
     const curr = data as unknown as ArticlesCache;
     if (prev && prev.articles && curr && curr.articles) {
@@ -73,7 +76,7 @@ export function appendArticles(
   scopes: string[],
 ): void {
   const absPath = resolve(DATA_DIR, cacheRelPath);
-  assertWriteAllowed(DATA_DIR, scopes, absPath);
+  assertWriteAllowed(ROOT, scopes, absPath);
 
   const existing: ArticlesCache = existsSync(absPath)
     ? readJson<ArticlesCache>(cacheRelPath)

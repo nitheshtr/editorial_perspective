@@ -1,0 +1,9 @@
+{"ts":"2026-08-28T06:53:20.211Z","run":"e30707d4-4cf0-4b77-bc2d-b221dacc25e0","level":"info","event":"run_start","data":{"stage":"research"}}
+{"ts":"2026-08-28T06:53:20.216Z","run":"e30707d4-4cf0-4b77-bc2d-b221dacc25e0","level":"info","event":"stage_start","stage":"research","data":{}}
+{"ts":"2026-08-28T06:53:20.472Z","run":"e30707d4-4cf0-4b77-bc2d-b221dacc25e0","level":"info","event":"tool_call","stage":"research","data":{"tool":"websearch","count":10}}
+{"ts":"2026-08-28T06:53:21.216Z","run":"e30707d4-4cf0-4b77-bc2d-b221dacc25e0","level":"info","event":"tool_call","stage":"research","data":{"tool":"webfetch","count":6}}
+{"ts":"2026-08-28T06:53:21.219Z","run":"e30707d4-4cf0-4b77-bc2d-b221dacc25e0","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: Inside Anthropic: Moving Beyond Bigger AI Models To Win The Enterprise AI Race: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T06:53:21.220Z","run":"e30707d4-4cf0-4b77-bc2d-b221dacc25e0","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: Amazon is proving you don't need the best model to win the AI race: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T06:53:21.221Z","run":"e30707d4-4cf0-4b77-bc2d-b221dacc25e0","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: The AI 'death zone' is here and most corporate AI strategies are standing in it | Fortune: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T06:53:21.234Z","run":"e30707d4-4cf0-4b77-bc2d-b221dacc25e0","level":"info","event":"stage_end","stage":"research","data":{"articlesAdded":0,"articlesSkipped":3,"newPublishers":0}}
+{"ts":"2026-08-28T06:53:21.236Z","run":"e30707d4-4cf0-4b77-bc2d-b221dacc25e0","level":"info","event":"run_end","data":{"finishedAt":"2026-08-28T06:53:21.236Z"}}

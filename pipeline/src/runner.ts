@@ -33,6 +33,8 @@ import { GuardError } from "./guards.js";
 import { Source, ProposalSet, Approval } from "../../schema/src/index.js";
 import { validateTopic } from "../../tools/validate-topic.js";
 import { generateHtmlFromFile } from "../../tools/generate-site.js";
+import { createTavilySearch, type SearchResult } from "./tools/websearch.js";
+import { createWebFetch, type PageMeta } from "./tools/webfetch.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..", "..");
@@ -129,6 +131,252 @@ function setByPath(obj: Record<string, unknown>, path: string, value: unknown): 
   current[last] = value;
 }
 
+// ── Research ingestion helpers ────────────────────────────────────────────────
+
+/**
+ * A candidate source built from search + fetch results, ready for ingestion.
+ */
+interface CandidateInput {
+  title: string;
+  url: string;
+  description: string;
+  date: string;
+  type: "ANALYSIS" | "REPORT" | "OPINION" | "FEATURE";
+  publisher: string;
+}
+
+interface IngestContext {
+  topic: { title: string; perspectives: Array<{ id: string }> };
+  registry: { publishers: Array<Record<string, unknown>> };
+  cache: { articles: Array<Record<string, unknown>> };
+}
+
+interface IngestResult {
+  validArticles: Array<Record<string, unknown>>;
+  invalidSkipped: Array<{ reason: string }>;
+  registryAdditions: Array<{ name: string; tier: number; policy: Record<string, unknown> }>;
+  stats: { total: number; skipped: number; added: number; newPublishers: number };
+}
+
+/**
+ * Derive a display-name publisher from a URL hostname.
+ * Strips "www." prefix, extracts the first domain component, title-cases it.
+ */
+function derivePublisherFromUrl(url: string): string {
+  try {
+    const hostname = new URL(url).hostname;
+    const stripped = hostname.replace(/^www\./i, "");
+    const parts = stripped.split(".");
+    const name = parts[0] ?? stripped;
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  } catch {
+    return "Unknown";
+  }
+}
+
+/**
+ * Map og:type to SourceType.
+ * - "article" → REPORT (default)
+ * - "analysis" → ANALYSIS
+ * - "opinion" → OPINION
+ * - "feature" → FEATURE
+ */
+function ogTypeToSourceType(ogType?: string): "ANALYSIS" | "REPORT" | "OPINION" | "FEATURE" {
+  const lower = (ogType ?? "").toLowerCase();
+  if (lower.includes("analysis")) return "ANALYSIS";
+  if (lower.includes("opinion")) return "OPINION";
+  if (lower.includes("feature")) return "FEATURE";
+  return "REPORT";
+}
+
+/**
+ * Strip trailing punctuation for title comparison.
+ */
+function normalizeTitle(title: string): string {
+  return title.replace(/[.,!?;:'"()\[\]{}]+$/g, "").trim().toLowerCase();
+}
+
+/**
+ * Ingest a set of candidates into the article cache pipeline.
+ *
+ * Steps per IMPLEMENTATION.md §6.1 and §5.4:
+ * 1. Dedup by exact URL match → reuse storyCluster
+ * 2. Dedup by near-dup title (case-insensitive after trim punctuation) → reuse storyCluster
+ * 3. Resolve publisher policy from registry (case-insensitive)
+ * 4. Unknown publisher → tier-3 entry added to registryAdditions
+ * 5. Build source object, validate against Source schema
+ * 6. Skip invalid, return valid articles
+ *
+ * Pure function: no I/O, no telemetry. Easy to test.
+ */
+function ingestCandidates(
+  candidates: CandidateInput[],
+  ctx: IngestContext,
+): IngestResult {
+  const validArticles: Array<Record<string, unknown>> = [];
+  const invalidSkipped: Array<{ reason: string }> = [];
+  const registryAdditions: Array<{ name: string; tier: number; policy: Record<string, unknown> }> = [];
+
+  // Build dedup indexes from cache
+  const urlSet = new Set<string>();
+  const titleNormCache = new Map<string, string>(); // normalized title → storyCluster
+  const clusterByUrl = new Map<string, string>();    // url → storyCluster
+  for (const a of (ctx.cache.articles ?? [])) {
+    const u = a.url as string;
+    if (u) {
+      urlSet.add(u);
+      if (a.storyCluster) clusterByUrl.set(u, a.storyCluster as string);
+    }
+    const t = a.title as string;
+    if (t) {
+      const norm = normalizeTitle(t);
+      if (!titleNormCache.has(norm)) {
+        titleNormCache.set(norm, a.storyCluster as string);
+      }
+    }
+  }
+
+  // Determine next cluster id and source id from cache
+  let maxClusterNum = 0;
+  let maxSourceNum = 0;
+  for (const a of (ctx.cache.articles ?? [])) {
+    const cl = a.storyCluster as string;
+    if (cl) {
+      const num = parseInt(cl.replace("cluster-", ""), 10);
+      if (!isNaN(num) && num > maxClusterNum) maxClusterNum = num;
+    }
+    const sid = a.id as string;
+    if (sid) {
+      const num = parseInt(sid.replace("source-", ""), 10);
+      if (!isNaN(num) && num > maxSourceNum) maxSourceNum = num;
+    }
+  }
+
+  // Build case-insensitive publisher index from registry
+  const publisherMap = new Map<string, Record<string, unknown>>();
+  for (const p of (ctx.registry.publishers ?? [])) {
+    publisherMap.set((p.name as string).toLowerCase(), p);
+  }
+
+  const newPublisherNames = new Set<string>();
+
+  let nextClusterId = maxClusterNum + 1;
+  let nextSourceId = maxSourceNum + 1;
+
+  const today = new Date().toISOString().slice(0, 10);
+
+  for (const cand of candidates) {
+    // ── Dedup by exact URL ────────────────────────────────────────────────
+    if (urlSet.has(cand.url)) {
+      // Duplicate: still count but don't add
+      continue;
+    }
+
+    // ── Dedup by near-dup title ───────────────────────────────────────────
+    const candTitleNorm = normalizeTitle(cand.title);
+    let storyCluster: string;
+    const existingCluster = titleNormCache.get(candTitleNorm);
+    if (existingCluster) {
+      storyCluster = existingCluster;
+    } else {
+      storyCluster = `cluster-${nextClusterId}`;
+      nextClusterId++;
+    }
+
+    // ── Resolve publisher policy ─────────────────────────────────────────
+    const pubKey = cand.publisher.toLowerCase();
+    let pubEntry = publisherMap.get(pubKey);
+
+    if (!pubEntry) {
+      // Also try without the derived prefix — full registry scan
+      pubEntry = publisherMap.get(pubKey);
+    }
+
+    let policy: Record<string, unknown>;
+    if (pubEntry) {
+      policy = { ...(pubEntry.policy as Record<string, unknown>) };
+    } else {
+      policy = {
+        access: "open",
+        license: "unknown",
+        reuse: "link_only",
+        fullText: false,
+        summary: true,
+        link: true,
+        pendingVerification: true,
+      };
+      // Track new publisher for registry append
+      if (!newPublisherNames.has(cand.publisher)) {
+        newPublisherNames.add(cand.publisher);
+        registryAdditions.push({
+          name: cand.publisher,
+          tier: 3,
+          policy: { ...policy },
+        });
+        // Add to local map so subsequent same-publisher candidates resolve
+        publisherMap.set(pubKey, { name: cand.publisher, tier: 3, policy });
+      }
+    }
+
+    // ── Build source object ──────────────────────────────────────────────
+    const sourceId = `source-${String(nextSourceId).padStart(3, "0")}`;
+    nextSourceId++;
+
+    // Use first perspective from topic if available
+    const firstPerspectiveId = (ctx.topic.perspectives?.[0]?.id) ?? "technology";
+
+    // Description truncation to 400 chars
+    const description = cand.description.length > 400
+      ? cand.description.slice(0, 400)
+      : cand.description;
+
+    // Determine date
+    const date = (cand.date || today).slice(0, 10);
+
+    const article: Record<string, unknown> = {
+      id: sourceId,
+      publisher: cand.publisher,
+      title: cand.title,
+      description,
+      date,
+      type: cand.type,
+      url: cand.url,
+      accessPolicy: policy,
+      storyCluster,
+      originalReporting: false,
+      stance: "neutral",
+      perspectives: [firstPerspectiveId],
+    };
+
+    // ── Validate against Source schema ────────────────────────────────────
+    const result = Source.safeParse(article);
+    if (result.success) {
+      validArticles.push(article);
+      // Update dedup indexes for subsequent candidates
+      urlSet.add(cand.url);
+      const nt = normalizeTitle(cand.title);
+      if (!titleNormCache.has(nt)) {
+        titleNormCache.set(nt, storyCluster);
+      }
+    } else {
+      const reasons = result.error.issues.map((i) => i.message).join("; ");
+      invalidSkipped.push({ reason: `${cand.title}: ${reasons}` });
+    }
+  }
+
+  return {
+    validArticles,
+    invalidSkipped,
+    registryAdditions,
+    stats: {
+      total: candidates.length,
+      skipped: invalidSkipped.length,
+      added: validArticles.length,
+      newPublishers: registryAdditions.length,
+    },
+  };
+}
+
 // ── Stage execution functions ────────────────────────────────────────────────
 
 interface RunContext {
@@ -171,141 +419,183 @@ async function stageResearch(ctx: RunContext): Promise<void> {
   const agent = loadAgentByStage("research");
   const topicData = loadTopic(ctx.topic) as Record<string, unknown>;
   const title = (topicData.title as string) ?? ctx.topic;
-  const keywords = (title.split(/\s+/)).slice(0, 5).join(", ");
   const articles = loadArticles();
-
-  // Build prompt
-  const systemPrompt = `${agent.body}
-
-INSTRUCTIONS:
-Respond with ONLY a JSON object in the following format (no markdown, no explanation):
-{"articles":[{"publisher":"...","title":"...","description":"...","date":"YYYY-MM-DD","type":"ANALYSIS|REPORT|OPINION|FEATURE","url":"..."}]}
-
-Topic: "${title}"
-Keywords: ${keywords}
-Date window: last 90 days`;
-
-  const { provider, config: modelCfg } = getProviderForModel(agent.model);
-  const modelName = modelCfg.model as string ?? agent.model;
-
-  // Load publisher registry for accessPolicy resolution
   const registry = loadRegistry();
-  const publisherMap = new Map<string, Record<string, unknown>>(
-    registry.publishers.map((p) => [p.name, p]),
-  );
 
-  // Check budget before LLM call
-  const budget = ctx.config.budget as Record<string, unknown> | undefined;
-  const maxCost = (budget?.maxCostUsdPerRun as number) ?? Infinity;
-  if (telemetry.costSoFar() >= maxCost) {
-    telemetry.emit({ event: "budget", data: { spentUsd: telemetry.costSoFar(), limitUsd: maxCost, action: "halt" } });
-    throw new GuardError(`Budget exceeded: $${telemetry.costSoFar()} >= $${maxCost}`);
+  // ── Validate TAVILY_API_KEY ───────────────────────────────────────────
+  const tavilyApiKey = process.env.TAVILY_API_KEY;
+  if (!tavilyApiKey) {
+    telemetry.emit({
+      event: "error",
+      stage: "research",
+      data: { message: "TAVILY_API_KEY missing", recoverable: false },
+    });
+    telemetry.stageEnd("research", { error: "TAVILY_API_KEY missing" });
+    process.exit(5);
   }
 
-  let response: LlmCompleteResponse;
+  // ── Get search config ─────────────────────────────────────────────────
+  const searchCfg = ctx.config.search as Record<string, unknown> | undefined;
+  const maxResults = (searchCfg?.maxResults as number) ?? 10;
+
+  // ── (a) Build query from topic title ──────────────────────────────────
+  const query = title;
+
+  // ── (b) Tavily search ─────────────────────────────────────────────────
+  const tavilySearch = createTavilySearch({ apiKey: tavilyApiKey });
+  let searchResults: SearchResult[];
   try {
-    response = await provider.complete({
-      model: agent.model,
-      system: systemPrompt,
-      messages: [{ role: "user", content: `Research topic "${title}" and return articles.` }],
-      temperature: (modelCfg.temperature as number) ?? 0.2,
-    });
+    searchResults = await tavilySearch(query, { maxResults, days: 90 });
   } catch (err: unknown) {
-    telemetry.emit({ event: "error", stage: "research", data: { message: (err as Error).message, recoverable: false } });
+    telemetry.emit({
+      event: "error",
+      stage: "research",
+      data: { message: `Search failed: ${(err as Error).message}`, recoverable: false },
+    });
     throw err;
   }
+  telemetry.toolCall({ tool: "websearch", count: searchResults.length, stage: "research" });
 
-  // Emit llm_call telemetry
-  const rawData = response.raw as Record<string, unknown> | undefined;
-  telemetry.llmCall({
-    provider: modelCfg.provider as string ?? "openrouter",
-    model: (rawData?.model as string) ?? modelName,
-    tokensIn: response.usage.tokensIn,
-    tokensOut: response.usage.tokensOut,
-    costUsd: (rawData?.costUsd as number) ?? 0,
-    latencyMs: (rawData?.latencyMs as number) ?? 0,
-    attempt: (rawData?.attempt as number) ?? 1,
-    stage: "research",
+  // ── (c) Fetch each result (concurrency cap 4) ────────────────────────
+  const webFetch = createWebFetch();
+  const maxParallel = 4;
+  const candidates: CandidateInput[] = [];
+
+  const concurrencyLimit = Math.min(maxParallel, maxResults);
+  for (let i = 0; i < searchResults.length; i += concurrencyLimit) {
+    const batch = searchResults.slice(i, i + concurrencyLimit);
+    const batchResults = await Promise.all(
+      batch.map(async (result) => {
+        let meta: PageMeta | null = null;
+        try {
+          meta = await webFetch(result.url);
+        } catch {
+          // Network errors → skip silently
+        }
+        return { result, meta };
+      }),
+    );
+
+    for (const { result, meta } of batchResults) {
+      if (!meta) continue; // paywalled, blocked, or error
+
+      // Derive publisher from hint or hostname
+      const publisher = meta.publisherHint || derivePublisherFromUrl(meta.finalUrl);
+
+      // Map og:type to SourceType
+      const type = ogTypeToSourceType(meta.ogType);
+
+      // Date: prefer article published time, fall back to search result date, then today
+      const rawDate = meta.publishedTime || result.publishedDate || "";
+      const date = rawDate.slice(0, 10) || new Date().toISOString().slice(0, 10);
+
+      candidates.push({
+        title: meta.title || result.title,
+        url: meta.finalUrl,
+        description: meta.description,
+        date,
+        type,
+        publisher,
+      });
+    }
+  }
+  const fetchedCount = candidates.length;
+  telemetry.toolCall({ tool: "webfetch", count: fetchedCount, stage: "research" });
+
+  // ── (d)–(e) Ingest candidates ─────────────────────────────────────────
+  const ingestResult = ingestCandidates(candidates, {
+    topic: topicData as { title: string; perspectives: Array<{ id: string }> },
+    registry,
+    cache: articles,
   });
 
-  // Persist raw response
-  const runDir = getRunDir(ctx.runId);
-  ensureDir(join(runDir, "research"));
-  writeFileSync(join(runDir, "research", "response.md"), response.text, "utf-8");
-
-  // Extract JSON
-  const jsonStr = extractJson(response.text);
-  let parsed: Record<string, unknown>;
-  try {
-    parsed = JSON.parse(jsonStr) as Record<string, unknown>;
-  } catch {
-    telemetry.emit({ event: "error", stage: "research", data: { message: "Failed to parse LLM response as JSON", recoverable: true } });
-    writeFileSync(join(runDir, "research", "response.md"), response.text + "\n\n---\nPARSE ERROR: Invalid JSON", "utf-8");
-    return;
-  }
-
-  const rawArticles = parsed.articles as Array<Record<string, unknown>> | undefined;
-  if (!rawArticles || !Array.isArray(rawArticles)) {
-    telemetry.emit({ event: "error", stage: "research", data: { message: "LLM response missing 'articles' array", recoverable: true } });
-    return;
-  }
-
-  // Build valid articles with accessPolicy and metadata
-  const validArticles: Array<Record<string, unknown>> = [];
-  let nextSourceId = articles.articles.length + 1;
-
-  for (const raw of rawArticles) {
-    // Resolve accessPolicy
-    const publisher = (raw.publisher as string) ?? "Unknown Publisher";
-    const pubEntry = publisherMap.get(publisher);
-    const policy = pubEntry
-      ? { ...(pubEntry.policy as Record<string, unknown>) }
-      : { access: "open", license: "unknown", reuse: "link_only", fullText: false, summary: true, link: true, pendingVerification: true };
-
-    // Handle unknown publisher - add to registry ref for the tool call
-    if (!pubEntry) {
-      telemetry.toolCall({ tool: "registry-append", target: publisher, stage: "research" });
-    }
-
-    const sourceId = `source-${String(nextSourceId).padStart(3, "0")}`;
-    nextSourceId++;
-
-    const article: Record<string, unknown> = {
-      id: sourceId,
-      publisher,
-      title: raw.title ?? "",
-      description: (raw.description as string) ?? "",
-      date: raw.date ?? new Date().toISOString().slice(0, 10),
-      type: raw.type ?? "REPORT",
-      url: raw.url ?? "",
-      accessPolicy: policy,
-      storyCluster: `cluster-${nextSourceId}`,
-      originalReporting: false,
-      stance: "neutral",
-      perspectives: ["technology"],
-    };
-
-    // Validate against Source schema
-    const result = Source.safeParse(article);
-    if (result.success) {
-      validArticles.push(article);
-    } else {
+  // ── Handle registry additions (new unknown publishers) ────────────────
+  if (ingestResult.registryAdditions.length > 0) {
+    const existingRegistry = loadRegistry();
+    const updatedPublishers = [...existingRegistry.publishers, ...ingestResult.registryAdditions];
+    try {
+      writeJson("config/publishers.json", { publishers: updatedPublishers }, agent.writeScope);
+      telemetry.toolCall({
+        tool: "registry-append",
+        count: ingestResult.registryAdditions.length,
+        stage: "research",
+      });
+    } catch (err: unknown) {
       telemetry.emit({
         event: "error",
         stage: "research",
-        data: { message: `Article validation failed: ${result.error.issues.map((i) => i.message).join("; ")}` },
+        data: { message: `Registry append failed: ${(err as Error).message}`, recoverable: true },
       });
     }
   }
 
-// Append articles via store (uses guards)
-    const agentDef2 = loadAgentByStage("research");
-    if (validArticles.length > 0) {
-      appendArticles("articles/articles_cache.json", validArticles as Array<{ id: string } & Record<string, unknown>>, agentDef2.writeScope);
-    telemetry.toolCall({ tool: "cache-append", count: validArticles.length, stage: "research" });
+  // ── Log invalid candidates ────────────────────────────────────────────
+  for (const skipped of ingestResult.invalidSkipped) {
+    telemetry.emit({
+      event: "error",
+      stage: "research",
+      data: { message: `Skipped invalid source: ${skipped.reason}`, recoverable: true },
+    });
   }
 
-  telemetry.stageEnd("research", { articlesAdded: validArticles.length });
+  // ── Append validated articles via store (append-only enforced) ────────
+  if (ingestResult.validArticles.length > 0) {
+    try {
+      appendArticles(
+        "articles/articles_cache.json",
+        ingestResult.validArticles as Array<{ id: string } & Record<string, unknown>>,
+        agent.writeScope,
+      );
+      telemetry.toolCall({ tool: "cache-append", count: ingestResult.validArticles.length, stage: "research" });
+    } catch (err: unknown) {
+      telemetry.emit({
+        event: "error",
+        stage: "research",
+        data: { message: `Cache append failed: ${(err as Error).message}`, recoverable: true },
+      });
+    }
+  }
+
+  // ── Persist run summary ───────────────────────────────────────────────
+  const runDir = getRunDir(ctx.runId);
+  ensureDir(join(runDir, "research"));
+
+  const summaryLines = [
+    `# Research Run Summary`,
+    `- **Query:** ${query}`,
+    `- **Date:** ${new Date().toISOString().slice(0, 10)}`,
+    `- **Search results fetched:** ${searchResults.length}`,
+    `- **Pages fetched:** ${fetchedCount}`,
+    `- **Candidates:** ${ingestResult.stats.total} (added: ${ingestResult.stats.added}, skipped: ${ingestResult.stats.skipped})`,
+    `- **New publishers (tier 3):** ${ingestResult.stats.newPublishers}`,
+    ``,
+    `## Sources`,
+    ``,
+    `| Id | Publisher | Title | Status | Policy |`,
+    `|---|-----------|-------|--------|--------|`,
+  ];
+
+  for (const art of ingestResult.validArticles) {
+    const pub = (art.publisher as string) ?? "?";
+    const tit = ((art.title as string) ?? "?").slice(0, 50);
+    const pol = (art.accessPolicy as Record<string, unknown>)?.pendingVerification
+      ? "pending-verify"
+      : "ok";
+    summaryLines.push(`| ${art.id} | ${pub} | ${tit} | ingested | ${pol} |`);
+  }
+
+  for (const skipped of ingestResult.invalidSkipped) {
+    summaryLines.push(`| — | — | ${skipped.reason.slice(0, 60)} | skipped | — |`);
+  }
+
+  summaryLines.push("");
+  writeFileSync(join(runDir, "research", "summary.md"), summaryLines.join("\n"), "utf-8");
+
+  telemetry.stageEnd("research", {
+    articlesAdded: ingestResult.stats.added,
+    articlesSkipped: ingestResult.stats.skipped,
+    newPublishers: ingestResult.stats.newPublishers,
+  });
 }
 
 async function stageAnalysis(ctx: RunContext, allowStale = false): Promise<void> {
@@ -1008,6 +1298,7 @@ async function main(): Promise<void> {
 export {
   RunContext, stageResearch, stageAnalysis, stageWriting, stageApply, stageValidate, stagePublish,
   cmdReplay, cmdRerun, cmdReport, cmdApprove, getByPath, setByPath,
+  CandidateInput, IngestContext, IngestResult, ingestCandidates, derivePublisherFromUrl, ogTypeToSourceType,
 };
 
 const isMain = import.meta.url === `file://${process.argv[1]?.replace(/\\/g, "/")}` || process.argv[1]?.endsWith("runner.ts");

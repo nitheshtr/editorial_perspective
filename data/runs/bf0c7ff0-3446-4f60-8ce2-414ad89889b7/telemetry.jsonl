@@ -1,0 +1,11 @@
+{"ts":"2026-08-28T06:53:03.448Z","run":"bf0c7ff0-3446-4f60-8ce2-414ad89889b7","level":"info","event":"run_start","data":{"stage":"research"}}
+{"ts":"2026-08-28T06:53:03.454Z","run":"bf0c7ff0-3446-4f60-8ce2-414ad89889b7","level":"info","event":"stage_start","stage":"research","data":{}}
+{"ts":"2026-08-28T06:53:04.653Z","run":"bf0c7ff0-3446-4f60-8ce2-414ad89889b7","level":"info","event":"tool_call","stage":"research","data":{"tool":"websearch","count":10}}
+{"ts":"2026-08-28T06:53:06.713Z","run":"bf0c7ff0-3446-4f60-8ce2-414ad89889b7","level":"info","event":"tool_call","stage":"research","data":{"tool":"webfetch","count":6}}
+{"ts":"2026-08-28T06:53:06.734Z","run":"bf0c7ff0-3446-4f60-8ce2-414ad89889b7","level":"info","event":"tool_call","stage":"research","data":{"tool":"registry-append","count":6}}
+{"ts":"2026-08-28T06:53:06.736Z","run":"bf0c7ff0-3446-4f60-8ce2-414ad89889b7","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: Inside Anthropic: Moving Beyond Bigger AI Models To Win The Enterprise AI Race: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T06:53:06.738Z","run":"bf0c7ff0-3446-4f60-8ce2-414ad89889b7","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: Amazon is proving you don't need the best model to win the AI race: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T06:53:06.739Z","run":"bf0c7ff0-3446-4f60-8ce2-414ad89889b7","level":"info","event":"error","stage":"research","data":{"message":"Skipped invalid source: The AI 'death zone' is here and most corporate AI strategies are standing in it | Fortune: Invalid date","recoverable":true}}
+{"ts":"2026-08-28T06:53:06.748Z","run":"bf0c7ff0-3446-4f60-8ce2-414ad89889b7","level":"info","event":"tool_call","stage":"research","data":{"tool":"cache-append","count":3}}
+{"ts":"2026-08-28T06:53:06.754Z","run":"bf0c7ff0-3446-4f60-8ce2-414ad89889b7","level":"info","event":"stage_end","stage":"research","data":{"articlesAdded":3,"articlesSkipped":3,"newPublishers":6}}
+{"ts":"2026-08-28T06:53:06.757Z","run":"bf0c7ff0-3446-4f60-8ce2-414ad89889b7","level":"info","event":"run_end","data":{"finishedAt":"2026-08-28T06:53:06.757Z"}}

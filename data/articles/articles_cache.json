@@ -359,6 +359,78 @@
       "perspectives": [
         "human-impact"
       ]
+    },
+    {
+      "id": "source-016",
+      "publisher": "CNBC",
+      "title": "The AI race is shifting from bigger models to cheaper, smarter systems",
+      "description": "Companies are starting to choose AI models by task, cost and control, not just leaderboard rank.",
+      "date": "2026-07-10",
+      "type": "REPORT",
+      "url": "https://www.cnbc.com/2026/07/10/the-ai-race-is-shifting-from-bigger-models-to-cheaper-smarter-systems.html",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-16",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-020",
+      "publisher": "Investor's Business Daily",
+      "title": "AI Stocks: Will Self-Improving Models Decide Who Wins Superintelligence Race?",
+      "description": "Self-improving models are reshaping the AI race as OpenAI, Anthropic, Google and others pursue superintelligence.",
+      "date": "2026-07-08",
+      "type": "REPORT",
+      "url": "https://www.investors.com/news/technology/ai-stocks-google-self-improving-models-superintelligence-race/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-20",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-021",
+      "publisher": "TIME",
+      "title": "Inside the Race to Make AI Build Itself",
+      "description": "The people building AI fear progress will soon accelerate violently. Should we believe them?",
+      "date": "2026-08-07",
+      "type": "REPORT",
+      "url": "https://time.com/article/2026/08/07/ai-recursive-self-improvement-anthropic-openai/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-21",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
     }
   ],
   "migratedFrom": "editorial_perspective_evolution_v3.html"
