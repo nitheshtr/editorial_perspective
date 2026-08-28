@@ -578,6 +578,34 @@
         "pendingVerification": true
       },
       "notes": "Curated 2026-08-28: 'Why American data centers can't plug in' — infrastructure essays. License unverified."
+    },
+    {
+      "name": "The New York Times",
+      "tier": 2,
+      "policy": {
+        "access": "metered",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28 (operator): mainstream AI-race opinion/coverage. Paywalled — research fetch skips non-open pages automatically; metadata + link only. License unverified."
+    },
+    {
+      "name": "The Wall Street Journal",
+      "tier": 2,
+      "policy": {
+        "access": "metered",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28 (operator): mainstream AI-race coverage. Legacy mock entry \"WALL STREET JOURNAL · TECH\" exists from v3 migration; this clean entry is for live ingestion. License unverified."
     }
   ]
 }
