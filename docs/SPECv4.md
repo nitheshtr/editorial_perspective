@@ -3,8 +3,9 @@
 ## Version 0.4 · Draft · August 27, 2026
 
 > Supersedes v0.1 (SPEC.md), v0.2 (ChatGPT revision), and v0.3 (merge draft).
-> v0.4 unifies the editorial methodology of v0.2 with the OpenCode agent/skill
-> definitions of v0.1, and adds an explicit **orchestration model**: how the
+> v0.4 unifies the editorial methodology of v0.2 with the agent/skill
+> definitions (originating in v0.1, now tool-neutral — see IMPLEMENTATION.md
+> ADR-002), and adds an explicit **orchestration model**: how the
 > agents run as a coordinated pipeline with parallel lanes, handoff contracts,
 > and human approval gates.
 
@@ -227,9 +228,9 @@ editorial_perspective/
 ├── templates/
 │   └── topic.json                       # Schema/template for new topics
 ├── tools/
-│   ├── generate-site.mjs                # data + template → publishable HTML
-│   ├── migrate-from-html.mjs            # Extract current HTML data → JSON
-│   └── validate-topic.mjs               # Pre-publish schema validation
+│   ├── generate-site.ts                # data + template → publishable HTML
+│   ├── migrate-from-html.ts            # Extract current HTML data → JSON
+│   └── validate-topic.ts               # Pre-publish schema validation
 └── package.json
 ```
 
@@ -241,7 +242,7 @@ editorial_perspective/
 | Template | Monolithic HTML | Separated template + data |
 | Topic scope | One topic baked in | Multi-topic, manifest-driven |
 | Article sourcing | Mock data | Research Agent → cached JSON |
-| Build process | Manual file edit | `generate-site.mjs` |
+| Build process | Manual file edit | `generate-site.ts` |
 | Styling | Inline `<style>` | Modular CSS + design tokens |
 | JavaScript | One script block | Modules by responsibility |
 
@@ -628,7 +629,7 @@ rather than isolated tools.
         │ Content Manager│  (apply-approved → validate → save)
         └───────┬────────┘
                 ▼
-          generate-site.mjs → Publication Layer
+          generate-site.ts → Publication Layer
 ```
 
 ### 7.2 Parallelization Rules
@@ -701,7 +702,7 @@ Reusable workflows for the recurring editorial tasks.
 
 6. Validate & review
    - Run data-validation skill
-   - Run writing-assistant audit
+   - Run writing-assistant in audit mode
    - Verify complete source attribution
 
 7. Export
@@ -724,7 +725,7 @@ pipeline:
                bodies, history arrays, sparkline points
 4. Approve   — human reviews the full proposal set; approves/edits/rejects
 5. Apply     — content-manager: backup → merge approved → validate → save
-6. Publish   — generate-site.mjs; visual inspection of output
+6. Publish   — generate-site.ts; visual inspection of output
 ```
 
 **Output:** updated topic JSON with appended state, published site.
@@ -807,7 +808,7 @@ Accessibility targets:
 | Phase | Goal | Deliverable |
 |-------|------|-------------|
 | **0 · Methodology** | Lock the editorial model | Definitions for perspective, argument, counterargument, evidence, independence, weight, confidence (Section 2 + 5 of this spec) |
-| **1 · Foundation** | Separate data from presentation | JSON topic store, modular frontend, `generate-site.mjs`, migration of ai-superrace — pixel-identical output |
+| **1 · Foundation** | Separate data from presentation | JSON topic store, modular frontend, `generate-site.ts`, migration of ai-superrace — pixel-identical output |
 | **2 · Research** | Replace mock sources | Research Agent live; real open-access ingestion; article cache + dedup |
 | **3 · Analysis** | Make the map intelligent | Clustering, argument detection, semantic metrics, relations, confidence |
 | **4 · Editorial QA** | Build trust | Human approval workflow; pre-publish validation gate wired into pipeline |
@@ -892,9 +893,9 @@ Recommended sequence (Phase 0 → 1):
    `data/topics/ai-superrace.json` (v0.4 schema, mock metrics marked as
    placeholder).
 3. **Split the frontend** — template + CSS + JS modules per Section 4.
-4. **Build the generator** — `tools/generate-site.mjs`; verify pixel-identical
+4. **Build the generator** — `tools/generate-site.ts`; verify pixel-identical
    output against V3.
-5. **Wire validation** — `tools/validate-topic.mjs` implementing skill 8.3 as
+5. **Wire validation** — `tools/validate-topic.ts` implementing skill 8.3 as
    the pre-publish gate.
 6. **Then Phase 2** — first real Research Agent run on ai-superrace.
 
@@ -930,7 +931,7 @@ Recommended sequence (Phase 0 → 1):
 | **Perspective** | An editorial lens or argument about the topic — not merely an article cluster. |
 | **Story cluster** | A group of articles covering the same underlying story; counts as one independent signal. |
 | **Independent signal** | A deduplicated, non-syndicated unit of editorial evidence. |
-| **Editorial weight** | Composite importance score from volume, quality, independence, recency. |
+| **Editorial weight** | Composite importance score from volume, quality, independence, recency, momentum, and confidence. |
 | **Momentum** | Rate of attention change for a perspective between periods. |
 | **Confidence** | Evidence strength behind an analytical classification. |
 | **Central question** | The evolving framing question of the topic, one per period. |

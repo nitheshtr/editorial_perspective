@@ -42,13 +42,14 @@ execute via `npm`/CLI with API keys from environment variables.
 Where this document and SPECv4 disagree, **this document wins** (it is newer
 and more precise). Known deltas:
 
-| SPECv4 / earlier said | IMPLEMENTATION.md v0.2 says |
+| SPECv4 / earlier said | IMPLEMENTATION.md v0.3 says |
 |------------------------|-----------------------------|
-| Tools listed as `.mjs` files (§4) | Tools are **TypeScript** (`.ts`) via `tsx` (ADR-001) |
+| SPECv4 originally listed tools as `.mjs` files (§4) | Tools are **TypeScript** (`.ts`) via `tsx` (ADR-001); SPECv4 now aligned |
 | Source has an `access` field (§5.4) | Source carries a full **`accessPolicy`** object (§5; SPECv4 patched) |
 | §7.3 handoff criterion "access verified" | "accessPolicy resolved from the publisher registry" |
 | v0.1 of this doc placed agents/skills under `.opencode/` | **Removed.** Agents live in `agents/`, skills in `skills/`, executed by the repo-owned `pipeline/` runtime (ADR-002) — no agent host dependency |
 | Approval gate described procedurally (§7.1) | Approval is a **structurally enforced artifact** — the apply stage refuses to run without a committed approval record (ADR-005, §13) |
+| ADR-005 defined git-only run persistence | ADR-006 adds storage backends: S3 overflow for bulk blobs, DB as a disposable analytics index — git remains the source of truth |
 
 Everything else in SPECv4 stands, including the data contracts (§5), the
 orchestration lanes (§7), and the roadmap phases (§9).
@@ -549,7 +550,7 @@ export const Topic = z
 export type TopicT = z.infer<typeof Topic>;
 ```
 
-New in v0.2 — telemetry and approval schemas:
+Added in v0.2 — telemetry and approval schemas:
 
 ```ts
 // schema/src/telemetry.ts
@@ -627,7 +628,7 @@ Hard rules (zod refines in §4):
 - `link: false` sources are never ingested
 - Generic `CC` must be upgraded to a specific license before any reuse beyond
   `link_only` — only via human verification
-- **`fullText` stays `false` everywhere at v0.2** — excerpt handling with
+- **`fullText` stays `false` everywhere as of v0.3** — excerpt handling with
   attribution formatting is future work; the schema reserves the capability
 
 ### 5.2 Publisher Registry — `data/config/publishers.json`
@@ -693,7 +694,7 @@ verification. Shape:
                       → flagged in run summary for human license review
 4. Extract metadata within policy limits:
    - always: title, publisher, date, type, canonical URL, ≤40-word description
-   - full text: never at v0.2 (policy.fullText is false everywhere)
+   - full text: never as of v0.3 (policy.fullText is false everywhere)
 ```
 
 **Verification queue:** `pendingVerification: true` entries are listed by
@@ -1149,7 +1150,7 @@ Check catalog (summary):
   source IDs resolve in the article store; storyCluster on every source
 - Licensing: accessPolicy on every source, consistent with the registry;
   reuse 'allowed_with_attribution' requires license ≠ unknown; no
-  fullText: true at v0.2; every source linkable; pendingVerification listed
+  fullText: true as of v0.3; every source linkable; pendingVerification listed
 - Relations: reference real perspective ids; strength ∈ [0,1]
 
 Exit codes: 0 valid · 1 invalid · 2 error. Never publish on exit 1.
@@ -1253,7 +1254,7 @@ Usage:
 Behavior:
   - Extracts states[], perspectiveBodies{}, details{}, relations[] from the
     V3 HTML <script> block
-  - Transforms to the v0.2 topic schema; numerics preserved exactly
+  - Transforms to the current topic schema (SPECv4 §5.3); numerics preserved exactly
   - Synthesizes placeholder SemanticMetrics from source counts
     (editorialWeight = sources/maxSources; momentum from deltas) with
     confidence capped at 0.5 + "migrated" marker — forcing review before use
@@ -1476,7 +1477,7 @@ surface is writes, and writes are path-guarded in code.
   agents never upgrade policies — only humans, via the registry
 - **Cost budget:** per-run cap with halt action (§10.4)
 - **Copyright discipline:** metadata + ≤40-word own-words descriptions only;
-  `fullText` disabled everywhere at v0.2; publishers always attributed+linked
+  `fullText` disabled everywhere as of v0.3; publishers always attributed+linked
 
 ---
 
@@ -1521,4 +1522,4 @@ services. The trigger conditions above are the anti-speculation gate.
 
 ---
 
-*End of Implementation Specification v0.2*
+*End of Implementation Specification v0.3*
