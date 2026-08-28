@@ -1305,9 +1305,31 @@ run_end ◄── (every event also appended to run telemetry.jsonl + summary)
 ### 10.4 Budget Guard
 
 `budget.maxCostUsdPerRun` is enforced mid-run: the runner sums `llm_call`
-costs and halts (default) with a `budget` event when exceeded. Partial
+costs and halts (default) with a `budget` event when exceeded. A `warn`-level
+budget event fires at 20% of the limit as an early cost-drift signal. Partial
 artifacts remain in the run directory; the run is resumable via
 `rerun --from <stage>`.
+
+**Sizing (2026-08-28 scalability review):** observed cost is ~$0.0025 per
+full run at GLM flash-tier pricing; the $0.05 default provides ~16× headroom.
+Raise it only if a more expensive model is assigned to a stage.
+
+### 10.5 Alerting (Minimal — Anti-Speculative)
+
+As of v0.3 there is no alerting infrastructure beyond the halt guard: a
+failed run is visible only in telemetry or CI output. The minimal safeguard:
+
+- **Nightly CI healthcheck** — `.github/workflows/healthcheck.yml` (scheduled
+  + `workflow_dispatch`) runs schema validation and the research stage as a
+  smoke test; GitHub's built-in failure notification is the alert path.
+  Skips gracefully when secrets are absent.
+- **CI failure notification** — the `publish` workflow notifies on build
+  failure (GitHub default; verify enabled in account settings).
+- **Budget warning** — `warn`-level budget event at 20% of the per-run
+  limit (§10.4).
+
+Dashboards and on-call paging remain deferred (§14) until cross-run
+analytics exist.
 
 ---
 
@@ -1491,7 +1513,8 @@ conditions for each scale-up. Do not build ahead of these triggers.
 |---------|--------|
 | Multiple topics needing updates | Already parallel: per-topic runs + per-topic locks; run lanes concurrently |
 | Research fetch latency | Raise `concurrency.maxParallelFetches`; batch by publisher |
-| >10,000 articles or >50 topics | Swap `tools/store.ts` to SQLite/Postgres — the repository layer is the only code that touches storage |
+| >50,000 articles, or >50 topics, or cache append-latency >2s | Swap `tools/store.ts` to SQLite/Postgres — the repository layer is the only code that touches storage. (Single-file JSON is viable to ~50k articles / ~37 MB; the real constraint is the read-to-append ratio, not parse time.) |
+| No alerting on pipeline failures | Nightly healthcheck workflow + CI failure notifications (§10.5) — telemetry without alerting is silent failure |
 | Run duration >10 min, or scheduled fan-out | Stages are stateless CLIs — move them to a queue/worker unchanged; artifacts and approval files are the contract |
 | Telemetry dashboards | Add an OTLP/HTTP sink behind the telemetry emitter interface (JSONL stays the default) |
 | Provider rate limits / outages | `failover` model lists per stage; retries with backoff already configured |

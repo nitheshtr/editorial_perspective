@@ -10,7 +10,7 @@
   "failover": {
     "models.analysis": ["z-ai/glm-5.3-flash"]
   },
-  "budget": { "maxCostUsdPerRun": 5.0, "actionOnExceed": "halt" },
+  "budget": { "maxCostUsdPerRun": 0.05, "actionOnExceed": "halt" },
   "search": { "provider": "tavily", "maxResults": 10 },
   "concurrency": { "maxParallelFetches": 4 },
   "telemetry": { "sink": "jsonl", "dir": "data/telemetry" },

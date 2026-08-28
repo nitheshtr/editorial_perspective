@@ -688,9 +688,13 @@ ${cacheExcerpt}`;
   // Budget check
   const budget = ctx.config.budget as Record<string, unknown> | undefined;
   const maxCost = (budget?.maxCostUsdPerRun as number) ?? Infinity;
-  if (telemetry.costSoFar() >= maxCost) {
-    telemetry.emit({ event: "budget", data: { spentUsd: telemetry.costSoFar(), limitUsd: maxCost, action: "halt" } });
-    throw new GuardError(`Budget exceeded: $${telemetry.costSoFar()} >= $${maxCost}`);
+  const spent = telemetry.costSoFar();
+  if (spent >= maxCost * 0.2 && spent < maxCost) {
+    telemetry.emit({ level: "warn", event: "budget", data: { spentUsd: spent, limitUsd: maxCost, action: "warn" } });
+  }
+  if (spent >= maxCost) {
+    telemetry.emit({ event: "budget", data: { spentUsd: spent, limitUsd: maxCost, action: "halt" } });
+    throw new GuardError(`Budget exceeded: ${spent} >= ${maxCost}`);
   }
 
   let response: LlmCompleteResponse;
@@ -801,9 +805,13 @@ ${JSON.stringify({ proposals })}`;
 
   const budget = ctx.config.budget as Record<string, unknown> | undefined;
   const maxCost = (budget?.maxCostUsdPerRun as number) ?? Infinity;
-  if (telemetry.costSoFar() >= maxCost) {
-    telemetry.emit({ event: "budget", data: { spentUsd: telemetry.costSoFar(), limitUsd: maxCost, action: "halt" } });
-    throw new GuardError(`Budget exceeded: $${telemetry.costSoFar()} >= $${maxCost}`);
+  const spent = telemetry.costSoFar();
+  if (spent >= maxCost * 0.2 && spent < maxCost) {
+    telemetry.emit({ level: "warn", event: "budget", data: { spentUsd: spent, limitUsd: maxCost, action: "warn" } });
+  }
+  if (spent >= maxCost) {
+    telemetry.emit({ event: "budget", data: { spentUsd: spent, limitUsd: maxCost, action: "halt" } });
+    throw new GuardError(`Budget exceeded: ${spent} >= ${maxCost}`);
   }
 
   let response: LlmCompleteResponse;

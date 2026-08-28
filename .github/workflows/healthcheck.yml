@@ -1,0 +1,35 @@
+name: healthcheck
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # nightly 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: healthcheck
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - name: pipeline smoke test
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          if [ -z "$TAVILY_API_KEY" ]; then
+            echo "::warning::TAVILY_API_KEY secret not set — healthcheck skipped (add repo secret to enable)"
+            exit 0
+          fi
+          bun tools/validate-topic.ts --all
+          bun pipeline/src/runner.ts stage=research topic=ai-superrace
+      - run: bun test tests/golden

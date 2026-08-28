@@ -80,6 +80,27 @@ failed LLM responses dumped to the run dir for diagnosis.
 - Registry now 42 publishers. Geopolitics (U.S.–China AI race) identified as
   a candidate 6th perspective from live coverage patterns.
 
+## 2026-08-28 — Scalability review applied (spec §10/§14 amendments)
+
+Scoped review (oracle + system-design frameworks: back-of-envelope,
+scaling-evolution, caching, data-storage, observability) against real
+telemetry from the first production runs. Verdict: §14 + ADR-006 hold up;
+three amendments applied:
+
+- **Budget tightened $5.00 → $0.05/run** (observed cost ~$0.0025/run; $5
+  was a 2,000× no-op guardrail). New `warn`-level budget event at 20% of
+  limit.
+- **Article-cache SQLite trigger raised 10k → 50k articles** (7.4 MB at
+  10k parses trivially; the real constraint is read-to-append ratio) +
+  explicit append-latency >2s condition.
+- **Alerting gap closed (§10.5):** nightly CI healthcheck workflow
+  (validate + research smoke test; skips gracefully without repo secrets),
+  CI failure notifications, budget warning event.
+
+Confirmed unchanged: S3 trigger fires correctly at ~200 runs (~7 MB, well
+before the 50 MB ceiling), JSONL summary needs no rotation until >100k runs,
+run-duration threshold gives 3× headroom.
+
 ## 2026-08-28 — First real data cycle published
 
 - **Real research integration live:** Tavily search → page fetch → metadata
