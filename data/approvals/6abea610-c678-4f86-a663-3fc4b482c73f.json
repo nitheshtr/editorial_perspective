@@ -1,0 +1,150 @@
+{
+  "run": "6abea610-c678-4f86-a663-3fc4b482c73f",
+  "decidedBy": "nitheshtr",
+  "decidedAt": "2026-08-28T22:05:37.159Z",
+  "decisions": [
+    {
+      "proposalId": "P-001",
+      "decision": "edit",
+      "editedPayload": {
+        "sourceVolume": 4,
+        "independentSignals": 4,
+        "momentum": 0.16,
+        "emergence": 0.2,
+        "editorialWeight": 0.4,
+        "confidence": 0.7,
+        "status": "Cooling"
+      },
+      "note": "Folded proposed status \"Cooling\" into complete metrics object (node-level status path invalid per schema)"
+    },
+    {
+      "proposalId": "P-003",
+      "decision": "edit",
+      "editedPayload": {
+        "sourceVolume": 7,
+        "independentSignals": 7,
+        "momentum": 0.28,
+        "emergence": 0.6,
+        "editorialWeight": 0.9,
+        "confidence": 0.9,
+        "status": "Dominant"
+      },
+      "note": "Folded proposed status \"Dominant\" into complete metrics object (node-level status path invalid per schema)"
+    },
+    {
+      "proposalId": "P-005",
+      "decision": "edit",
+      "editedPayload": {
+        "sourceVolume": 5,
+        "independentSignals": 5,
+        "momentum": 0.2,
+        "emergence": 0.55,
+        "editorialWeight": 0.75,
+        "confidence": 0.85,
+        "status": "Accelerating"
+      },
+      "note": "Folded proposed status \"Accelerating\" into complete metrics object (node-level status path invalid per schema)"
+    },
+    {
+      "proposalId": "P-007",
+      "decision": "edit",
+      "editedPayload": {
+        "sourceVolume": 3,
+        "independentSignals": 3,
+        "momentum": 0.12,
+        "emergence": 0.5,
+        "editorialWeight": 0.7,
+        "confidence": 0.75,
+        "status": "Accelerating"
+      },
+      "note": "Folded proposed status \"Accelerating\" into complete metrics object (node-level status path invalid per schema)"
+    },
+    {
+      "proposalId": "P-009",
+      "decision": "edit",
+      "editedPayload": {
+        "sourceVolume": 6,
+        "independentSignals": 6,
+        "momentum": 0.24,
+        "emergence": 0.7,
+        "editorialWeight": 0.65,
+        "confidence": 0.8,
+        "status": "Growing"
+      },
+      "note": "Folded proposed status \"Growing\" into complete metrics object (node-level status path invalid per schema)"
+    },
+    {
+      "proposalId": "P-002",
+      "decision": "reject",
+      "note": "Status folded into paired metrics edit (node-level path invalid per schema)"
+    },
+    {
+      "proposalId": "P-004",
+      "decision": "reject",
+      "note": "Status folded into paired metrics edit (node-level path invalid per schema)"
+    },
+    {
+      "proposalId": "P-006",
+      "decision": "reject",
+      "note": "Status folded into paired metrics edit (node-level path invalid per schema)"
+    },
+    {
+      "proposalId": "P-008",
+      "decision": "reject",
+      "note": "Status folded into paired metrics edit (node-level path invalid per schema)"
+    },
+    {
+      "proposalId": "P-010",
+      "decision": "reject",
+      "note": "Status folded into paired metrics edit (node-level path invalid per schema)"
+    },
+    {
+      "proposalId": "P-011",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-012",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-101",
+      "decision": "reject",
+      "note": "Path uses perspective id (perspectives.<id>.summary) which setByPath cannot resolve on an array — value would be lost on serialize; writing prompt to be contracted for numeric paths"
+    },
+    {
+      "proposalId": "P-102",
+      "decision": "reject",
+      "note": "Path uses perspective id (perspectives.<id>.summary) which setByPath cannot resolve on an array — value would be lost on serialize; writing prompt to be contracted for numeric paths"
+    },
+    {
+      "proposalId": "P-103",
+      "decision": "reject",
+      "note": "Path uses perspective id (perspectives.<id>.summary) which setByPath cannot resolve on an array — value would be lost on serialize; writing prompt to be contracted for numeric paths"
+    },
+    {
+      "proposalId": "P-104",
+      "decision": "reject",
+      "note": "Path uses perspective id (perspectives.<id>.summary) which setByPath cannot resolve on an array — value would be lost on serialize; writing prompt to be contracted for numeric paths"
+    },
+    {
+      "proposalId": "P-105",
+      "decision": "reject",
+      "note": "Path uses perspective id (perspectives.<id>.summary) which setByPath cannot resolve on an array — value would be lost on serialize; writing prompt to be contracted for numeric paths"
+    },
+    {
+      "proposalId": "P-106",
+      "decision": "reject",
+      "note": "Conflicts with approved P-012 (same path)"
+    },
+    {
+      "proposalId": "P-107",
+      "decision": "reject",
+      "note": "Conflicts with approved P-011 (same path)"
+    },
+    {
+      "proposalId": "P-013",
+      "decision": "reject",
+      "note": "String report at path states.2 would destroy the state object"
+    }
+  ]
+}

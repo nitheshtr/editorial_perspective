@@ -1,0 +1,199 @@
+{
+  "proposals": [
+    {
+      "id": "P-001",
+      "kind": "metrics",
+      "path": "states.2.nodes.Technology.metrics",
+      "value": {
+        "sourceVolume": 4,
+        "independentSignals": 4,
+        "momentum": 0.16,
+        "emergence": 0.2,
+        "editorialWeight": 0.4,
+        "confidence": 0.7
+      },
+      "confidence": 0.7,
+      "evidence": "4 articles in current period across distinct clusters: cluster-1 (source-001), cluster-21 (source-021), cluster-36 (source-036), cluster-39 (source-039). Capability-as-table-stakes framing persists but no longer leads."
+    },
+    {
+      "id": "P-002",
+      "kind": "status",
+      "path": "states.2.nodes.Technology.status",
+      "value": "Cooling",
+      "confidence": 0.75,
+      "evidence": "Down from 18 sources (state[1]) to 4 current-period sources; clusters 1, 21, 36, 39 treat capability as background condition. Confidence 0.75 due to cluster-21 (self-improving models) keeping a capability sub-thread alive."
+    },
+    {
+      "id": "P-003",
+      "kind": "metrics",
+      "path": "states.2.nodes.Platform.metrics",
+      "value": {
+        "sourceVolume": 7,
+        "independentSignals": 7,
+        "momentum": 0.28,
+        "emergence": 0.6,
+        "editorialWeight": 0.9,
+        "confidence": 0.9
+      },
+      "confidence": 0.9,
+      "evidence": "7 articles in 7 distinct clusters: cluster-2 through cluster-6 (sources 002-006), plus cluster-37 (source-037) and cluster-40 (source-040) on platform competition and app-layer conflicts. Largest independent-signal count in corpus."
+    },
+    {
+      "id": "P-004",
+      "kind": "status",
+      "path": "states.2.nodes.Platform.status",
+      "value": "Dominant",
+      "confidence": 0.9,
+      "evidence": "Clusters 2-6 form a dense, coherent agent/interface/defaults bloc; clusters 37 and 40 extend it into governance-of-platforms territory. Highest sourceVolume and cluster count of any perspective."
+    },
+    {
+      "id": "P-005",
+      "kind": "metrics",
+      "path": "states.2.nodes.Infrastructure.metrics",
+      "value": {
+        "sourceVolume": 5,
+        "independentSignals": 5,
+        "momentum": 0.2,
+        "emergence": 0.55,
+        "editorialWeight": 0.75,
+        "confidence": 0.85
+      },
+      "confidence": 0.85,
+      "evidence": "5 articles in 5 clusters: cluster-7 (power/grid), cluster-8 (chips), cluster-9 (data centers), cluster-42 (local data-center prosperity), cluster-47 (edge devices). Physical-constraint framing now spans energy, silicon, siting and edge."
+    },
+    {
+      "id": "P-006",
+      "kind": "status",
+      "path": "states.2.nodes.Infrastructure.status",
+      "value": "Accelerating",
+      "confidence": 0.8,
+      "evidence": "Cluster set broadened from pure buildout (7-9) to local economic stakes (cluster-42) and device-edge hardware (cluster-47), indicating deepening rather than cooling attention."
+    },
+    {
+      "id": "P-007",
+      "kind": "metrics",
+      "path": "states.2.nodes.Economics.metrics",
+      "value": {
+        "sourceVolume": 3,
+        "independentSignals": 3,
+        "momentum": 0.12,
+        "emergence": 0.5,
+        "editorialWeight": 0.7,
+        "confidence": 0.75
+      },
+      "confidence": 0.75,
+      "evidence": "3 articles in 3 clusters: cluster-10 (productivity paradox), cluster-11 (surplus capture), cluster-12 (inference cost collapse). Low volume but high analytic density; flag: confidence 0.75, small-sample status inference."
+    },
+    {
+      "id": "P-008",
+      "kind": "status",
+      "path": "states.2.nodes.Economics.status",
+      "value": "Accelerating",
+      "confidence": 0.6,
+      "evidence": "All three clusters (10-12) converge on the surplus-capture question, matching the central question's economics clause. Confidence exactly 0.6 — flagged for human attention due to thin source volume (3)."
+    },
+    {
+      "id": "P-009",
+      "kind": "metrics",
+      "path": "states.2.nodes.Human Impact.metrics",
+      "value": {
+        "sourceVolume": 6,
+        "independentSignals": 6,
+        "momentum": 0.24,
+        "emergence": 0.7,
+        "editorialWeight": 0.65,
+        "confidence": 0.8
+      },
+      "confidence": 0.8,
+      "evidence": "6 articles in 6 clusters: cluster-13 (future of work), cluster-14 (education), cluster-15 (creative credit), cluster-31 (safety diplomacy), cluster-41 (global AI divide), cluster-43 (national AI plans / real-world impact)."
+    },
+    {
+      "id": "P-010",
+      "kind": "status",
+      "path": "states.2.nodes.Human Impact.status",
+      "value": "Growing",
+      "confidence": 0.8,
+      "evidence": "Up from 6 faint sources at state[1] to 6 strong current-period sources across 6 distinct clusters, now including governance and global-equity angles (clusters 41, 43), not just labor/education."
+    },
+    {
+      "id": "P-011",
+      "kind": "synthesis",
+      "path": "states.2.synthesis",
+      "value": "Platform ownership (clusters 2-6, 37, 40) and infrastructure access (clusters 7-9, 42, 47) now define the race's competitive axes, while economics (clusters 10-12) asks where surplus lands and a broadening human-impact lens (clusters 13-15, 31, 41, 43) supplies the evaluative scoreboard; capability (clusters 1, 21, 36, 39) persists only as table stakes.",
+      "confidence": 0.85,
+      "evidence": "Synthesis draws on all five perspectives with distinct cluster citations; consistent with state[2] trajectory from state[1]."
+    },
+    {
+      "id": "P-012",
+      "kind": "question",
+      "path": "states.2.question",
+      "value": "Who owns AI's choke points—and who answers for its consequences?",
+      "confidence": 0.7,
+      "evidence": "12 words, action-oriented; reflects Platform dominance (clusters 2-6), Infrastructure constraints (clusters 7-9), and rising Human Impact accountability lens (clusters 13-15, 41)."
+    },
+    {
+      "id": "P-013",
+      "kind": "narrative",
+      "path": "states.2",
+      "value": "Structural change report: (1) Platform consolidates Dominance with 7 independent signals — up from 5 at state[2]'s prior snapshot; (2) Human Impact crosses from Emerging to Growing with 6 distinct clusters, adding governance/equity dimensions (clusters 41, 43) beyond labor/education; (3) Technology continues Cooling (24→18→4 sources) but retains a speculative capability thread (cluster-21 self-improving models); (4) Economics status set at Accelerating with confidence 0.6 — flagged for human review due to only 3 supporting articles; (5) Infrastructure deepens thematically (energy→siting→edge) despite modest volume. Suggested next period: consider whether cluster-47 (edge hardware) warrants a distinct sub-perspective under Infrastructure.",
+      "confidence": 0.8,
+      "evidence": "Cross-cluster comparison against states.0-2; all counts from current-period cache (25 articles dated on/after 2026-07-29 of 33 cached)."
+    },
+    {
+      "id": "P-101",
+      "kind": "narrative",
+      "path": "perspectives.technology.summary",
+      "value": "Capability has receded from headline to background condition. Coverage treats model performance as table stakes: parity is the expectation, and benchmarks no longer decide outcomes. The open question is which capabilities—reasoning, reliability, autonomy—translate into durable advantage once frontier gains become common. A speculative thread on self-improving models keeps the perspective alive, but it no longer frames the race.",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    },
+    {
+      "id": "P-102",
+      "kind": "narrative",
+      "path": "perspectives.platform.summary",
+      "value": "The platform perspective has become the race's central thesis. Coverage concentrates on distribution, defaults and ecosystems: agent interfaces, API moats and app-store analogies dominate. The argument is that whoever owns the default entry point to AI—where users and developers actually land—captures value that raw capability alone cannot secure, making platform governance itself a competitive battleground.",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    },
+    {
+      "id": "P-103",
+      "kind": "narrative",
+      "path": "perspectives.infrastructure.summary",
+      "value": "Infrastructure has shifted from background context to binding constraint. Coverage now spans energy, silicon, siting and edge devices: grid capacity, semiconductor supply and data-center buildouts determine what deployment is feasible, and at what pace. The argument is that compute access, not model access, separates serious competitors from aspirants—and that physical constraints favor incumbents with capital, land and power contracts.",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    },
+    {
+      "id": "P-104",
+      "kind": "narrative",
+      "path": "perspectives.economics.summary",
+      "value": "The economics perspective converges on one unresolved question: as inference costs collapse, where does durable value accrue? Coverage weighs a productivity paradox, competing theories of surplus capture, and cost-driven model selection. The through-line is that cheap intelligence may compress margins everywhere except at the choke points—distribution, compute and trust—where scarcity persists. Source volume remains thin, so conclusions warrant caution.",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    },
+    {
+      "id": "P-105",
+      "kind": "narrative",
+      "path": "perspectives.human-impact.summary",
+      "value": "The human-impact perspective has moved from near-invisibility to a recurring editorial lens. Coverage spans the future of work, education, creative attribution, safety diplomacy and the global AI divide, asking who benefits from scaled deployment and who is displaced. Still newest by volume, it increasingly supplies the evaluative standard against which the rest of the race is judged.",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    },
+    {
+      "id": "P-106",
+      "kind": "narrative",
+      "path": "states.2.question",
+      "value": "Who owns AI's choke points—and who answers for its consequences?",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    },
+    {
+      "id": "P-107",
+      "kind": "narrative",
+      "path": "states.2.synthesis",
+      "value": "Model leadership is now table stakes; the live contest lies elsewhere. Platform coverage (clusters 2-6, 37, 40) asks who owns agents and defaults. Infrastructure coverage (clusters 7-9, 42, 47) asks who can secure the chips and power to deploy at scale. Economics (clusters 10-12) asks who captures the surplus as inference costs collapse. A broadening human-impact lens (clusters 13-15, 31, 41, 43) asks who benefits and who is displaced—making public value the race's new scoreboard.",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    }
+  ]
+}

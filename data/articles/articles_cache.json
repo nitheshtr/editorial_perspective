@@ -695,6 +695,102 @@
       "perspectives": [
         "technology"
       ]
+    },
+    {
+      "id": "source-044",
+      "publisher": "Gradientflow",
+      "title": "The smartest AI teams are moving past chatbots",
+      "description": "Put data, machine learning, and AI to work.",
+      "date": "2026-06-02",
+      "type": "REPORT",
+      "url": "https://gradientflow.substack.com/p/llms-wont-run-your-enterprise-heres",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-44",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-045",
+      "publisher": "Nebius",
+      "title": "Building transaction foundation models on Nebius AI Cloud",
+      "description": "Today, we’re exploring how transaction foundation models move from developer examples to production systems. Using NVIDIA’s TFM blueprint and Revolut’s PRAGMA model, we show how Nebius AI Cloud supports the full lifecycle — from GPU-accelerated data preparation and multi-node training to managed inference on Token Factory.",
+      "date": "2026-06-02",
+      "type": "REPORT",
+      "url": "https://nebius.com/blog/posts/building-transaction-foundation-models-on-nebius-ai-cloud",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-45",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-046",
+      "publisher": "Ibm",
+      "title": "The trends that will shape AI and tech in 2026 | IBM",
+      "description": "Reporter Anabelle Nicoud spoke to several experts across AI, security, quantum and beyond to better understand where tech will take us in 2026.",
+      "date": "2026-01-01",
+      "type": "REPORT",
+      "url": "https://www.ibm.com/think/news/ai-tech-trends-predictions-2026",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-46",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-047",
+      "publisher": "Neuberger",
+      "title": "At AI’s Edge: Precision Hardware Is Moving From Data Centers To Devices | Neuberger",
+      "description": "As the AI rollout shifts from training large language models in the cloud to orchestrating armies of agents on local devices, hardware makers are racing to upgrade their components to meet rising computational demand.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.nb.com/insights/at-ais-edge-precision-hardware-is-moving-from-data-centers-to-devices",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-47",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
     }
   ],
   "migratedFrom": "editorial_perspective_evolution_v3.html"

@@ -101,6 +101,27 @@ Confirmed unchanged: S3 trigger fires correctly at ~200 runs (~7 MB, well
 before the 50 MB ceiling), JSONL summary needs no rotation until >100k runs,
 run-duration threshold gives 3× headroom.
 
+## 2026-08-28 — Second real data cycle (think-tank corpus)
+
+- **Domain-scoped research shipped:** Tavily `include_domains` support +
+  `domains=`/`query=` CLI params on the research stage; ISO-date fallback
+  fix (unparseable publish dates no longer drop candidates — they fall back
+  to ingestion date).
+- **Corpus grew 29 → 33 articles:** first pulls from Carnegie Endowment
+  ("A Path Forward on AI Safety for the United States and China", "AI
+  Adoption Journey for Population Scale") and 8 Brookings pieces (U.S.–China
+  AI races, data-center prosperity, global AI divide).
+- **Second proposal → approval → apply cycle** (run 6abea610): 20 proposals
+  from the think-tank-enriched corpus; Platform consolidated (7 signals,
+  weight 0.90), Human Impact doubled to 6 clusters, Technology declined
+  (weight 0.40). Central question updated to "Who owns AI's choke
+  points—and who answers for its consequences?" Golden re-blessed
+  (36,205 chars).
+- **Known issue logged:** writing-stage narrative summaries used id-based
+  paths (`perspectives.<id>.summary`) that don't resolve on JSON arrays —
+  rejected safely this cycle; writing prompt to be contracted for numeric
+  paths next update.
+
 ## 2026-08-28 — First real data cycle published
 
 - **Real research integration live:** Tavily search → page fetch → metadata

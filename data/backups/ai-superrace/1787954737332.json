@@ -305,8 +305,8 @@
     {
       "period": "2026-08",
       "label": "TODAY",
-      "question": "Who owns AI's choke points—and who answers for its consequences?",
-      "synthesis": "Platform ownership (clusters 2-6, 37, 40) and infrastructure access (clusters 7-9, 42, 47) now define the race's competitive axes, while economics (clusters 10-12) asks where surplus lands and a broadening human-impact lens (clusters 13-15, 31, 41, 43) supplies the evaluative scoreboard; capability (clusters 1, 21, 36, 39) persists only as table stakes.",
+      "question": "As AI deployment scales, who captures the value—and who is left behind?",
+      "synthesis": "Model leadership is now table stakes: the live contest is over who owns agents and defaults (Platform, clusters 2-6), who can secure the chips and power to deploy at scale (Infrastructure, clusters 7-9), and who captures the surplus as inference costs collapse (Economics, clusters 10-12) — while a fast-rising human-impact lens (clusters 13-15) asks who benefits and who is displaced, making public value the race's new scoreboard.",
       "lineStrength": 1,
       "nodes": {
         "Technology": {
@@ -327,12 +327,12 @@
             "h": 14
           },
           "metrics": {
-            "sourceVolume": 4,
-            "independentSignals": 4,
-            "momentum": 0.16,
-            "emergence": 0.2,
-            "editorialWeight": 0.4,
-            "confidence": 0.7,
+            "sourceVolume": 5,
+            "independentSignals": 5,
+            "momentum": 0.26,
+            "emergence": 0.3,
+            "editorialWeight": 0.65,
+            "confidence": 0.85,
             "status": "Cooling"
           }
         },
@@ -354,11 +354,11 @@
             "h": 14
           },
           "metrics": {
-            "sourceVolume": 7,
-            "independentSignals": 7,
-            "momentum": 0.28,
-            "emergence": 0.6,
-            "editorialWeight": 0.9,
+            "sourceVolume": 5,
+            "independentSignals": 5,
+            "momentum": 0.26,
+            "emergence": 0.3,
+            "editorialWeight": 0.8,
             "confidence": 0.9,
             "status": "Dominant"
           }
@@ -381,12 +381,12 @@
             "h": 15
           },
           "metrics": {
-            "sourceVolume": 5,
-            "independentSignals": 5,
-            "momentum": 0.2,
-            "emergence": 0.55,
-            "editorialWeight": 0.75,
-            "confidence": 0.85,
+            "sourceVolume": 3,
+            "independentSignals": 3,
+            "momentum": 0.16,
+            "emergence": 0.3,
+            "editorialWeight": 0.85,
+            "confidence": 0.8,
             "status": "Accelerating"
           }
         },
@@ -410,10 +410,10 @@
           "metrics": {
             "sourceVolume": 3,
             "independentSignals": 3,
-            "momentum": 0.12,
-            "emergence": 0.5,
-            "editorialWeight": 0.7,
-            "confidence": 0.75,
+            "momentum": 0.16,
+            "emergence": 0.35,
+            "editorialWeight": 0.85,
+            "confidence": 0.85,
             "status": "Accelerating"
           }
         },
@@ -435,12 +435,12 @@
             "h": 16
           },
           "metrics": {
-            "sourceVolume": 6,
-            "independentSignals": 6,
-            "momentum": 0.24,
-            "emergence": 0.7,
+            "sourceVolume": 3,
+            "independentSignals": 3,
+            "momentum": 0.16,
+            "emergence": 0.6,
             "editorialWeight": 0.65,
-            "confidence": 0.8,
+            "confidence": 0.7,
             "status": "Growing"
           }
         }
