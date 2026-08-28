@@ -162,7 +162,7 @@ function openPerspectiveLens(name){
   document.getElementById('lensSummary').textContent=d.summary;
   drawSparkline(document.getElementById('lensSparkline'), d.sparkline);
   document.getElementById('lensSteps').innerHTML=d.history.map((txt,i)=>`<div class="lens-step"><div class="when">${i+1}</div><div class="when-label">${states[i].label}</div><p>${txt}</p></div>`).join('');
-  document.getElementById('lensSources').innerHTML=d.sources.map(s=>`<div class="lens-source"><div class="pub">${s.pub}</div><h4>${s.title}</h4><p>${s.desc}</p><a href="#">READ ORIGINAL ↗</a></div>`).join('');
+  document.getElementById('lensSources').innerHTML=d.sources.map(s=>`<div class="lens-source"><div class="pub">${s.pub}</div><h4>${s.title}</h4><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></div>`).join('');
   const viewBtn=document.getElementById('lensView');
   viewBtn.textContent=`View all ${cur.sources} sources`;
   viewBtn.onclick=()=>{ closeLens(); openPerspective(name); };
@@ -179,7 +179,7 @@ function openPerspective(name){
   document.getElementById('panelKicker').textContent=name.toUpperCase()+' · PERSPECTIVE';
   document.getElementById('panelSummary').textContent=(d&&d.summary)||'';
   const list=document.getElementById('panelArticles');
-  list.innerHTML=(d&&d.sources?d.sources:[]).map(s=>`<article class="article"><div class="pub">${s.pub}</div><h3>${s.title}</h3><p>${s.desc}</p><a href="#">READ ORIGINAL ↗</a></article>`).join('');
+  list.innerHTML=(d&&d.sources?d.sources:[]).map(s=>`<article class="article"><div class="pub">${s.pub}</div><h3>${s.title}</h3><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></article>`).join('');
   const p=document.getElementById('sourcesPanel');
   p.classList.add('show');
   setTimeout(()=>p.scrollIntoView({behavior:'smooth',block:'start'}),30);

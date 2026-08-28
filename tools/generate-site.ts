@@ -16,7 +16,7 @@ const num = (n: number) => {
 };
 const nameKey = (name: string) => (/\s/.test(name) ? q(name) : name);
 
-interface SourceLite { publisher: string; title: string; description: string }
+interface SourceLite { publisher: string; title: string; description: string; url: string }
 
 export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>): string {
   const names = topic.perspectives.map((p) => p.name);
@@ -77,7 +77,10 @@ export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>): 
       const s = byId.get(id);
       if (!s) throw new Error(`source id "${id}" not found in article cache`);
       const sSep = j < p.sources.length - 1 ? "," : "";
-      return `      {pub:${q(s.publisher)},title:${q(s.title)},desc:${q(s.description)}}${sSep}`;
+      // Real URLs are emitted for working "READ ORIGINAL" links; migrated
+      // placeholder URLs are omitted so legacy cards keep their "#" href.
+      const urlField = s.url && !s.url.includes("migrated.editorial.local") ? `,url:${q(s.url)}` : "";
+      return `      {pub:${q(s.publisher)},title:${q(s.title)},desc:${q(s.description)}${urlField}}${sSep}`;
     });
     return [
       `  ${nameKey(p.name)}:{`,
@@ -106,7 +109,7 @@ export interface GenerateInputs {
 
 export function generateHtml(inputs: GenerateInputs): string {
   const byId = new Map<string, SourceLite>(
-    inputs.articles.articles.map((a) => [a.id, { publisher: a.publisher, title: a.title, description: a.description }]),
+    inputs.articles.articles.map((a) => [a.id, { publisher: a.publisher, title: a.title, description: a.description, url: a.url }]),
   );
   return inputs.template
     .replace("/*__CSS__*/", () => inputs.variablesCss + inputs.mainCss)

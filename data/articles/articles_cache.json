@@ -477,7 +477,7 @@
       "originalReporting": false,
       "stance": "neutral",
       "perspectives": [
-        "technology"
+        "human-impact"
       ]
     },
     {
@@ -501,7 +501,7 @@
       "originalReporting": false,
       "stance": "neutral",
       "perspectives": [
-        "technology"
+        "human-impact"
       ]
     },
     {
@@ -549,7 +549,7 @@
       "originalReporting": false,
       "stance": "neutral",
       "perspectives": [
-        "technology"
+        "platform"
       ]
     },
     {
@@ -573,7 +573,7 @@
       "originalReporting": false,
       "stance": "neutral",
       "perspectives": [
-        "technology"
+        "human-impact"
       ]
     },
     {
@@ -621,7 +621,7 @@
       "originalReporting": false,
       "stance": "neutral",
       "perspectives": [
-        "technology"
+        "platform"
       ]
     },
     {
@@ -645,7 +645,7 @@
       "originalReporting": false,
       "stance": "neutral",
       "perspectives": [
-        "technology"
+        "human-impact"
       ]
     },
     {
@@ -669,7 +669,7 @@
       "originalReporting": false,
       "stance": "neutral",
       "perspectives": [
-        "technology"
+        "infrastructure"
       ]
     },
     {
@@ -693,7 +693,7 @@
       "originalReporting": false,
       "stance": "neutral",
       "perspectives": [
-        "technology"
+        "human-impact"
       ]
     },
     {

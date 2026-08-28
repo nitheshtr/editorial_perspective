@@ -122,6 +122,21 @@ run-duration threshold gives 3× headroom.
   rejected safely this cycle; writing prompt to be contracted for numeric
   paths next update.
 
+## 2026-08-28 — Working READ ORIGINAL links on the live map
+
+- **Renderer:** both source-card renderers (lens modal + sources panel) now
+  emit `href="${s.url}" target="_blank" rel="noopener"` — real articles open
+  the original publisher page in a new tab; legacy mock cards keep "#"
+  (they have no URL).
+- **Emitter:** the data block now carries `url` for real sources; migrated
+  placeholder URLs are omitted so legacy cards stay inert.
+- **Perspective sources refreshed (editorial curation):** 14 real articles
+  appended to their lanes — technology 9, platform 5, infrastructure 4,
+  human-impact 8, economics 3 (mock + real mixed; mock flagged as migrated).
+  8 article perspective-tags corrected from the MVP ingestion default.
+- Golden re-blessed (40,972 chars) — intentional renderer + data change per
+  Visual Fidelity Lock procedure.
+
 ## 2026-08-28 — First real data cycle published
 
 - **Real research integration live:** Tavily search → page fetch → metadata

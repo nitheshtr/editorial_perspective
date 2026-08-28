@@ -229,7 +229,13 @@ const details={
     sources:[
       {pub:'MIT TECHNOLOGY REVIEW · ANALYSIS',title:'After the benchmark boom',desc:'Why raw model performance is becoming background noise in the AI race.'},
       {pub:'ARS TECHNICA · TECH',title:'From models to agents',desc:'How the product layer is reshaping what “better AI” means.'},
-      {pub:'THE VERGE · REPORT',title:'The new AI interface wars',desc:'Why the user-facing layer may matter more than the model underneath.'}
+      {pub:'THE VERGE · REPORT',title:'The new AI interface wars',desc:'Why the user-facing layer may matter more than the model underneath.'},
+      {pub:'CNBC',title:'The AI race is shifting from bigger models to cheaper, smarter systems',desc:'Companies are starting to choose AI models by task, cost and control, not just leaderboard rank.',url:'https://www.cnbc.com/2026/07/10/the-ai-race-is-shifting-from-bigger-models-to-cheaper-smarter-systems.html'},
+      {pub:'Investor\'s Business Daily',title:'AI Stocks: Will Self-Improving Models Decide Who Wins Superintelligence Race?',desc:'Self-improving models are reshaping the AI race as OpenAI, Anthropic, Google and others pursue superintelligence.',url:'https://www.investors.com/news/technology/ai-stocks-google-self-improving-models-superintelligence-race/'},
+      {pub:'TIME',title:'Inside the Race to Make AI Build Itself',desc:'The people building AI fear progress will soon accelerate violently. Should we believe them?',url:'https://time.com/article/2026/08/07/ai-recursive-self-improvement-anthropic-openai/'},
+      {pub:'TIME',title:'World Models Are AI’s Next Frontier',desc:'The potential for solving problems in climate, oceans, the biosphere, and the biology of disease is vast, writes Celine Herweijer. The question is what we build them for.',url:'https://time.com/article/2026/07/15/world-models-are-ai-s-next-frontier/'},
+      {pub:'Brookings',title:'China is running multiple AI races | Brookings',desc:'Driven by both industry constraints and Beijing’s policy focus, Chinese AI developers are racing along other axes of progress.',url:'https://www.brookings.edu/articles/china-is-running-multiple-ai-races/'},
+      {pub:'Brookings',title:'Competing AI strategies for the US and China | Brookings',desc:'The U.S.-China AI race is a competition across multiple dimensions: compute, models, adoption, integration, and deployment.',url:'https://www.brookings.edu/articles/competing-ai-strategies-for-the-us-and-china/'}
     ]
   },
   Platform:{
@@ -239,7 +245,9 @@ const details={
     sources:[
       {pub:'WIRED · STRATEGY',title:'The operating system for AI',desc:'Why the company that owns the default agent may own the user.'},
       {pub:'BLOOMBERG · TECH',title:'APIs, agents and moats',desc:'How platform economics are changing the AI investment story.'},
-      {pub:'THE INFORMATION · ANALYSIS',title:'The app store moment',desc:'Lessons from past platform shifts for the AI era.'}
+      {pub:'THE INFORMATION · ANALYSIS',title:'The app store moment',desc:'Lessons from past platform shifts for the AI era.'},
+      {pub:'Brookings',title:'To unleash AI innovation, stop model providers from picking the winners | Brookings',desc:'Asad Ramzanali and Tom Wheeler explain why competition is the best route to the future of inventive AI applications. ',url:'https://www.brookings.edu/articles/to-unleash-ai-innovation-stop-model-providers-from-picking-the-winners/'},
+      {pub:'Brookings',title:'What happens when AI companies compete with their customers? | Brookings',desc:'Mark MacCarthy discusses the competition challenges posed by big AI companies moving into the application space.',url:'https://www.brookings.edu/articles/what-happens-when-ai-companies-compete-with-their-customers/'}
     ]
   },
   Infrastructure:{
@@ -249,7 +257,8 @@ const details={
     sources:[
       {pub:'FINANCIAL TIMES · ENERGY',title:'AI’s power problem',desc:'Data-center demand is colliding with grid and climate reality.'},
       {pub:'REUTERS · SEMICONDUCTORS',title:'The chip ceiling',desc:'Why advanced-processor supply may limit who can compete at scale.'},
-      {pub:'WALL STREET JOURNAL · TECH',title:'Data centers as strategy',desc:'How physical capacity became a front in the AI race.'}
+      {pub:'WALL STREET JOURNAL · TECH',title:'Data centers as strategy',desc:'How physical capacity became a front in the AI race.'},
+      {pub:'Brookings',title:'Turning the data center boom into long-term, local prosperity | Brookings',desc:'Local leaders are questioning the credibility of Big Tech’s promises of spillover effects that will produce high-quality economic development beyond near-term construction.',url:'https://www.brookings.edu/articles/turning-the-data-center-boom-into-long-term-local-prosperity/'}
     ]
   },
   Economics:{
@@ -269,7 +278,12 @@ const details={
     sources:[
       {pub:'THE GUARDIAN · SOCIETY',title:'AI and the future of work',desc:'How editorial coverage is reconnecting automation with workers.'},
       {pub:'EDUCATION WEEK · OPINION',title:'The classroom after ChatGPT',desc:'Why schools have become a proving ground for AI’s human impact.'},
-      {pub:'VOX · CULTURE',title:'Creativity, credit and AI',desc:'An editorial exploration of who benefits when machines generate.'}
+      {pub:'VOX · CULTURE',title:'Creativity, credit and AI',desc:'An editorial exploration of who benefits when machines generate.'},
+      {pub:'Carnegie Endowment for International Peace',title:'A Path Forward on AI Safety for the United States and China',desc:'“AI safety in parallel” is modest and pragmatic but vital.',url:'https://carnegieendowment.org/emissary/2026/07/ai-safety-parallel-us-china'},
+      {pub:'Carnegie Endowment for International Peace',title:'AI Adoption Journey for Population Scale',desc:'Connecting real-world AI use cases across sectors such as health, education, agriculture, and livelihoods can help policymakers, innovators, and institutions align around a shared goal. This article looks at a framework ensuring that AI works for everyone.',url:'https://carnegieendowment.org/posts/2026/01/ai-adoption-journey-for-population-scale'},
+      {pub:'Brookings',title:'Governing the AI transition: Lessons from the 1996 Telecommunications Act | Brookings',desc:'Tom Wheeler reflects on the Telecommunications Act of 1996 and how oversight for AI must focus on how the owners of the technology behave.',url:'https://www.brookings.edu/articles/governing-the-ai-transition-lessons-from-the-1996-telecommunications-act/'},
+      {pub:'Brookings',title:'How to bridge the global AI divide | Brookings',desc:'Landry Signé explains that there is still an opportunity to shape the future of AI and promote inclusive and sustainable prosperity for all.',url:'https://www.brookings.edu/articles/how-to-bridge-the-global-ai-divide/'},
+      {pub:'Brookings',title:'What national AI plans get wrong and how to fix them | Brookings',desc:'Cameron Kerry and Saurabh Mishra discuss how countries can build cognitive infrastructure to operationalize AI for real-world impact.',url:'https://www.brookings.edu/articles/what-national-ai-plans-get-wrong-and-how-to-fix-them/'}
     ]
   }
 };
@@ -437,7 +451,7 @@ function openPerspectiveLens(name){
   document.getElementById('lensSummary').textContent=d.summary;
   drawSparkline(document.getElementById('lensSparkline'), d.sparkline);
   document.getElementById('lensSteps').innerHTML=d.history.map((txt,i)=>`<div class="lens-step"><div class="when">${i+1}</div><div class="when-label">${states[i].label}</div><p>${txt}</p></div>`).join('');
-  document.getElementById('lensSources').innerHTML=d.sources.map(s=>`<div class="lens-source"><div class="pub">${s.pub}</div><h4>${s.title}</h4><p>${s.desc}</p><a href="#">READ ORIGINAL ↗</a></div>`).join('');
+  document.getElementById('lensSources').innerHTML=d.sources.map(s=>`<div class="lens-source"><div class="pub">${s.pub}</div><h4>${s.title}</h4><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></div>`).join('');
   const viewBtn=document.getElementById('lensView');
   viewBtn.textContent=`View all ${cur.sources} sources`;
   viewBtn.onclick=()=>{ closeLens(); openPerspective(name); };
@@ -454,7 +468,7 @@ function openPerspective(name){
   document.getElementById('panelKicker').textContent=name.toUpperCase()+' · PERSPECTIVE';
   document.getElementById('panelSummary').textContent=(d&&d.summary)||'';
   const list=document.getElementById('panelArticles');
-  list.innerHTML=(d&&d.sources?d.sources:[]).map(s=>`<article class="article"><div class="pub">${s.pub}</div><h3>${s.title}</h3><p>${s.desc}</p><a href="#">READ ORIGINAL ↗</a></article>`).join('');
+  list.innerHTML=(d&&d.sources?d.sources:[]).map(s=>`<article class="article"><div class="pub">${s.pub}</div><h3>${s.title}</h3><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></article>`).join('');
   const p=document.getElementById('sourcesPanel');
   p.classList.add('show');
   setTimeout(()=>p.scrollIntoView({behavior:'smooth',block:'start'}),30);
