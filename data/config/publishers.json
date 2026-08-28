@@ -671,6 +671,20 @@
         "link": true,
         "pendingVerification": true
       }
+    },
+    {
+      "name": "MIT Technology Review",
+      "tier": 2,
+      "policy": {
+        "access": "metered",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "notes": "VERIFIED 2026-08-28 via technologyreview.com/terms-of-service + /republishing/: all rights reserved; no open license; reuse only via paid syndication/single-use licensing (licensing@technologyreview.com, Copyright Clearance Center). Link + summarize only. Metered access — paywalled pages auto-skipped by research."
     }
   ]
 }

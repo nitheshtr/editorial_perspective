@@ -28,6 +28,16 @@ const LANE: Record<string, string> = {
   "source-038": "human-impact", // Brookings — governing the AI transition
   "source-041": "human-impact", // Brookings — bridging the global AI divide
   "source-043": "human-impact", // Brookings — what national AI plans get wrong
+  "source-048": "technology", // MIT Tech Review — AI model customization as architectural imperative
+  "source-049": "technology", // MIT Tech Review — data infrastructure for AI agent success
+  "source-050": "technology", // MIT Tech Review — startups chasing the next big thing in LLMs
+  "source-051": "technology", // MIT Tech Review — what to expect from Google
+  "source-052": "technology", // MIT Tech Review — rebuilding the data stack for AI
+  "source-053": "technology", // MIT Tech Review — AI's future in an augmented workplace
+  "source-054": "technology", // MIT Tech Review — the era of agentic chaos
+  "source-055": "technology", // MIT Tech Review — AI needs a strong data fabric
+  "source-056": "technology", // MIT Tech Review — AI benchmarks are broken
+  "source-057": "technology", // MIT Tech Review — foundation for an autonomous enterprise
 };
 
 let tagsFixed = 0;

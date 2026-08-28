@@ -137,6 +137,20 @@ run-duration threshold gives 3× headroom.
 - Golden re-blessed (40,972 chars) — intentional renderer + data change per
   Visual Fidelity Lock procedure.
 
+## 2026-08-28 — MIT Technology Review added as live source
+
+- **License verified** via technologyreview.com/terms-of-service +
+  /republishing/: all rights reserved, no open license; reuse only via paid
+  syndication/single-use licensing (Copyright Clearance Center). Registered
+  tier 2 / metered / copyright / link+summarize (pendingVerification
+  cleared). Legacy mock-format entry ("MIT TECHNOLOGY REVIEW · ANALYSIS")
+  remains for migrated source-001.
+- **First domain-scoped pull from technologyreview.com:** 10/10 articles
+  ingested (model customization, data infrastructure for AI agents, LLM
+  startups, agentic chaos, AI benchmarks critique, autonomous enterprise).
+- **Technology lane expanded:** 19 sources (10 MIT + 9 prior). Corpus now
+  43 articles. Golden re-blessed (44,587 chars) per Visual Fidelity Lock.
+
 ## 2026-08-28 — First real data cycle published
 
 - **Real research integration live:** Tavily search → page fetch → metadata
