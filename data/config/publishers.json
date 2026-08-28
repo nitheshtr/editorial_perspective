@@ -1,0 +1,351 @@
+{
+  "publishers": [
+    {
+      "name": "The Conversation",
+      "tier": 1,
+      "policy": {
+        "access": "open",
+        "license": "CC",
+        "reuse": "allowed_with_attribution",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Republication generally permitted under Creative Commons with attribution; verify per-article license and no-derivatives scope before any excerpt use."
+    },
+    {
+      "name": "Public Knowledge",
+      "tier": 1,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Open-access analytical material; license unverified."
+    },
+    {
+      "name": "Brookings",
+      "tier": 1,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Freely readable ≠ CC-licensed; verify per article."
+    },
+    {
+      "name": "Carnegie Endowment",
+      "tier": 1,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Freely readable ≠ CC-licensed; verify per article."
+    },
+    {
+      "name": "Chatham House",
+      "tier": 1,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Freely readable ≠ CC-licensed; verify per article."
+    },
+    {
+      "name": "Reuters",
+      "tier": 2,
+      "policy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "notes": "Explicitly commercializing content access; IP protection emphasized."
+    },
+    {
+      "name": "Associated Press",
+      "tier": 2,
+      "policy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "notes": "Terms forbid copying/display/transmission except as permitted."
+    },
+    {
+      "name": "BBC",
+      "tier": 2,
+      "policy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      }
+    },
+    {
+      "name": "NPR",
+      "tier": 2,
+      "policy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      }
+    },
+    {
+      "name": "The Guardian",
+      "tier": 2,
+      "policy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      }
+    },
+    {
+      "name": "MIT TECHNOLOGY REVIEW · ANALYSIS",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "ARS TECHNICA · TECH",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "THE VERGE · REPORT",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "WIRED · STRATEGY",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "BLOOMBERG · TECH",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "THE INFORMATION · ANALYSIS",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "FINANCIAL TIMES · ENERGY",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "REUTERS · SEMICONDUCTORS",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "WALL STREET JOURNAL · TECH",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "THE ECONOMIST · BUSINESS",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "BLOOMBERG OPINION · ECONOMICS",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "FT ALPHAVILLE · ANALYSIS",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "THE GUARDIAN · SOCIETY",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "EDUCATION WEEK · OPINION",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    },
+    {
+      "name": "VOX · CULTURE",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Migrated from v3 mock data."
+    }
+  ]
+}

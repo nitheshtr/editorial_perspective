@@ -1,0 +1,365 @@
+{
+  "articles": [
+    {
+      "id": "source-001",
+      "publisher": "MIT TECHNOLOGY REVIEW · ANALYSIS",
+      "title": "After the benchmark boom",
+      "description": "Why raw model performance is becoming background noise in the AI race.",
+      "date": "2026-08-28",
+      "type": "ANALYSIS",
+      "url": "https://migrated.editorial.local/source-001",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-1",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-002",
+      "publisher": "ARS TECHNICA · TECH",
+      "title": "From models to agents",
+      "description": "How the product layer is reshaping what “better AI” means.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://migrated.editorial.local/source-002",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-2",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-003",
+      "publisher": "THE VERGE · REPORT",
+      "title": "The new AI interface wars",
+      "description": "Why the user-facing layer may matter more than the model underneath.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://migrated.editorial.local/source-003",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-3",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-004",
+      "publisher": "WIRED · STRATEGY",
+      "title": "The operating system for AI",
+      "description": "Why the company that owns the default agent may own the user.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://migrated.editorial.local/source-004",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-4",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "platform"
+      ]
+    },
+    {
+      "id": "source-005",
+      "publisher": "BLOOMBERG · TECH",
+      "title": "APIs, agents and moats",
+      "description": "How platform economics are changing the AI investment story.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://migrated.editorial.local/source-005",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-5",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "platform"
+      ]
+    },
+    {
+      "id": "source-006",
+      "publisher": "THE INFORMATION · ANALYSIS",
+      "title": "The app store moment",
+      "description": "Lessons from past platform shifts for the AI era.",
+      "date": "2026-08-28",
+      "type": "ANALYSIS",
+      "url": "https://migrated.editorial.local/source-006",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-6",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "platform"
+      ]
+    },
+    {
+      "id": "source-007",
+      "publisher": "FINANCIAL TIMES · ENERGY",
+      "title": "AI’s power problem",
+      "description": "Data-center demand is colliding with grid and climate reality.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://migrated.editorial.local/source-007",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-7",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "infrastructure"
+      ]
+    },
+    {
+      "id": "source-008",
+      "publisher": "REUTERS · SEMICONDUCTORS",
+      "title": "The chip ceiling",
+      "description": "Why advanced-processor supply may limit who can compete at scale.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://migrated.editorial.local/source-008",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-8",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "infrastructure"
+      ]
+    },
+    {
+      "id": "source-009",
+      "publisher": "WALL STREET JOURNAL · TECH",
+      "title": "Data centers as strategy",
+      "description": "How physical capacity became a front in the AI race.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://migrated.editorial.local/source-009",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-9",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "infrastructure"
+      ]
+    },
+    {
+      "id": "source-010",
+      "publisher": "THE ECONOMIST · BUSINESS",
+      "title": "The productivity paradox",
+      "description": "Why falling AI prices have not yet answered the value question.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://migrated.editorial.local/source-010",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-10",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "economics"
+      ]
+    },
+    {
+      "id": "source-011",
+      "publisher": "BLOOMBERG OPINION · ECONOMICS",
+      "title": "Who captures the surplus?",
+      "description": "A close look at margins, labor and the AI value chain.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://migrated.editorial.local/source-011",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-11",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "economics"
+      ]
+    },
+    {
+      "id": "source-012",
+      "publisher": "FT ALPHAVILLE · ANALYSIS",
+      "title": "Cheap inference, expensive questions",
+      "description": "What plummeting model costs mean for pricing power.",
+      "date": "2026-08-28",
+      "type": "ANALYSIS",
+      "url": "https://migrated.editorial.local/source-012",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-12",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "economics"
+      ]
+    },
+    {
+      "id": "source-013",
+      "publisher": "THE GUARDIAN · SOCIETY",
+      "title": "AI and the future of work",
+      "description": "How editorial coverage is reconnecting automation with workers.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://migrated.editorial.local/source-013",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-13",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "human-impact"
+      ]
+    },
+    {
+      "id": "source-014",
+      "publisher": "EDUCATION WEEK · OPINION",
+      "title": "The classroom after ChatGPT",
+      "description": "Why schools have become a proving ground for AI’s human impact.",
+      "date": "2026-08-28",
+      "type": "OPINION",
+      "url": "https://migrated.editorial.local/source-014",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-14",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "human-impact"
+      ]
+    },
+    {
+      "id": "source-015",
+      "publisher": "VOX · CULTURE",
+      "title": "Creativity, credit and AI",
+      "description": "An editorial exploration of who benefits when machines generate.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://migrated.editorial.local/source-015",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-15",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "human-impact"
+      ]
+    }
+  ],
+  "migratedFrom": "editorial_perspective_evolution_v3.html"
+}

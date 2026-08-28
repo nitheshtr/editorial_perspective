@@ -1,0 +1,606 @@
+{
+  "slug": "ai-superrace",
+  "title": "The AI race is moving beyond foundation models.",
+  "subtitle": "The editorial conversation is widening toward agents, distribution, infrastructure, economics and human impact.",
+  "kicker": "THE OPEN EDITION",
+  "date": "2026-08-28",
+  "nav": [
+    "Today",
+    "Conflicts",
+    "Global Economy",
+    "AI Superrace"
+  ],
+  "activeNav": "Today",
+  "states": [
+    {
+      "period": "2026-05",
+      "label": "90 DAYS AGO",
+      "question": "Who has the smartest model?",
+      "synthesis": "The editorial conversation is narrowly focused on model capability and benchmark leadership. Infrastructure and platform questions are present, but human impact is barely visible.",
+      "lineStrength": 0.35,
+      "nodes": {
+        "Technology": {
+          "position": {
+            "x": 10,
+            "y": 8
+          },
+          "size": {
+            "w": 28,
+            "h": 22
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "mobile": {
+            "x": 5,
+            "y": 6,
+            "w": 44,
+            "h": 15
+          },
+          "metrics": {
+            "editorialWeight": 1,
+            "sourceVolume": 24,
+            "independentSignals": 14,
+            "momentum": 0.5,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Dominant"
+          }
+        },
+        "Platform": {
+          "position": {
+            "x": 40,
+            "y": 4
+          },
+          "size": {
+            "w": 24,
+            "h": 18
+          },
+          "borderRadius": "50% 42% 57% 44% / 47% 57% 43% 53%",
+          "opacity": 1,
+          "mobile": {
+            "x": 52,
+            "y": 6,
+            "w": 44,
+            "h": 15
+          },
+          "metrics": {
+            "editorialWeight": 0.63,
+            "sourceVolume": 15,
+            "independentSignals": 9,
+            "momentum": 0.5,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Growing"
+          }
+        },
+        "Infrastructure": {
+          "position": {
+            "x": 6,
+            "y": 62
+          },
+          "size": {
+            "w": 24,
+            "h": 20
+          },
+          "borderRadius": "53% 47% 44% 56% / 45% 56% 44% 55%",
+          "opacity": 1,
+          "mobile": {
+            "x": 5,
+            "y": 24,
+            "w": 44,
+            "h": 15
+          },
+          "metrics": {
+            "editorialWeight": 0.5,
+            "sourceVolume": 12,
+            "independentSignals": 7,
+            "momentum": 0.5,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Growing"
+          }
+        },
+        "Economics": {
+          "position": {
+            "x": 64,
+            "y": 60
+          },
+          "size": {
+            "w": 22,
+            "h": 18
+          },
+          "borderRadius": "48% 52% 57% 43% / 57% 47% 53% 43%",
+          "opacity": 1,
+          "mobile": {
+            "x": 52,
+            "y": 24,
+            "w": 44,
+            "h": 15
+          },
+          "metrics": {
+            "editorialWeight": 0.42,
+            "sourceVolume": 10,
+            "independentSignals": 6,
+            "momentum": 0.5,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Growing"
+          }
+        },
+        "Human Impact": {
+          "position": {
+            "x": 74,
+            "y": 20
+          },
+          "size": {
+            "w": 18,
+            "h": 16
+          },
+          "borderRadius": "57% 43% 48% 52% / 44% 57% 43% 56%",
+          "opacity": 0,
+          "mobile": {
+            "x": 18,
+            "y": 42,
+            "w": 64,
+            "h": 12,
+            "opacity": 0
+          },
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0.5,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Emerging"
+          }
+        }
+      }
+    },
+    {
+      "period": "2026-07",
+      "label": "30 DAYS AGO",
+      "question": "Who controls the platform?",
+      "synthesis": "Attention is shifting from raw benchmarks toward distribution, agents and infrastructure economics. Human impact begins to appear as a faint but recurring theme.",
+      "lineStrength": 0.6,
+      "nodes": {
+        "Technology": {
+          "position": {
+            "x": 8,
+            "y": 8
+          },
+          "size": {
+            "w": 24,
+            "h": 20
+          },
+          "borderRadius": "46% 54% 53% 47% / 52% 45% 55% 48%",
+          "opacity": 1,
+          "mobile": {
+            "x": 5,
+            "y": 6,
+            "w": 44,
+            "h": 15
+          },
+          "metrics": {
+            "editorialWeight": 0.9,
+            "sourceVolume": 18,
+            "independentSignals": 11,
+            "momentum": 0,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Cooling"
+          }
+        },
+        "Platform": {
+          "position": {
+            "x": 42,
+            "y": 2
+          },
+          "size": {
+            "w": 26,
+            "h": 20
+          },
+          "borderRadius": "52% 40% 59% 46% / 49% 59% 41% 51%",
+          "opacity": 1,
+          "mobile": {
+            "x": 52,
+            "y": 6,
+            "w": 44,
+            "h": 15
+          },
+          "metrics": {
+            "editorialWeight": 1,
+            "sourceVolume": 20,
+            "independentSignals": 12,
+            "momentum": 0.33,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Accelerating"
+          }
+        },
+        "Infrastructure": {
+          "position": {
+            "x": 5,
+            "y": 58
+          },
+          "size": {
+            "w": 27,
+            "h": 22
+          },
+          "borderRadius": "55% 45% 42% 58% / 47% 54% 46% 53%",
+          "opacity": 1,
+          "mobile": {
+            "x": 5,
+            "y": 24,
+            "w": 44,
+            "h": 15
+          },
+          "metrics": {
+            "editorialWeight": 0.95,
+            "sourceVolume": 19,
+            "independentSignals": 11,
+            "momentum": 0.58,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Accelerating"
+          }
+        },
+        "Economics": {
+          "position": {
+            "x": 60,
+            "y": 56
+          },
+          "size": {
+            "w": 25,
+            "h": 20
+          },
+          "borderRadius": "50% 50% 55% 45% / 55% 49% 51% 45%",
+          "opacity": 1,
+          "mobile": {
+            "x": 52,
+            "y": 24,
+            "w": 44,
+            "h": 15
+          },
+          "metrics": {
+            "editorialWeight": 0.8,
+            "sourceVolume": 16,
+            "independentSignals": 10,
+            "momentum": 0.6,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Growing"
+          }
+        },
+        "Human Impact": {
+          "position": {
+            "x": 72,
+            "y": 16
+          },
+          "size": {
+            "w": 20,
+            "h": 17
+          },
+          "borderRadius": "59% 41% 46% 54% / 46% 55% 45% 54%",
+          "opacity": 0.55,
+          "mobile": {
+            "x": 18,
+            "y": 42,
+            "w": 64,
+            "h": 13,
+            "opacity": 0.6
+          },
+          "metrics": {
+            "editorialWeight": 0.3,
+            "sourceVolume": 6,
+            "independentSignals": 4,
+            "momentum": 1,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Emerging"
+          }
+        }
+      }
+    },
+    {
+      "period": "2026-08",
+      "label": "TODAY",
+      "question": "Who can deploy AI at scale—and who benefits?",
+      "synthesis": "The conversation has widened into a contest over agents, infrastructure, economics and human impact. The central uncertainty is where durable advantage—and public value—will settle.",
+      "lineStrength": 1,
+      "nodes": {
+        "Technology": {
+          "position": {
+            "x": 6,
+            "y": 8
+          },
+          "size": {
+            "w": 21,
+            "h": 18
+          },
+          "borderRadius": "48% 52% 55% 45% / 50% 47% 53% 50%",
+          "opacity": 1,
+          "mobile": {
+            "x": 5,
+            "y": 6,
+            "w": 44,
+            "h": 14
+          },
+          "metrics": {
+            "editorialWeight": 0.58,
+            "sourceVolume": 14,
+            "independentSignals": 8,
+            "momentum": 0,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Cooling"
+          }
+        },
+        "Platform": {
+          "position": {
+            "x": 44,
+            "y": 2
+          },
+          "size": {
+            "w": 25,
+            "h": 18
+          },
+          "borderRadius": "54% 42% 57% 44% / 48% 56% 44% 52%",
+          "opacity": 1,
+          "mobile": {
+            "x": 52,
+            "y": 6,
+            "w": 44,
+            "h": 14
+          },
+          "metrics": {
+            "editorialWeight": 1,
+            "sourceVolume": 24,
+            "independentSignals": 14,
+            "momentum": 0.2,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Dominant"
+          }
+        },
+        "Infrastructure": {
+          "position": {
+            "x": 4,
+            "y": 56
+          },
+          "size": {
+            "w": 29,
+            "h": 23
+          },
+          "borderRadius": "51% 49% 46% 54% / 44% 55% 45% 56%",
+          "opacity": 1,
+          "mobile": {
+            "x": 5,
+            "y": 24,
+            "w": 44,
+            "h": 15
+          },
+          "metrics": {
+            "editorialWeight": 0.92,
+            "sourceVolume": 22,
+            "independentSignals": 13,
+            "momentum": 0.16,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Accelerating"
+          }
+        },
+        "Economics": {
+          "position": {
+            "x": 58,
+            "y": 54
+          },
+          "size": {
+            "w": 27,
+            "h": 21
+          },
+          "borderRadius": "49% 51% 58% 42% / 58% 48% 52% 42%",
+          "opacity": 1,
+          "mobile": {
+            "x": 52,
+            "y": 24,
+            "w": 44,
+            "h": 15
+          },
+          "metrics": {
+            "editorialWeight": 0.79,
+            "sourceVolume": 19,
+            "independentSignals": 11,
+            "momentum": 0.19,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Accelerating"
+          }
+        },
+        "Human Impact": {
+          "position": {
+            "x": 68,
+            "y": 12
+          },
+          "size": {
+            "w": 27,
+            "h": 22
+          },
+          "borderRadius": "56% 44% 49% 51% / 45% 56% 44% 55%",
+          "opacity": 1,
+          "mobile": {
+            "x": 18,
+            "y": 42,
+            "w": 64,
+            "h": 16
+          },
+          "metrics": {
+            "editorialWeight": 0.54,
+            "sourceVolume": 13,
+            "independentSignals": 8,
+            "momentum": 1,
+            "emergence": 0.5,
+            "confidence": 0.5,
+            "status": "Emerging"
+          }
+        }
+      }
+    }
+  ],
+  "perspectives": [
+    {
+      "id": "technology",
+      "name": "Technology",
+      "category": "tech",
+      "summary": "The technology perspective has moved from leaderboard dominance to a quieter assumption: capability matters, but it is no longer the whole story.",
+      "coreArgument": "Raw capability is now table stakes; the story is what models enable.",
+      "counterArgument": "Migrated placeholder — pending Analysis Agent review.",
+      "bodies": [
+        "Frontier model capability and benchmark leadership dominate the editorial frame.",
+        "Model releases still matter, but coverage is shifting toward agents and integration.",
+        "Raw capability is now table stakes; the story is what models enable."
+      ],
+      "sparkline": [
+        24,
+        18,
+        14
+      ],
+      "history": [
+        "Benchmarks and model releases set the editorial agenda.",
+        "Agents and product integration begin to rival raw capability.",
+        "Capability is assumed; the question is what it enables and who controls it."
+      ],
+      "sources": [
+        "source-001",
+        "source-002",
+        "source-003"
+      ]
+    },
+    {
+      "id": "platform",
+      "name": "Platform",
+      "category": "platform",
+      "summary": "Platform has grown from a supporting argument into a central thesis: distribution, defaults and ecosystems may decide who captures value.",
+      "coreArgument": "Platform control is treated as a primary axis of the AI race.",
+      "counterArgument": "Migrated placeholder — pending Analysis Agent review.",
+      "bodies": [
+        "Distribution is a secondary theme in the shadow of model releases.",
+        "Ecosystem lock-in and default agents rise as a source of durable advantage.",
+        "Platform control is treated as a primary axis of the AI race."
+      ],
+      "sparkline": [
+        15,
+        20,
+        24
+      ],
+      "history": [
+        "Distribution is discussed as a consequence of model quality.",
+        "Default agents and ecosystem lock-in gain editorial weight.",
+        "Platform control is treated as a primary axis of competition."
+      ],
+      "sources": [
+        "source-004",
+        "source-005",
+        "source-006"
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "name": "Infrastructure",
+      "category": "infra",
+      "summary": "Infrastructure has accelerated from background context to a strategic constraint: chips, power and data centers now shape what is possible.",
+      "coreArgument": "Infrastructure scarcity is seen as a strategic lever that shapes who can compete.",
+      "counterArgument": "Migrated placeholder — pending Analysis Agent review.",
+      "bodies": [
+        "Compute is mentioned as context for model performance.",
+        "Chips, power and data centers become a constraint narrative.",
+        "Infrastructure scarcity is seen as a strategic lever that shapes who can compete."
+      ],
+      "sparkline": [
+        12,
+        19,
+        22
+      ],
+      "history": [
+        "Compute is treated as context for model releases.",
+        "Chips, energy and data centers become a recurring constraint.",
+        "Infrastructure scarcity is seen as a lever of national and corporate power."
+      ],
+      "sources": [
+        "source-007",
+        "source-008",
+        "source-009"
+      ]
+    },
+    {
+      "id": "economics",
+      "name": "Economics",
+      "category": "econ",
+      "summary": "The economics perspective has accelerated around a single question: if inference keeps getting cheaper, where does durable value accrue?",
+      "coreArgument": "Value capture is the central unanswered economic question.",
+      "counterArgument": "Migrated placeholder — pending Analysis Agent review.",
+      "bodies": [
+        "Inference costs appear occasionally at the margin.",
+        "Productivity and margin debates multiply as prices fall.",
+        "Value capture is the central unanswered economic question."
+      ],
+      "sparkline": [
+        10,
+        16,
+        19
+      ],
+      "history": [
+        "Inference costs appear occasionally in the margins.",
+        "Productivity, margins and value capture enter the debate.",
+        "Economics is now a primary lens for judging AI winners and losers."
+      ],
+      "sources": [
+        "source-010",
+        "source-011",
+        "source-012"
+      ]
+    },
+    {
+      "id": "human-impact",
+      "name": "Human Impact",
+      "category": "human",
+      "summary": "Human impact has emerged from near-invisibility into a recurring lens: the AI race is increasingly judged by who benefits and who is displaced.",
+      "coreArgument": "Who benefits and who is displaced is now a recurring editorial lens.",
+      "counterArgument": "Migrated placeholder — pending Analysis Agent review.",
+      "bodies": [
+        "Jobs, education and creativity are rarely discussed.",
+        "Labor and learning enter the margins of the debate.",
+        "Who benefits and who is displaced is now a recurring editorial lens."
+      ],
+      "sparkline": [
+        0,
+        6,
+        13
+      ],
+      "history": [
+        "Jobs, education and creativity are rarely part of the framing.",
+        "Labor and learning enter the margins of coverage.",
+        "Who benefits and who bears the cost is now part of the central question."
+      ],
+      "sources": [
+        "source-013",
+        "source-014",
+        "source-015"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "infrastructure",
+      "to": "economics",
+      "strength": 0.5,
+      "reason": "Migrated relation from v3 (no strength data)."
+    },
+    {
+      "from": "economics",
+      "to": "human-impact",
+      "strength": 0.5,
+      "reason": "Migrated relation from v3 (no strength data)."
+    }
+  ]
+}

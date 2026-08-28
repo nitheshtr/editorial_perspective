@@ -1,0 +1,22 @@
+{
+  "models": {
+    "models.research": { "provider": "openrouter", "model": "z-ai/glm-5.3-flash", "temperature": 0.2 },
+    "models.analysis": { "provider": "openrouter", "model": "z-ai/glm-5.3-flash", "temperature": 0.3 },
+    "models.writing": { "provider": "openrouter", "model": "z-ai/glm-5.3-flash", "temperature": 0.4 },
+    "models.apply": { "provider": "openrouter", "model": "z-ai/glm-5.3-flash", "temperature": 0.1 }
+  },
+  "defaults": { "maxTokens": 4096, "timeoutMs": 120000 },
+  "retry": { "maxAttempts": 3, "backoffMs": 2000 },
+  "failover": {
+    "models.analysis": ["z-ai/glm-5.3-flash"]
+  },
+  "budget": { "maxCostUsdPerRun": 5.0, "actionOnExceed": "halt" },
+  "search": { "provider": "tavily", "maxResults": 10 },
+  "concurrency": { "maxParallelFetches": 4 },
+  "telemetry": { "sink": "jsonl", "dir": "data/telemetry" },
+  "artifacts": {
+    "sink": "git",
+    "rawToS3": false,
+    "s3": { "bucket": "", "prefix": "runs/" }
+  }
+}

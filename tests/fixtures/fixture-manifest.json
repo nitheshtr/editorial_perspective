@@ -1,0 +1,6 @@
+{
+  "topics": [
+    { "slug": "test-topic", "file": "test-topic.json" }
+  ],
+  "active": "test-topic"
+}

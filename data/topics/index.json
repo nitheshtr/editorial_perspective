@@ -1,0 +1,11 @@
+{
+  "topics": [
+    {
+      "slug": "ai-superrace",
+      "title": "The AI race is moving beyond foundation models.",
+      "file": "ai-superrace.json",
+      "added": "2026-08-28"
+    }
+  ],
+  "active": "ai-superrace"
+}

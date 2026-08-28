@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Editorial — Perspective Map</title>
+<style>
+/*__CSS__*/
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="brand">Editorial</div><div class="right"><span class="date">THURSDAY · AUGUST 27, 2026</span><button class="circle">⌕</button><button class="circle">♡</button></div></header>
+
+<section class="hero"><div class="eyebrow">THE OPEN EDITION</div><h1>The world, understood through its arguments.</h1><div class="sub">One topic. Different perspectives. One clear synthesis. See not only what is being discussed, but how the conversation is changing.</div></section>
+
+<nav><button class="active">Today</button><button>Conflicts</button><button>Global Economy</button><button>AI Superrace</button></nav>
+
+<section class="topic"><div class="label">AI SUPERRACE · PERSPECTIVE MAP</div><h2>The AI race is moving beyond foundation models.</h2><div class="dek">The editorial conversation is widening toward agents, distribution, infrastructure, economics and human impact.</div>
+
+<div class="map">
+  <svg class="map-lines" id="lines" xmlns="http://www.w3.org/2000/svg"></svg>
+  <div class="orbit"></div><div class="orbit two"></div>
+  <button class="blob tech" data-id="Technology" onclick="openPerspectiveLens('Technology')"><span class="trend down">↓ COOLING</span><h3>Technology</h3><p>Frontier model capability remains important, but raw benchmarks are becoming a smaller part of the story.</p><div class="sources">14 SOURCES →</div></button>
+  <button class="blob human" data-id="Human Impact" onclick="openPerspectiveLens('Human Impact')"><span class="trend new">✦ EMERGING</span><h3>Human Impact</h3><p>Jobs, education and creativity are becoming a much larger part of the AI conversation.</p><div class="sources">13 SOURCES →</div></button>
+  <button class="blob econ" data-id="Economics" onclick="openPerspectiveLens('Economics')"><span class="trend up">↑ ACCELERATING</span><h3>Economics</h3><p>Falling inference costs are raising new questions about productivity, margins and value capture.</p><div class="sources">19 SOURCES →</div></button>
+  <button class="blob infra" data-id="Infrastructure" onclick="openPerspectiveLens('Infrastructure')"><span class="trend up">↑ ACCELERATING</span><h3>Infrastructure</h3><p>Chips, compute, power and data centers are becoming strategic constraints.</p><div class="sources">22 SOURCES →</div></button>
+  <button class="blob platform" data-id="Platform" onclick="openPerspectiveLens('Platform')"><span class="trend up">● DOMINANT</span><h3>Platform</h3><p>Distribution and ecosystem integration may matter more than marginal model gains.</p><div class="sources">24 SOURCES →</div></button>
+  <button class="center" onclick="document.getElementById('synthesis').scrollIntoView({behavior:'smooth'})"><small>CENTRAL TOPIC</small><span class="q-micro">THE QUESTION IS CHANGING</span><strong>AI<br>SUPERRACE</strong><span class="question" id="question">Who can deploy AI at scale—and who benefits?</span></button>
+
+  <div class="change-sheet" id="changeSheet" onclick="if(event.target===this)closeChangeSheet()">
+    <div class="change-sheet-head"><div><div class="kicker">WHAT CHANGED</div><h2 id="sheetTitle">What changed?</h2></div><button onclick="closeChangeSheet()" aria-label="Close">×</button></div>
+    <div class="change-grid" id="changeGrid"></div>
+    <div class="question-shift"><small>THE QUESTION IS CHANGING</small><p>From <span id="sheetFrom">“Who has the smartest model?”</span> to <span id="sheetTo">“Who can deploy AI at scale—and who benefits?”</span></p></div>
+  </div>
+</div>
+
+<div class="timeline">
+  <div class="trow"><b>Perspective evolution</b><span class="state" id="state">TODAY</span></div>
+  <input id="range" type="range" min="0" max="2" value="2" step="1" oninput="timeChange(this.value)">
+  <div class="ticks"><span>90 DAYS AGO</span><span>30 DAYS AGO</span><span>TODAY</span></div>
+  <div class="trow" style="justify-content:center"><button class="what-changed-btn" onclick="openChangeSheet()">What changed?</button></div>
+</div>
+
+<div class="synthesis" id="synthesis">
+  <div class="kicker">EDITORIAL PULSE</div>
+  <h2>What the perspectives collectively tell us.</h2>
+  <p id="synthesisText">The conversation has widened into a contest over agents, infrastructure, economics and human impact. The central uncertainty is where durable advantage—and public value—will ultimately settle.</p>
+</div>
+
+<div class="sourcesPanel" id="sourcesPanel">
+  <div class="head"><div><div class="kicker" id="panelKicker">PERSPECTIVE</div><h2 id="panelTitle">Human Impact</h2><div class="panelSummary" id="panelSummary"></div></div><button onclick="toggle('sourcesPanel')">×</button></div>
+  <div class="articleList" id="panelArticles"></div>
+</div>
+</section>
+
+<div class="lens-backdrop" id="lensBackdrop" onclick="closeLens(event)">
+  <div class="lens-modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+    <button class="lens-close" onclick="closeLens()" aria-label="Close">×</button>
+    <div class="lens-eyebrow" id="lensEyebrow">EMERGING · 13 SOURCES</div>
+    <h2 class="lens-title" id="lensTitle">Human Impact</h2>
+    <div class="lens-summary" id="lensSummary"></div>
+    <div class="sparkline"><svg id="lensSparkline"></svg></div>
+    <div class="lens-steps" id="lensSteps"></div>
+    <div class="lens-sources" id="lensSources"></div>
+    <button class="lens-view" id="lensView">View all sources</button>
+  </div>
+</div>
+
+<footer class="footer"><span>EDITORIAL · TOPIC → PERSPECTIVES → SYNTHESIS → EVOLUTION</span><span>Original publishers are always attributed.</span></footer>
+</div>
+
+<script>
+/*__DATA__*//*__APP__*/</script>
+</body>
+</html>

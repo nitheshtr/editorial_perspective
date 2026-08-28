@@ -1,0 +1,48 @@
+{
+  "articles": [
+    {
+      "id": "source-001",
+      "publisher": "Example Daily",
+      "title": "Example Article One",
+      "description": "First example article for testing.",
+      "date": "2026-01-15",
+      "type": "ANALYSIS",
+      "url": "https://example.com/a",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "storyCluster": "cluster-1",
+      "originalReporting": true,
+      "stance": "neutral",
+      "perspectives": ["technology"]
+    },
+    {
+      "id": "source-002",
+      "publisher": "Example Daily",
+      "title": "Example Article Two",
+      "description": "Second example article covering human impact.",
+      "date": "2026-06-01",
+      "type": "REPORT",
+      "url": "https://example.com/b",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "storyCluster": "cluster-2",
+      "originalReporting": false,
+      "stance": "supporting",
+      "perspectives": ["human-impact"]
+    }
+  ]
+}

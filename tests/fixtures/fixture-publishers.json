@@ -1,0 +1,18 @@
+{
+  "publishers": [
+    {
+      "name": "Example Daily",
+      "tier": 2,
+      "policy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "notes": "Example publisher for testing."
+    }
+  ]
+}
