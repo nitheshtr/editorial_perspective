@@ -839,6 +839,45 @@
         "pendingVerification": true
       },
       "notes": "Curated 2026-08-28 (operator): peer-reviewed AI research — open-access academic journal. License unverified."
+    },
+    {
+      "name": "Bloomberg",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Custom Events |",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "AI Compute Summit |",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
     }
   ]
 }

@@ -184,6 +184,24 @@ run-duration threshold gives 3× headroom.
 - Golden re-blessed (48,151 chars) — intentional timeline + data change per
   Visual Fidelity Lock.
 
+## 2026-08-28 — Economics pull, curation pass, window-count transparency
+
+- **Economics-scoped research pull** (economist.com / ft.com / bloomberg.com):
+  6 candidates → 4 legitimate Bloomberg editorial pieces ingested with real
+  publish dates (Apr–Aug 2026); The Economist/FT pages blocked or metered as
+  expected.
+- **Curation pass:** 2 event-promotion pages removed from the cache (they are
+  listings, not editorial content) — first editorial removals, documented
+  here per the append-only review exception. 4 Bloomberg pieces lane-curated
+  (platform ×2, economics, human-impact) and appended to perspective source
+  lists. Cache now 47 articles.
+- **Window-count transparency:** the recency chips now carry a tooltip —
+  counts are by article date; undated articles are counted by discovery
+  date. The Economics lane's 4/4/4/4 reading reflects three migrated demo
+  articles (undated → discovery-dated) plus one real Bloomberg piece;
+  it will differentiate as real dated articles accumulate.
+- Golden re-blessed (49,697 chars).
+
 ## 2026-08-28 — First real data cycle published
 
 - **Real research integration live:** Tavily search → page fetch → metadata

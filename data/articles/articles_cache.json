@@ -1031,6 +1031,102 @@
       "perspectives": [
         "technology"
       ]
+    },
+    {
+      "id": "source-058",
+      "publisher": "Bloomberg",
+      "title": "As Companies Bet Big on Agentic AI, Strategies Must Shift to Drive Results",
+      "description": "As Companies Bet Big on Agentic AI, Strategies Must Shift to Drive Results\nSalesforce and Bloomberg Media Studios Article",
+      "date": "2026-04-20",
+      "type": "REPORT",
+      "url": "https://sponsored.bloomberg.com/article/salesforce/as-companies-bet-big-on-agentic-ai-strategies-must-shift-to-drive-results",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-58",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "platform"
+      ]
+    },
+    {
+      "id": "source-059",
+      "publisher": "Bloomberg",
+      "title": "Artificial Intelligence | Charting Disruption",
+      "description": "For decades, artificial general intelligence (AGI) — characterized by human-level reasoning, learning, and adaptation — was just a theory. Now, breakthroughs such as reasoning models, agentic AI, and multimodal systems are turning that future into a fast-approaching reality.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://sponsored.bloomberg.com/immersive/globalx/charting-disruption/artificial-intelligence",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-59",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "economics"
+      ]
+    },
+    {
+      "id": "source-061",
+      "publisher": "Bloomberg",
+      "title": "The AI Governance Paradox: Steering AI Without Hindering Innovation",
+      "description": "",
+      "date": "2026-04-23",
+      "type": "REPORT",
+      "url": "https://sponsored.bloomberg.com/quicksight/servicenow/the-ai-governance-paradox-steering-ai-without-hindering-innovation",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-61",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "human-impact"
+      ]
+    },
+    {
+      "id": "source-062",
+      "publisher": "Bloomberg",
+      "title": "The AI Race Is Won at the Endpoint",
+      "description": "adfasdfasdfasdfasdfasfdasdfasdfasdfafaasdfasfasfafasdfasdfasdfasdfasfsadfasfdasfdasfdasdfasdfasdfasfsadfasdfasfadfasdfasfasdfafasdfasfd",
+      "date": "2026-06-23",
+      "type": "REPORT",
+      "url": "https://sponsored.bloomberg.com/article/the-ai-race-is-won-at-the-endpoint",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-62",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "platform"
+      ]
     }
   ],
   "migratedFrom": "editorial_perspective_evolution_v3.html"

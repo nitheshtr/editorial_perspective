@@ -153,7 +153,7 @@ function drawSparkline(svg,data){
   const last=pts[pts.length-1];
   svg.innerHTML=`<polyline points="${poly}" fill="none" stroke="#0071e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="#0071e3" stroke="#fff" stroke-width="1.5"/>`;
 }
-function windowsStrip(w){w=w||{y:0,q:0,m:0,w:0};return `<span><b>${w.y}</b><i>LAST 1 YEAR</i></span><span><b>${w.q}</b><i>LAST 3 MONTHS</i></span><span><b>${w.m}</b><i>LAST 1 MONTH</i></span><span><b>${w.w}</b><i>LAST 1 WEEK</i></span>`;}
+function windowsStrip(w){w=w||{y:0,q:0,m:0,w:0};return `<span title="Counts by article date. Undated articles are counted by the day we discovered them."><b>${w.y}</b><i>LAST 1 YEAR</i></span><span title="Counts by article date."><b>${w.q}</b><i>LAST 3 MONTHS</i></span><span title="Counts by article date."><b>${w.m}</b><i>LAST 1 MONTH</i></span><span title="Counts by article date."><b>${w.w}</b><i>LAST 1 WEEK</i></span>`;}
 function openPerspectiveLens(name){
   const d=details[name];
   const cur=states[current].nodes[name];

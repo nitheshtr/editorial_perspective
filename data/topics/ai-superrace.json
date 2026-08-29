@@ -498,7 +498,7 @@
             "h": 14
           },
           "metrics": {
-            "sourceVolume": 5,
+            "sourceVolume": 7,
             "independentSignals": 5,
             "momentum": 0.28,
             "emergence": 0.6,
@@ -552,7 +552,7 @@
             "h": 15
           },
           "metrics": {
-            "sourceVolume": 3,
+            "sourceVolume": 4,
             "independentSignals": 3,
             "momentum": 0.12,
             "emergence": 0.5,
@@ -579,7 +579,7 @@
             "h": 16
           },
           "metrics": {
-            "sourceVolume": 8,
+            "sourceVolume": 9,
             "independentSignals": 6,
             "momentum": 0.24,
             "emergence": 0.7,
@@ -675,11 +675,13 @@
         "source-005",
         "source-006",
         "source-037",
-        "source-040"
+        "source-040",
+        "source-058",
+        "source-062"
       ],
       "windows": {
-        "y": 5,
-        "q": 5,
+        "y": 7,
+        "q": 6,
         "m": 5,
         "w": 5
       }
@@ -750,13 +752,14 @@
       "sources": [
         "source-010",
         "source-011",
-        "source-012"
+        "source-012",
+        "source-059"
       ],
       "windows": {
-        "y": 3,
-        "q": 3,
-        "m": 3,
-        "w": 3
+        "y": 4,
+        "q": 4,
+        "m": 4,
+        "w": 4
       }
     },
     {
@@ -792,10 +795,11 @@
         "source-035",
         "source-038",
         "source-041",
-        "source-043"
+        "source-043",
+        "source-061"
       ],
       "windows": {
-        "y": 8,
+        "y": 9,
         "q": 7,
         "m": 6,
         "w": 6
