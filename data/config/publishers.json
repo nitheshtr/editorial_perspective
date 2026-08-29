@@ -685,6 +685,160 @@
         "pendingVerification": false
       },
       "notes": "VERIFIED 2026-08-28 via technologyreview.com/terms-of-service + /republishing/: all rights reserved; no open license; reuse only via paid syndication/single-use licensing (licensing@technologyreview.com, Copyright Clearance Center). Link + summarize only. Metered access — paywalled pages auto-skipped by research."
+    },
+    {
+      "name": "Folha de S.Paulo",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28 (operator): leading Brazilian newspaper — Latin American AI-race coverage. License unverified."
+    },
+    {
+      "name": "PBS",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28 (operator): US public broadcaster — accessible AI explainers and workforce coverage. License unverified."
+    },
+    {
+      "name": "CBS News",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28 (operator): US mainstream AI-race coverage. License unverified."
+    },
+    {
+      "name": "NDTV",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28 (operator): Indian mainstream — India's AI-strategy coverage. License unverified."
+    },
+    {
+      "name": "The Hindu",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28 (operator): Indian mainstream — India AI-policy analysis. License unverified."
+    },
+    {
+      "name": "South China Morning Post",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28 (operator): Hong Kong/China perspective — the China side of the AI race. License unverified."
+    },
+    {
+      "name": "Stanford News",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28 (operator): Stanford + HAI (Human-Centered AI Institute) — academic AI research coverage. License unverified."
+    },
+    {
+      "name": "University of Oxford",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28 (operator): Oxford research news — academic AI analysis. License unverified."
+    },
+    {
+      "name": "VentureBeat",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28 (operator): AI trade press (also surfaced in the live source scan). License unverified."
+    },
+    {
+      "name": "Online News Association",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28 (operator): industry case studies — journalism practice lens. License unverified."
+    },
+    {
+      "name": "Journal of Artificial Intelligence Research (JAIR)",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "notes": "Curated 2026-08-28 (operator): peer-reviewed AI research — open-access academic journal. License unverified."
     }
   ]
 }

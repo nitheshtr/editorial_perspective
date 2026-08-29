@@ -129,8 +129,8 @@ input[type=range]{width:100%;accent-color:var(--blue);margin:16px 0 5px}.ticks{d
 
 <div class="timeline">
   <div class="trow"><b>Perspective evolution</b><span class="state" id="state">TODAY</span></div>
-  <input id="range" type="range" min="0" max="2" value="2" step="1" oninput="timeChange(this.value)">
-  <div class="ticks"><span>90 DAYS AGO</span><span>30 DAYS AGO</span><span>TODAY</span></div>
+  <input id="range" type="range" min="0" max="3" value="3" step="1" oninput="timeChange(this.value)">
+  <div class="ticks"><span>1 YEAR AGO</span><span>3 MONTHS AGO</span><span>1 MONTH AGO</span><span>1 WEEK AGO</span></div>
   <div class="trow" style="justify-content:center"><button class="what-changed-btn" onclick="openChangeSheet()">What changed?</button></div>
 </div>
 
@@ -167,7 +167,7 @@ input[type=range]{width:100%;accent-color:var(--blue);margin:16px 0 5px}.ticks{d
 <script>
 const states=[
   {
-    label:'90 DAYS AGO',
+    label:'1 YEAR AGO',
     question:'Who has the smartest model?',
     synthesis:'The editorial conversation is narrowly focused on model capability and benchmark leadership. Infrastructure and platform questions are present, but human impact is barely visible.',
     lineStrength:.35,
@@ -185,7 +185,7 @@ const states=[
     }
   },
   {
-    label:'30 DAYS AGO',
+    label:'3 MONTHS AGO',
     question:'Who controls the platform?',
     synthesis:'Attention is shifting from raw benchmarks toward distribution, agents and infrastructure economics. Human impact begins to appear as a faint but recurring theme.',
     lineStrength:.6,
@@ -203,7 +203,25 @@ const states=[
     }
   },
   {
-    label:'TODAY',
+    label:'1 MONTH AGO',
+    question:'Who owns AI\'s choke points—and who answers for its consequences?',
+    synthesis:'Platform ownership (clusters 2-6, 37, 40) and infrastructure access (clusters 7-9, 42, 47) now define the race\'s competitive axes, while economics (clusters 10-12) asks where surplus lands and a broadening human-impact lens (clusters 13-15, 31, 41, 43) supplies the evaluative scoreboard; capability (clusters 1, 21, 36, 39) persists only as table stakes.',
+    lineStrength:1,
+    nodes:{
+      Technology:{x:6,y:8,w:21,h:18,br:'48% 52% 55% 45% / 50% 47% 53% 50%',sources:4,status:'Cooling',opacity:1,
+        mobile:{x:5,y:6,w:44,h:14}},
+      Platform:{x:44,y:2,w:25,h:18,br:'54% 42% 57% 44% / 48% 56% 44% 52%',sources:7,status:'Dominant',opacity:1,
+        mobile:{x:52,y:6,w:44,h:14}},
+      Infrastructure:{x:4,y:56,w:29,h:23,br:'51% 49% 46% 54% / 44% 55% 45% 56%',sources:5,status:'Accelerating',opacity:1,
+        mobile:{x:5,y:24,w:44,h:15}},
+      Economics:{x:58,y:54,w:27,h:21,br:'49% 51% 58% 42% / 58% 48% 52% 42%',sources:3,status:'Accelerating',opacity:1,
+        mobile:{x:52,y:24,w:44,h:15}},
+      'Human Impact':{x:68,y:12,w:27,h:22,br:'56% 44% 49% 51% / 45% 56% 44% 55%',sources:6,status:'Growing',opacity:1,
+        mobile:{x:18,y:42,w:64,h:16}}
+    }
+  },
+  {
+    label:'1 WEEK AGO',
     question:'Who owns AI\'s choke points—and who answers for its consequences?',
     synthesis:'Platform ownership (clusters 2-6, 37, 40) and infrastructure access (clusters 7-9, 42, 47) now define the race\'s competitive axes, while economics (clusters 10-12) asks where surplus lands and a broadening human-impact lens (clusters 13-15, 31, 41, 43) supplies the evaluative scoreboard; capability (clusters 1, 21, 36, 39) persists only as table stakes.',
     lineStrength:1,
@@ -224,18 +242,18 @@ const states=[
 const nodeOrder=['Technology','Platform','Infrastructure','Economics','Human Impact'];
 const relations=[['Infrastructure','Economics'],['Economics','Human Impact']];
 const perspectiveBodies={
-  Technology:['Frontier model capability and benchmark leadership dominate the editorial frame.','Model releases still matter, but coverage is shifting toward agents and integration.','Raw capability is now table stakes; the story is what models enable.'],
-  Platform:['Distribution is a secondary theme in the shadow of model releases.','Ecosystem lock-in and default agents rise as a source of durable advantage.','Platform control is treated as a primary axis of the AI race.'],
-  Infrastructure:['Compute is mentioned as context for model performance.','Chips, power and data centers become a constraint narrative.','Infrastructure scarcity is seen as a strategic lever that shapes who can compete.'],
-  Economics:['Inference costs appear occasionally at the margin.','Productivity and margin debates multiply as prices fall.','Value capture is the central unanswered economic question.'],
-  'Human Impact':['Jobs, education and creativity are rarely discussed.','Labor and learning enter the margins of the debate.','Who benefits and who is displaced is now a recurring editorial lens.']
+  Technology:['Frontier model capability and benchmark leadership dominate the editorial frame.','Model releases still matter, but coverage is shifting toward agents and integration.','Raw capability is now table stakes; the story is what models enable.','The past week turned technical: model customization, data fabrics and agent-ready infrastructure lead, as MIT Technology Review joins the source base.'],
+  Platform:['Distribution is a secondary theme in the shadow of model releases.','Ecosystem lock-in and default agents rise as a source of durable advantage.','Platform control is treated as a primary axis of the AI race.','Choke points and customer competition dominate this week: who owns the defaults, and what happens when AI companies compete with their own customers?'],
+  Infrastructure:['Compute is mentioned as context for model performance.','Chips, power and data centers become a constraint narrative.','Infrastructure scarcity is seen as a strategic lever that shapes who can compete.','The data-center boom\'s local prosperity dividend and grid connectivity are this week\'s constraint story.'],
+  Economics:['Inference costs appear occasionally at the margin.','Productivity and margin debates multiply as prices fall.','Value capture is the central unanswered economic question.','Falling prices sharpen the question: token economics and commoditization analyses press on where the surplus lands.'],
+  'Human Impact':['Jobs, education and creativity are rarely discussed.','Labor and learning enter the margins of the debate.','Who benefits and who is displaced is now a recurring editorial lens.','Safety diplomacy, population-scale adoption and the global AI divide widen the human lens this week.']
 };
 const details={
   Technology:{
     summary:'The technology perspective has retreated from leaderboard dominance to a quieter premise: capability still matters, but benchmarks no longer decide outcomes. Coverage now treats model performance as table stakes, framing frontier gains as background conditions rather than headline events. The open question is which capabilities—reasoning, reliability, autonomy—translate into durable advantage once parity becomes the norm.',
-    windows:{y:19,q:19,w:15},
-    sparkline:[24,18,14],
-    history:['Benchmarks and model releases set the editorial agenda.','Agents and product integration begin to rival raw capability.','Capability is assumed; the question is what it enables and who controls it.'],
+    windows:{y:19,q:19,m:16,w:15},
+    sparkline:[24,18,4,19],
+    history:['Benchmarks and model releases set the editorial agenda.','Agents and product integration begin to rival raw capability.','Capability is assumed; the question is what it enables and who controls it.','Data infrastructure and customization emerge as the new battlegrounds; capability talk quiets further.'],
     sources:[
       {pub:'MIT TECHNOLOGY REVIEW · ANALYSIS',title:'After the benchmark boom',desc:'Why raw model performance is becoming background noise in the AI race.'},
       {pub:'ARS TECHNICA · TECH',title:'From models to agents',desc:'How the product layer is reshaping what “better AI” means.'},
@@ -260,9 +278,9 @@ const details={
   },
   Platform:{
     summary:'The platform perspective has matured from supporting argument into the race\'s central thesis. Coverage concentrates on distribution, defaults and ecosystems: agent interfaces, API moats and app-store analogies dominate the current conversation. The argument is that whoever owns the default entry point to AI—where users and developers actually land—captures the value that raw capability alone cannot secure.',
-    windows:{y:5,q:5,w:5},
-    sparkline:[15,20,24],
-    history:['Distribution is discussed as a consequence of model quality.','Default agents and ecosystem lock-in gain editorial weight.','Platform control is treated as a primary axis of competition.'],
+    windows:{y:5,q:5,m:5,w:5},
+    sparkline:[15,20,7,5],
+    history:['Distribution is discussed as a consequence of model quality.','Default agents and ecosystem lock-in gain editorial weight.','Platform control is treated as a primary axis of competition.','Choke-point framing takes hold: providers picking winners and customer competition drive the debate.'],
     sources:[
       {pub:'WIRED · STRATEGY',title:'The operating system for AI',desc:'Why the company that owns the default agent may own the user.'},
       {pub:'BLOOMBERG · TECH',title:'APIs, agents and moats',desc:'How platform economics are changing the AI investment story.'},
@@ -273,9 +291,9 @@ const details={
   },
   Infrastructure:{
     summary:'The infrastructure perspective has moved from background context to binding constraint. Coverage focuses on physical limits: grid capacity, semiconductor supply and data-center buildouts now determine what deployment is feasible and at what pace. The argument is that compute access, not model access, separates serious competitors from aspirants—and that these constraints favor incumbents with capital and land.',
-    windows:{y:4,q:4,w:4},
-    sparkline:[12,19,22],
-    history:['Compute is treated as context for model releases.','Chips, energy and data centers become a recurring constraint.','Infrastructure scarcity is seen as a lever of national and corporate power.'],
+    windows:{y:4,q:4,m:4,w:4},
+    sparkline:[12,19,5,4],
+    history:['Compute is treated as context for model releases.','Chips, energy and data centers become a recurring constraint.','Infrastructure scarcity is seen as a lever of national and corporate power.','Power, siting and edge access are framed as the race\'s physical constraints.'],
     sources:[
       {pub:'FINANCIAL TIMES · ENERGY',title:'AI’s power problem',desc:'Data-center demand is colliding with grid and climate reality.'},
       {pub:'REUTERS · SEMICONDUCTORS',title:'The chip ceiling',desc:'Why advanced-processor supply may limit who can compete at scale.'},
@@ -285,9 +303,9 @@ const details={
   },
   Economics:{
     summary:'The economics perspective has accelerated around a single unresolved question: as inference costs collapse, where does durable value accrue? Coverage weighs a productivity paradox, competing theories of surplus capture, and cost-driven model selection. The through-line is that cheap intelligence may compress margins everywhere except at the choke points—distribution, compute and trust—where scarcity persists.',
-    windows:{y:3,q:3,w:3},
-    sparkline:[10,16,19],
-    history:['Inference costs appear occasionally in the margins.','Productivity, margins and value capture enter the debate.','Economics is now a primary lens for judging AI winners and losers.'],
+    windows:{y:3,q:3,m:3,w:3},
+    sparkline:[10,16,3,3],
+    history:['Inference costs appear occasionally in the margins.','Productivity, margins and value capture enter the debate.','Economics is now a primary lens for judging AI winners and losers.','Token economics make value capture the CFO-level question.'],
     sources:[
       {pub:'THE ECONOMIST · BUSINESS',title:'The productivity paradox',desc:'Why falling AI prices have not yet answered the value question.'},
       {pub:'BLOOMBERG OPINION · ECONOMICS',title:'Who captures the surplus?',desc:'A close look at margins, labor and the AI value chain.'},
@@ -296,9 +314,9 @@ const details={
   },
   'Human Impact':{
     summary:'The human-impact perspective has emerged from near-invisibility into a recurring editorial lens. Coverage now spans the future of work, education and creative attribution, asking who benefits from scaled deployment and who is displaced. Though still the newest perspective by volume, it increasingly supplies the evaluative standard against which the rest of the race is judged.',
-    windows:{y:8,q:7,w:6},
-    sparkline:[0,6,13],
-    history:['Jobs, education and creativity are rarely part of the framing.','Labor and learning enter the margins of coverage.','Who benefits and who bears the cost is now part of the central question.'],
+    windows:{y:8,q:7,m:6,w:6},
+    sparkline:[0,6,6,8],
+    history:['Jobs, education and creativity are rarely part of the framing.','Labor and learning enter the margins of coverage.','Who benefits and who bears the cost is now part of the central question.','Safety diplomacy and the global AI divide broaden the lens beyond jobs.'],
     sources:[
       {pub:'THE GUARDIAN · SOCIETY',title:'AI and the future of work',desc:'How editorial coverage is reconnecting automation with workers.'},
       {pub:'EDUCATION WEEK · OPINION',title:'The classroom after ChatGPT',desc:'Why schools have become a proving ground for AI’s human impact.'},
@@ -466,7 +484,7 @@ function drawSparkline(svg,data){
   const last=pts[pts.length-1];
   svg.innerHTML=`<polyline points="${poly}" fill="none" stroke="#0071e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="#0071e3" stroke="#fff" stroke-width="1.5"/>`;
 }
-function windowsStrip(w){w=w||{y:0,q:0,w:0};return `<span><b>${w.y}</b><i>LAST 1 YEAR</i></span><span><b>${w.q}</b><i>LAST 3 MONTHS</i></span><span><b>${w.w}</b><i>LAST 1 WEEK</i></span>`;}
+function windowsStrip(w){w=w||{y:0,q:0,m:0,w:0};return `<span><b>${w.y}</b><i>LAST 1 YEAR</i></span><span><b>${w.q}</b><i>LAST 3 MONTHS</i></span><span><b>${w.m}</b><i>LAST 1 MONTH</i></span><span><b>${w.w}</b><i>LAST 1 WEEK</i></span>`;}
 function openPerspectiveLens(name){
   const d=details[name];
   const cur=states[current].nodes[name];
@@ -509,7 +527,7 @@ document.addEventListener('keydown',function(e){
   }
 });
 window.addEventListener('resize',()=>{ applyState(current,true); animateLines(860); });
-document.addEventListener('DOMContentLoaded',()=>{ applyState(2,true); });
+document.addEventListener('DOMContentLoaded',()=>{ applyState(states.length-1,true); });
 </script>
 </body>
 </html>

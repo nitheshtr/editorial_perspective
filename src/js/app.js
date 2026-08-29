@@ -153,7 +153,7 @@ function drawSparkline(svg,data){
   const last=pts[pts.length-1];
   svg.innerHTML=`<polyline points="${poly}" fill="none" stroke="#0071e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="#0071e3" stroke="#fff" stroke-width="1.5"/>`;
 }
-function windowsStrip(w){w=w||{y:0,q:0,w:0};return `<span><b>${w.y}</b><i>LAST 1 YEAR</i></span><span><b>${w.q}</b><i>LAST 3 MONTHS</i></span><span><b>${w.w}</b><i>LAST 1 WEEK</i></span>`;}
+function windowsStrip(w){w=w||{y:0,q:0,m:0,w:0};return `<span><b>${w.y}</b><i>LAST 1 YEAR</i></span><span><b>${w.q}</b><i>LAST 3 MONTHS</i></span><span><b>${w.m}</b><i>LAST 1 MONTH</i></span><span><b>${w.w}</b><i>LAST 1 WEEK</i></span>`;}
 function openPerspectiveLens(name){
   const d=details[name];
   const cur=states[current].nodes[name];
@@ -196,4 +196,4 @@ document.addEventListener('keydown',function(e){
   }
 });
 window.addEventListener('resize',()=>{ applyState(current,true); animateLines(860); });
-document.addEventListener('DOMContentLoaded',()=>{ applyState(2,true); });
+document.addEventListener('DOMContentLoaded',()=>{ applyState(states.length-1,true); });

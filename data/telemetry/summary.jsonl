@@ -44,3 +44,5 @@
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T03:54:22.382Z","finishedAt":"2026-08-29T03:54:22.385Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T04:03:57.510Z","finishedAt":"2026-08-29T04:03:57.512Z","totals":{}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T04:03:57.523Z","finishedAt":"2026-08-29T04:03:57.526Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T04:20:19.884Z","finishedAt":"2026-08-29T04:20:19.886Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T04:20:19.906Z","finishedAt":"2026-08-29T04:20:19.911Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}

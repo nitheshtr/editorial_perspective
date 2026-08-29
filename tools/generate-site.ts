@@ -85,7 +85,7 @@ export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>): 
     return [
       `  ${nameKey(p.name)}:{`,
       `    summary:${q(p.summary)},`,
-      `    windows:{y:${p.windows?.y ?? 0},q:${p.windows?.q ?? 0},w:${p.windows?.w ?? 0}},`,
+      `    windows:{y:${p.windows?.y ?? 0},q:${p.windows?.q ?? 0},m:${p.windows?.m ?? 0},w:${p.windows?.w ?? 0}},`,
       `    sparkline:[${p.sparkline.map(num).join(",")}],`,
       `    history:[${p.history.map(q).join(",")}],`,
       "    sources:[",

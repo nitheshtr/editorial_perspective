@@ -13,8 +13,8 @@
   "activeNav": "Today",
   "states": [
     {
-      "period": "2026-05",
-      "label": "90 DAYS AGO",
+      "period": "2025-08",
+      "label": "1 YEAR AGO",
       "question": "Who has the smartest model?",
       "synthesis": "The editorial conversation is narrowly focused on model capability and benchmark leadership. Infrastructure and platform questions are present, but human impact is barely visible.",
       "lineStrength": 0.35,
@@ -158,8 +158,8 @@
       }
     },
     {
-      "period": "2026-07",
-      "label": "30 DAYS AGO",
+      "period": "2026-05",
+      "label": "3 MONTHS AGO",
       "question": "Who controls the platform?",
       "synthesis": "Attention is shifting from raw benchmarks toward distribution, agents and infrastructure economics. Human impact begins to appear as a faint but recurring theme.",
       "lineStrength": 0.6,
@@ -303,8 +303,152 @@
       }
     },
     {
+      "period": "2026-07",
+      "label": "1 MONTH AGO",
+      "question": "Who owns AI's choke points—and who answers for its consequences?",
+      "synthesis": "Platform ownership (clusters 2-6, 37, 40) and infrastructure access (clusters 7-9, 42, 47) now define the race's competitive axes, while economics (clusters 10-12) asks where surplus lands and a broadening human-impact lens (clusters 13-15, 31, 41, 43) supplies the evaluative scoreboard; capability (clusters 1, 21, 36, 39) persists only as table stakes.",
+      "lineStrength": 1,
+      "nodes": {
+        "Technology": {
+          "position": {
+            "x": 6,
+            "y": 8
+          },
+          "size": {
+            "w": 21,
+            "h": 18
+          },
+          "borderRadius": "48% 52% 55% 45% / 50% 47% 53% 50%",
+          "opacity": 1,
+          "mobile": {
+            "x": 5,
+            "y": 6,
+            "w": 44,
+            "h": 14
+          },
+          "metrics": {
+            "sourceVolume": 4,
+            "independentSignals": 4,
+            "momentum": 0.16,
+            "emergence": 0.2,
+            "editorialWeight": 0.4,
+            "confidence": 0.7,
+            "status": "Cooling"
+          }
+        },
+        "Platform": {
+          "position": {
+            "x": 44,
+            "y": 2
+          },
+          "size": {
+            "w": 25,
+            "h": 18
+          },
+          "borderRadius": "54% 42% 57% 44% / 48% 56% 44% 52%",
+          "opacity": 1,
+          "mobile": {
+            "x": 52,
+            "y": 6,
+            "w": 44,
+            "h": 14
+          },
+          "metrics": {
+            "sourceVolume": 7,
+            "independentSignals": 5,
+            "momentum": 0.28,
+            "emergence": 0.6,
+            "editorialWeight": 0.9,
+            "confidence": 0.9,
+            "status": "Dominant"
+          }
+        },
+        "Infrastructure": {
+          "position": {
+            "x": 4,
+            "y": 56
+          },
+          "size": {
+            "w": 29,
+            "h": 23
+          },
+          "borderRadius": "51% 49% 46% 54% / 44% 55% 45% 56%",
+          "opacity": 1,
+          "mobile": {
+            "x": 5,
+            "y": 24,
+            "w": 44,
+            "h": 15
+          },
+          "metrics": {
+            "sourceVolume": 5,
+            "independentSignals": 4,
+            "momentum": 0.2,
+            "emergence": 0.55,
+            "editorialWeight": 0.75,
+            "confidence": 0.85,
+            "status": "Accelerating"
+          }
+        },
+        "Economics": {
+          "position": {
+            "x": 58,
+            "y": 54
+          },
+          "size": {
+            "w": 27,
+            "h": 21
+          },
+          "borderRadius": "49% 51% 58% 42% / 58% 48% 52% 42%",
+          "opacity": 1,
+          "mobile": {
+            "x": 52,
+            "y": 24,
+            "w": 44,
+            "h": 15
+          },
+          "metrics": {
+            "sourceVolume": 3,
+            "independentSignals": 3,
+            "momentum": 0.12,
+            "emergence": 0.5,
+            "editorialWeight": 0.7,
+            "confidence": 0.75,
+            "status": "Accelerating"
+          }
+        },
+        "Human Impact": {
+          "position": {
+            "x": 68,
+            "y": 12
+          },
+          "size": {
+            "w": 27,
+            "h": 22
+          },
+          "borderRadius": "56% 44% 49% 51% / 45% 56% 44% 55%",
+          "opacity": 1,
+          "mobile": {
+            "x": 18,
+            "y": 42,
+            "w": 64,
+            "h": 16
+          },
+          "metrics": {
+            "sourceVolume": 6,
+            "independentSignals": 6,
+            "momentum": 0.24,
+            "emergence": 0.7,
+            "editorialWeight": 0.65,
+            "confidence": 0.8,
+            "status": "Growing"
+          }
+        }
+      }
+    },
+    {
       "period": "2026-08",
-      "label": "TODAY",
+      "label": "1 WEEK AGO",
       "question": "Who owns AI's choke points—and who answers for its consequences?",
       "synthesis": "Platform ownership (clusters 2-6, 37, 40) and infrastructure access (clusters 7-9, 42, 47) now define the race's competitive axes, while economics (clusters 10-12) asks where surplus lands and a broadening human-impact lens (clusters 13-15, 31, 41, 43) supplies the evaluative scoreboard; capability (clusters 1, 21, 36, 39) persists only as table stakes.",
       "lineStrength": 1,
@@ -458,17 +602,20 @@
       "bodies": [
         "Frontier model capability and benchmark leadership dominate the editorial frame.",
         "Model releases still matter, but coverage is shifting toward agents and integration.",
-        "Raw capability is now table stakes; the story is what models enable."
+        "Raw capability is now table stakes; the story is what models enable.",
+        "The past week turned technical: model customization, data fabrics and agent-ready infrastructure lead, as MIT Technology Review joins the source base."
       ],
       "sparkline": [
         24,
         18,
-        14
+        4,
+        19
       ],
       "history": [
         "Benchmarks and model releases set the editorial agenda.",
         "Agents and product integration begin to rival raw capability.",
-        "Capability is assumed; the question is what it enables and who controls it."
+        "Capability is assumed; the question is what it enables and who controls it.",
+        "Data infrastructure and customization emerge as the new battlegrounds; capability talk quiets further."
       ],
       "sources": [
         "source-001",
@@ -494,6 +641,7 @@
       "windows": {
         "y": 19,
         "q": 19,
+        "m": 16,
         "w": 15
       }
     },
@@ -507,17 +655,20 @@
       "bodies": [
         "Distribution is a secondary theme in the shadow of model releases.",
         "Ecosystem lock-in and default agents rise as a source of durable advantage.",
-        "Platform control is treated as a primary axis of the AI race."
+        "Platform control is treated as a primary axis of the AI race.",
+        "Choke points and customer competition dominate this week: who owns the defaults, and what happens when AI companies compete with their own customers?"
       ],
       "sparkline": [
         15,
         20,
-        24
+        7,
+        5
       ],
       "history": [
         "Distribution is discussed as a consequence of model quality.",
         "Default agents and ecosystem lock-in gain editorial weight.",
-        "Platform control is treated as a primary axis of competition."
+        "Platform control is treated as a primary axis of competition.",
+        "Choke-point framing takes hold: providers picking winners and customer competition drive the debate."
       ],
       "sources": [
         "source-004",
@@ -529,6 +680,7 @@
       "windows": {
         "y": 5,
         "q": 5,
+        "m": 5,
         "w": 5
       }
     },
@@ -542,17 +694,20 @@
       "bodies": [
         "Compute is mentioned as context for model performance.",
         "Chips, power and data centers become a constraint narrative.",
-        "Infrastructure scarcity is seen as a strategic lever that shapes who can compete."
+        "Infrastructure scarcity is seen as a strategic lever that shapes who can compete.",
+        "The data-center boom's local prosperity dividend and grid connectivity are this week's constraint story."
       ],
       "sparkline": [
         12,
         19,
-        22
+        5,
+        4
       ],
       "history": [
         "Compute is treated as context for model releases.",
         "Chips, energy and data centers become a recurring constraint.",
-        "Infrastructure scarcity is seen as a lever of national and corporate power."
+        "Infrastructure scarcity is seen as a lever of national and corporate power.",
+        "Power, siting and edge access are framed as the race's physical constraints."
       ],
       "sources": [
         "source-007",
@@ -563,6 +718,7 @@
       "windows": {
         "y": 4,
         "q": 4,
+        "m": 4,
         "w": 4
       }
     },
@@ -576,17 +732,20 @@
       "bodies": [
         "Inference costs appear occasionally at the margin.",
         "Productivity and margin debates multiply as prices fall.",
-        "Value capture is the central unanswered economic question."
+        "Value capture is the central unanswered economic question.",
+        "Falling prices sharpen the question: token economics and commoditization analyses press on where the surplus lands."
       ],
       "sparkline": [
         10,
         16,
-        19
+        3,
+        3
       ],
       "history": [
         "Inference costs appear occasionally in the margins.",
         "Productivity, margins and value capture enter the debate.",
-        "Economics is now a primary lens for judging AI winners and losers."
+        "Economics is now a primary lens for judging AI winners and losers.",
+        "Token economics make value capture the CFO-level question."
       ],
       "sources": [
         "source-010",
@@ -596,6 +755,7 @@
       "windows": {
         "y": 3,
         "q": 3,
+        "m": 3,
         "w": 3
       }
     },
@@ -609,17 +769,20 @@
       "bodies": [
         "Jobs, education and creativity are rarely discussed.",
         "Labor and learning enter the margins of the debate.",
-        "Who benefits and who is displaced is now a recurring editorial lens."
+        "Who benefits and who is displaced is now a recurring editorial lens.",
+        "Safety diplomacy, population-scale adoption and the global AI divide widen the human lens this week."
       ],
       "sparkline": [
         0,
         6,
-        13
+        6,
+        8
       ],
       "history": [
         "Jobs, education and creativity are rarely part of the framing.",
         "Labor and learning enter the margins of coverage.",
-        "Who benefits and who bears the cost is now part of the central question."
+        "Who benefits and who bears the cost is now part of the central question.",
+        "Safety diplomacy and the global AI divide broaden the lens beyond jobs."
       ],
       "sources": [
         "source-013",
@@ -634,6 +797,7 @@
       "windows": {
         "y": 8,
         "q": 7,
+        "m": 6,
         "w": 6
       }
     }

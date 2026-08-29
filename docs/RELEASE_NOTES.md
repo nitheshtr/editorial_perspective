@@ -167,6 +167,23 @@ run-duration threshold gives 3× headroom.
   never estimated); validation checklist extended.
 - Golden re-blessed (45,664 chars).
 
+## 2026-08-28 — 4-period timeline + 11 new sources
+
+- **Timeline reshaped to 4 periods:** 1 YEAR AGO → 3 MONTHS AGO → 1 MONTH
+  AGO → 1 WEEK AGO (slider, ticks and periods 2025-08 / 2026-05 / 2026-07 /
+  2026-08). Perspective bodies, sparklines and history extended to 4
+  entries; the 1-WEEK state carries the live catalog counts, the 1-MONTH
+  state carries the approved analysis snapshot.
+- **Recency windows now 4 buckets** to match: LAST 1 YEAR · LAST 3 MONTHS ·
+  LAST 1 MONTH · LAST 1 WEEK (month = 30 days).
+- **11 new sources registered (operator batch #2):** Folha de S.Paulo, PBS,
+  CBS News, NDTV, The Hindu, South China Morning Post, Stanford News,
+  University of Oxford, VentureBeat, Online News Association, JAIR — all
+  tier 3 / link_only pending license verification. BBC and WEF skipped
+  (already registered). Registry now 61 publishers.
+- Golden re-blessed (48,151 chars) — intentional timeline + data change per
+  Visual Fidelity Lock.
+
 ## 2026-08-28 — First real data cycle published
 
 - **Real research integration live:** Tavily search → page fetch → metadata

@@ -87,7 +87,7 @@ let windowsSet = 0;
 for (const p of topic.perspectives as Array<any>) {
   const dates = (p.sources as string[]).map((id) => byIdDate.get(id)).filter(Boolean) as string[];
   const inWindow = (days: number) => dates.filter((d) => new Date(`${d}T00:00:00Z`).getTime() >= nowMs - days * DAY).length;
-  const windows = { y: inWindow(365), q: inWindow(92), w: inWindow(7) };
+  const windows = { y: inWindow(365), q: inWindow(92), m: inWindow(30), w: inWindow(7) };
   if (JSON.stringify(p.windows) !== JSON.stringify(windows)) windowsSet++;
   p.windows = windows;
 }
