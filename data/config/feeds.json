@@ -1,9 +1,9 @@
 {
   "feeds": [
-    { "publisher": "The Conversation", "url": "https://theconversation.com/us/articles/rss", "lane": "technology" },
-    { "publisher": "Brookings", "url": "https://www.brookings.edu/feed/", "lane": "platform" },
-    { "publisher": "Council on Foreign Relations", "url": "https://www.cfr.org/rss/", "lane": "platform" },
-    { "publisher": "World Economic Forum", "url": "https://www.weforum.org/rss.xml", "lane": "infrastructure" },
-    { "publisher": "Atlantic Council", "url": "https://www.atlanticcouncil.org/feed/", "lane": "infrastructure" }
+    {
+      "publisher": "Atlantic Council",
+      "url": "https://www.atlanticcouncil.org/feed/",
+      "lane": "infrastructure"
+    }
   ]
 }

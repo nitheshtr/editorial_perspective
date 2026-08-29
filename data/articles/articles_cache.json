@@ -1991,6 +1991,174 @@
       "perspectives": [
         "technology"
       ]
+    },
+    {
+      "id": "source-098",
+      "publisher": "Atlantic Council",
+      "title": "Satan’s Chariot: Mercenary Trouble in Mali",
+      "description": "In Season 2, Episode 17 of the Guns for Hire podcast, host Alia Brahimi chats to Wassim Nasr, the veteran French journalist for France24 and Senior Fellow at the Soufan Center. Wassim talks us through the spectacular April 25th offensive across Mali by JNIM, an al-Qaeda affiliate that looks set to soon make a play to take over the whole country.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.atlanticcouncil.org/commentary/podcast/satans-chariot-mercenary-trouble-in-mali/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-98",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-099",
+      "publisher": "Atlantic Council",
+      "title": "The G20 needs more carrots to rebalance away from China",
+      "description": "The G20 should pair tariffs and sanctions with positive economic tools to diversify away from China without destabilizing economic growth.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.atlanticcouncil.org/blogs/econographics/the-g20-needs-more-carrots-to-rebalance-away-from-china/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-99",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-100",
+      "publisher": "Atlantic Council",
+      "title": "In space, everyone can hear you stream: Challenges ahead of the corporate space data race",
+      "description": "Private companies are driving the rise of space-based data centers, but it is not yet clear who will govern data processed in orbit.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.atlanticcouncil.org/blogs/geotech-cues/in-space-everyone-can-hear-you-stream-challenges-ahead-of-the-corporate-space-data-race/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-100",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-101",
+      "publisher": "Atlantic Council",
+      "title": "Why China’s export-maximizing strategy is working—for now",
+      "description": "China’s economy faces real constraints, but Beijing’s repressive political system might manage them for far longer than expected.",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.atlanticcouncil.org/dispatches/why-chinas-export-maximizing-strategy-is-working-for-now/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-101",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-102",
+      "publisher": "Atlantic Council",
+      "title": "Ukrainians are not superheroes with endless powers of resilience",
+      "description": "By celebrating Ukrainian resilience as an almost superhuman quality, the international community risks obscuring the much less glamorous reality that Ukrainians are actually ordinary people who have endured extraordinary violence for far too long, write Lauren Van Metre and Elena Davlikanova.",
+      "date": "2026-08-27",
+      "type": "REPORT",
+      "url": "https://www.atlanticcouncil.org/blogs/ukrainealert/ukrainians-are-not-superheroes-with-endless-powers-of-resilience/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-102",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-103",
+      "publisher": "Atlantic Council",
+      "title": "The Biollywood Podcast: Doom (2005)",
+      "description": "In this episode of The Biollywood Podcast, the Director of the Bipartisan Commission on Biodefense at the Atlantic Council, Asha M. George, Associate Director for Research, J.T. O'Brien, and Associate Director for Government Relations and Policy, Robert Bradley, discuss the 2005 film \"Doom\" - starring Dwayne \"The Rock\" Johnson and Karl Urban - and its implications for astrobiodefense, biosafety an",
+      "date": "2026-08-27",
+      "type": "REPORT",
+      "url": "https://www.atlanticcouncil.org/commentary/podcast/the-biollywood-podcast-doom-2005/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-103",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-104",
+      "publisher": "Atlantic Council",
+      "title": "A revolutionary coffee: The impact of Syria’s removal from the terrorism sponsor list",
+      "description": "The US removal of the country from its list of state sponsors of terrorism is big step for Syria toward its post-Assad future.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.atlanticcouncil.org/dispatches/a-revolutionary-coffee-the-impact-of-syrias-removal-from-the-terrorism-sponsor-list/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-104",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
     }
   ],
   "migratedFrom": "editorial_perspective_evolution_v3.html"

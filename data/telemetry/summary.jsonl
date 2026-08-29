@@ -61,3 +61,11 @@
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T20:27:06.210Z","finishedAt":"2026-08-29T20:27:06.212Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T20:44:21.984Z","finishedAt":"2026-08-29T20:44:21.986Z","totals":{}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T20:44:21.998Z","finishedAt":"2026-08-29T20:44:22.000Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"bb09de2f-711c-4495-9499-6c641eadeb62","topic":"ai-superrace","startedAt":"2026-08-29T20:49:09.329Z","finishedAt":"2026-08-29T20:49:30.150Z","totals":{"research":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":4,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T21:17:30.154Z","finishedAt":"2026-08-29T21:17:30.155Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T21:17:30.164Z","finishedAt":"2026-08-29T21:17:30.165Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T21:18:04.348Z","finishedAt":"2026-08-29T21:18:04.350Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T21:18:04.364Z","finishedAt":"2026-08-29T21:18:04.366Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"296adc8b-4e08-440b-9a4e-e34494d94058","topic":"ai-superrace","startedAt":"2026-08-29T21:18:48.693Z","finishedAt":"2026-08-29T21:19:06.883Z","totals":{"research":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":4,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T21:19:09.929Z","finishedAt":"2026-08-29T21:19:09.932Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T21:19:09.945Z","finishedAt":"2026-08-29T21:19:09.947Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}

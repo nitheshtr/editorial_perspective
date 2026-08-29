@@ -90,6 +90,17 @@ export function createRssReader(
     }
 
     const xml = await response.text();
+
+    // Content guard: some publishers serve their HTML homepage for feed URLs
+    // (HTTP 200 + HTML body) — that's a dead or bot-gated feed, not an empty
+    // one. Report it clearly instead of silently returning zero items.
+    if (!xml.trimStart().startsWith("<?xml")) {
+      console.error(
+        `RSS: ${feedUrl} returned ${response.status} but non-XML content — feed is dead or bot-gated`,
+      );
+      return [];
+    }
+
     const $ = cheerio.load(xml, { xmlMode: true });
 
     const items: RssItem[] = [];

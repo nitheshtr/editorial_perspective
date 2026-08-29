@@ -258,6 +258,26 @@ run-duration threshold gives 3× headroom.
   date; undated articles are counted by discovery date.
 - Golden re-blessed (48,339 chars).
 
+## 2026-08-28 — RSS feed verification cycle
+
+- **First live RSS pull** (`feeds=true`): pipeline mechanics verified
+  end-to-end — feeds attempted, failures logged, items ingested through the
+  full policy/dedup/sponsored-guard pipeline. Result: only **1 of 5 seeded
+  feeds actually delivered** (Atlantic Council — 6 items).
+- **Feed URL verdicts:** Atlantic Council ✅ (working); The Conversation
+  404/406 (public RSS gated), Brookings serves its HTML homepage for all
+  feed patterns (bot-gated WordPress), CFR 404 (Next.js, no public RSS),
+  WEF 403 (bot-blocked). Dead feeds pruned from feeds.json per the
+  feed-verification rule — re-add when URLs are verified via publisher
+  contact.
+- **XML-content guard added to rss.ts:** an HTTP 200 + HTML body (a dead or
+  bot-gated feed) is logged clearly instead of silently parsing to zero
+  items. Fixed a malformed feeds.json (object instead of array) that
+  crashed the runner.
+- Tavily `include_domains` remains the primary sourcing path for gated
+  publishers; RSS stays the zero-quota complement for verified feeds.
+- 164 tests green, topic validation green.
+
 ## 2026-08-28 — First real data cycle published
 
 - **Real research integration live:** Tavily search → page fetch → metadata

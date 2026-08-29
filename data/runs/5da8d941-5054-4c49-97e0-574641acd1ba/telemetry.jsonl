@@ -1,0 +1,3 @@
+{"ts":"2026-08-29T21:17:30.331Z","run":"5da8d941-5054-4c49-97e0-574641acd1ba","level":"info","event":"run_start","data":{"stage":"research"}}
+{"ts":"2026-08-29T21:17:30.335Z","run":"5da8d941-5054-4c49-97e0-574641acd1ba","level":"info","event":"stage_start","stage":"research","data":{}}
+{"ts":"2026-08-29T21:17:30.596Z","run":"5da8d941-5054-4c49-97e0-574641acd1ba","level":"info","event":"tool_call","stage":"research","data":{"tool":"websearch","count":10}}
