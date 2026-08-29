@@ -36,3 +36,11 @@
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-28T22:33:57.812Z","finishedAt":"2026-08-28T22:33:57.813Z","totals":{}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-28T22:33:57.825Z","finishedAt":"2026-08-28T22:33:57.826Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
 {"run":"336e0bec-17a9-46ad-bac9-aafedca604a5","topic":"ai-superrace","startedAt":"2026-08-28T23:52:05.097Z","finishedAt":"2026-08-28T23:52:10.395Z","totals":{"research":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":3,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T03:50:10.539Z","finishedAt":"2026-08-29T03:50:10.540Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T03:50:10.552Z","finishedAt":"2026-08-29T03:50:10.554Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T03:51:23.038Z","finishedAt":"2026-08-29T03:51:23.040Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T03:51:23.057Z","finishedAt":"2026-08-29T03:51:23.061Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T03:54:22.369Z","finishedAt":"2026-08-29T03:54:22.370Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T03:54:22.382Z","finishedAt":"2026-08-29T03:54:22.385Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T04:03:57.510Z","finishedAt":"2026-08-29T04:03:57.512Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T04:03:57.523Z","finishedAt":"2026-08-29T04:03:57.526Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}

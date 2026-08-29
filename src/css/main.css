@@ -83,3 +83,10 @@ input[type=range]{width:100%;accent-color:var(--blue);margin:16px 0 5px}.ticks{d
   .change-sheet{padding:18px}.change-sheet h2{font-size:23px}.question-shift p{font-size:15px}
   .synthesis{padding:22px}.synthesis h2{font-size:23px}
 }
+
+/* Recency windows — per-perspective article counts (1y / 3m / 1w) */
+.lens-windows{display:flex;gap:8px;margin:0 0 18px}
+.lens-windows span{flex:1;background:var(--blue-soft,#e9f3ff);border-radius:12px;padding:9px 10px;text-align:center}
+.lens-windows span b{display:block;font-size:17px;letter-spacing:-.3px;color:var(--ink)}
+.lens-windows span i{font-style:normal;font-size:8.5px;letter-spacing:1px;font-weight:750;color:var(--blue)}
+.sourcesPanel .lens-windows{margin:12px 0 6px}

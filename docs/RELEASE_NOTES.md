@@ -151,6 +151,22 @@ run-duration threshold gives 3× headroom.
 - **Technology lane expanded:** 19 sources (10 MIT + 9 prior). Corpus now
   43 articles. Golden re-blessed (44,587 chars) per Visual Fidelity Lock.
 
+## 2026-08-28 — Recency windows on the frontend (1 year / 3 months / 1 week)
+
+- **Per-perspective recency counts** rendered as stat chips in the lens
+  modal + sources panel: LAST 1 YEAR · LAST 3 MONTHS · LAST 1 WEEK.
+- Computed mechanically in the refresh sync (bucketed by each article's
+  date; ingestion date is the honest fallback for undated pages) — data
+  lives in the topic JSON per perspective (`windows`), emitted into the
+  data block.
+- **sourceVolume derivation rule locked in** (fixes the "4 SOURCES vs 9
+  articles" mismatch): the current period's sourceVolume is synced to the
+  perspective's cataloged source count at apply/refresh time — the blob's
+  count always equals the panel count. independentSignals clamped to ≤
+  sourceVolume. Analysis agent contract updated (sourceVolume is derived,
+  never estimated); validation checklist extended.
+- Golden re-blessed (45,664 chars).
+
 ## 2026-08-28 — First real data cycle published
 
 - **Real research integration live:** Tavily search → page fetch → metadata

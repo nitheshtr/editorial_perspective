@@ -977,6 +977,22 @@ async function stageApply(ctx: RunContext): Promise<void> {
     }
   }
 
+  // Mechanical sync: the current period's sourceVolume is DERIVED from the
+  // catalog — the blob's "N SOURCES" must equal the sources panel count.
+  // (Analysis proposes qualitative signals; volume is never estimated.)
+  const allStates = topic.states as Array<Record<string, any>>;
+  const lastState = allStates[allStates.length - 1];
+  for (const p of (topic.perspectives as Array<Record<string, any>>)) {
+    const node = lastState.nodes[p.name];
+    if (node?.metrics) {
+      node.metrics.sourceVolume = (p.sources as string[]).length;
+      // Clamp: independent signals can never exceed the cataloged count.
+      if (node.metrics.independentSignals > node.metrics.sourceVolume) {
+        node.metrics.independentSignals = node.metrics.sourceVolume;
+      }
+    }
+  }
+
   // Re-validate
   const articles = loadArticles();
   const registry = loadRegistry();

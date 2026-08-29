@@ -38,6 +38,11 @@ WORKFLOW
    a synthesis referencing at least 3 distinct perspectives.
 
 CONSTRAINTS
+- sourceVolume is DERIVED, never estimated: the pipeline syncs the current
+  period's sourceVolume to the perspective's cataloged source count at
+  apply-time. Do not propose sourceVolume values — focus on clustering,
+  status, and the qualitative signals (momentum/emergence/weight estimates
+  are still yours).
 - Every claim must cite specific article counts and story clusters.
 - Never invent perspectives — surface only what the corpus supports.
 - Every status assignment carries a confidence value; flag any classification

@@ -327,7 +327,7 @@
             "h": 14
           },
           "metrics": {
-            "sourceVolume": 4,
+            "sourceVolume": 19,
             "independentSignals": 4,
             "momentum": 0.16,
             "emergence": 0.2,
@@ -354,8 +354,8 @@
             "h": 14
           },
           "metrics": {
-            "sourceVolume": 7,
-            "independentSignals": 7,
+            "sourceVolume": 5,
+            "independentSignals": 5,
             "momentum": 0.28,
             "emergence": 0.6,
             "editorialWeight": 0.9,
@@ -381,8 +381,8 @@
             "h": 15
           },
           "metrics": {
-            "sourceVolume": 5,
-            "independentSignals": 5,
+            "sourceVolume": 4,
+            "independentSignals": 4,
             "momentum": 0.2,
             "emergence": 0.55,
             "editorialWeight": 0.75,
@@ -435,7 +435,7 @@
             "h": 16
           },
           "metrics": {
-            "sourceVolume": 6,
+            "sourceVolume": 8,
             "independentSignals": 6,
             "momentum": 0.24,
             "emergence": 0.7,
@@ -490,7 +490,12 @@
         "source-055",
         "source-056",
         "source-057"
-      ]
+      ],
+      "windows": {
+        "y": 19,
+        "q": 19,
+        "w": 15
+      }
     },
     {
       "id": "platform",
@@ -520,7 +525,12 @@
         "source-006",
         "source-037",
         "source-040"
-      ]
+      ],
+      "windows": {
+        "y": 5,
+        "q": 5,
+        "w": 5
+      }
     },
     {
       "id": "infrastructure",
@@ -549,7 +559,12 @@
         "source-008",
         "source-009",
         "source-042"
-      ]
+      ],
+      "windows": {
+        "y": 4,
+        "q": 4,
+        "w": 4
+      }
     },
     {
       "id": "economics",
@@ -577,7 +592,12 @@
         "source-010",
         "source-011",
         "source-012"
-      ]
+      ],
+      "windows": {
+        "y": 3,
+        "q": 3,
+        "w": 3
+      }
     },
     {
       "id": "human-impact",
@@ -610,7 +630,12 @@
         "source-038",
         "source-041",
         "source-043"
-      ]
+      ],
+      "windows": {
+        "y": 8,
+        "q": 7,
+        "w": 6
+      }
     }
   ],
   "relations": [

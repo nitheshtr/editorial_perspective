@@ -153,6 +153,7 @@ function drawSparkline(svg,data){
   const last=pts[pts.length-1];
   svg.innerHTML=`<polyline points="${poly}" fill="none" stroke="#0071e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="#0071e3" stroke="#fff" stroke-width="1.5"/>`;
 }
+function windowsStrip(w){w=w||{y:0,q:0,w:0};return `<span><b>${w.y}</b><i>LAST 1 YEAR</i></span><span><b>${w.q}</b><i>LAST 3 MONTHS</i></span><span><b>${w.w}</b><i>LAST 1 WEEK</i></span>`;}
 function openPerspectiveLens(name){
   const d=details[name];
   const cur=states[current].nodes[name];
@@ -160,6 +161,7 @@ function openPerspectiveLens(name){
   document.getElementById('lensEyebrow').textContent=`${meta.text} · ${cur.sources} SOURCES`;
   document.getElementById('lensTitle').textContent=name;
   document.getElementById('lensSummary').textContent=d.summary;
+  document.getElementById('lensWindows').innerHTML=windowsStrip(d.windows);
   drawSparkline(document.getElementById('lensSparkline'), d.sparkline);
   document.getElementById('lensSteps').innerHTML=d.history.map((txt,i)=>`<div class="lens-step"><div class="when">${i+1}</div><div class="when-label">${states[i].label}</div><p>${txt}</p></div>`).join('');
   document.getElementById('lensSources').innerHTML=d.sources.map(s=>`<div class="lens-source"><div class="pub">${s.pub}</div><h4>${s.title}</h4><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></div>`).join('');
@@ -178,6 +180,7 @@ function openPerspective(name){
   document.getElementById('panelTitle').textContent=name;
   document.getElementById('panelKicker').textContent=name.toUpperCase()+' · PERSPECTIVE';
   document.getElementById('panelSummary').textContent=(d&&d.summary)||'';
+  document.getElementById('panelWindows').innerHTML=windowsStrip(d&&d.windows);
   const list=document.getElementById('panelArticles');
   list.innerHTML=(d&&d.sources?d.sources:[]).map(s=>`<article class="article"><div class="pub">${s.pub}</div><h3>${s.title}</h3><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></article>`).join('');
   const p=document.getElementById('sourcesPanel');

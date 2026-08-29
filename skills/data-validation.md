@@ -13,7 +13,8 @@ Check catalog (summary):
   nav 3-7, ISO dates
 - Geometry: x/y ∈ [0,100]; w/h ∈ (0,100]; border-radius format; opacity ∈ [0,1]
 - Metrics: in range; status has confidence; independentSignals ≤ sourceVolume;
-  Invisible requires emergence ≤ 0.05; arrays match state count
+  Invisible requires emergence ≤ 0.05; arrays match state count;
+  current-period sourceVolume == cataloged sources count
 - Narrative: no empty fields; question 5-25 words; synthesis 20-120;
   summary 15-80; meaningful progression; ≤50% cross-perspective overlap
 - Evidence: ≥3 sources per perspective; core argument AND counterargument;

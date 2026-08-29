@@ -68,6 +68,7 @@ export interface PerspectiveView {
   sparkline: number[];
   history: string[];
   sources: string[];
+  windows?: { y: number; q: number; w: number };
 }
 
 export interface RelationView {

@@ -58,9 +58,43 @@ for (const p of topic.perspectives) {
   }
 }
 
+// Mechanical sync: the current period's sourceVolume is DERIVED from the
+// catalog — the blob's "N SOURCES" must equal the sources panel count.
+// (Analysis proposes qualitative signals; volume is never estimated.)
+const states = topic.states as Array<Record<string, any>>;
+const lastState = states[states.length - 1];
+let volumesSynced = 0;
+for (const p of topic.perspectives as Array<any>) {
+  const node = lastState.nodes[p.name];
+  if (node?.metrics && node.metrics.sourceVolume !== p.sources.length) {
+    node.metrics.sourceVolume = p.sources.length;
+    volumesSynced++;
+  }
+  // Clamp: independent signals (distinct clusters) can never exceed the
+  // cataloged source count.
+  if (node?.metrics && node.metrics.independentSignals > node.metrics.sourceVolume) {
+    node.metrics.independentSignals = node.metrics.sourceVolume;
+  }
+}
+
+// Recency windows: article counts per perspective over 1 year / 3 months / 1
+// week — bucketed by each article's date (ingestion date is the honest
+// fallback when a publisher page exposes no publish date).
+const nowMs = Date.now();
+const DAY = 86_400_000;
+const byIdDate = new Map((cache.articles as Array<any>).map((a) => [a.id, a.date as string]));
+let windowsSet = 0;
+for (const p of topic.perspectives as Array<any>) {
+  const dates = (p.sources as string[]).map((id) => byIdDate.get(id)).filter(Boolean) as string[];
+  const inWindow = (days: number) => dates.filter((d) => new Date(`${d}T00:00:00Z`).getTime() >= nowMs - days * DAY).length;
+  const windows = { y: inWindow(365), q: inWindow(92), w: inWindow(7) };
+  if (JSON.stringify(p.windows) !== JSON.stringify(windows)) windowsSet++;
+  p.windows = windows;
+}
+
 writeFileSync("data/topics/ai-superrace.json", `${JSON.stringify(topic, null, 2)}\n`);
 writeFileSync("data/articles/articles_cache.json", `${JSON.stringify(cache, null, 2)}\n`);
-console.log(`perspective sources updated: ${appended} real articles appended | ${tagsFixed} article tags corrected`);
+console.log(`perspective sources updated: ${appended} real articles appended | ${tagsFixed} article tags corrected | ${volumesSynced} sourceVolumes synced to catalog`);
 for (const p of topic.perspectives) {
   console.log(`  ${p.id}: ${p.sources.length} sources`);
 }

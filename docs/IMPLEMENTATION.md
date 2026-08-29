@@ -822,6 +822,10 @@ WORKFLOW
    a synthesis referencing at least 3 distinct perspectives.
 
 CONSTRAINTS
+- sourceVolume is DERIVED, never estimated: the pipeline syncs the current
+  period's sourceVolume to the perspective's cataloged source count at
+  apply-time (the blob's "N SOURCES" must equal the sources panel count).
+  Proposals must not set sourceVolume values.
 - Every claim must cite specific article counts and story clusters.
 - Never invent perspectives — surface only what the corpus supports.
 - Every status assignment carries a confidence value; flag any classification
@@ -1143,7 +1147,8 @@ Check catalog (summary):
   nav 3-7, ISO dates
 - Geometry: x/y ∈ [0,100]; w/h ∈ (0,100]; border-radius format; opacity ∈ [0,1]
 - Metrics: in range; status has confidence; independentSignals ≤ sourceVolume;
-  Invisible requires emergence ≤ 0.05; arrays match state count
+  Invisible requires emergence ≤ 0.05; arrays match state count;
+  current-period sourceVolume == cataloged sources count
 - Narrative: no empty fields; question 5-25 words; synthesis 20-120;
   summary 15-80; meaningful progression; ≤50% cross-perspective overlap
 - Evidence: ≥3 sources per perspective; core argument AND counterargument;
