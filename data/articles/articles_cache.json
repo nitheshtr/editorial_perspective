@@ -698,7 +698,7 @@
     },
     {
       "id": "source-044",
-      "publisher": "Gradientflow",
+      "publisher": "Gradient Flow",
       "title": "The smartest AI teams are moving past chatbots",
       "description": "Put data, machine learning, and AI to work.",
       "date": "2026-06-02",
@@ -722,7 +722,7 @@
     },
     {
       "id": "source-045",
-      "publisher": "Nebius",
+      "publisher": "Nebius AI",
       "title": "Building transaction foundation models on Nebius AI Cloud",
       "description": "Today, we’re exploring how transaction foundation models move from developer examples to production systems. Using NVIDIA’s TFM blueprint and Revolut’s PRAGMA model, we show how Nebius AI Cloud supports the full lifecycle — from GPU-accelerated data preparation and multi-node training to managed inference on Token Factory.",
       "date": "2026-06-02",
@@ -746,7 +746,7 @@
     },
     {
       "id": "source-046",
-      "publisher": "Ibm",
+      "publisher": "IBM",
       "title": "The trends that will shape AI and tech in 2026 | IBM",
       "description": "Reporter Anabelle Nicoud spoke to several experts across AI, security, quantum and beyond to better understand where tech will take us in 2026.",
       "date": "2026-01-01",
@@ -770,7 +770,7 @@
     },
     {
       "id": "source-047",
-      "publisher": "Neuberger",
+      "publisher": "Neuberger Berman",
       "title": "At AI’s Edge: Precision Hardware Is Moving From Data Centers To Devices | Neuberger",
       "description": "As the AI rollout shifts from training large language models in the cloud to orchestrating armies of agents on local devices, hardware makers are racing to upgrade their components to meet rising computational demand.",
       "date": "2026-08-28",
@@ -1026,6 +1026,966 @@
         "pendingVerification": false
       },
       "storyCluster": "cluster-57",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-058",
+      "publisher": "Morningconsult",
+      "title": "ChatGPT Brand Advantage as the Default Consumer AI",
+      "description": "ChatGPT is the default consumer AI brand, leading in recall, task breadth, and emotional connection as competitors expand distribution and specialization.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://morningconsult.com/articles/chatgpt-brand-strengths-and-challenges",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-58",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-059",
+      "publisher": "Startup Fortune",
+      "title": "Tencent's plan to embed a full AI agent inside WeChat puts 1.4 billion users at the center of China's platform war - Startup Fortune",
+      "description": "Tencent has launched ClawBot, an AI agent plugin inside WeChat, and is developing a native agent to orchestrate its 3.8 million mini-programs. With a full",
+      "date": "2026-06-02",
+      "type": "REPORT",
+      "url": "https://startupfortune.com/tencents-plan-to-embed-a-full-ai-agent-inside-wechat-puts-14-billion-users-at-the-center-of-chinas-platform-war/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-59",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-060",
+      "publisher": "Nelson Advisors",
+      "title": "Clinical Intelligence: A Strategic Analysis of OpenEvidence and the Multi-Agent Medical AI Ecosystem",
+      "description": "The evolution of clinical decision support systems (CDSS) has reached a critical inflection point where traditional reference models are being supplanted by agentic, multi-model architectures. At the center of this transition is OpenEvidence, a platform that has ascended to a $12 Billion valuation in less than a year of public operations. This rapid scaling is fundamentally a response to the \"huma",
+      "date": "2026-04-01",
+      "type": "REPORT",
+      "url": "https://www.healthcare.digital/single-post/clinical-intelligence-a-strategic-analysis-of-openevidence-and-the-multi-agent-medical-ai-ecosystem",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-60",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-061",
+      "publisher": "PYMNTS.com",
+      "title": "Why OpenAI, Amazon and Apple Want to Be the Smartphone in Your Pocket | PYMNTS.com",
+      "description": "On January 9, 2007, Steve Jobs stood on stage at Macworld and introduced three products. An iPod with a bigger screen and touch controls, a mobile phone,",
+      "date": "2026-05-06",
+      "type": "REPORT",
+      "url": "https://www.pymnts.com/news/artificial-intelligence/2026/why-openai-amazon-and-apple-want-to-be-the-smartphone-in-your-pocket/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-61",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-062",
+      "publisher": "Autorité de la concurrence",
+      "title": "AI agents: the Autorité de la concurrence issues its opinion on the competitive functioning of the AI agents sector",
+      "description": "",
+      "date": "2026-07-17",
+      "type": "REPORT",
+      "url": "https://www.autoritedelaconcurrence.fr/en/press-release/ai-agents-autorite-de-la-concurrence-issues-its-opinion-competitive-functioning-ai",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-62",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-063",
+      "publisher": "Oag",
+      "title": "Travel 2045: A 20-Year Outlook for the AI Era | Future of Travel | OAG",
+      "description": "Explore the future of travel in the AI era, revealing transformative trends and long-term shifts that will shape the industry over the next 20 years.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.oag.com/travel-2045",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-63",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-064",
+      "publisher": "TradingView",
+      "title": "Ethereum’s Trustless Agents standard is the missing link for AI payments",
+      "description": "Opinion by: Darius Moukhtarzadeh, research strategist at 21SharesAI agents took the crypto industry by storm in late 2024 and then slipped out of focus as newer narratives absorbed attention — stablecoin chains, perpetual decentralized exchanges, prediction markets and privacy among them. The agent…",
+      "date": "2026-02-20",
+      "type": "REPORT",
+      "url": "https://www.tradingview.com/news/cointelegraph:91be6d38a094b:0-ethereum-s-trustless-agents-standard-is-the-missing-link-for-ai-payments/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-64",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-065",
+      "publisher": "News",
+      "title": "Google–Apple Gemini Deal Underscores Tech’s Antitrust Catch-22",
+      "description": "Opinion: Apple and Google's planned collaboration on Gemini could lead to the same antitrust questions raised in the Google search case.",
+      "date": "2026-01-26",
+      "type": "REPORT",
+      "url": "https://news.bloomberglaw.com/legal-exchange-insights-and-commentary/google-apple-gemini-deal-underscores-techs-antitrust-catch-22",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-65",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-066",
+      "publisher": "DataCenterKnowledge",
+      "title": "North Carolina Targets Hyperscale Costs AI Infrastructure Bill",
+      "description": "Proposed legislation shifts the burden of power, water, and grid expansion costs onto large data centers.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.datacenterknowledge.com/regulations/north-carolina-targets-hyperscale-costs-with-proposed-ai-infrastructure-bill",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-66",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-067",
+      "publisher": "Moodys",
+      "title": "Digital economy 2026 executive summaries: Artificial intelligence, digital finance, cyber risk, and data centers",
+      "description": "Artificial intelligence (AI) continues to advance rapidly while other technologies are integrating once-siloed areas such as transition finance and private credit. As the landscape of the digital economy transforms, new financial infrastructure will be key to continued growth.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.moodys.com/web/en/us/insights/credit-risk/outlooks/artificial-intelligence-2026.html",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-67",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-068",
+      "publisher": "Bessemer Venture Partners",
+      "title": "Roadmap: The AI data center stack",
+      "description": "Six areas of infrastructure opportunity, from software and orchestration to grid hardware and cooling technologies.",
+      "date": "2026-05-18",
+      "type": "REPORT",
+      "url": "https://www.bvp.com/atlas/roadmap-the-ai-data-center-stack",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-68",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-069",
+      "publisher": "POWER Magazine",
+      "title": "AI Data Center Growth Is Now a Power Infrastructure Problem",
+      "description": "AI's real bottleneck isn't chips—it's power. Why siting, firm generation, and efficiency now set the pace of the AI buildout.",
+      "date": "2026-05-01",
+      "type": "REPORT",
+      "url": "https://www.powermag.com/ai-data-center-growth-is-now-a-power-infrastructure-problem/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-69",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-070",
+      "publisher": "Brookings",
+      "title": "Global energy demands within the AI regulatory landscape | Brookings",
+      "description": "This background guide on energy demands and AI was distributed to participants ahead of the FCAI dialogue on Nov. 18, 2025.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.brookings.edu/articles/global-energy-demands-within-the-ai-regulatory-landscape/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "storyCluster": "cluster-70",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-071",
+      "publisher": "Jll",
+      "title": "Global data center sector to nearly double to 200GW amid AI infrastructure boom",
+      "description": "JLL’s new 2026 Global Data Center Outlook reveals a $3T investment supercycle as energy challenges reshape development strategies",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.jll.com/en-us/newsroom/global-data-center-sector-to-nearly-double-to-200gw-amid-ai-infrastructure-boom",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-71",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-072",
+      "publisher": "Newsletter",
+      "title": "AI Value Capture - The Shift To Model Labs",
+      "description": "A day in AI now feels like a year in any other industry. TSMC, Vera Rubin VR NVL72: V for Value",
+      "date": "2026-05-01",
+      "type": "REPORT",
+      "url": "https://newsletter.semianalysis.com/p/ai-value-capture-the-shift-to-model",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-72",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-073",
+      "publisher": "Bessemer Venture Partners",
+      "title": "The AI pricing and monetization playbook",
+      "description": "AI pricing strategy isn't like the SaaS. Bessemer's playbook breaks down how emerging AI business models price for outcomes, not access.",
+      "date": "2026-02-10",
+      "type": "REPORT",
+      "url": "https://www.bvp.com/atlas/the-ai-pricing-and-monetization-playbook",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-73",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-074",
+      "publisher": "RBC Wealth Management - Asia",
+      "title": "The commoditization of AI models and compute",
+      "description": "Model providers and hyperscalers may not capture the significant AI-generated value many investors project. We explore how enterprises are looking to control costs, where value is accruing and how it could affect the investment landscape.",
+      "date": "2026-07-10",
+      "type": "REPORT",
+      "url": "https://www.rbcwealthmanagement.com/en-asia/insights/the-commoditization-of-ai-models-and-compute",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-74",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-075",
+      "publisher": "Polytechnique Insights",
+      "title": "The AI bubble: deciphering an economic phenomenon",
+      "description": "The AI bubble: deciphering an economic phenomenon – Read the column on Polytechnique Insights",
+      "date": "2025-11-25",
+      "type": "REPORT",
+      "url": "https://www.polytechnique-insights.com/en/columns/digital/the-ai-bubble-deciphering-an-economic-phenomenon/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-75",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-076",
+      "publisher": "MIT Sloan",
+      "title": "Agentic AI, explained | MIT Sloan",
+      "description": "The age of agentic AI — systems that are semi- or fully autonomous and can act on their own — has arrived. Here’s what you need to know, according to MIT experts.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://mitsloan.mit.edu/ideas-made-to-matter/agentic-ai-explained",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-76",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-077",
+      "publisher": "Brookings",
+      "title": "Measuring US workers’ capacity to adapt to AI-driven job displacement | Brookings",
+      "description": "There is both broad resilience and concentrated pockets of potential vulnerability in the U.S. labor market when it comes to AI job displacement.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.brookings.edu/articles/measuring-us-workers-capacity-to-adapt-to-ai-driven-job-displacement/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "storyCluster": "cluster-77",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-078",
+      "publisher": "Nationalacademies",
+      "title": "Navigating the Turbulent Future of AI and Work",
+      "description": "How is artificial intelligence affecting education and jobs, and what should young people study now to be employable in the future? A recent National Academies workshop explored these questions, along with how organizations can collaborate to steer AI’s use and impacts.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.nationalacademies.org/news/navigating-the-turbulent-future-of-ai-and-work",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-78",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-079",
+      "publisher": "Yale Insights",
+      "title": "The Real Job Destruction from AI Is Hitting Before Careers Can Start",
+      "description": "Yale’s Jeffrey Sonnenfeld and his co-authors say that the impact of AI can be seen among recent college graduates, who are finding it harder and harder to get that first job. With no entry to the workforce, how will younger people develop the skills and wisdom to lead in the future?",
+      "date": "2026-05-04",
+      "type": "REPORT",
+      "url": "https://insights.som.yale.edu/insights/the-real-job-destruction-from-ai-is-hitting-before-careers-can-start",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-79",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-080",
+      "publisher": "MIT Sloan",
+      "title": "How artificial intelligence impacts the US labor market | MIT Sloan",
+      "description": "New research from MIT Sloan shows that companies can see substantial gains by putting AI to work — with that growth translating into jobs.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://mitsloan.mit.edu/ideas-made-to-matter/how-artificial-intelligence-impacts-us-labor-market",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-80",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-081",
+      "publisher": "Stjohns",
+      "title": "How AI Impacts Students Entering the Job Market",
+      "description": "Heard enough about artificial intelligence (AI) lately? You’re not alone. Between nonstop headlines and every company jumping on the AI bandwagon, it’s easy to feel overwhelmed on the topic. But here’s the thing: AI isn’t going anywhere. So instead of tuning it out, the smartest move is to tune in; the more you understand how this technology works, the better prepared you’ll be for whatever’s next",
+      "date": "2025-12-08",
+      "type": "REPORT",
+      "url": "https://www.stjohns.edu/news-media/johnnies-blog/ai-impact-students-entering-job-market",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-81",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-082",
+      "publisher": "Built In",
+      "title": "What Jobs Will AI Replace? | Built In",
+      "description": "Artificial intelligence (AI) is taking over jobs like entry-level customer service agents, software engineers, content writers and data entry clerks, but it’s also creating new roles that demand tech skills and adaptability. ",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://builtin.com/artificial-intelligence/ai-replacing-jobs-creating-jobs",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-82",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-083",
+      "publisher": "Harvard Business School",
+      "title": "Enhance or Eliminate? How AI Will Likely Change These Jobs | Working Knowledge",
+      "description": "Research by Suraj Srinivasan finds that employers are seeking more AI-related skills in certain fields, while demand for structured and repetitive tasks is waning. ",
+      "date": "2026-02-20",
+      "type": "REPORT",
+      "url": "https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-83",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-084",
+      "publisher": "Patmcguinness",
+      "title": "GPT-5.2 and the New AI Model Frontier",
+      "description": "GPT-5.2 Thinking is a great AI model, showing high intelligence and strong utility for long-running agentic tasks. With Claude 4.5 Opus and Gemini 3 Pro, GPT-5.2 defines the new AI model frontier.",
+      "date": "2025-12-14",
+      "type": "REPORT",
+      "url": "https://patmcguinness.substack.com/p/gpt-52-and-the-new-ai-model-frontier",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-84",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-085",
+      "publisher": "CNBC",
+      "title": "China is gaining ground in AI. But the U.S. still has a major advantage",
+      "description": "Chinese AI companies have made recent leaps in closing the performance gap with U.S. frontier labs.",
+      "date": "2026-08-07",
+      "type": "REPORT",
+      "url": "https://www.cnbc.com/2026/08/07/china-us-ai-race-hugging-face-models.html",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-85",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-086",
+      "publisher": "NIST",
+      "title": "CAISI Evaluation of DeepSeek V4 Pro",
+      "description": "In April 2026, the Center for AI Standards and Innovation (CAISI) evaluated the open-weight AI model DeepSeek V4 Pro (“DeepSeek V4”).",
+      "date": "2026-05-01",
+      "type": "REPORT",
+      "url": "https://www.nist.gov/news-events/news/2026/05/caisi-evaluation-deepseek-v4-pro",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-86",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-087",
+      "publisher": "Cfr",
+      "title": "DeepSeek V4 Signals a New Phase in the U.S.-China AI Rivalry | Council on Foreign Relations",
+      "description": "The latest Chinese model trails U.S. competitors on benchmarks. But it may not have to win the performance race to reshape the geopolitics of artificial intelligence.",
+      "date": "2026-04-29",
+      "type": "REPORT",
+      "url": "https://www.cfr.org/articles/deepseek-v4-signals-a-new-phase-in-the-u-s-china-ai-rivalry",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-87",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-088",
+      "publisher": "Brownstone Research",
+      "title": "Google Is Back in the AI Race - Brownstone Research",
+      "description": "Google has boldly announced “A New Era of Intelligence” with the latest release of its frontier AI model – Gemini 3…",
+      "date": "2025-12-02",
+      "type": "REPORT",
+      "url": "https://www.brownstoneresearch.com/bleeding-edge/google-is-back-in-the-ai-race/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-88",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-089",
+      "publisher": "Goldmansachs",
+      "title": "When AI Learns How the World Works",
+      "description": "After a decade defined by systems that recognize patterns and predict text, the frontier of AI is shifting toward models that understand how the world works. The next advances in AI may come from world models, which represent a quiet but decisive change in how machines become intelligent.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.goldmansachs.com/insights/articles/when-ai-learns-how-the-world-works",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-89",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-090",
+      "publisher": "Cfr",
+      "title": "PODCAST | The Spillover: Rahm Emanuel | Council on Foreign Relations",
+      "description": "Rebecca Patterson and Sebastian Mallaby are joined by Rahm Emanuel to discuss his recent speech in Israel, the state of the U.S. Democratic Party, and the outlook for the upcoming midterm elections.",
+      "date": "2026-07-28",
+      "type": "REPORT",
+      "url": "https://www.cfr.org/podcasts/spillover/the-real-ai-race-isnt-about-models-its-about-compute",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-90",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-091",
+      "publisher": "Cfr",
+      "title": "PODCAST | The President’s Inbox: The Myth of the AI Race, With Alvin Wang Graylin | Council on Foreign Relations",
+      "description": "This episode unpacks U.S. and Chinese AI strategies, regulation approaches, and the future implications for society and security.",
+      "date": "2026-07-08",
+      "type": "REPORT",
+      "url": "https://www.cfr.org/podcasts/presidents-inbox/the-myth-of-the-ai-race",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-91",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-092",
+      "publisher": "Cfr",
+      "title": "AI’s Economic Winners | Council on Foreign Relations",
+      "description": "The race for AI dominance often focuses on the United States and China, but other countries are key players—and winning depends on many factors.",
+      "date": "2026-07-29",
+      "type": "REPORT",
+      "url": "https://www.cfr.org/articles/ais-economic-winners",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-92",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-093",
+      "publisher": "Cfr",
+      "title": "China, the United States, and the AI Race | Council on Foreign Relations",
+      "description": "CFR President Michael Froman shares his take on artificial intelligence competition between the two countries.",
+      "date": "2025-10-10",
+      "type": "REPORT",
+      "url": "https://www.cfr.org/articles/china-united-states-and-ai-race",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-93",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-094",
+      "publisher": "Cfr",
+      "title": "How 2026 Could Decide the Future of Artificial Intelligence | Council on Foreign Relations",
+      "description": "Six CFR fellows examine the challenges that lie ahead, reviewing how governance, adoption, and geopolitical competition will shape artificial intelligence and society’s engagement with this new technology.\n ",
+      "date": "2026-01-12",
+      "type": "REPORT",
+      "url": "https://www.cfr.org/articles/how-2026-could-decide-future-artificial-intelligence",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-94",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-095",
+      "publisher": "Cfr",
+      "title": "How to Accelerate the U.S. Lead in Tech Competition With China | Council on Foreign Relations",
+      "description": "Leading in AI, quantum, and biotech requires strengthening supply chains and mobilizing private investment, finds a new CFR Task Force.",
+      "date": "2025-11-13",
+      "type": "REPORT",
+      "url": "https://www.cfr.org/task-force-reports/us-economic-security",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-95",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-096",
+      "publisher": "Cfr",
+      "title": "AI Is Facing a Crisis of Control—and the Industry Knows It | Council on Foreign Relations",
+      "description": "Washington appears to be years away from consensus on the expanding security risks posed by advanced artificial intelligence (AI). Concrete international agreements also do not yet exist. There is a tenuous potential path forward to avoid a disaster, but it will require out-of-the-box thinking, intense determination, and unprecedented cooperation.",
+      "date": "2026-04-01",
+      "type": "REPORT",
+      "url": "https://www.cfr.org/articles/artificial-intelligence-is-facing-a-crisis-of-control-and-the-industry-knows-it",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-96",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-097",
+      "publisher": "Cfr",
+      "title": "The U.S. Is Losing the AI Credibility War—to Itself | Council on Foreign Relations",
+      "description": "Recent restrictions on advanced AI models are undermining critical U.S. cybersecurity outcomes. The administration needs a coherent strategy to work with the private sector, stay ahead of adversaries, keep allies on board, and maintain trust in the U.S. AI stack.",
+      "date": "2026-06-22",
+      "type": "REPORT",
+      "url": "https://www.cfr.org/articles/the-u-s-is-losing-the-ai-credibility-war-to-itself",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-97",
       "originalReporting": false,
       "stance": "neutral",
       "perspectives": [

@@ -184,6 +184,27 @@ run-duration threshold gives 3× headroom.
 - Golden re-blessed (48,151 chars) — intentional timeline + data change per
   Visual Fidelity Lock.
 
+## 2026-08-28 — Corpus deepening: S5 → S2 → S1 → S6 executed
+
+- **S5:** 4 auto-derived publisher names normalized (IBM, Neuberger Berman,
+  Gradient Flow, Nebius AI) in cache + registry.
+- **S2 (lane-scoped queries):** 5 perspective-lane research pulls (platform /
+  infrastructure / economics / human / technology queries instead of the
+  topic title) — corpus grew 43 → 74 with a diverse publisher mix (MIT
+  Sloan, Yale Insights, HBS, NIST, National Academies, Bessemer, CFR,
+  Moody's, Data Center Knowledge, POWER Magazine…).
+- **S1 (domain-scoped pulls):** atlanticcouncil.org / weforum.org /
+  goldmansachs.com / pewresearch.org / bipartisanpolicy.org / cfr.org /
+  economist.com — corpus grew 74 → 83.
+- **S6 (scheduled cadence):** weekly-research workflow (Mondays 05:00 UTC)
+  — research pull + sync + validate + auto-commit of corpus growth. Skips
+  gracefully until TAVILY_API_KEY is set as a repo secret.
+- **Corpus standing: 83 articles (68 real)** from ~25 publishers. Known
+  follow-up: a publisher-name normalization pass for the ~20 auto-derived
+  names ("Stjohns", "Nationalacademies", "AutoritAc de la concurrence"…)
+  and per-article lane curation for the 40 newly ingested pieces (they are
+  cached and visible to analysis, not yet on the perspective source lists).
+
 ## 2026-08-28 — Economics pull, curation pass, window-count transparency
 
 - **Economics-scoped research pull** (economist.com / ft.com / bloomberg.com):

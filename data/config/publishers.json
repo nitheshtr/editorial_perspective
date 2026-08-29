@@ -621,7 +621,7 @@
       }
     },
     {
-      "name": "Gradientflow",
+      "name": "Gradient Flow",
       "tier": 3,
       "policy": {
         "access": "open",
@@ -634,7 +634,7 @@
       }
     },
     {
-      "name": "Nebius",
+      "name": "Nebius AI",
       "tier": 3,
       "policy": {
         "access": "open",
@@ -647,7 +647,7 @@
       }
     },
     {
-      "name": "Ibm",
+      "name": "IBM",
       "tier": 3,
       "policy": {
         "access": "open",
@@ -660,7 +660,7 @@
       }
     },
     {
-      "name": "Neuberger",
+      "name": "Neuberger Berman",
       "tier": 3,
       "policy": {
         "access": "open",
@@ -869,6 +869,357 @@
     },
     {
       "name": "AI Compute Summit |",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Morningconsult",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Startup Fortune",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Nelson Advisors",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "PYMNTS.com",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Autorité de la concurrence",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Oag",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "TradingView",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "News",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "DataCenterKnowledge",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Moodys",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Bessemer Venture Partners",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "POWER Magazine",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Jll",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Newsletter",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "RBC Wealth Management - Asia",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Polytechnique Insights",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "MIT Sloan",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Nationalacademies",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Yale Insights",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Stjohns",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Built In",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Harvard Business School",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Patmcguinness",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "NIST",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Cfr",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Brownstone Research",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Goldmansachs",
       "tier": 3,
       "policy": {
         "access": "open",

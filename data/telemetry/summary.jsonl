@@ -51,3 +51,7 @@
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T04:32:18.746Z","finishedAt":"2026-08-29T04:32:18.750Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T04:37:46.401Z","finishedAt":"2026-08-29T04:37:46.402Z","totals":{}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T04:37:46.419Z","finishedAt":"2026-08-29T04:37:46.423Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"c2f27c5a-3f84-4fc0-abdd-9e14f1962843","topic":"ai-superrace","startedAt":"2026-08-29T05:18:16.819Z","finishedAt":"2026-08-29T05:18:22.504Z","totals":{"research":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":4,"retries":0}}}
+{"run":"d5214eea-cbda-4d54-bdad-39a94ffb839e","topic":"ai-superrace","startedAt":"2026-08-29T05:22:49.028Z","finishedAt":"2026-08-29T05:22:53.091Z","totals":{"research":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":4,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T05:42:47.887Z","finishedAt":"2026-08-29T05:42:47.888Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T05:42:47.903Z","finishedAt":"2026-08-29T05:42:47.905Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
