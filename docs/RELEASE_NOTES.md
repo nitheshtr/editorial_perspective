@@ -202,6 +202,22 @@ run-duration threshold gives 3× headroom.
   it will differentiate as real dated articles accumulate.
 - Golden re-blessed (49,697 chars).
 
+## 2026-08-28 — Editorial independence: sponsored content excluded
+
+- The 4 "Bloomberg" articles from the economics pull turned out to be
+  **SPONSORED advertorials** (sponsored.bloomberg.com — Salesforce /
+  ServiceNow / Global X paid campaigns), not Bloomberg journalism. Removed
+  from the corpus per SPECv4 §2.4 (editorial independence); cache back to
+  43 articles.
+- **Research-stage guard added:** candidates from `sponsored.*` hostnames
+  are auto-skipped with a telemetry event — advertorials cannot re-enter
+  the corpus.
+- Bloomberg registry entry updated with the exclusion rule (future
+  ingestion: only www.bloomberg.com/news/ editorial).
+- Window chips now carry a transparency tooltip: counts are by article
+  date; undated articles are counted by discovery date.
+- Golden re-blessed (48,339 chars).
+
 ## 2026-08-28 — First real data cycle published
 
 - **Real research integration live:** Tavily search → page fetch → metadata

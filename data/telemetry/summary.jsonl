@@ -49,3 +49,5 @@
 {"run":"5a764b74-ddb2-438d-a3c7-bb09473a273d","topic":"ai-superrace","startedAt":"2026-08-29T04:29:51.673Z","finishedAt":"2026-08-29T04:29:56.538Z","totals":{"research":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":4,"retries":0}}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T04:32:18.721Z","finishedAt":"2026-08-29T04:32:18.723Z","totals":{}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T04:32:18.746Z","finishedAt":"2026-08-29T04:32:18.750Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T04:37:46.401Z","finishedAt":"2026-08-29T04:37:46.402Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T04:37:46.419Z","finishedAt":"2026-08-29T04:37:46.423Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}

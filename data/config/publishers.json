@@ -851,7 +851,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "notes": "Editorial Bloomberg is a legitimate future target (tier 3 pending license check). EXCLUSION RULE (verified 2026-08-28): sponsored.bloomberg.com URLs are paid advertorials (Salesforce/ServiceNow/Global X campaigns) — excluded from the corpus per SPECv4 §2.4; research stage auto-skips sponsored.* hostnames. Ingest only www.bloomberg.com/news/ editorial."
     },
     {
       "name": "Custom Events |",

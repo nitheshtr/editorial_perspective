@@ -228,13 +228,13 @@ const states=[
     nodes:{
       Technology:{x:6,y:8,w:21,h:18,br:'48% 52% 55% 45% / 50% 47% 53% 50%',sources:19,status:'Cooling',opacity:1,
         mobile:{x:5,y:6,w:44,h:14}},
-      Platform:{x:44,y:2,w:25,h:18,br:'54% 42% 57% 44% / 48% 56% 44% 52%',sources:7,status:'Dominant',opacity:1,
+      Platform:{x:44,y:2,w:25,h:18,br:'54% 42% 57% 44% / 48% 56% 44% 52%',sources:5,status:'Dominant',opacity:1,
         mobile:{x:52,y:6,w:44,h:14}},
       Infrastructure:{x:4,y:56,w:29,h:23,br:'51% 49% 46% 54% / 44% 55% 45% 56%',sources:4,status:'Accelerating',opacity:1,
         mobile:{x:5,y:24,w:44,h:15}},
-      Economics:{x:58,y:54,w:27,h:21,br:'49% 51% 58% 42% / 58% 48% 52% 42%',sources:4,status:'Accelerating',opacity:1,
+      Economics:{x:58,y:54,w:27,h:21,br:'49% 51% 58% 42% / 58% 48% 52% 42%',sources:3,status:'Accelerating',opacity:1,
         mobile:{x:52,y:24,w:44,h:15}},
-      'Human Impact':{x:68,y:12,w:27,h:22,br:'56% 44% 49% 51% / 45% 56% 44% 55%',sources:9,status:'Growing',opacity:1,
+      'Human Impact':{x:68,y:12,w:27,h:22,br:'56% 44% 49% 51% / 45% 56% 44% 55%',sources:8,status:'Growing',opacity:1,
         mobile:{x:18,y:42,w:64,h:16}}
     }
   }
@@ -278,7 +278,7 @@ const details={
   },
   Platform:{
     summary:'The platform perspective has matured from supporting argument into the race\'s central thesis. Coverage concentrates on distribution, defaults and ecosystems: agent interfaces, API moats and app-store analogies dominate the current conversation. The argument is that whoever owns the default entry point to AI—where users and developers actually land—captures the value that raw capability alone cannot secure.',
-    windows:{y:7,q:6,m:5,w:5},
+    windows:{y:5,q:5,m:5,w:5},
     sparkline:[15,20,7,5],
     history:['Distribution is discussed as a consequence of model quality.','Default agents and ecosystem lock-in gain editorial weight.','Platform control is treated as a primary axis of competition.','Choke-point framing takes hold: providers picking winners and customer competition drive the debate.'],
     sources:[
@@ -286,10 +286,7 @@ const details={
       {pub:'BLOOMBERG · TECH',title:'APIs, agents and moats',desc:'How platform economics are changing the AI investment story.'},
       {pub:'THE INFORMATION · ANALYSIS',title:'The app store moment',desc:'Lessons from past platform shifts for the AI era.'},
       {pub:'Brookings',title:'To unleash AI innovation, stop model providers from picking the winners | Brookings',desc:'Asad Ramzanali and Tom Wheeler explain why competition is the best route to the future of inventive AI applications. ',url:'https://www.brookings.edu/articles/to-unleash-ai-innovation-stop-model-providers-from-picking-the-winners/'},
-      {pub:'Brookings',title:'What happens when AI companies compete with their customers? | Brookings',desc:'Mark MacCarthy discusses the competition challenges posed by big AI companies moving into the application space.',url:'https://www.brookings.edu/articles/what-happens-when-ai-companies-compete-with-their-customers/'},
-      {pub:'Bloomberg',title:'As Companies Bet Big on Agentic AI, Strategies Must Shift to Drive Results',desc:'As Companies Bet Big on Agentic AI, Strategies Must Shift to Drive Results
-Salesforce and Bloomberg Media Studios Article',url:'https://sponsored.bloomberg.com/article/salesforce/as-companies-bet-big-on-agentic-ai-strategies-must-shift-to-drive-results'},
-      {pub:'Bloomberg',title:'The AI Race Is Won at the Endpoint',desc:'adfasdfasdfasdfasdfasfdasdfasdfasdfafaasdfasfasfafasdfasdfasdfasdfasfsadfasfdasfdasfdasdfasdfasdfasfsadfasdfasfadfasdfasfasdfafasdfasfd',url:'https://sponsored.bloomberg.com/article/the-ai-race-is-won-at-the-endpoint'}
+      {pub:'Brookings',title:'What happens when AI companies compete with their customers? | Brookings',desc:'Mark MacCarthy discusses the competition challenges posed by big AI companies moving into the application space.',url:'https://www.brookings.edu/articles/what-happens-when-ai-companies-compete-with-their-customers/'}
     ]
   },
   Infrastructure:{
@@ -306,19 +303,18 @@ Salesforce and Bloomberg Media Studios Article',url:'https://sponsored.bloomberg
   },
   Economics:{
     summary:'The economics perspective has accelerated around a single unresolved question: as inference costs collapse, where does durable value accrue? Coverage weighs a productivity paradox, competing theories of surplus capture, and cost-driven model selection. The through-line is that cheap intelligence may compress margins everywhere except at the choke points—distribution, compute and trust—where scarcity persists.',
-    windows:{y:4,q:4,m:4,w:4},
+    windows:{y:3,q:3,m:3,w:3},
     sparkline:[10,16,3,3],
     history:['Inference costs appear occasionally in the margins.','Productivity, margins and value capture enter the debate.','Economics is now a primary lens for judging AI winners and losers.','Token economics make value capture the CFO-level question.'],
     sources:[
       {pub:'THE ECONOMIST · BUSINESS',title:'The productivity paradox',desc:'Why falling AI prices have not yet answered the value question.'},
       {pub:'BLOOMBERG OPINION · ECONOMICS',title:'Who captures the surplus?',desc:'A close look at margins, labor and the AI value chain.'},
-      {pub:'FT ALPHAVILLE · ANALYSIS',title:'Cheap inference, expensive questions',desc:'What plummeting model costs mean for pricing power.'},
-      {pub:'Bloomberg',title:'Artificial Intelligence | Charting Disruption',desc:'For decades, artificial general intelligence (AGI) — characterized by human-level reasoning, learning, and adaptation — was just a theory. Now, breakthroughs such as reasoning models, agentic AI, and multimodal systems are turning that future into a fast-approaching reality.',url:'https://sponsored.bloomberg.com/immersive/globalx/charting-disruption/artificial-intelligence'}
+      {pub:'FT ALPHAVILLE · ANALYSIS',title:'Cheap inference, expensive questions',desc:'What plummeting model costs mean for pricing power.'}
     ]
   },
   'Human Impact':{
     summary:'The human-impact perspective has emerged from near-invisibility into a recurring editorial lens. Coverage now spans the future of work, education and creative attribution, asking who benefits from scaled deployment and who is displaced. Though still the newest perspective by volume, it increasingly supplies the evaluative standard against which the rest of the race is judged.',
-    windows:{y:9,q:7,m:6,w:6},
+    windows:{y:8,q:7,m:6,w:6},
     sparkline:[0,6,6,8],
     history:['Jobs, education and creativity are rarely part of the framing.','Labor and learning enter the margins of coverage.','Who benefits and who bears the cost is now part of the central question.','Safety diplomacy and the global AI divide broaden the lens beyond jobs.'],
     sources:[
@@ -329,8 +325,7 @@ Salesforce and Bloomberg Media Studios Article',url:'https://sponsored.bloomberg
       {pub:'Carnegie Endowment for International Peace',title:'AI Adoption Journey for Population Scale',desc:'Connecting real-world AI use cases across sectors such as health, education, agriculture, and livelihoods can help policymakers, innovators, and institutions align around a shared goal. This article looks at a framework ensuring that AI works for everyone.',url:'https://carnegieendowment.org/posts/2026/01/ai-adoption-journey-for-population-scale'},
       {pub:'Brookings',title:'Governing the AI transition: Lessons from the 1996 Telecommunications Act | Brookings',desc:'Tom Wheeler reflects on the Telecommunications Act of 1996 and how oversight for AI must focus on how the owners of the technology behave.',url:'https://www.brookings.edu/articles/governing-the-ai-transition-lessons-from-the-1996-telecommunications-act/'},
       {pub:'Brookings',title:'How to bridge the global AI divide | Brookings',desc:'Landry Signé explains that there is still an opportunity to shape the future of AI and promote inclusive and sustainable prosperity for all.',url:'https://www.brookings.edu/articles/how-to-bridge-the-global-ai-divide/'},
-      {pub:'Brookings',title:'What national AI plans get wrong and how to fix them | Brookings',desc:'Cameron Kerry and Saurabh Mishra discuss how countries can build cognitive infrastructure to operationalize AI for real-world impact.',url:'https://www.brookings.edu/articles/what-national-ai-plans-get-wrong-and-how-to-fix-them/'},
-      {pub:'Bloomberg',title:'The AI Governance Paradox: Steering AI Without Hindering Innovation',desc:'',url:'https://sponsored.bloomberg.com/quicksight/servicenow/the-ai-governance-paradox-steering-ai-without-hindering-innovation'}
+      {pub:'Brookings',title:'What national AI plans get wrong and how to fix them | Brookings',desc:'Cameron Kerry and Saurabh Mishra discuss how countries can build cognitive infrastructure to operationalize AI for real-world impact.',url:'https://www.brookings.edu/articles/what-national-ai-plans-get-wrong-and-how-to-fix-them/'}
     ]
   }
 };

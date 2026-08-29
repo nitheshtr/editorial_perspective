@@ -484,6 +484,24 @@ async function stageResearch(ctx: RunContext): Promise<void> {
     for (const { result, meta } of batchResults) {
       if (!meta) continue; // paywalled, blocked, or error
 
+      // Editorial independence (SPECv4 §2.4): sponsored/advertorial placements
+      // (e.g. sponsored.bloomberg.com) are paid content, not publisher
+      // journalism — excluded from the corpus.
+      let candidateHost = "";
+      try {
+        candidateHost = new URL(meta.finalUrl).hostname.toLowerCase();
+      } catch {
+        candidateHost = "";
+      }
+      if (candidateHost.startsWith("sponsored.")) {
+        telemetry.emit({
+          event: "error",
+          stage: "research",
+          data: { message: `Skipped sponsored content: ${meta.finalUrl}`, recoverable: true },
+        });
+        continue;
+      }
+
       // Derive publisher from hint or hostname
       const publisher = meta.publisherHint || derivePublisherFromUrl(meta.finalUrl);
 
