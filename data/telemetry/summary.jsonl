@@ -69,3 +69,9 @@
 {"run":"296adc8b-4e08-440b-9a4e-e34494d94058","topic":"ai-superrace","startedAt":"2026-08-29T21:18:48.693Z","finishedAt":"2026-08-29T21:19:06.883Z","totals":{"research":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":4,"retries":0}}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T21:19:09.929Z","finishedAt":"2026-08-29T21:19:09.932Z","totals":{}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T21:19:09.945Z","finishedAt":"2026-08-29T21:19:09.947Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T21:42:44.344Z","finishedAt":"2026-08-29T21:42:44.346Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T21:42:44.362Z","finishedAt":"2026-08-29T21:42:44.367Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"39bc0d41-5a63-4683-8167-a5ca12d9cc2c","topic":"ai-superrace","startedAt":"2026-08-29T21:42:44.661Z","finishedAt":"2026-08-29T21:42:48.600Z","totals":{"research":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":4,"retries":0}}}
+{"run":"aa46a39f-19d9-4e7d-9f96-f85f50d954ac","topic":"ai-superrace","startedAt":"2026-08-29T21:43:12.945Z","finishedAt":"2026-08-29T21:43:15.516Z","totals":{"research":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":4,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T21:43:43.531Z","finishedAt":"2026-08-29T21:43:43.533Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-29T21:43:43.552Z","finishedAt":"2026-08-29T21:43:43.555Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}

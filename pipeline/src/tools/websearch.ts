@@ -37,7 +37,7 @@ interface TavilyResponse {
  */
 export function createTavilySearch(
   opts?: { apiKey?: string; fetchImpl?: FetchImpl },
-): (query: string, opts2?: { maxResults?: number; days?: number; includeDomains?: string[] }) => Promise<SearchResult[]> {
+): (query: string, opts2?: { maxResults?: number; days?: number; includeDomains?: string[]; dateRange?: { start: string; end: string }; topicMode?: "news" | "general" }) => Promise<SearchResult[]> {
   const apiKey = opts?.apiKey ?? process.env.TAVILY_API_KEY;
   if (!apiKey) {
     throw new Error(
@@ -46,16 +46,21 @@ export function createTavilySearch(
   }
   const doFetch: FetchImpl = opts?.fetchImpl ?? globalThis.fetch;
 
-  return async (query: string, opts2?: { maxResults?: number; days?: number; includeDomains?: string[] }): Promise<SearchResult[]> => {
+  return async (query: string, opts2?: { maxResults?: number; days?: number; includeDomains?: string[]; dateRange?: { start: string; end: string }; topicMode?: "news" | "general" }): Promise<SearchResult[]> => {
     const maxResults = opts2?.maxResults ?? 10;
     const days = opts2?.days ?? 90;
+    const dateRange = opts2?.dateRange;
 
+    // With an explicit date range, Tavily's news topic + relative days
+    // window no longer apply — switch to general search with absolute
+    // start/end dates (covers historical backfill beyond the news window).
     const body = {
       api_key: apiKey,
       query,
       max_results: maxResults,
-      topic: "news" as const,
-      days,
+      ...(dateRange
+        ? { topic: "general" as const, start_date: dateRange.start, end_date: dateRange.end }
+        : { topic: "news" as const, days }),
       search_depth: "basic" as const,
       ...(opts2?.includeDomains?.length ? { include_domains: opts2.includeDomains } : {}),
     };

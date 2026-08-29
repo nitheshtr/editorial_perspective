@@ -389,6 +389,8 @@ interface RunContext {
   domains?: string[];
   /** Optional query override for the research stage. */
   queryOverride?: string;
+  /** Optional absolute date range for the research stage (historical backfill). */
+  dateRange?: { start: string; end: string };
   /** If true, also pull candidate articles from configured RSS feeds. */
   feeds?: boolean;
 }
@@ -453,7 +455,13 @@ async function stageResearch(ctx: RunContext): Promise<void> {
   const tavilySearch = createTavilySearch({ apiKey: tavilyApiKey });
   let searchResults: SearchResult[];
   try {
-    searchResults = await tavilySearch(query, { maxResults, days: 90, includeDomains: domainScope });
+    searchResults = await tavilySearch(query, {
+      maxResults,
+      days: 90,
+      includeDomains: domainScope,
+      dateRange: ctx.dateRange,
+      topicMode: ctx.dateRange ? "general" : undefined,
+    });
   } catch (err: unknown) {
     telemetry.emit({
       event: "error",
@@ -1338,6 +1346,16 @@ async function main(): Promise<void> {
     .map((s) => s.trim())
     .filter(Boolean);
   const queryParam = params.query;
+  const dateRangeParam = params.daterange
+    ? (() => {
+        const parts = params.daterange.split(":");
+        const start = parts[0]?.trim();
+        const end = parts[1]?.trim();
+        return start && end && /^\d{4}-\d{2}-\d{2}$/.test(start) && /^\d{4}-\d{2}-\d{2}$/.test(end)
+          ? { start, end }
+          : undefined;
+      })()
+    : undefined;
   const feedsParam = params.feeds === "true" || params.feeds === "1";
 
   // ── replay command ─────────────────────────────────────────────────────
@@ -1354,7 +1372,7 @@ async function main(): Promise<void> {
     }
     const config = loadConfig();
     const telemetry = new TelemetryEmitter(params.run!, topic ?? "unknown");
-    const ctx: RunContext = { runId: params.run!, topic: topic ?? "unknown", telemetry, config, domains: domainsParam, queryOverride: queryParam, feeds: feedsParam };
+    const ctx: RunContext = { runId: params.run!, topic: topic ?? "unknown", telemetry, config, domains: domainsParam, queryOverride: queryParam, dateRange: dateRangeParam, feeds: feedsParam };
     await cmdRerun(params.run!, fromStage, ctx);
     return;
   }
@@ -1380,7 +1398,7 @@ async function main(): Promise<void> {
 
     const config = loadConfig();
     const telemetry = new TelemetryEmitter(runId, topic);
-    const ctx: RunContext = { runId, topic, telemetry, config, domains: domainsParam, queryOverride: queryParam, feeds: feedsParam };
+    const ctx: RunContext = { runId, topic, telemetry, config, domains: domainsParam, queryOverride: queryParam, dateRange: dateRangeParam, feeds: feedsParam };
 
     telemetry.emit({ event: "run_start", data: { workflow } });
 
@@ -1406,7 +1424,7 @@ async function main(): Promise<void> {
 
     const config = loadConfig();
     const telemetry = new TelemetryEmitter(runId, topic);
-    const ctx: RunContext = { runId, topic, telemetry, config, domains: domainsParam, queryOverride: queryParam, feeds: feedsParam };
+    const ctx: RunContext = { runId, topic, telemetry, config, domains: domainsParam, queryOverride: queryParam, dateRange: dateRangeParam, feeds: feedsParam };
 
     telemetry.emit({ event: "run_start", data: { stage } });
 

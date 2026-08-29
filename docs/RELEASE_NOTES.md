@@ -258,6 +258,20 @@ run-duration threshold gives 3× headroom.
   date; undated articles are counted by discovery date.
 - Golden re-blessed (48,339 chars).
 
+## 2026-08-28 — Historical backfill: 2025–2026 coverage (adapter upgrade)
+
+- **Search adapter upgraded:** absolute date-range support
+  (`start_date`/`end_date` via Tavily general topic — the news topic +
+  relative-days window no longer caps historical pulls) + CLI
+  `daterange=YYYY-MM-DD:YYYY-MM-DD` param on the research stage.
+- **First 2025–2026 backfill executed** — 3 date-sliced pulls
+  (2025-08→2026-02, 2026-02→2026-06, 2026-06→2026-08): **24 new articles
+  ingested** (all clean, zero skips), corpus grew **83 → 107 (92 real)**.
+- New articles are cached and visible to the next analysis pass; they are
+  NOT yet on perspective source lists — lane curation pass pending
+  (follow-up from the deepening strategy).
+- Tavily quota used: ~3 searches (well within free tier).
+
 ## 2026-08-28 — RSS feed verification cycle
 
 - **First live RSS pull** (`feeds=true`): pipeline mechanics verified

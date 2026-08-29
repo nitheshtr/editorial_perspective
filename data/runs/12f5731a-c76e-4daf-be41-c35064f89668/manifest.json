@@ -1,0 +1,16 @@
+{
+  "runId": "12f5731a-c76e-4daf-be41-c35064f89668",
+  "topic": "ai-superrace",
+  "startedAt": "2026-08-29T21:43:15.645Z",
+  "params": {
+    "stage": "research"
+  },
+  "models": {
+    "models.research": {
+      "provider": "openrouter",
+      "model": "z-ai/glm-5.3-flash",
+      "temperature": 0.2,
+      "reasoning": "low"
+    }
+  }
+}

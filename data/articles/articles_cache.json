@@ -2159,6 +2159,414 @@
       "perspectives": [
         "technology"
       ]
+    },
+    {
+      "id": "source-105",
+      "publisher": "Researchandmarkets",
+      "title": "Foundation AI Models Market Report 2026 - Research and Markets",
+      "description": "The Foundation AI Models Market, valued at USD 12B in 2026, is projected to reach USD 19.89B by 2030, growing at a 13.5% CAGR.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.researchandmarkets.com/reports/6231691/foundation-ai-models-market-report",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-105",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-106",
+      "publisher": "Growthmarketreports",
+      "title": "Foundation Models Market Research Report 2033",
+      "description": "\nAs per our latest research, the global foundation models market size in 2024 stands at USD 14.2 billion, with a robust CAGR of 28.4% projected from 2025 to 2033. ",
+      "date": "2025-08-23",
+      "type": "REPORT",
+      "url": "https://growthmarketreports.com/report/foundation-models-market",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-106",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-107",
+      "publisher": "Hai",
+      "title": "AI Index: State of AI in 13 Charts | Stanford HAI",
+      "description": "In the new report, foundation models dominate, benchmarks fall, prices skyrocket, and on the global stage, the U.S. overshadows.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://hai.stanford.edu/news/ai-index-state-ai-13-charts",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-107",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-108",
+      "publisher": "Amazon Web Services, Inc.",
+      "title": "What are Foundation Models? - Foundation Models in Generative AI Explained - AWS",
+      "description": "Learn why Foundation Models are essential. Discover its benefits and how you can use it to create new content and ideas including text, conversations, images, video, and audio with Generative AI.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://aws.amazon.com/what-is/foundation-models/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-108",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-109",
+      "publisher": "Cleverse",
+      "title": "The Next Battlefield After the Foundation Model War",
+      "description": "The Four Themes defining Enterprise AI Success in 2026. Where AI value is actually  being created.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://cleverse.com/blog/foundation-model-race-is-over",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-109",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-110",
+      "publisher": "Ada Lovelace Institute",
+      "title": "What is a foundation model?",
+      "description": "How shared language supports understanding, effective decision-making and regulation of AI",
+      "date": "2023-07-17",
+      "type": "REPORT",
+      "url": "https://www.adalovelaceinstitute.org/resource/explainer-foundation-models/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-110",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-111",
+      "publisher": "The Economy",
+      "title": "Time-to-Power: The Hidden Economics of AI Infrastructure",
+      "description": "The Economy Research Editorial*",
+      "date": "2026-06-18",
+      "type": "REPORT",
+      "url": "https://economy.ac/research/2026/06/202606289366",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-111",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-112",
+      "publisher": "DDN",
+      "title": "The $7 Trillion AI Infrastructure Race",
+      "description": "Explore how AI data intelligence platforms and real-time analytics are transforming enterprise infrastructure in a $7T global race.",
+      "date": "2025-05-28",
+      "type": "REPORT",
+      "url": "https://www.ddn.com/blog/the-7-trillion-ai-infrastructure-race-data-is-the-fuel-intelligence-is-the-engine/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-112",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-113",
+      "publisher": "Epicsemi",
+      "title": "Big Ideas 2026: The AI Race Is Becoming an Infrastructure Race",
+      "description": "AI is no longer just a technology competition, it’s becoming a geopolitical, economic, and infrastructure race. As we look toward 2026, the most important...",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.epicsemi.com/blog/big-ideas-2026-the-ai-race-is-becoming-an-infrastructure-race/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-113",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-114",
+      "publisher": "Coreweave",
+      "title": "How We Win the AI Race: A U.S. Infrastructure Strategy on Our Home Soil",
+      "description": "Mike Intrator testifies before the U.S. Senate on the AI infrastructure imperative—why America’s global leadership depends on compute built at home.",
+      "date": "2025-08-05",
+      "type": "REPORT",
+      "url": "https://www.coreweave.com/blog/how-we-win-the-ai-race-a-u-s-infrastructure-strategy-on-our-home-soil",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-114",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-115",
+      "publisher": "LinkedIn",
+      "title": "AI Economics Shifts Focus from Model Intelligence to Architecture and Infrastructure | Sharat Chandra posted on the topic | LinkedIn",
+      "description": "The #AI race is entering a new phase — from “Which model is best?” to “Which model is best for this job?” AI economics are not simply about model intelligence. They are about architecture, infrastructure and unit economics.\nThat shift is particularly relevant for India Inc.The Economic Times reports that Indian enterprises are increasingly adopting a hybrid AI strategy, combining proprietary front",
+      "date": "2026-08-12",
+      "type": "REPORT",
+      "url": "https://www.linkedin.com/posts/sharatchandratechevangelist_ai-artificialintelligence-ai-activity-7493197305345359873-DIRD",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-115",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-116",
+      "publisher": "AI Now Institute",
+      "title": "1.2: Too Big to Fail: Infrastructure and Capital Push - AI Now Institute",
+      "description": "The “common sense” around artificial intelligence has become potent over the past two years, imbuing the technology with a sense of agency and momentum that make the current trajectory of AI appear inevitable, and certainly essential for economic prosperity and global dominance for the US. In this section, we break down the narratives propping up […]",
+      "date": "2025-06-03",
+      "type": "REPORT",
+      "url": "https://ainowinstitute.org/publications/research/1-2-too-big-to-fail-infrastructure-and-capital-push",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-116",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-117",
+      "publisher": "Arxiv",
+      "title": "An Economy of AI Agents",
+      "description": "",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://arxiv.org/html/2509.01063v1",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-117",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-118",
+      "publisher": "Globalxetfs",
+      "title": "Artificial Intelligence: The Race to Human-Level Reasoning",
+      "description": "AI’s rise is fueling a substantial buildout in centralized infrastructure that could cut compute costs and potentially unleash value through new applications. ...",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.globalxetfs.com/articles/artificial-intelligence-the-race-to-human-level-reasoning/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-118",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-119",
+      "publisher": "Reddit",
+      "title": "Reddit",
+      "description": "",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.reddit.com/r/EconomyCharts/comments/1vwywwq/humans_are_the_minority_user_of_ai/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-119",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-120",
+      "publisher": "RAND Corporation",
+      "title": "Quantifying AI’s Economic Potential",
+      "description": "The author models the economic implications of two scenarios for artificial intelligence (AI) development: restricting AI to assistive tools for human productivity or enabling AI agents that can autonomously perform tasks and self-replicate.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.rand.org/pubs/research_reports/RRA4220-1.html",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-120",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
+    },
+    {
+      "id": "source-121",
+      "publisher": "Hai",
+      "title": "The 2026 AI Index Report | Stanford HAI",
+      "description": "",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-121",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "technology"
+      ]
     }
   ],
   "migratedFrom": "editorial_perspective_evolution_v3.html"
