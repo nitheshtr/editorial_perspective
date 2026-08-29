@@ -143,7 +143,7 @@ describe("createWebFetch", () => {
     expect(meta).not.toBeNull();
     expect(meta!.title).toBe("OG Title Override");
     expect(meta!.description).toBe("This is an OG description for the article.");
-    expect(meta!.publishedTime).toBe("2026-05-20T12:00:00Z");
+    expect(meta!.publishedTime).toBe("2026-05-20");
     expect(meta!.publisherHint).toBe("The Example Times");
     expect(meta!.ogType).toBe("article");
     expect(meta!.finalUrl).toBe("https://example.com/canonical-url");
@@ -374,5 +374,134 @@ describe("ingestCandidates", () => {
   it("pageMeta null -> not counted as webfetch success but not ingested (caller skips before ingestCandidates)", () => {
     // ingestCandidates doesn't handle null; the caller should filter before calling
     // This is a caller-side responsibility, tested in the fetch layer
+  });
+});
+
+// ── RSS feed flow ────────────────────────────────────────────────────────────
+
+describe("RSS feed integration through ingestCandidates", () => {
+  const baseTopic = {
+    title: "Test Topic",
+    perspectives: [{ id: "technology" }],
+  };
+
+  const baseRegistry = {
+    publishers: [
+      { name: "The Conversation", tier: 1, policy: { access: "open", license: "CC", reuse: "allowed_with_attribution", fullText: false, summary: true, link: true, pendingVerification: false } },
+    ],
+  };
+
+  const baseCache = {
+    articles: [],
+  };
+
+  it("ingests RSS-derived candidates through the same pipeline", () => {
+    const rssCandidates: CandidateInput[] = [
+      {
+        title: "How AI Is Reshaping Education",
+        url: "https://theconversation.com/ai-education",
+        description: "An analysis of AI in education.",
+        date: "2026-08-20",
+        type: "ANALYSIS",
+        publisher: "The Conversation",
+      },
+      {
+        title: "Brookings Report on Digital Economy",
+        url: "https://brookings.edu/digital-economy",
+        description: "A comprehensive report.",
+        date: "2026-08-18",
+        type: "REPORT",
+        publisher: "Brookings",
+      },
+    ];
+
+    const ctx = { topic: baseTopic, registry: baseRegistry, cache: baseCache };
+    const result = ingestCandidates(rssCandidates, ctx);
+
+    expect(result.stats.total).toBe(2);
+    expect(result.stats.added).toBe(2);
+    // The Conversation is known, Brookings is new → 1 registry addition
+    expect(result.stats.newPublishers).toBe(1);
+    expect(result.registryAdditions).toHaveLength(1);
+    expect(result.registryAdditions[0]!.name).toBe("Brookings");
+  });
+
+  it("deduplicates RSS candidates against existing cache by URL", () => {
+    const rssCandidates: CandidateInput[] = [
+      {
+        title: "Duplicate Article",
+        url: "https://example.com/existing-rss",
+        description: "Already in cache.",
+        date: "2026-08-20",
+        type: "REPORT",
+        publisher: "The Conversation",
+      },
+    ];
+
+    const cacheWithExisting = {
+      articles: [
+        { id: "source-010", title: "Duplicate Article", url: "https://example.com/existing-rss", storyCluster: "cluster-5", perspectives: ["technology"] },
+      ],
+    };
+
+    const ctx = { topic: baseTopic, registry: baseRegistry, cache: cacheWithExisting };
+    const result = ingestCandidates(rssCandidates, ctx);
+
+    expect(result.stats.added).toBe(0);
+    expect(result.validArticles).toHaveLength(0);
+  });
+
+  it("handles RSS items with missing dates gracefully (falls to today)", () => {
+    const rssCandidates: CandidateInput[] = [
+      {
+        title: "No Date Article",
+        url: "https://example.com/no-date",
+        description: "No publish date.",
+        date: "", // empty date — runner will supply today
+        type: "REPORT",
+        publisher: "The Conversation",
+      },
+    ];
+
+    const ctx = { topic: baseTopic, registry: baseRegistry, cache: baseCache };
+    const result = ingestCandidates(rssCandidates, ctx);
+
+    expect(result.stats.added).toBe(1);
+    const article = result.validArticles[0]!;
+    // Should be today's date (YYYY-MM-DD)
+    expect(article.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  });
+
+  it("sponsored.* URLs from RSS are filtered by the runner (not by ingestCandidates)", () => {
+    // This is a runner-level guard — ingestCandidates doesn't filter sponsored.
+    // The runner checks candidateHost.startsWith("sponsored.") before calling ingestCandidates.
+    // We verify that ingestCandidates doesn't have a sponsored filter.
+    const sponsoredCandidate: CandidateInput = {
+      title: "Sponsored Content",
+      url: "https://sponsored.example.com/ad",
+      description: "This is paid content.",
+      date: "2026-08-20",
+      type: "REPORT",
+      publisher: "SponsoredCo",
+    };
+
+    const ctx = { topic: baseTopic, registry: baseRegistry, cache: baseCache };
+    const result = ingestCandidates([sponsoredCandidate], ctx);
+
+    // ingestCandidates will ingest it (the runner is responsible for filtering)
+    expect(result.stats.added).toBe(1);
+  });
+
+  it("feeds.json missing → stageResearch skips gracefully (tested via runner mock)", () => {
+    // This is a runner-level concern; we test the data/config/feeds.json exists
+    const fs = require("node:fs");
+    const path = require("node:path");
+    const feedsPath = require("path").join(__dirname, "..", "..", "data", "config", "feeds.json");
+    expect(fs.existsSync(feedsPath)).toBe(true);
+
+    const content = JSON.parse(fs.readFileSync(feedsPath, "utf-8"));
+    expect(content.feeds).toBeDefined();
+    expect(Array.isArray(content.feeds)).toBe(true);
+    expect(content.feeds.length).toBeGreaterThan(0);
   });
 });

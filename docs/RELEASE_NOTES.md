@@ -181,8 +181,27 @@ run-duration threshold gives 3× headroom.
   University of Oxford, VentureBeat, Online News Association, JAIR — all
   tier 3 / link_only pending license verification. BBC and WEF skipped
   (already registered). Registry now 61 publishers.
-- Golden re-blessed (48,151 chars) — intentional timeline + data change per
-  Visual Fidelity Lock.
+- **Corpus standing: 83 articles (68 real)** from ~25 publishers. Known
+  follow-up: a publisher-name normalization pass for the ~20 auto-derived
+  names ("Stjohns", "Nationalacademies", "AutoritAc de la concurrence"…)
+  and per-article lane curation for the 40 newly ingested pieces (they are
+  cached and visible to analysis, not yet on the perspective source lists).
+
+## 2026-08-28 — S3 date quality + S4 RSS feeds
+
+- **S3 (date quality):** metadata extraction upgraded with a strict
+  priority chain — JSON-LD `datePublished` (handles @graph/arrays) →
+  `article:published_time` → meta[name=date]/itemprop → `<time datetime>`.
+  All dates normalized to YYYY-MM-DD; unparseable values fall through to
+  the runner's today-fallback. JSON-LD also supplies publisher/headline
+  fallbacks. Window chips get genuinely differentiated dates instead of
+  ingestion-date fallbacks.
+- **S4 (RSS):** `pipeline/src/tools/rss.ts` — RSS 2.0 + Atom reader (CDATA
+  stripping, RFC-822 dates, graceful failure). 5 seeded feeds
+  (data/config/feeds.json): The Conversation, Brookings, CFR, WEF, Atlantic
+  Council. Research stage accepts `feeds=true` — feed items flow through
+  the same fetch/policy/dedup/sponsored-guard pipeline. Zero Tavily quota.
+- **164 tests** (+40), tsc clean, provider verification intact.
 
 ## 2026-08-28 — Corpus deepening: S5 → S2 → S1 → S6 executed
 

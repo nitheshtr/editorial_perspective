@@ -34,6 +34,7 @@ import { Source, ProposalSet, Approval } from "../../schema/src/index.js";
 import { validateTopic } from "../../tools/validate-topic.js";
 import { generateHtmlFromFile } from "../../tools/generate-site.js";
 import { createTavilySearch, type SearchResult } from "./tools/websearch.js";
+import { createRssReader, type RssItem } from "./tools/rss.js";
 import { createWebFetch, type PageMeta } from "./tools/webfetch.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -388,6 +389,8 @@ interface RunContext {
   domains?: string[];
   /** Optional query override for the research stage. */
   queryOverride?: string;
+  /** If true, also pull candidate articles from configured RSS feeds. */
+  feeds?: boolean;
 }
 
 function getRunDir(runId: string): string {
@@ -461,12 +464,61 @@ async function stageResearch(ctx: RunContext): Promise<void> {
   }
   telemetry.toolCall({ tool: "websearch", count: searchResults.length, stage: "research" });
 
+  // ── (b2) RSS feed pulls (optional) ─────────────────────────────────────
+  let rssFeedCount = 0;
+  let rssItemCount = 0;
+  const rssSkippedFeeds: string[] = [];
+
+  if (ctx.feeds) {
+    let feedsConfig: { feeds: Array<{ publisher: string; url: string; lane: string }> };
+    try {
+      feedsConfig = JSON.parse(readFileSync(join(ROOT, "data", "config", "feeds.json"), "utf-8")) as {
+        feeds: Array<{ publisher: string; url: string; lane: string }>;
+      };
+    } catch {
+      feedsConfig = { feeds: [] };
+    }
+
+    const rssReader = createRssReader();
+
+    for (const feed of feedsConfig.feeds) {
+      let feedItems: RssItem[];
+      try {
+        feedItems = await rssReader(feed.url);
+      } catch {
+        rssSkippedFeeds.push(`${feed.publisher}: error`);
+        continue;
+      }
+
+      if (feedItems.length === 0) {
+        rssSkippedFeeds.push(`${feed.publisher}: empty`);
+        continue;
+      }
+
+      // Take up to 6 most recent items
+      const topItems = feedItems.slice(0, 6);
+      rssFeedCount++;
+      rssItemCount += topItems.length;
+
+      for (const item of topItems) {
+        searchResults.push({
+          title: item.title,
+          url: item.url,
+          content: item.description ?? "",
+          publishedDate: item.publishedDate,
+        });
+      }
+    }
+
+    telemetry.toolCall({ tool: "rss", count: rssItemCount, stage: "research" });
+  }
+
   // ── (c) Fetch each result (concurrency cap 4) ────────────────────────
   const webFetch = createWebFetch();
   const maxParallel = 4;
   const candidates: CandidateInput[] = [];
 
-  const concurrencyLimit = Math.min(maxParallel, maxResults);
+  const concurrencyLimit = Math.min(maxParallel, maxResults + rssItemCount);
   for (let i = 0; i < searchResults.length; i += concurrencyLimit) {
     const batch = searchResults.slice(i, i + concurrencyLimit);
     const batchResults = await Promise.all(
@@ -597,6 +649,10 @@ async function stageResearch(ctx: RunContext): Promise<void> {
     `- **Pages fetched:** ${fetchedCount}`,
     `- **Candidates:** ${ingestResult.stats.total} (added: ${ingestResult.stats.added}, skipped: ${ingestResult.stats.skipped})`,
     `- **New publishers (tier 3):** ${ingestResult.stats.newPublishers}`,
+    ctx.feeds
+      ? `- **RSS pulls:** ${rssFeedCount} feeds, ${rssItemCount} items` +
+        (rssSkippedFeeds.length > 0 ? ` (skipped: ${rssSkippedFeeds.join(", ")})` : "")
+      : `- **RSS pulls:** disabled (use feeds=true to enable)`,
     ``,
     `## Sources`,
     ``,
@@ -621,7 +677,8 @@ async function stageResearch(ctx: RunContext): Promise<void> {
   writeFileSync(join(runDir, "research", "summary.md"), summaryLines.join("\n"), "utf-8");
   console.log(
     `research complete: ${searchResults.length} search results | ${candidates.length} candidates` +
-      (domainScope.length ? ` | domain scope: ${domainScope.join(", ")}` : " | scope: all sources"),
+      (domainScope.length ? ` | domain scope: ${domainScope.join(", ")}` : " | scope: all sources") +
+      (ctx.feeds ? ` | rss: ${rssFeedCount} feeds, ${rssItemCount} items` : ""),
   );
 
   telemetry.stageEnd("research", {
@@ -1281,6 +1338,7 @@ async function main(): Promise<void> {
     .map((s) => s.trim())
     .filter(Boolean);
   const queryParam = params.query;
+  const feedsParam = params.feeds === "true" || params.feeds === "1";
 
   // ── replay command ─────────────────────────────────────────────────────
   if (flags.includes("run") && args.includes("replay")) {
@@ -1296,7 +1354,7 @@ async function main(): Promise<void> {
     }
     const config = loadConfig();
     const telemetry = new TelemetryEmitter(params.run!, topic ?? "unknown");
-    const ctx: RunContext = { runId: params.run!, topic: topic ?? "unknown", telemetry, config, domains: domainsParam, queryOverride: queryParam };
+    const ctx: RunContext = { runId: params.run!, topic: topic ?? "unknown", telemetry, config, domains: domainsParam, queryOverride: queryParam, feeds: feedsParam };
     await cmdRerun(params.run!, fromStage, ctx);
     return;
   }
@@ -1322,7 +1380,7 @@ async function main(): Promise<void> {
 
     const config = loadConfig();
     const telemetry = new TelemetryEmitter(runId, topic);
-    const ctx: RunContext = { runId, topic, telemetry, config, domains: domainsParam, queryOverride: queryParam };
+    const ctx: RunContext = { runId, topic, telemetry, config, domains: domainsParam, queryOverride: queryParam, feeds: feedsParam };
 
     telemetry.emit({ event: "run_start", data: { workflow } });
 
@@ -1348,7 +1406,7 @@ async function main(): Promise<void> {
 
     const config = loadConfig();
     const telemetry = new TelemetryEmitter(runId, topic);
-    const ctx: RunContext = { runId, topic, telemetry, config, domains: domainsParam, queryOverride: queryParam };
+    const ctx: RunContext = { runId, topic, telemetry, config, domains: domainsParam, queryOverride: queryParam, feeds: feedsParam };
 
     telemetry.emit({ event: "run_start", data: { stage } });
 
