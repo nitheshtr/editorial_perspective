@@ -90,3 +90,31 @@ input[type=range]{width:100%;accent-color:var(--blue);margin:16px 0 5px}.ticks{d
 .lens-windows span b{display:block;font-size:17px;letter-spacing:-.3px;color:var(--ink)}
 .lens-windows span i{font-style:normal;font-size:8.5px;letter-spacing:1px;font-weight:750;color:var(--blue)}
 .sourcesPanel .lens-windows{margin:12px 0 6px}
+
+/* Trend Rail */
+.trend-rail{position:relative;width:100%;height:68px;margin:8px 0 6px;overflow:visible}
+.trend-rail-svg{width:100%;height:100%;overflow:visible;display:block}
+.trend-rail-svg .rail-line{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.82;transition:opacity .18s ease}
+.trend-rail-svg .rail-line.dim{opacity:.16}
+.trend-rail-svg .rail-dot{fill:var(--bg);stroke-width:2;transition:opacity .18s ease}
+.trend-rail-svg .rail-dot.dim{opacity:.22}
+.trend-rail-svg .rail-label{font-size:10px;font-weight:650;letter-spacing:.15px}
+.trend-rail-svg .rail-playhead{stroke:var(--ink);stroke-width:1.5;stroke-dasharray:3 2;opacity:.5}
+.trend-rail-milestones{position:absolute;inset:0;pointer-events:none}
+.trend-rail-milestones .milestone{position:absolute;transform:translateX(-50%);font-size:9px;font-weight:700;letter-spacing:.3px;padding:3px 7px;border-radius:999px;white-space:nowrap;border:1px solid transparent;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.trend-rail-milestones .milestone.above{top:-5px}
+.trend-rail-milestones .milestone.below{bottom:-5px}
+.trend-rail-readout{position:absolute;top:50%;left:0;transform:translate(-50%,-50%);background:var(--ink);color:#fff;padding:5px 10px;border-radius:10px;font-size:10px;font-weight:600;letter-spacing:.2px;pointer-events:none;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.15);z-index:5}
+
+@media(max-width:560px){
+  .trend-rail{height:58px}
+  .trend-rail-milestones .milestone{font-size:8px;padding:2px 5px}
+  .trend-rail-readout{font-size:9px;max-width:calc(100vw - 56px);white-space:normal}
+  .trend-rail-svg .rail-label{font-size:9px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .blob{transition:none !important}
+  .trend-rail-svg .rail-line{transition:none}
+  .trend-rail-svg .rail-dot{transition:none}
+}

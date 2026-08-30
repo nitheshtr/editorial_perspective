@@ -277,6 +277,29 @@ run-duration threshold gives 3× headroom.
 - Golden re-blessed (70,889 chars) — intentional data + renderer change per
   Visual Fidelity Lock.
 
+## 2026-08-28 — Trend Rail: perceptual timeline redesign
+
+- **Continuous scrubbing with snap:** the slider interpolates smoothly
+  between the 4 anchor states (blobs, volumes, question crossfade ease
+  through time) and snaps to the nearest anchor on release. Interpolated
+  positions are labeled honestly in the readout ("A → B").
+- **Trend Rail (integrated above the slider):** 5 per-perspective trend
+  lines (category-colored, height = article volume, x = time) with slope
+  made visible — growth/decline readable pre-attentively. Direct labels at
+  line ends, no legend. Hover dims other lines.
+- **Milestone tags:** status transitions between anchor states (e.g.
+  "Human Impact: Emerging → Growing") render as chips on the rail —
+  chunked takeaways, not raw data.
+- **Live readout:** floating chip at the playhead shows the current phase
+  plus the fastest-rising and fastest-falling perspective per interval.
+- **Accessibility:** reduced-motion disables easing; slider stays
+  keyboard-focusable; milestone chips carry aria-labels.
+- Grounded in the operator-cited visualization research (pre-attentive
+  encoding, Gestalt continuity, overplotting avoidance, progressive
+  transformation, time-series UX).
+- Golden re-blessed (83,021 chars) — intentional renderer change per
+  Visual Fidelity Lock. 164 tests green.
+
 ## 2026-08-28 — Historical backfill: 2025–2026 coverage (adapter upgrade)
 
 - **Search adapter upgraded:** absolute date-range support

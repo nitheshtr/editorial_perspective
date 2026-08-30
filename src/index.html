@@ -37,7 +37,12 @@
 
 <div class="timeline">
   <div class="trow"><b>Perspective evolution</b><span class="state" id="state">TODAY</span></div>
-  <input id="range" type="range" min="0" max="3" value="3" step="1" oninput="timeChange(this.value)">
+  <div class="trend-rail" id="trendRail" aria-label="Trend rail showing perspective volume over time">
+    <svg class="trend-rail-svg" id="trendRailSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="trend-rail-milestones" id="trendRailMilestones"></div>
+    <div class="trend-rail-readout" id="trendRailReadout" aria-live="polite"></div>
+  </div>
+  <input id="range" type="range" min="0" max="3" value="3" step="0.05" oninput="timeChange(this.value)" onchange="snapTime(this.value)">
   <div class="ticks"><span>1 YEAR AGO</span><span>3 MONTHS AGO</span><span>1 MONTH AGO</span><span>1 WEEK AGO</span></div>
   <div class="trow" style="justify-content:center"><button class="what-changed-btn" onclick="openChangeSheet()">What changed?</button></div>
 </div>

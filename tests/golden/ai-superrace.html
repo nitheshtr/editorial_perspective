@@ -98,6 +98,34 @@ input[type=range]{width:100%;accent-color:var(--blue);margin:16px 0 5px}.ticks{d
 .lens-windows span b{display:block;font-size:17px;letter-spacing:-.3px;color:var(--ink)}
 .lens-windows span i{font-style:normal;font-size:8.5px;letter-spacing:1px;font-weight:750;color:var(--blue)}
 .sourcesPanel .lens-windows{margin:12px 0 6px}
+
+/* Trend Rail */
+.trend-rail{position:relative;width:100%;height:68px;margin:8px 0 6px;overflow:visible}
+.trend-rail-svg{width:100%;height:100%;overflow:visible;display:block}
+.trend-rail-svg .rail-line{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.82;transition:opacity .18s ease}
+.trend-rail-svg .rail-line.dim{opacity:.16}
+.trend-rail-svg .rail-dot{fill:var(--bg);stroke-width:2;transition:opacity .18s ease}
+.trend-rail-svg .rail-dot.dim{opacity:.22}
+.trend-rail-svg .rail-label{font-size:10px;font-weight:650;letter-spacing:.15px}
+.trend-rail-svg .rail-playhead{stroke:var(--ink);stroke-width:1.5;stroke-dasharray:3 2;opacity:.5}
+.trend-rail-milestones{position:absolute;inset:0;pointer-events:none}
+.trend-rail-milestones .milestone{position:absolute;transform:translateX(-50%);font-size:9px;font-weight:700;letter-spacing:.3px;padding:3px 7px;border-radius:999px;white-space:nowrap;border:1px solid transparent;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.trend-rail-milestones .milestone.above{top:-5px}
+.trend-rail-milestones .milestone.below{bottom:-5px}
+.trend-rail-readout{position:absolute;top:50%;left:0;transform:translate(-50%,-50%);background:var(--ink);color:#fff;padding:5px 10px;border-radius:10px;font-size:10px;font-weight:600;letter-spacing:.2px;pointer-events:none;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.15);z-index:5}
+
+@media(max-width:560px){
+  .trend-rail{height:58px}
+  .trend-rail-milestones .milestone{font-size:8px;padding:2px 5px}
+  .trend-rail-readout{font-size:9px;max-width:calc(100vw - 56px);white-space:normal}
+  .trend-rail-svg .rail-label{font-size:9px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .blob{transition:none !important}
+  .trend-rail-svg .rail-line{transition:none}
+  .trend-rail-svg .rail-dot{transition:none}
+}
 </style>
 </head>
 <body>
@@ -129,7 +157,12 @@ input[type=range]{width:100%;accent-color:var(--blue);margin:16px 0 5px}.ticks{d
 
 <div class="timeline">
   <div class="trow"><b>Perspective evolution</b><span class="state" id="state">TODAY</span></div>
-  <input id="range" type="range" min="0" max="3" value="3" step="1" oninput="timeChange(this.value)">
+  <div class="trend-rail" id="trendRail" aria-label="Trend rail showing perspective volume over time">
+    <svg class="trend-rail-svg" id="trendRailSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="trend-rail-milestones" id="trendRailMilestones"></div>
+    <div class="trend-rail-readout" id="trendRailReadout" aria-live="polite"></div>
+  </div>
+  <input id="range" type="range" min="0" max="3" value="3" step="0.05" oninput="timeChange(this.value)" onchange="snapTime(this.value)">
   <div class="ticks"><span>1 YEAR AGO</span><span>3 MONTHS AGO</span><span>1 MONTH AGO</span><span>1 WEEK AGO</span></div>
   <div class="trow" style="justify-content:center"><button class="what-changed-btn" onclick="openChangeSheet()">What changed?</button></div>
 </div>
@@ -394,6 +427,17 @@ As per our latest research, the global foundation models market size in 2024 sta
   }
 };
 let current=2;
+let currentFraction=current;
+let continuousState=null;
+let currentLineStrength=null;
+
+const categoryColors={
+  'Technology':'#0071e3',
+  'Platform':'#6e6e73',
+  'Infrastructure':'#27804f',
+  'Economics':'#b45b00',
+  'Human Impact':'#6c56b8'
+};
 
 function statusMeta(status){
   switch(status){
@@ -411,33 +455,98 @@ function glowFor(status){
   return '0 16px 45px rgba(0,0,0,.1)';
 }
 
+function lerp(a,b,t){ return a+(b-a)*t; }
+
+function setBlobTransitions(enabled){
+  document.querySelectorAll('.blob').forEach(el=>{ el.style.transition=enabled?'':'none'; });
+}
+
+function positionLabel(fraction){
+  const idx=Math.round(fraction);
+  if(Math.abs(fraction-idx)<0.001) return states[idx].label;
+  const i=Math.min(2,Math.floor(fraction));
+  return `${states[i].label} → ${states[i+1].label}`;
+}
+
+function buildInterpolatedState(fraction){
+  const i=Math.min(2,Math.floor(fraction));
+  const t=fraction-i;
+  const a=states[i], b=states[i+1];
+  const isMobile=window.innerWidth<=560;
+  const nodes={};
+  nodeOrder.forEach(k=>{
+    const na=a.nodes[k], nb=b.nodes[k];
+    const pa=(isMobile && na.mobile)?na.mobile:na;
+    const pb=(isMobile && nb.mobile)?nb.mobile:nb;
+    const opacityA=(typeof pa.opacity==='number')?pa.opacity:na.opacity;
+    const opacityB=(typeof pb.opacity==='number')?pb.opacity:nb.opacity;
+    nodes[k]={
+      x:lerp(pa.x,pb.x,t),
+      y:lerp(pa.y,pb.y,t),
+      w:lerp(pa.w,pb.w,t),
+      h:lerp(pa.h,pb.h,t),
+      opacity:lerp(opacityA,opacityB,t),
+      br:t>0.5?(pb.br||nb.br):(pa.br||na.br),
+      sources:Math.round(lerp(na.sources,nb.sources,t)),
+      status:t>0.5?nb.status:na.status
+    };
+  });
+  return {nodes,lineStrength:lerp(a.lineStrength,b.lineStrength,t),fromIndex:i};
+}
+
+function crossfadeText(el,earlyText,lateText,t,reduced){
+  if(!el) return;
+  if(reduced){
+    el.textContent=t>0.5?lateText:earlyText;
+    el.style.opacity='';
+    return;
+  }
+  const baseOpacity=el.id==='question'?0.72:1;
+  const fade=1-Math.abs(t-0.5)*2;
+  el.style.opacity=baseOpacity*fade;
+  if(fade<0.05){
+    const desired=t>0.5?lateText:earlyText;
+    if(el.textContent!==desired) el.textContent=desired;
+  }
+}
+
 function applyState(idx,initial){
   current=+idx;
+  currentFraction=current;
+  continuousState=null;
+  currentLineStrength=null;
+  setBlobTransitions(true);
   const s=states[current];
   const isMobile=window.innerWidth<=560;
   document.getElementById('state').textContent=s.label;
   document.getElementById('range').value=current;
   const q=document.getElementById('question');
   if(q && q.textContent!==s.question){
-    if(initial){ q.textContent=s.question; }
+    if(initial){ q.textContent=s.question; q.style.opacity=0.72; }
     else{
       q.style.opacity=0;
       setTimeout(()=>{ q.textContent=s.question; q.style.opacity=0.72; },260);
     }
+  } else if(q){
+    q.style.opacity=0.72;
   }
-  document.getElementById('synthesisText').textContent=s.synthesis;
+  const synth=document.getElementById('synthesisText');
+  if(synth){
+    synth.textContent=s.synthesis;
+    synth.style.opacity=1;
+  }
   nodeOrder.forEach(k=>{
     const data=s.nodes[k];
-    const pos=(isMobile && data.mobile) ? data.mobile : data;
+    const pos=(isMobile && data.mobile)?data.mobile:data;
     const el=document.querySelector(`.blob[data-id="${k}"]`);
     if(!el) return;
     el.style.setProperty('--x', pos.x+'%');
     el.style.setProperty('--y', pos.y+'%');
     el.style.setProperty('--w', pos.w+'%');
     el.style.setProperty('--h', pos.h+'%');
-    el.style.setProperty('--o', (typeof pos.opacity==='number' ? pos.opacity : data.opacity));
-    el.style.pointerEvents = ((typeof pos.opacity==='number' ? pos.opacity : data.opacity) < 0.05) ? 'none' : 'auto';
-    el.style.setProperty('--br', pos.br || data.br);
+    el.style.setProperty('--o', (typeof pos.opacity==='number'?pos.opacity:data.opacity));
+    el.style.pointerEvents=((typeof pos.opacity==='number'?pos.opacity:data.opacity)<0.05)?'none':'auto';
+    el.style.setProperty('--br', pos.br||data.br);
     el.style.setProperty('--glow', glowFor(data.status));
     el.querySelector('h3').textContent=k;
     el.querySelector('p').textContent=perspectiveBodies[k][current];
@@ -448,9 +557,58 @@ function applyState(idx,initial){
     trend.className='trend '+meta.cls;
   });
   drawLines();
+  renderTrendRail(current);
   if(!initial) animateLines(860);
 }
-function timeChange(v){ applyState(v); }
+
+function applyStateContinuous(fraction){
+  currentFraction=Math.max(0,Math.min(3,+fraction));
+  const state=buildInterpolatedState(currentFraction);
+  continuousState=state;
+  currentLineStrength=state.lineStrength;
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced) setBlobTransitions(false);
+  const i=state.fromIndex;
+  const t=currentFraction-i;
+
+  document.getElementById('state').textContent=positionLabel(currentFraction);
+  document.getElementById('range').value=currentFraction;
+
+  nodeOrder.forEach(k=>{
+    const data=state.nodes[k];
+    const el=document.querySelector(`.blob[data-id="${k}"]`);
+    if(!el) return;
+    el.style.setProperty('--x', data.x+'%');
+    el.style.setProperty('--y', data.y+'%');
+    el.style.setProperty('--w', data.w+'%');
+    el.style.setProperty('--h', data.h+'%');
+    el.style.setProperty('--o', data.opacity);
+    el.style.pointerEvents=data.opacity<0.05?'none':'auto';
+    el.style.setProperty('--br', data.br);
+    el.style.setProperty('--glow', glowFor(data.status));
+    el.querySelector('h3').textContent=k;
+    el.querySelector('p').textContent=perspectiveBodies[k][t>0.5?i+1:i];
+    el.querySelector('.sources').textContent=`${data.sources} SOURCES →`;
+    const meta=statusMeta(data.status);
+    const trend=el.querySelector('.trend');
+    trend.textContent=meta.text;
+    trend.className='trend '+meta.cls;
+  });
+
+  crossfadeText(document.getElementById('question'), states[i].question, states[i+1].question, t, reduced);
+  crossfadeText(document.getElementById('synthesisText'), states[i].synthesis, states[i+1].synthesis, t, reduced);
+
+  drawLines();
+  renderTrendRail(currentFraction);
+}
+
+function timeChange(v){ applyStateContinuous(v); }
+function snapTime(v){
+  const idx=Math.max(0,Math.min(3,Math.round(+v)));
+  const range=document.getElementById('range');
+  if(range) range.value=idx;
+  applyState(idx);
+}
 
 function getRect(key){
   const el=document.querySelector(`.blob[data-id="${key}"]`);
@@ -462,7 +620,7 @@ function getRect(key){
 function drawLines(){
   const svg=document.getElementById('lines');
   if(!svg) return;
-  const s=states[current];
+  const s=continuousState||states[current];
   const centerEl=document.querySelector('.center');
   const map=document.querySelector('.map');
   if(!centerEl || !map) return;
@@ -471,7 +629,7 @@ function drawLines(){
   const center={x:cr.left+cr.width/2-mapRect.left, y:cr.top+cr.height/2-mapRect.top};
   const visible=nodeOrder.filter(k=>s.nodes[k].opacity>0.05);
   let html='';
-  const strength=s.lineStrength;
+  const strength=(currentLineStrength!==null)?currentLineStrength:s.lineStrength;
   visible.forEach(k=>{
     const p=getRect(k);
     if(!p) return;
@@ -584,14 +742,190 @@ function openPerspective(name){
 }
 function toggle(id){ document.getElementById(id).classList.toggle('show'); }
 
+function deriveMilestones(){
+  const milestones=[];
+  for(let i=0;i<states.length-1;i++){
+    nodeOrder.forEach(name=>{
+      const from=states[i].nodes[name].status;
+      const to=states[i+1].nodes[name].status;
+      if(from!==to){
+        milestones.push({name,from,to,boundary:i});
+      }
+    });
+  }
+  return milestones;
+}
+
+function hexToRgba(hex,a){
+  const r=parseInt(hex.slice(1,3),16);
+  const g=parseInt(hex.slice(3,5),16);
+  const b=parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+function renderTrendRail(fraction){
+  const container=document.getElementById('trendRail');
+  const svg=document.getElementById('trendRailSvg');
+  const milestoneContainer=document.getElementById('trendRailMilestones');
+  const readout=document.getElementById('trendRailReadout');
+  if(!container || !svg) return;
+
+  const rect=container.getBoundingClientRect();
+  const width=rect.width;
+  const height=rect.height;
+  svg.setAttribute('width',width);
+  svg.setAttribute('height',height);
+  svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
+
+  const padX=18;
+  const padY=14;
+  const plotW=Math.max(0,width-padX*2);
+  const plotH=Math.max(0,height-padY*2);
+  const stepX=plotW/3;
+
+  let allValues=[];
+  nodeOrder.forEach(k=>{
+    const data=(details[k]&&details[k].sparkline)?details[k].sparkline:[0,0,0,0];
+    allValues=allValues.concat(data);
+  });
+  let minV=Math.min(...allValues,0);
+  let maxV=Math.max(...allValues,1);
+  const range=maxV-minV||1;
+  minV=Math.max(0,minV-range*0.1);
+  maxV=maxV+range*0.1;
+  const valueRange=maxV-minV||1;
+
+  const pts={};
+  nodeOrder.forEach(k=>{
+    const data=(details[k]&&details[k].sparkline)?details[k].sparkline:[0,0,0,0];
+    pts[k]=data.map((v,i)=>({
+      x:padX+i*stepX,
+      y:padY+plotH-((v-minV)/valueRange*plotH)
+    }));
+  });
+
+  const hovered=container.dataset.hover||null;
+  const i=Math.min(2,Math.floor(fraction));
+  const t=fraction-i;
+  const px=padX+fraction*stepX;
+
+  let html='';
+  nodeOrder.forEach(k=>{
+    const color=categoryColors[k];
+    const points=pts[k].map(p=>`${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+    const dim=hovered && hovered!==k?' dim':'';
+    html+=`<polyline class="rail-line${dim}" data-id="${k}" points="${points}" stroke="${color}" />`;
+  });
+
+  html+=`<line class="rail-playhead" x1="${px}" y1="${padY-6}" x2="${px}" y2="${padY+plotH+6}" />`;
+
+  nodeOrder.forEach(k=>{
+    const data=(details[k]&&details[k].sparkline)?details[k].sparkline:[0,0,0,0];
+    const v=lerp(data[i],data[i+1],t);
+    const y=padY+plotH-((v-minV)/valueRange*plotH);
+    const color=categoryColors[k];
+    const dim=hovered && hovered!==k?' dim':'';
+    html+=`<circle class="rail-dot${dim}" data-id="${k}" cx="${px}" cy="${y}" r="3.5" stroke="${color}" />`;
+  });
+
+  nodeOrder.forEach(k=>{
+    const last=pts[k][pts[k].length-1];
+    const color=categoryColors[k];
+    html+=`<text class="rail-label" x="${width-6}" y="${last.y+3.5}" fill="${color}" text-anchor="end">${k}</text>`;
+  });
+
+  svg.innerHTML=html;
+
+  svg.querySelectorAll('.rail-line').forEach(poly=>{
+    poly.addEventListener('mouseenter',onRailLineEnter);
+    poly.addEventListener('mouseleave',onRailLineLeave);
+    poly.addEventListener('focus',onRailLineEnter);
+    poly.addEventListener('blur',onRailLineLeave);
+  });
+
+  renderMilestones(milestoneContainer,padX,stepX);
+  updateReadout(readout,fraction,px,height);
+}
+
+function onRailLineEnter(e){
+  const id=e.currentTarget.dataset.id;
+  const container=document.getElementById('trendRail');
+  if(container && container.dataset.hover!==id){
+    container.dataset.hover=id;
+    renderTrendRail(currentFraction);
+  }
+}
+function onRailLineLeave(){
+  const container=document.getElementById('trendRail');
+  if(container){
+    container.dataset.hover='';
+    renderTrendRail(currentFraction);
+  }
+}
+
+function renderMilestones(container,padX,stepX){
+  if(!container) return;
+  const milestones=deriveMilestones();
+  let html='';
+  milestones.forEach((m,idx)=>{
+    const x=padX+(m.boundary+0.5)*stepX;
+    const color=categoryColors[m.name];
+    const above=idx%2===0;
+    const cls=above?'milestone above':'milestone below';
+    html+=`<div class="${cls}" style="left:${x}px;color:${color};background:${hexToRgba(color,0.08)};border-color:${hexToRgba(color,0.22)}" title="${m.name}: ${m.from} → ${m.to}" aria-label="${m.name}: ${m.from} to ${m.to}">${m.name}: ${m.from} → ${m.to}</div>`;
+  });
+  container.innerHTML=html;
+}
+
+function updateReadout(el,fraction,px,height){
+  if(!el) return;
+  const i=Math.min(2,Math.floor(fraction));
+  const isAnchor=Math.abs(fraction-Math.round(fraction))<0.001;
+  let label;
+  if(isAnchor){
+    label=states[Math.round(fraction)].label;
+  }else{
+    label=`${states[i].label} → ${states[i+1].label}`;
+  }
+
+  let rising=null, falling=null, maxSlope=-Infinity, minSlope=Infinity;
+  nodeOrder.forEach(k=>{
+    const data=(details[k]&&details[k].sparkline)?details[k].sparkline:[0,0,0,0];
+    const slope=data[i+1]-data[i];
+    if(slope>maxSlope){ maxSlope=slope; rising=k; }
+    if(slope<minSlope){ minSlope=slope; falling=k; }
+  });
+
+  let trendText='';
+  if(rising && maxSlope>0) trendText+=`  ↑ ${rising}`;
+  if(falling && minSlope<0) trendText+=`  ↓ ${falling}`;
+
+  el.textContent=`${label}${trendText}`;
+  el.style.left=`${px}px`;
+}
+
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape'){
     closeChangeSheet();
     closeLens();
   }
 });
-window.addEventListener('resize',()=>{ applyState(current,true); animateLines(860); });
-document.addEventListener('DOMContentLoaded',()=>{ applyState(states.length-1,true); });
+window.addEventListener('resize',()=>{ applyState(current,true); renderTrendRail(current); animateLines(860); });
+document.addEventListener('DOMContentLoaded',()=>{
+  const range=document.getElementById('range');
+  if(range){
+    range.addEventListener('keydown',function(e){
+      if(e.key==='ArrowLeft' || e.key==='ArrowRight' || e.key==='ArrowUp' || e.key==='ArrowDown'){
+        e.preventDefault();
+        const delta=(e.key==='ArrowRight' || e.key==='ArrowUp')?1:-1;
+        const idx=Math.max(0,Math.min(3,Math.round(+range.value)+delta));
+        range.value=idx;
+        applyState(idx);
+      }
+    });
+  }
+  applyState(states.length-1,true);
+});
 </script>
 </body>
 </html>
