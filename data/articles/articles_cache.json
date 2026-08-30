@@ -2593,30 +2593,6 @@
       ]
     },
     {
-      "id": "source-123",
-      "publisher": "Council on Foreign Relations",
-      "title": "Conflict With Iran | Global Conflict Tracker",
-      "description": "In February 2026, the United States and Israel attacked Iran, killing Supreme Leader Ali Khamenei and targeting nuclear and military infrastructure. A Pakistan-mediated ceasefire and June MOU halted large-scale fighting, but both sides have since traded strikes over alleged violations. A durable settlement remains elusive, with core disputes over Iran’s nuclear program, the Strait of Hormuz, and s",
-      "date": "2019-07-31",
-      "type": "REPORT",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/confrontation-between-united-states-and-iran",
-      "accessPolicy": {
-        "access": "open",
-        "license": "unknown",
-        "reuse": "link_only",
-        "fullText": false,
-        "summary": true,
-        "link": true,
-        "pendingVerification": true
-      },
-      "storyCluster": "cluster-123",
-      "originalReporting": false,
-      "stance": "neutral",
-      "perspectives": [
-        "military-security"
-      ]
-    },
-    {
       "id": "source-124",
       "publisher": "Center for Strategic and International Studies",
       "title": "Can Iran Negotiations Survive Israel-Iran Escalation?",
@@ -2637,7 +2613,7 @@
       "originalReporting": false,
       "stance": "neutral",
       "perspectives": [
-        "military-security"
+        "diplomacy-nuclear"
       ]
     },
     {
@@ -2974,6 +2950,54 @@
       "stance": "neutral",
       "perspectives": [
         "battlefield-attrition"
+      ]
+    },
+    {
+      "id": "source-140",
+      "publisher": "INSS",
+      "title": "Between A Nuclear Agreement and Active Containment: Israel and Iran’s Nuclear Program after the War | INSS",
+      "description": "Between A Nuclear Agreement and Active Containment: Israel and Iran’s Nuclear Program after the War Shutterstock Shutterstock Policy Paper, July 22, 2025 Raz Zimmt and Tamir Hayman[2] The war between Israel and Iran, known as Operation Rising Lion, significantly set back Iran’s nuclear program. Iran is no longer a nuclear threshold state as  its status … Continued",
+      "date": "2025-07-22",
+      "type": "REPORT",
+      "url": "https://www.inss.org.il/publication/iran-nuclear-program/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-140",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "diplomacy-nuclear"
+      ]
+    },
+    {
+      "id": "source-141",
+      "publisher": "The Polis Project",
+      "title": "What You Should Know as the US-Israel-Iran War Continues",
+      "description": "We bring you a round-up of key developments with nuance and context",
+      "date": "2026-03-04",
+      "type": "REPORT",
+      "url": "https://thepolisprojectinc.substack.com/p/what-you-should-know-as-the-us-israel",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-141",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "society-human-cost"
       ]
     }
   ],

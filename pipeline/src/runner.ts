@@ -732,6 +732,19 @@ async function stageAnalysis(ctx: RunContext, allowStale = false): Promise<void>
   const topicData = loadTopic(ctx.topic) as Record<string, unknown>;
   const articles = loadArticles();
 
+  // Topic scope: only articles tagged for THIS topic's perspectives —
+  // the cache is multi-topic; analysis must not digest other topics' corpus.
+  const topicPerspectiveIds = new Set(
+    ((topicData.perspectives as Array<Record<string, unknown>>) ?? [])
+      .map((p) => p.id as string)
+      .filter(Boolean),
+  );
+  const scopedArticles = (articles.articles as Array<Record<string, unknown>>).filter((a) => {
+    const tags = a.perspectives as string[] | undefined;
+    return Array.isArray(tags) && tags.some((t) => topicPerspectiveIds.has(t));
+  });
+  const scopedCache = { articles: scopedArticles };
+
   // Stale-cache guard
   if (!allowStale) {
     const cacheMtime = getMtime("articles/articles_cache.json");
@@ -757,7 +770,7 @@ async function stageAnalysis(ctx: RunContext, allowStale = false): Promise<void>
   }
 
   // Build prompt — compact digests, never truncated mid-JSON
-  const articleList = (articles.articles ?? []) as Array<Record<string, unknown>>;
+  const articleList = scopedArticles;
   const cacheExcerpt = compactArticlesDigest(articleList);
   const systemPrompt = `${agent.body}
 

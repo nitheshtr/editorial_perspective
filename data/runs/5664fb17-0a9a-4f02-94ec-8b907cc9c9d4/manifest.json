@@ -1,0 +1,16 @@
+{
+  "runId": "5664fb17-0a9a-4f02-94ec-8b907cc9c9d4",
+  "topic": "iran-conflict",
+  "startedAt": "2026-08-30T19:14:55.257Z",
+  "params": {
+    "stage": "apply"
+  },
+  "models": {
+    "models.apply": {
+      "provider": "openrouter",
+      "model": "z-ai/glm-5.3-flash",
+      "temperature": 0.1,
+      "reasoning": "low"
+    }
+  }
+}

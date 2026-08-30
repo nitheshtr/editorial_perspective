@@ -1,0 +1,146 @@
+{
+  "proposals": [
+    {
+      "id": "P-001",
+      "kind": "metrics",
+      "path": "states.2.nodes.Military & Security.metrics",
+      "value": {
+        "independentSignals": 3,
+        "momentum": 0.5,
+        "emergence": 0.9,
+        "editorialWeight": 0.8,
+        "confidence": 0.75
+      },
+      "confidence": 0.75,
+      "evidence": "3 distinct clusters (cluster-122, cluster-124, cluster-125) cover military/security escalation; war is the dominant frame across the corpus. Status proposal: Accelerating (from Emerging)."
+    },
+    {
+      "id": "P-002",
+      "kind": "metrics",
+      "path": "states.2.nodes.Diplomacy & Nuclear File.metrics",
+      "value": {
+        "independentSignals": 2,
+        "momentum": 0.3,
+        "emergence": 0.7,
+        "editorialWeight": 0.6,
+        "confidence": 0.7
+      },
+      "confidence": 0.7,
+      "evidence": "cluster-124 (negotiations surviving escalation) and cluster-140 (nuclear agreement vs active containment) directly address the diplomatic/nuclear lens. Status proposal: Growing (from Emerging)."
+    },
+    {
+      "id": "P-003",
+      "kind": "metrics",
+      "path": "states.2.nodes.Society & Human Cost.metrics",
+      "value": {
+        "independentSignals": 1,
+        "momentum": 0.1,
+        "emergence": 0.4,
+        "editorialWeight": 0.3,
+        "confidence": 0.55
+      },
+      "confidence": 0.55,
+      "evidence": "Only cluster-141 (war round-up with human-context framing) touches the human cost lens; single independent signal. Status proposal: Emerging; confidence < 0.6 — flag for human review."
+    },
+    {
+      "id": "P-004",
+      "kind": "metrics",
+      "path": "states.2.nodes.Regional Dynamics.metrics",
+      "value": {
+        "independentSignals": 1,
+        "momentum": 0.1,
+        "emergence": 0.5,
+        "editorialWeight": 0.4,
+        "confidence": 0.5
+      },
+      "confidence": 0.5,
+      "evidence": "cluster-125 (global/regional risks, 'how this ends') is the only cluster with regional-alignment framing. Status proposal: Emerging; confidence < 0.6 — flag for human review."
+    },
+    {
+      "id": "P-005",
+      "kind": "metrics",
+      "path": "states.2.nodes.Sanctions & Economy.metrics",
+      "value": {
+        "independentSignals": 0,
+        "momentum": 0,
+        "emergence": 0.2,
+        "editorialWeight": 0.1,
+        "confidence": 0.8
+      },
+      "confidence": 0.8,
+      "evidence": "No cached article addresses sanctions or economic workarounds. Status proposal: Invisible (from Emerging)."
+    },
+    {
+      "id": "P-006",
+      "kind": "question",
+      "path": "states.2.question",
+      "value": "How should deterrence, diplomacy, and regional alignments be rebuilt after the US-Israel-Iran war?",
+      "confidence": 0.7,
+      "evidence": "Derived from cluster-122 (deterrence reset), cluster-124 (negotiations under escalation), cluster-125 (endgame), cluster-140 (post-war nuclear framework)."
+    },
+    {
+      "id": "P-007",
+      "kind": "synthesis",
+      "path": "states.2.synthesis",
+      "value": "The corpus frames the 2026 US-Israel-Iran war as a structural break: military analysis (cluster-122, cluster-125) treats direct strikes as ending decades of deterrence assumptions, while diplomatic coverage (cluster-124, cluster-140) questions whether any negotiation framework or nuclear containment model survives the escalation. Human-cost and regional-alignment coverage remains thin (cluster-141, cluster-125 only), and the economic dimension is absent from the current cache — a coverage gap worth monitoring next cycle.",
+      "confidence": 0.7,
+      "evidence": "Synthesis references 4 distinct clusters across 3 perspectives; notes Invisible status of Sanctions & Economy."
+    },
+    {
+      "id": "P-101",
+      "kind": "narrative",
+      "path": "perspectives.0.summary",
+      "value": "Military analysis treats the direct US-Israel-Iran exchanges as a structural break, questioning which deterrence assumptions survive and what force postures follow.",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    },
+    {
+      "id": "P-102",
+      "kind": "narrative",
+      "path": "perspectives.1.summary",
+      "value": "Diplomatic coverage asks whether negotiation frameworks and nuclear containment can be rebuilt once escalation has burned through existing channels.",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    },
+    {
+      "id": "P-103",
+      "kind": "narrative",
+      "path": "perspectives.2.summary",
+      "value": "Economic analysis is absent from the current source base, leaving sanctions pressure and workaround capacity unexamined this cycle.",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    },
+    {
+      "id": "P-104",
+      "kind": "narrative",
+      "path": "perspectives.3.summary",
+      "value": "Human-cost coverage remains thin, appearing mainly in war round-ups; who absorbs the civilian toll of escalation is largely unaddressed.",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    },
+    {
+      "id": "P-105",
+      "kind": "narrative",
+      "path": "perspectives.4.summary",
+      "value": "Regional commentary focuses on endgame scenarios, asking which alignments and proxy relationships hold as the conflict reshapes the map.",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    },
+    {
+      "id": "P-106",
+      "kind": "narrative",
+      "path": "states.2.question",
+      "value": "How should deterrence, diplomacy, and regional alignments be rebuilt after the war?",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    },
+    {
+      "id": "P-107",
+      "kind": "narrative",
+      "path": "states.2.synthesis",
+      "value": "The corpus frames the 2026 US-Israel-Iran war as a structural break. Military analysis treats direct strikes as ending decades of deterrence assumptions, while diplomatic coverage questions whether any negotiation framework or nuclear containment model survives the escalation. Human-cost and regional-alignment coverage remains thin, and the economic dimension is absent from the current cache — a coverage gap to monitor next cycle.",
+      "confidence": 0.5,
+      "evidence": "Writing Assistant draft — text field merge."
+    }
+  ]
+}

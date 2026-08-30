@@ -436,11 +436,25 @@ run-duration threshold gives 3× headroom.
   updated to "As AI deployment scales, who captures the value—and who is
   left behind?"
 - **Golden re-blessed** (36,288 chars) per Visual Fidelity Lock procedure —
-  drift was the approved data change itself.
-- **Pipeline hardening along the way:** analysis/writing stages now fail the
-  run loudly on unparseable LLM output (were silently succeeding); reasoning
-  starvation on GLM-5.3-flash fixed via `reasoning: "low"` config +
-  maxTokens 32768; hard output contract in prompts (integer counts, [0,1]
-  ranges, exact node keys incl. "Human Impact", no invented states.3);
   root-relative guard fix in store (agent scopes vs DATA_DIR mismatch);
   failed LLM responses dumped to the run dir for diagnosis.
+
+## 2026-08-30 — Iran conflict: first editorial cycle published
+
+- **Topic-scoped analysis:** the multi-topic cache is now filtered per topic
+  at analysis time (only articles tagged to the topic's perspective lanes) —
+  no cross-topic contamination.
+- **Iran curation:** 5 editorial pieces cataloged onto lanes (AJC, CSIS,
+  Georgetown, INSS, Polis Project); 2 non-editorial items excluded (2019
+  tracker page, Wikipedia). Sanctions & Economy lane has 0 sources — the
+  synthesis flags it as the coverage gap for next cycle.
+- **First proposal → approval → apply cycle for iran-conflict**
+  (run 5664fb17): 14 proposals; 12 applied (5 metrics with folded statuses
+  + derived catalog volumes, question, synthesis, 5 narrative summaries),
+  2 duplicates rejected. Central question: "How should deterrence,
+  diplomacy, and regional alignments be rebuilt after the war?"
+- **First-apply lesson:** the derived-fields contract requires the approval
+  record to supply BOTH status and sourceVolume (catalog count with
+  independentSignals clamped) — recorded for future cycles.
+- 1-YEAR and 3-MONTH states keep draft placeholders until a backfill cycle;
+  Military & Security emerges as the breakout lane (Accelerating).

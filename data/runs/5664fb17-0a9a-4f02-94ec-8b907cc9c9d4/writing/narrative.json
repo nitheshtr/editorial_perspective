@@ -1,0 +1,32 @@
+{
+  "narrative": [
+    {
+      "path": "perspectives.0.summary",
+      "value": "Military analysis treats the direct US-Israel-Iran exchanges as a structural break, questioning which deterrence assumptions survive and what force postures follow."
+    },
+    {
+      "path": "perspectives.1.summary",
+      "value": "Diplomatic coverage asks whether negotiation frameworks and nuclear containment can be rebuilt once escalation has burned through existing channels."
+    },
+    {
+      "path": "perspectives.2.summary",
+      "value": "Economic analysis is absent from the current source base, leaving sanctions pressure and workaround capacity unexamined this cycle."
+    },
+    {
+      "path": "perspectives.3.summary",
+      "value": "Human-cost coverage remains thin, appearing mainly in war round-ups; who absorbs the civilian toll of escalation is largely unaddressed."
+    },
+    {
+      "path": "perspectives.4.summary",
+      "value": "Regional commentary focuses on endgame scenarios, asking which alignments and proxy relationships hold as the conflict reshapes the map."
+    },
+    {
+      "path": "states.2.question",
+      "value": "How should deterrence, diplomacy, and regional alignments be rebuilt after the war?"
+    },
+    {
+      "path": "states.2.synthesis",
+      "value": "The corpus frames the 2026 US-Israel-Iran war as a structural break. Military analysis treats direct strikes as ending decades of deterrence assumptions, while diplomatic coverage questions whether any negotiation framework or nuclear containment model survives the escalation. Human-cost and regional-alignment coverage remains thin, and the economic dimension is absent from the current cache — a coverage gap to monitor next cycle."
+    }
+  ]
+}

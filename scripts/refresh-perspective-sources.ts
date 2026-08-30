@@ -7,7 +7,9 @@
  */
 import { readFileSync, writeFileSync } from "node:fs";
 
-const topic = JSON.parse(readFileSync("data/topics/ai-superrace.json", "utf8"));
+const TOPIC_SLUG = (process.argv.find((a) => a.startsWith("--topic=")) ?? "--topic=ai-superrace")
+  .split("=")[1] ?? "ai-superrace";
+const topic = JSON.parse(readFileSync(`data/topics/${TOPIC_SLUG}.json`, "utf8"));
 const cache = JSON.parse(readFileSync("data/articles/articles_cache.json", "utf8"));
 
 // Curated lane mapping (editorial review 2026-08-28, informed by the
@@ -92,7 +94,7 @@ for (const p of topic.perspectives as Array<any>) {
   p.windows = windows;
 }
 
-writeFileSync("data/topics/ai-superrace.json", `${JSON.stringify(topic, null, 2)}\n`);
+writeFileSync(`data/topics/${TOPIC_SLUG}.json`, `${JSON.stringify(topic, null, 2)}\n`);
 writeFileSync("data/articles/articles_cache.json", `${JSON.stringify(cache, null, 2)}\n`);
 console.log(`perspective sources updated: ${appended} real articles appended | ${tagsFixed} article tags corrected | ${volumesSynced} sourceVolumes synced to catalog`);
 for (const p of topic.perspectives) {

@@ -1555,6 +1555,32 @@
         "link": true,
         "pendingVerification": true
       }
+    },
+    {
+      "name": "INSS",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "The Polis Project",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
     }
   ]
 }

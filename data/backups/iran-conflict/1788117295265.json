@@ -242,8 +242,8 @@
     {
       "period": "2026-07",
       "label": "1 MONTH AGO",
-      "question": "How should deterrence, diplomacy, and regional alignments be rebuilt after the US-Israel-Iran war?",
-      "synthesis": "The corpus frames the 2026 US-Israel-Iran war as a structural break: military analysis (cluster-122, cluster-125) treats direct strikes as ending decades of deterrence assumptions, while diplomatic coverage (cluster-124, cluster-140) questions whether any negotiation framework or nuclear containment model survives the escalation. Human-cost and regional-alignment coverage remains thin (cluster-141, cluster-125 only), and the economic dimension is absent from the current cache — a coverage gap worth monitoring next cycle.",
+      "question": "Skeleton state — pending the first editorial cycle.",
+      "synthesis": "Draft topic: the source base is being assembled; the first analysis cycle will populate this period's synthesis.",
       "lineStrength": 0.5,
       "nodes": {
         "Military & Security": {
@@ -258,13 +258,13 @@
           "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
           "opacity": 1,
           "metrics": {
-            "independentSignals": 2,
-            "momentum": 0.5,
-            "emergence": 0.9,
-            "editorialWeight": 0.8,
-            "confidence": 0.75,
-            "status": "Accelerating",
-            "sourceVolume": 2
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
           }
         },
         "Diplomacy & Nuclear File": {
@@ -279,13 +279,13 @@
           "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
           "opacity": 1,
           "metrics": {
-            "independentSignals": 2,
-            "momentum": 0.3,
-            "emergence": 0.7,
-            "editorialWeight": 0.6,
-            "confidence": 0.7,
-            "status": "Growing",
-            "sourceVolume": 2
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
           }
         },
         "Sanctions & Economy": {
@@ -300,13 +300,13 @@
           "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
           "opacity": 1,
           "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
             "independentSignals": 0,
             "momentum": 0,
-            "emergence": 0.2,
-            "editorialWeight": 0.1,
-            "confidence": 0.8,
-            "status": "Emerging",
-            "sourceVolume": 0
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
           }
         },
         "Society & Human Cost": {
@@ -321,13 +321,13 @@
           "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
           "opacity": 1,
           "metrics": {
-            "independentSignals": 1,
-            "momentum": 0.1,
-            "emergence": 0.4,
-            "editorialWeight": 0.3,
-            "confidence": 0.55,
-            "status": "Emerging",
-            "sourceVolume": 1
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
           }
         },
         "Regional Dynamics": {
@@ -342,13 +342,13 @@
           "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
           "opacity": 1,
           "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
             "independentSignals": 0,
-            "momentum": 0.1,
-            "emergence": 0.5,
-            "editorialWeight": 0.4,
-            "confidence": 0.5,
-            "status": "Emerging",
-            "sourceVolume": 0
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
           }
         }
       }
@@ -474,7 +474,7 @@
       "name": "Military & Security",
       "category": "infra",
       "color": "#b45b00",
-      "summary": "Military analysis treats the direct US-Israel-Iran exchanges as a structural break, questioning which deterrence assumptions survive and what force postures follow.",
+      "summary": "The security lens now asks what deterrence means after direct exchanges.",
       "coreArgument": "Military & Security: the defining argument of this conflict lane — pending the first analysis cycle.",
       "counterArgument": "Counterargument pending the first analysis cycle.",
       "bodies": [
@@ -511,7 +511,7 @@
       "name": "Diplomacy & Nuclear File",
       "category": "tech",
       "color": "#0071e3",
-      "summary": "Diplomatic coverage asks whether negotiation frameworks and nuclear containment can be rebuilt once escalation has burned through existing channels.",
+      "summary": "The diplomatic question: what framework survives the current escalation?",
       "coreArgument": "Diplomacy & Nuclear File: the defining argument of this conflict lane — pending the first analysis cycle.",
       "counterArgument": "Counterargument pending the first analysis cycle.",
       "bodies": [
@@ -548,7 +548,7 @@
       "name": "Sanctions & Economy",
       "category": "econ",
       "color": "#27804f",
-      "summary": "Economic analysis is absent from the current source base, leaving sanctions pressure and workaround capacity unexamined this cycle.",
+      "summary": "The economic question: how long can the workaround economy absorb pressure?",
       "coreArgument": "Sanctions & Economy: the defining argument of this conflict lane — pending the first analysis cycle.",
       "counterArgument": "Counterargument pending the first analysis cycle.",
       "bodies": [
@@ -582,7 +582,7 @@
       "name": "Society & Human Cost",
       "category": "human",
       "color": "#6c56b8",
-      "summary": "Human-cost coverage remains thin, appearing mainly in war round-ups; who absorbs the civilian toll of escalation is largely unaddressed.",
+      "summary": "The human lens: who bears the cost of escalation and isolation?",
       "coreArgument": "Society & Human Cost: the defining argument of this conflict lane — pending the first analysis cycle.",
       "counterArgument": "Counterargument pending the first analysis cycle.",
       "bodies": [
@@ -618,7 +618,7 @@
       "name": "Regional Dynamics",
       "category": "platform",
       "color": "#6e6e73",
-      "summary": "Regional commentary focuses on endgame scenarios, asking which alignments and proxy relationships hold as the conflict reshapes the map.",
+      "summary": "The regional question: which alignments hold through the conflict?",
       "coreArgument": "Regional Dynamics: the defining argument of this conflict lane — pending the first analysis cycle.",
       "counterArgument": "Counterargument pending the first analysis cycle.",
       "bodies": [

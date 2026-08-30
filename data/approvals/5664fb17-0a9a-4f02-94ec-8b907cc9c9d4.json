@@ -1,0 +1,115 @@
+{
+  "run": "5664fb17-0a9a-4f02-94ec-8b907cc9c9d4",
+  "decidedBy": "nitheshtr",
+  "decidedAt": "2026-08-30T19:14:55.085Z",
+  "decisions": [
+    {
+      "proposalId": "P-001",
+      "decision": "edit",
+      "editedPayload": {
+        "independentSignals": 2,
+        "momentum": 0.5,
+        "emergence": 0.9,
+        "editorialWeight": 0.8,
+        "confidence": 0.75,
+        "status": "Accelerating",
+        "sourceVolume": 2
+      },
+      "note": "Folded status \"Accelerating\" + derived sourceVolume 2 (catalog count); independentSignals clamped"
+    },
+    {
+      "proposalId": "P-002",
+      "decision": "edit",
+      "editedPayload": {
+        "independentSignals": 2,
+        "momentum": 0.3,
+        "emergence": 0.7,
+        "editorialWeight": 0.6,
+        "confidence": 0.7,
+        "status": "Growing",
+        "sourceVolume": 2
+      },
+      "note": "Folded status \"Growing\" + derived sourceVolume 2 (catalog count); independentSignals clamped"
+    },
+    {
+      "proposalId": "P-003",
+      "decision": "edit",
+      "editedPayload": {
+        "independentSignals": 1,
+        "momentum": 0.1,
+        "emergence": 0.4,
+        "editorialWeight": 0.3,
+        "confidence": 0.55,
+        "status": "Emerging",
+        "sourceVolume": 1
+      },
+      "note": "Folded status \"Emerging\" + derived sourceVolume 1 (catalog count); independentSignals clamped"
+    },
+    {
+      "proposalId": "P-004",
+      "decision": "edit",
+      "editedPayload": {
+        "independentSignals": 0,
+        "momentum": 0.1,
+        "emergence": 0.5,
+        "editorialWeight": 0.4,
+        "confidence": 0.5,
+        "status": "Emerging",
+        "sourceVolume": 0
+      },
+      "note": "Folded status \"Emerging\" + derived sourceVolume 0 (catalog count); independentSignals clamped"
+    },
+    {
+      "proposalId": "P-005",
+      "decision": "edit",
+      "editedPayload": {
+        "independentSignals": 0,
+        "momentum": 0,
+        "emergence": 0.2,
+        "editorialWeight": 0.1,
+        "confidence": 0.8,
+        "status": "Emerging",
+        "sourceVolume": 0
+      },
+      "note": "Folded status \"Emerging\" + derived sourceVolume 0 (catalog count); independentSignals clamped"
+    },
+    {
+      "proposalId": "P-006",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-007",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-101",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-102",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-103",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-104",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-105",
+      "decision": "approve"
+    },
+    {
+      "proposalId": "P-106",
+      "decision": "reject",
+      "note": "Duplicate path of approved P-006"
+    },
+    {
+      "proposalId": "P-107",
+      "decision": "reject",
+      "note": "Duplicate path of approved P-007"
+    }
+  ]
+}
