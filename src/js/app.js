@@ -314,33 +314,38 @@ function openPerspective(name){
 }
 function toggle(id){ document.getElementById(id).classList.toggle('show'); }
 
-function deriveMilestones(){
-  const milestones=[];
-  for(let i=0;i<states.length-1;i++){
-    nodeOrder.forEach(name=>{
-      const from=states[i].nodes[name].status;
-      const to=states[i+1].nodes[name].status;
-      if(from!==to){
-        milestones.push({name,from,to,boundary:i});
-      }
-    });
-  }
-  return milestones;
+function truncate(str,max){
+  if(!str) return '';
+  if(str.length<=max) return str;
+  return str.slice(0,max-1).trim()+'…';
 }
 
-function hexToRgba(hex,a){
-  const r=parseInt(hex.slice(1,3),16);
-  const g=parseInt(hex.slice(3,5),16);
-  const b=parseInt(hex.slice(5,7),16);
-  return `rgba(${r},${g},${b},${a})`;
+function resolveCollisions(items,iterations){
+  iterations=iterations||4;
+  for(let iter=0;iter<iterations;iter++){
+    for(let i=0;i<items.length;i++){
+      for(let j=i+1;j<items.length;j++){
+        const a=items[i],b=items[j];
+        const dx=b.x-a.x, dy=b.y-a.y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        const min=(a.r+b.r)*0.9;
+        if(dist>0.001 && dist<min){
+          const nx=dx/dist, ny=dy/dist;
+          const push=(min-dist)*0.5;
+          a.x-=nx*push; a.y-=ny*push;
+          b.x+=nx*push; b.y+=ny*push;
+        }
+      }
+    }
+  }
 }
 
 function renderTrendRail(fraction){
   const container=document.getElementById('trendRail');
   const svg=document.getElementById('trendRailSvg');
-  const milestoneContainer=document.getElementById('trendRailMilestones');
+  const cloud=document.getElementById('trendRailCloud');
   const readout=document.getElementById('trendRailReadout');
-  if(!container || !svg) return;
+  if(!container || !svg || !cloud) return;
 
   const rect=container.getBoundingClientRect();
   const width=rect.width;
@@ -350,117 +355,104 @@ function renderTrendRail(fraction){
   svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
 
   const padX=18;
-  const padY=14;
+  const baselineY=height-22;
   const plotW=Math.max(0,width-padX*2);
-  const plotH=Math.max(0,height-padY*2);
-  const stepX=plotW/3;
+  const playheadX=padX+(Math.max(0,Math.min(3,fraction))/3)*plotW;
 
-  let allValues=[];
-  nodeOrder.forEach(k=>{
-    const data=(details[k]&&details[k].sparkline)?details[k].sparkline:[0,0,0,0];
-    allValues=allValues.concat(data);
-  });
-  let minV=Math.min(...allValues,0);
-  let maxV=Math.max(...allValues,1);
-  const range=maxV-minV||1;
-  minV=Math.max(0,minV-range*0.1);
-  maxV=maxV+range*0.1;
-  const valueRange=maxV-minV||1;
+  // Subtle organic baseline
+  const wave=function(x){ return Math.sin((x-padX)/plotW*Math.PI*2)*2.5; };
+  let baselinePath=`M${padX},${baselineY+wave(padX)}`;
+  const steps=40;
+  for(let s=1;s<=steps;s++){
+    const x=padX+(plotW*s)/steps;
+    baselinePath+=` L${x.toFixed(1)},${(baselineY+wave(x)).toFixed(1)}`;
+  }
+  svg.innerHTML=`<path class="rail-baseline" d="${baselinePath}" />`+
+    `<polygon class="rail-playhead" points="${playheadX-6},${baselineY+5} ${playheadX+6},${baselineY+5} ${playheadX},${baselineY-9}" />`;
 
-  const pts={};
-  nodeOrder.forEach(k=>{
-    const data=(details[k]&&details[k].sparkline)?details[k].sparkline:[0,0,0,0];
-    pts[k]=data.map((v,i)=>({
-      x:padX+i*stepX,
-      y:padY+plotH-((v-minV)/valueRange*plotH)
-    }));
-  });
-
-  const hovered=container.dataset.hover||null;
+  // Interpolate volumes / status across the continuous fraction
   const i=Math.min(2,Math.floor(fraction));
   const t=fraction-i;
-  const px=padX+fraction*stepX;
+  const a=states[i], b=states[i+1];
+  const nearest=Math.max(0,Math.min(3,Math.round(fraction)));
 
-  let html='';
-  nodeOrder.forEach(k=>{
-    const color=categoryColors[k];
-    const points=pts[k].map(p=>`${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
-    const dim=hovered && hovered!==k?' dim':'';
-    html+=`<polyline class="rail-line${dim}" data-id="${k}" points="${points}" stroke="${color}" />`;
+  // Organic cloud layout — deterministic per perspective
+  const midY=baselineY-44;
+  const offsets=[-10,14,-26,8,-2];
+  const jitterX=[-7,9,-4,6,-8];
+
+  const items=nodeOrder.map((name,idx)=>{
+    const volA=a.nodes[name].sources;
+    const volB=b.nodes[name].sources;
+    const volume=lerp(volA,volB,t);
+    const status=t>0.5?b.nodes[name].status:a.nodes[name].status;
+    const r=Math.max(6,6+3.6*Math.sqrt(volume));
+    return {
+      name,
+      idx,
+      volume:Math.round(volume),
+      status,
+      r,
+      x:playheadX+jitterX[idx],
+      y:midY+offsets[idx],
+      color:categoryColors[name],
+      body:perspectiveBodies[name][nearest]
+    };
   });
 
-  html+=`<line class="rail-playhead" x1="${px}" y1="${padY-6}" x2="${px}" y2="${padY+plotH+6}" />`;
+  resolveCollisions(items,4);
 
-  nodeOrder.forEach(k=>{
-    const data=(details[k]&&details[k].sparkline)?details[k].sparkline:[0,0,0,0];
-    const v=lerp(data[i],data[i+1],t);
-    const y=padY+plotH-((v-minV)/valueRange*plotH);
-    const color=categoryColors[k];
-    const dim=hovered && hovered!==k?' dim':'';
-    html+=`<circle class="rail-dot${dim}" data-id="${k}" cx="${px}" cy="${y}" r="3.5" stroke="${color}" />`;
-  });
+  // Build or update bubbles + labels
+  if(cloud.children.length!==items.length*2){
+    cloud.innerHTML='';
+    items.forEach(it=>{
+      const btn=document.createElement('button');
+      btn.className='rail-bubble';
+      btn.type='button';
+      btn.dataset.id=it.name;
+      btn.style.backgroundColor=it.color;
+      btn.style.opacity='0.85';
+      btn.onclick=()=>openPerspectiveLens(it.name);
+      cloud.appendChild(btn);
 
-  nodeOrder.forEach(k=>{
-    const last=pts[k][pts[k].length-1];
-    const color=categoryColors[k];
-    html+=`<text class="rail-label" x="${width-6}" y="${last.y+3.5}" fill="${color}" text-anchor="end">${k}</text>`;
-  });
-
-  svg.innerHTML=html;
-
-  svg.querySelectorAll('.rail-line').forEach(poly=>{
-    poly.addEventListener('mouseenter',onRailLineEnter);
-    poly.addEventListener('mouseleave',onRailLineLeave);
-    poly.addEventListener('focus',onRailLineEnter);
-    poly.addEventListener('blur',onRailLineLeave);
-  });
-
-  renderMilestones(milestoneContainer,padX,stepX);
-  updateReadout(readout,fraction,px,height);
-}
-
-function onRailLineEnter(e){
-  const id=e.currentTarget.dataset.id;
-  const container=document.getElementById('trendRail');
-  if(container && container.dataset.hover!==id){
-    container.dataset.hover=id;
-    renderTrendRail(currentFraction);
+      const lab=document.createElement('div');
+      lab.className='rail-label';
+      lab.dataset.id=it.name;
+      cloud.appendChild(lab);
+    });
   }
-}
-function onRailLineLeave(){
-  const container=document.getElementById('trendRail');
-  if(container){
-    container.dataset.hover='';
-    renderTrendRail(currentFraction);
-  }
-}
 
-function renderMilestones(container,padX,stepX){
-  if(!container) return;
-  const milestones=deriveMilestones();
-  let html='';
-  milestones.forEach((m,idx)=>{
-    const x=padX+(m.boundary+0.5)*stepX;
-    const color=categoryColors[m.name];
-    const above=idx%2===0;
-    const cls=above?'milestone above':'milestone below';
-    html+=`<div class="${cls}" style="left:${x}px;color:${color};background:${hexToRgba(color,0.08)};border-color:${hexToRgba(color,0.22)}" title="${m.name}: ${m.from} → ${m.to}" aria-label="${m.name}: ${m.from} to ${m.to}">${m.name}: ${m.from} → ${m.to}</div>`;
+  items.forEach(it=>{
+    const btn=cloud.querySelector(`.rail-bubble[data-id="${it.name}"]`);
+    const lab=cloud.querySelector(`.rail-label[data-id="${it.name}"]`);
+    if(!btn || !lab) return;
+    btn.style.left=it.x+'px';
+    btn.style.top=it.y+'px';
+    btn.style.width=(it.r*2)+'px';
+    btn.style.height=(it.r*2)+'px';
+    btn.style.backgroundColor=it.color;
+    const meta=statusMeta(it.status);
+    btn.setAttribute('aria-label',`${it.name}: ${truncate(it.body,80)} · ${it.volume} sources · ${meta.text}`);
+    btn.title=`${it.name} — ${it.body}\n${it.volume} sources · ${meta.text}`;
+
+    lab.textContent=truncate(it.body,60);
+    lab.style.left=it.x+'px';
+    // Place label on the opposite side from the bubble's vertical offset
+    const above=(it.y-midY)<0;
+    lab.style.top=above?(it.y-it.r-8)+'px':(it.y+it.r+8)+'px';
   });
-  container.innerHTML=html;
+
+  updateReadout(readout,fraction,playheadX,baselineY);
 }
 
-function updateReadout(el,fraction,px,height){
+function updateReadout(el,fraction,px,baselineY){
   if(!el) return;
-  const i=Math.min(2,Math.floor(fraction));
-  const isAnchor=Math.abs(fraction-Math.round(fraction))<0.001;
-  let label;
-  if(isAnchor){
-    label=states[Math.round(fraction)].label;
-  }else{
-    label=`${states[i].label} → ${states[i+1].label}`;
-  }
+  const nearest=Math.max(0,Math.min(3,Math.round(fraction)));
+  const isAnchor=Math.abs(fraction-nearest)<0.001;
+  const label=isAnchor?states[nearest].label:positionLabel(fraction);
 
   let rising=null, falling=null, maxSlope=-Infinity, minSlope=Infinity;
+  const i=Math.min(2,Math.floor(fraction));
   nodeOrder.forEach(k=>{
     const data=(details[k]&&details[k].sparkline)?details[k].sparkline:[0,0,0,0];
     const slope=data[i+1]-data[i];
@@ -474,6 +466,7 @@ function updateReadout(el,fraction,px,height){
 
   el.textContent=`${label}${trendText}`;
   el.style.left=`${px}px`;
+  el.style.top=(baselineY-26)+'px';
 }
 
 document.addEventListener('keydown',function(e){

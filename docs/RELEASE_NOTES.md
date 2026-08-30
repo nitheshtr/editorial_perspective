@@ -167,6 +167,27 @@ run-duration threshold gives 3× headroom.
   never estimated); validation checklist extended.
 - Golden re-blessed (45,664 chars).
 
+## 2026-08-28 — Bubble-cloud timeline (replaces Trend Rail)
+
+- The operator's hand-sketch implemented: **a bubble cloud drifting at the
+  playhead** — 5 bubbles (one per perspective) floating above a subtle
+  wavy baseline, radius ∝ √article volume (area-proportional growth),
+  category colors, organic vertical offsets + jitter with collision
+  avoidance (4-pass nudge).
+- **One-liners from the existing per-period bodies** (~60 chars, full text
+  on hover via title) attached beside each bubble — the leading theme at
+  that point in time.
+- **Green/lime triangle playhead** points up at the scrub position;
+  continuous scrubbing swells/shrinks and drifts the cloud in real time
+  (the timelapse effect); release snaps to the nearest anchor.
+- Bubble click opens the perspective lens (same as map blobs); bubbles are
+  keyboard-focusable buttons with aria-labels; prefers-reduced-motion
+  honored.
+- **Removed:** Trend Rail lines, milestone chips, deriveMilestones, rail
+  hover dimming — the convolution source. Readout (fastest-rising /
+  fastest-falling from sparkline slopes) kept above the baseline.
+- Golden re-blessed (83,182 chars). 164 tests green.
+
 ## 2026-08-28 — 4-period timeline + 11 new sources
 
 - **Timeline reshaped to 4 periods:** 1 YEAR AGO → 3 MONTHS AGO → 1 MONTH
