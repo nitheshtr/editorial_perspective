@@ -99,27 +99,30 @@ input[type=range]{width:100%;accent-color:var(--blue);margin:16px 0 5px}.ticks{d
 .lens-windows span i{font-style:normal;font-size:8.5px;letter-spacing:1px;font-weight:750;color:var(--blue)}
 .sourcesPanel .lens-windows{margin:12px 0 6px}
 
-/* Bubble Cloud Timeline */
-.trend-rail{position:relative;width:100%;height:118px;margin:10px 0 4px;overflow:visible}
+/* Bubble Cloud Timeline — calm / Apple News style */
+.trend-rail{position:relative;width:100%;height:132px;margin:10px 0 4px;overflow:visible}
+
+.trend-rail-headline{position:absolute;top:0;left:0;right:90px;height:26px;line-height:26px;font-size:15px;font-weight:400;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none;z-index:4}
+
+.trend-rail-readout{position:absolute;top:6px;right:0;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.2px;pointer-events:none;white-space:nowrap;z-index:5}
+
 .trend-rail-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;display:block;pointer-events:none}
 .trend-rail-svg .rail-baseline{fill:none;stroke:#d2d2d7;stroke-width:1.5;stroke-linecap:round}
-.trend-rail-svg .rail-playhead{fill:#32d74b;filter:drop-shadow(0 2px 4px rgba(50,215,75,.35))}
+.trend-rail-svg .rail-playhead{fill:var(--blue);fill-opacity:.6}
 
 .trend-rail-cloud{position:absolute;inset:0;pointer-events:none}
-.trend-rail-cloud .rail-bubble{position:absolute;transform:translate(-50%,-50%);border-radius:50%;pointer-events:auto;border:1.5px solid rgba(255,255,255,.85);box-shadow:0 6px 18px rgba(0,0,0,.1),0 2px 6px rgba(0,0,0,.08);cursor:pointer;transition:left .2s ease-out,top .2s ease-out,width .2s ease-out,height .2s ease-out,box-shadow .2s ease,transform .2s ease;will-change:left,top,width,height}
-.trend-rail-cloud .rail-bubble:hover{transform:translate(-50%,-50%) scale(1.08);box-shadow:0 10px 26px rgba(0,0,0,.14),0 4px 10px rgba(0,0,0,.1);z-index:10}
-.trend-rail-cloud .rail-bubble:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(0,113,227,.35),0 8px 22px rgba(0,0,0,.12);z-index:10}
-
-.trend-rail-cloud .rail-label{position:absolute;transform:translateX(-50%);font-size:10px;line-height:1.25;color:var(--muted);max-width:160px;text-align:center;pointer-events:none;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-
-.trend-rail-readout{position:absolute;left:0;transform:translateX(-50%);background:var(--ink);color:#fff;padding:5px 10px;border-radius:10px;font-size:10px;font-weight:600;letter-spacing:.2px;pointer-events:none;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.15);z-index:5}
+.trend-rail-cloud .rail-bubble{position:absolute;transform:translate(-50%,-50%);border-radius:50%;pointer-events:auto;border:1.5px solid #fff;background-color:var(--bubble-color,#0071e3);opacity:.9;cursor:pointer;transition:left .2s ease-out,top .2s ease-out,width .2s ease-out,height .2s ease-out,transform .2s ease,box-shadow .2s ease;will-change:left,top,width,height}
+.trend-rail-cloud .rail-bubble.selected{transform:translate(-50%,-50%) scale(1.12);box-shadow:0 0 0 2px rgba(0,113,227,.25);z-index:10}
+@media (pointer:fine){
+.trend-rail-cloud .rail-bubble:hover{transform:translate(-50%,calc(-50% - 2px)) scale(1.08);z-index:10}
+.trend-rail-cloud .rail-bubble.selected:hover{transform:translate(-50%,calc(-50% - 2px)) scale(1.12)}
+}
+.trend-rail-cloud .rail-bubble:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(0,113,227,.35);z-index:10}
 
 @media(max-width:560px){
-  .trend-rail{height:108px}
-  .trend-rail-cloud .rail-label{font-size:9px;max-width:120px}
-  .trend-rail-readout{font-size:9px;max-width:calc(100vw - 56px);white-space:normal}
+  .trend-rail{height:124px}
+  .trend-rail-headline{font-size:14px;right:80px}
 }
-
 @media(prefers-reduced-motion:reduce){
   .blob{transition:none !important}
   .trend-rail-cloud .rail-bubble{transition:none}
@@ -156,9 +159,16 @@ input[type=range]{width:100%;accent-color:var(--blue);margin:16px 0 5px}.ticks{d
 <div class="timeline">
   <div class="trow"><b>Perspective evolution</b><span class="state" id="state">TODAY</span></div>
   <div class="trend-rail" id="trendRail" aria-label="Perspective evolution bubble cloud">
+    <div class="trend-rail-headline" id="trendRailHeadline" aria-live="polite"></div>
+    <div class="trend-rail-readout" id="trendRailReadout"></div>
     <svg class="trend-rail-svg" id="trendRailSvg" xmlns="http://www.w3.org/2000/svg"></svg>
-    <div class="trend-rail-cloud" id="trendRailCloud"></div>
-    <div class="trend-rail-readout" id="trendRailReadout" aria-live="polite"></div>
+    <div class="trend-rail-cloud" id="trendRailCloud">
+      <button class="rail-bubble" type="button" data-id="Technology" aria-label="Technology"></button>
+      <button class="rail-bubble" type="button" data-id="Platform" aria-label="Platform"></button>
+      <button class="rail-bubble" type="button" data-id="Infrastructure" aria-label="Infrastructure"></button>
+      <button class="rail-bubble" type="button" data-id="Economics" aria-label="Economics"></button>
+      <button class="rail-bubble" type="button" data-id="Human Impact" aria-label="Human Impact"></button>
+    </div>
   </div>
   <input id="range" type="range" min="0" max="3" value="3" step="0.05" oninput="timeChange(this.value)" onchange="snapTime(this.value)">
   <div class="ticks"><span>1 YEAR AGO</span><span>3 MONTHS AGO</span><span>1 MONTH AGO</span><span>1 WEEK AGO</span></div>
@@ -425,6 +435,8 @@ let current=2;
 let currentFraction=current;
 let continuousState=null;
 let currentLineStrength=null;
+let railSelection=null;
+let railHoverName=null;
 
 const categoryColors={
   'Technology':'#0071e3',
@@ -743,24 +755,38 @@ function truncate(str,max){
   return str.slice(0,max-1).trim()+'…';
 }
 
-function resolveCollisions(items,iterations){
-  iterations=iterations||4;
-  for(let iter=0;iter<iterations;iter++){
-    for(let i=0;i<items.length;i++){
-      for(let j=i+1;j<items.length;j++){
-        const a=items[i],b=items[j];
-        const dx=b.x-a.x, dy=b.y-a.y;
-        const dist=Math.sqrt(dx*dx+dy*dy);
-        const min=(a.r+b.r)*0.9;
-        if(dist>0.001 && dist<min){
-          const nx=dx/dist, ny=dy/dist;
-          const push=(min-dist)*0.5;
-          a.x-=nx*push; a.y-=ny*push;
-          b.x+=nx*push; b.y+=ny*push;
-        }
-      }
-    }
+function setRailHover(name){
+  railHoverName=name;
+  updateRailHeadline();
+}
+function toggleRailSelection(name){
+  if(railSelection===name){
+    railSelection=null;
+    renderTrendRail(currentFraction);
+  }else{
+    railSelection=name;
+    openPerspectiveLens(name);
+    renderTrendRail(currentFraction);
   }
+}
+function getAutoSelection(items){
+  return items.reduce((max,it)=>it.volume>max.volume?it:max,items[0]).name;
+}
+function updateRailHeadline(){
+  const headline=document.getElementById('trendRailHeadline');
+  const cloud=document.getElementById('trendRailCloud');
+  if(!headline || !cloud) return;
+  let text='';
+  if(railHoverName){
+    const btn=cloud.querySelector(`.rail-bubble[data-id="${railHoverName}"]`);
+    if(btn && btn.dataset.body) text=truncate(btn.dataset.body,70);
+  }
+  if(!text){
+    const selected=cloud.querySelector('.rail-bubble.selected');
+    if(selected && selected.dataset.body) text=truncate(selected.dataset.body,70);
+  }
+  if(!text) text='Perspective evolution';
+  headline.textContent=text;
 }
 
 function renderTrendRail(fraction){
@@ -768,7 +794,8 @@ function renderTrendRail(fraction){
   const svg=document.getElementById('trendRailSvg');
   const cloud=document.getElementById('trendRailCloud');
   const readout=document.getElementById('trendRailReadout');
-  if(!container || !svg || !cloud) return;
+  const headline=document.getElementById('trendRailHeadline');
+  if(!container || !svg || !cloud || !headline) return;
 
   const rect=container.getBoundingClientRect();
   const width=rect.width;
@@ -777,13 +804,13 @@ function renderTrendRail(fraction){
   svg.setAttribute('height',height);
   svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
 
-  const padX=18;
-  const baselineY=height-22;
+  const padX=24;
+  const baselineY=height-26;
   const plotW=Math.max(0,width-padX*2);
   const playheadX=padX+(Math.max(0,Math.min(3,fraction))/3)*plotW;
 
-  // Subtle organic baseline
-  const wave=function(x){ return Math.sin((x-padX)/plotW*Math.PI*2)*2.5; };
+  // nearly-flat hairline baseline
+  const wave=function(x){ return Math.sin((x-padX)/plotW*Math.PI*2)*1; };
   let baselinePath=`M${padX},${baselineY+wave(padX)}`;
   const steps=40;
   for(let s=1;s<=steps;s++){
@@ -791,7 +818,7 @@ function renderTrendRail(fraction){
     baselinePath+=` L${x.toFixed(1)},${(baselineY+wave(x)).toFixed(1)}`;
   }
   svg.innerHTML=`<path class="rail-baseline" d="${baselinePath}" />`+
-    `<polygon class="rail-playhead" points="${playheadX-6},${baselineY+5} ${playheadX+6},${baselineY+5} ${playheadX},${baselineY-9}" />`;
+    `<polygon class="rail-playhead" points="${playheadX-5},${baselineY+6} ${playheadX+5},${baselineY+6} ${playheadX},${baselineY-7}" />`;
 
   // Interpolate volumes / status across the continuous fraction
   const i=Math.min(2,Math.floor(fraction));
@@ -799,97 +826,54 @@ function renderTrendRail(fraction){
   const a=states[i], b=states[i+1];
   const nearest=Math.max(0,Math.min(3,Math.round(fraction)));
 
-  // Organic cloud layout — deterministic per perspective
-  const midY=baselineY-44;
-  const offsets=[-10,14,-26,8,-2];
-  const jitterX=[-7,9,-4,6,-8];
-
-  const items=nodeOrder.map((name,idx)=>{
+  // Calm horizontal bubble row
+  const items=nodeOrder.map((name)=>{
     const volA=a.nodes[name].sources;
     const volB=b.nodes[name].sources;
     const volume=lerp(volA,volB,t);
     const status=t>0.5?b.nodes[name].status:a.nodes[name].status;
-    const r=Math.max(6,6+3.6*Math.sqrt(volume));
-    return {
-      name,
-      idx,
-      volume:Math.round(volume),
-      status,
-      r,
-      x:playheadX+jitterX[idx],
-      y:midY+offsets[idx],
-      color:categoryColors[name],
-      body:perspectiveBodies[name][nearest]
-    };
+    const r=Math.max(9,Math.min(22,9+2.2*Math.sqrt(volume)));
+    return {name,volume:Math.round(volume),status,r,body:perspectiveBodies[name][nearest]};
   });
 
-  resolveCollisions(items,4);
+  const count=items.length;
+  const rowLeft=padX;
+  const rowRight=width-padX;
+  const avail=Math.max(0,rowRight-rowLeft);
+  const step=count>1?avail/(count-1):0;
+  const rowY=baselineY-44;
+  items.forEach((it,idx)=>{
+    it.x=count>1?rowLeft+step*idx:rowLeft+avail/2;
+    it.y=rowY;
+  });
 
-  // Build or update bubbles + labels
-  if(cloud.children.length!==items.length*2){
-    cloud.innerHTML='';
-    items.forEach(it=>{
-      const btn=document.createElement('button');
-      btn.className='rail-bubble';
-      btn.type='button';
-      btn.dataset.id=it.name;
-      btn.style.backgroundColor=it.color;
-      btn.style.opacity='0.85';
-      btn.onclick=()=>openPerspectiveLens(it.name);
-      cloud.appendChild(btn);
+  // Update existing bubble buttons (static markup provides exactly five)
+  items.forEach(it=>{
+    const btn=cloud.querySelector(`.rail-bubble[data-id="${it.name}"]`);
+    if(!btn) return;
+    btn.style.setProperty('--bubble-color',categoryColors[it.name]);
+  });
 
-      const lab=document.createElement('div');
-      lab.className='rail-label';
-      lab.dataset.id=it.name;
-      cloud.appendChild(lab);
-    });
-  }
+  const autoSelection=getAutoSelection(items);
+  const effectiveSelection=railSelection || autoSelection;
 
   items.forEach(it=>{
     const btn=cloud.querySelector(`.rail-bubble[data-id="${it.name}"]`);
-    const lab=cloud.querySelector(`.rail-label[data-id="${it.name}"]`);
-    if(!btn || !lab) return;
+    if(!btn) return;
     btn.style.left=it.x+'px';
     btn.style.top=it.y+'px';
     btn.style.width=(it.r*2)+'px';
     btn.style.height=(it.r*2)+'px';
-    btn.style.backgroundColor=it.color;
+    btn.dataset.body=it.body;
+    btn.classList.toggle('selected',it.name===effectiveSelection);
     const meta=statusMeta(it.status);
-    btn.setAttribute('aria-label',`${it.name}: ${truncate(it.body,80)} · ${it.volume} sources · ${meta.text}`);
+    const selectedNote=(it.name===railSelection)?' · selected':'';
+    btn.setAttribute('aria-label',`${it.name}: ${truncate(it.body,80)} · ${it.volume} sources · ${meta.text}${selectedNote}`);
     btn.title=`${it.name} — ${it.body}\n${it.volume} sources · ${meta.text}`;
-
-    lab.textContent=truncate(it.body,60);
-    lab.style.left=it.x+'px';
-    // Place label on the opposite side from the bubble's vertical offset
-    const above=(it.y-midY)<0;
-    lab.style.top=above?(it.y-it.r-8)+'px':(it.y+it.r+8)+'px';
   });
 
-  updateReadout(readout,fraction,playheadX,baselineY);
-}
-
-function updateReadout(el,fraction,px,baselineY){
-  if(!el) return;
-  const nearest=Math.max(0,Math.min(3,Math.round(fraction)));
-  const isAnchor=Math.abs(fraction-nearest)<0.001;
-  const label=isAnchor?states[nearest].label:positionLabel(fraction);
-
-  let rising=null, falling=null, maxSlope=-Infinity, minSlope=Infinity;
-  const i=Math.min(2,Math.floor(fraction));
-  nodeOrder.forEach(k=>{
-    const data=(details[k]&&details[k].sparkline)?details[k].sparkline:[0,0,0,0];
-    const slope=data[i+1]-data[i];
-    if(slope>maxSlope){ maxSlope=slope; rising=k; }
-    if(slope<minSlope){ minSlope=slope; falling=k; }
-  });
-
-  let trendText='';
-  if(rising && maxSlope>0) trendText+=`  ↑ ${rising}`;
-  if(falling && minSlope<0) trendText+=`  ↓ ${falling}`;
-
-  el.textContent=`${label}${trendText}`;
-  el.style.left=`${px}px`;
-  el.style.top=(baselineY-26)+'px';
+  if(readout) readout.textContent=positionLabel(fraction);
+  updateRailHeadline();
 }
 
 document.addEventListener('keydown',function(e){
@@ -912,6 +896,13 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
     });
   }
+  document.querySelectorAll('#trendRailCloud .rail-bubble').forEach(btn=>{
+    const name=btn.dataset.id;
+    if(!name) return;
+    btn.addEventListener('click',()=>toggleRailSelection(name));
+    btn.addEventListener('mouseenter',()=>setRailHover(name));
+    btn.addEventListener('mouseleave',()=>setRailHover(null));
+  });
   applyState(states.length-1,true);
 });
 </script>

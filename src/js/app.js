@@ -2,6 +2,8 @@ let current=2;
 let currentFraction=current;
 let continuousState=null;
 let currentLineStrength=null;
+let railSelection=null;
+let railHoverName=null;
 
 const categoryColors={
   'Technology':'#0071e3',
@@ -320,24 +322,38 @@ function truncate(str,max){
   return str.slice(0,max-1).trim()+'…';
 }
 
-function resolveCollisions(items,iterations){
-  iterations=iterations||4;
-  for(let iter=0;iter<iterations;iter++){
-    for(let i=0;i<items.length;i++){
-      for(let j=i+1;j<items.length;j++){
-        const a=items[i],b=items[j];
-        const dx=b.x-a.x, dy=b.y-a.y;
-        const dist=Math.sqrt(dx*dx+dy*dy);
-        const min=(a.r+b.r)*0.9;
-        if(dist>0.001 && dist<min){
-          const nx=dx/dist, ny=dy/dist;
-          const push=(min-dist)*0.5;
-          a.x-=nx*push; a.y-=ny*push;
-          b.x+=nx*push; b.y+=ny*push;
-        }
-      }
-    }
+function setRailHover(name){
+  railHoverName=name;
+  updateRailHeadline();
+}
+function toggleRailSelection(name){
+  if(railSelection===name){
+    railSelection=null;
+    renderTrendRail(currentFraction);
+  }else{
+    railSelection=name;
+    openPerspectiveLens(name);
+    renderTrendRail(currentFraction);
   }
+}
+function getAutoSelection(items){
+  return items.reduce((max,it)=>it.volume>max.volume?it:max,items[0]).name;
+}
+function updateRailHeadline(){
+  const headline=document.getElementById('trendRailHeadline');
+  const cloud=document.getElementById('trendRailCloud');
+  if(!headline || !cloud) return;
+  let text='';
+  if(railHoverName){
+    const btn=cloud.querySelector(`.rail-bubble[data-id="${railHoverName}"]`);
+    if(btn && btn.dataset.body) text=truncate(btn.dataset.body,70);
+  }
+  if(!text){
+    const selected=cloud.querySelector('.rail-bubble.selected');
+    if(selected && selected.dataset.body) text=truncate(selected.dataset.body,70);
+  }
+  if(!text) text='Perspective evolution';
+  headline.textContent=text;
 }
 
 function renderTrendRail(fraction){
@@ -345,7 +361,8 @@ function renderTrendRail(fraction){
   const svg=document.getElementById('trendRailSvg');
   const cloud=document.getElementById('trendRailCloud');
   const readout=document.getElementById('trendRailReadout');
-  if(!container || !svg || !cloud) return;
+  const headline=document.getElementById('trendRailHeadline');
+  if(!container || !svg || !cloud || !headline) return;
 
   const rect=container.getBoundingClientRect();
   const width=rect.width;
@@ -354,13 +371,13 @@ function renderTrendRail(fraction){
   svg.setAttribute('height',height);
   svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
 
-  const padX=18;
-  const baselineY=height-22;
+  const padX=24;
+  const baselineY=height-26;
   const plotW=Math.max(0,width-padX*2);
   const playheadX=padX+(Math.max(0,Math.min(3,fraction))/3)*plotW;
 
-  // Subtle organic baseline
-  const wave=function(x){ return Math.sin((x-padX)/plotW*Math.PI*2)*2.5; };
+  // nearly-flat hairline baseline
+  const wave=function(x){ return Math.sin((x-padX)/plotW*Math.PI*2)*1; };
   let baselinePath=`M${padX},${baselineY+wave(padX)}`;
   const steps=40;
   for(let s=1;s<=steps;s++){
@@ -368,7 +385,7 @@ function renderTrendRail(fraction){
     baselinePath+=` L${x.toFixed(1)},${(baselineY+wave(x)).toFixed(1)}`;
   }
   svg.innerHTML=`<path class="rail-baseline" d="${baselinePath}" />`+
-    `<polygon class="rail-playhead" points="${playheadX-6},${baselineY+5} ${playheadX+6},${baselineY+5} ${playheadX},${baselineY-9}" />`;
+    `<polygon class="rail-playhead" points="${playheadX-5},${baselineY+6} ${playheadX+5},${baselineY+6} ${playheadX},${baselineY-7}" />`;
 
   // Interpolate volumes / status across the continuous fraction
   const i=Math.min(2,Math.floor(fraction));
@@ -376,97 +393,54 @@ function renderTrendRail(fraction){
   const a=states[i], b=states[i+1];
   const nearest=Math.max(0,Math.min(3,Math.round(fraction)));
 
-  // Organic cloud layout — deterministic per perspective
-  const midY=baselineY-44;
-  const offsets=[-10,14,-26,8,-2];
-  const jitterX=[-7,9,-4,6,-8];
-
-  const items=nodeOrder.map((name,idx)=>{
+  // Calm horizontal bubble row
+  const items=nodeOrder.map((name)=>{
     const volA=a.nodes[name].sources;
     const volB=b.nodes[name].sources;
     const volume=lerp(volA,volB,t);
     const status=t>0.5?b.nodes[name].status:a.nodes[name].status;
-    const r=Math.max(6,6+3.6*Math.sqrt(volume));
-    return {
-      name,
-      idx,
-      volume:Math.round(volume),
-      status,
-      r,
-      x:playheadX+jitterX[idx],
-      y:midY+offsets[idx],
-      color:categoryColors[name],
-      body:perspectiveBodies[name][nearest]
-    };
+    const r=Math.max(9,Math.min(22,9+2.2*Math.sqrt(volume)));
+    return {name,volume:Math.round(volume),status,r,body:perspectiveBodies[name][nearest]};
   });
 
-  resolveCollisions(items,4);
+  const count=items.length;
+  const rowLeft=padX;
+  const rowRight=width-padX;
+  const avail=Math.max(0,rowRight-rowLeft);
+  const step=count>1?avail/(count-1):0;
+  const rowY=baselineY-44;
+  items.forEach((it,idx)=>{
+    it.x=count>1?rowLeft+step*idx:rowLeft+avail/2;
+    it.y=rowY;
+  });
 
-  // Build or update bubbles + labels
-  if(cloud.children.length!==items.length*2){
-    cloud.innerHTML='';
-    items.forEach(it=>{
-      const btn=document.createElement('button');
-      btn.className='rail-bubble';
-      btn.type='button';
-      btn.dataset.id=it.name;
-      btn.style.backgroundColor=it.color;
-      btn.style.opacity='0.85';
-      btn.onclick=()=>openPerspectiveLens(it.name);
-      cloud.appendChild(btn);
+  // Update existing bubble buttons (static markup provides exactly five)
+  items.forEach(it=>{
+    const btn=cloud.querySelector(`.rail-bubble[data-id="${it.name}"]`);
+    if(!btn) return;
+    btn.style.setProperty('--bubble-color',categoryColors[it.name]);
+  });
 
-      const lab=document.createElement('div');
-      lab.className='rail-label';
-      lab.dataset.id=it.name;
-      cloud.appendChild(lab);
-    });
-  }
+  const autoSelection=getAutoSelection(items);
+  const effectiveSelection=railSelection || autoSelection;
 
   items.forEach(it=>{
     const btn=cloud.querySelector(`.rail-bubble[data-id="${it.name}"]`);
-    const lab=cloud.querySelector(`.rail-label[data-id="${it.name}"]`);
-    if(!btn || !lab) return;
+    if(!btn) return;
     btn.style.left=it.x+'px';
     btn.style.top=it.y+'px';
     btn.style.width=(it.r*2)+'px';
     btn.style.height=(it.r*2)+'px';
-    btn.style.backgroundColor=it.color;
+    btn.dataset.body=it.body;
+    btn.classList.toggle('selected',it.name===effectiveSelection);
     const meta=statusMeta(it.status);
-    btn.setAttribute('aria-label',`${it.name}: ${truncate(it.body,80)} · ${it.volume} sources · ${meta.text}`);
+    const selectedNote=(it.name===railSelection)?' · selected':'';
+    btn.setAttribute('aria-label',`${it.name}: ${truncate(it.body,80)} · ${it.volume} sources · ${meta.text}${selectedNote}`);
     btn.title=`${it.name} — ${it.body}\n${it.volume} sources · ${meta.text}`;
-
-    lab.textContent=truncate(it.body,60);
-    lab.style.left=it.x+'px';
-    // Place label on the opposite side from the bubble's vertical offset
-    const above=(it.y-midY)<0;
-    lab.style.top=above?(it.y-it.r-8)+'px':(it.y+it.r+8)+'px';
   });
 
-  updateReadout(readout,fraction,playheadX,baselineY);
-}
-
-function updateReadout(el,fraction,px,baselineY){
-  if(!el) return;
-  const nearest=Math.max(0,Math.min(3,Math.round(fraction)));
-  const isAnchor=Math.abs(fraction-nearest)<0.001;
-  const label=isAnchor?states[nearest].label:positionLabel(fraction);
-
-  let rising=null, falling=null, maxSlope=-Infinity, minSlope=Infinity;
-  const i=Math.min(2,Math.floor(fraction));
-  nodeOrder.forEach(k=>{
-    const data=(details[k]&&details[k].sparkline)?details[k].sparkline:[0,0,0,0];
-    const slope=data[i+1]-data[i];
-    if(slope>maxSlope){ maxSlope=slope; rising=k; }
-    if(slope<minSlope){ minSlope=slope; falling=k; }
-  });
-
-  let trendText='';
-  if(rising && maxSlope>0) trendText+=`  ↑ ${rising}`;
-  if(falling && minSlope<0) trendText+=`  ↓ ${falling}`;
-
-  el.textContent=`${label}${trendText}`;
-  el.style.left=`${px}px`;
-  el.style.top=(baselineY-26)+'px';
+  if(readout) readout.textContent=positionLabel(fraction);
+  updateRailHeadline();
 }
 
 document.addEventListener('keydown',function(e){
@@ -489,5 +463,12 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
     });
   }
+  document.querySelectorAll('#trendRailCloud .rail-bubble').forEach(btn=>{
+    const name=btn.dataset.id;
+    if(!name) return;
+    btn.addEventListener('click',()=>toggleRailSelection(name));
+    btn.addEventListener('mouseenter',()=>setRailHover(name));
+    btn.addEventListener('mouseleave',()=>setRailHover(null));
+  });
   applyState(states.length-1,true);
 });
