@@ -97,3 +97,5 @@
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T04:40:31.658Z","finishedAt":"2026-08-30T04:40:31.661Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T05:02:21.183Z","finishedAt":"2026-08-30T05:02:21.184Z","totals":{}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T05:02:21.198Z","finishedAt":"2026-08-30T05:02:21.200Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T07:15:18.129Z","finishedAt":"2026-08-30T07:15:18.130Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T07:15:18.148Z","finishedAt":"2026-08-30T07:15:18.153Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}

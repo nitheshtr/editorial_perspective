@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Editorial — Perspective Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /*__CSS__*/
 </style>
@@ -36,21 +39,57 @@
 </div>
 
 <div class="timeline">
-  <div class="trow"><b>Perspective evolution</b><span class="state" id="state">TODAY</span></div>
-  <div class="trend-rail" id="trendRail" aria-label="Perspective evolution bubble cloud">
-    <div class="trend-rail-headline" id="trendRailHeadline" aria-live="polite"></div>
-    <div class="trend-rail-readout" id="trendRailReadout"></div>
-    <svg class="trend-rail-svg" id="trendRailSvg" xmlns="http://www.w3.org/2000/svg"></svg>
-    <div class="trend-rail-cloud" id="trendRailCloud">
-      <button class="rail-bubble" type="button" data-id="Technology" aria-label="Technology"></button>
-      <button class="rail-bubble" type="button" data-id="Platform" aria-label="Platform"></button>
-      <button class="rail-bubble" type="button" data-id="Infrastructure" aria-label="Infrastructure"></button>
-      <button class="rail-bubble" type="button" data-id="Economics" aria-label="Economics"></button>
-      <button class="rail-bubble" type="button" data-id="Human Impact" aria-label="Human Impact"></button>
+  <div class="timeline-card">
+    <div class="header">
+      <h2>Perspective Evolution</h2>
+      <span class="current-time-badge" id="timeBadge">1 Week Ago</span>
+    </div>
+
+    <div class="headline-container">
+      <p class="headline" id="mainHeadline" aria-live="polite">"Who owns AI's choke points—and who answers for its consequences?"</p>
+    </div>
+
+    <div class="legend-title">Select Perspective for Deep Dive</div>
+    <div class="legend" id="perspectiveContainer">
+      <button class="perspective-pill active" type="button" data-key="technology" onclick="selectPerspective('technology')" aria-pressed="true">
+        <span class="legend-dot" style="background:var(--color-technology);"></span> Technology
+      </button>
+      <button class="perspective-pill" type="button" data-key="platform" onclick="selectPerspective('platform')" aria-pressed="false">
+        <span class="legend-dot" style="background:var(--color-platform);"></span> Platform
+      </button>
+      <button class="perspective-pill" type="button" data-key="human-impact" onclick="selectPerspective('human-impact')" aria-pressed="false">
+        <span class="legend-dot" style="background:var(--color-human-impact);"></span> Human Impact
+      </button>
+      <button class="perspective-pill" type="button" data-key="economics" onclick="selectPerspective('economics')" aria-pressed="false">
+        <span class="legend-dot" style="background:var(--color-economics);"></span> Economics
+      </button>
+      <button class="perspective-pill" type="button" data-key="infrastructure" onclick="selectPerspective('infrastructure')" aria-pressed="false">
+        <span class="legend-dot" style="background:var(--color-infrastructure);"></span> Infrastructure
+      </button>
+    </div>
+
+    <div class="insight-card" id="insightCard">
+      <div class="insight-header" id="insightHeader">Technology perspective</div>
+      <div class="insight-section">
+        <div class="insight-label">Current Theme</div>
+        <div class="insight-text" id="themeText">Loading theme...</div>
+      </div>
+      <div class="insight-section">
+        <div class="insight-label">What Changed Since Prior Unit</div>
+        <div class="insight-text" id="changeText">Loading changes...</div>
+      </div>
+    </div>
+
+    <div class="slider-wrapper">
+      <div class="ticks-container">
+        <button class="tick-label" type="button" onclick="setStep(0)" aria-label="Go to 1 Year Ago">1 Year Ago</button>
+        <button class="tick-label" type="button" onclick="setStep(1)" aria-label="Go to 3 Months Ago">3 Months Ago</button>
+        <button class="tick-label" type="button" onclick="setStep(2)" aria-label="Go to 1 Month Ago">1 Month Ago</button>
+        <button class="tick-label active" type="button" onclick="setStep(3)" aria-label="Go to 1 Week Ago">1 Week Ago</button>
+      </div>
+      <input type="range" min="0" max="3" value="3" step="1" class="slider" id="timelineSlider" oninput="timeChange(this.value); updateTimelineCard();">
     </div>
   </div>
-  <input id="range" type="range" min="0" max="3" value="3" step="0.05" oninput="timeChange(this.value)" onchange="snapTime(this.value)">
-  <div class="ticks"><span>1 YEAR AGO</span><span>3 MONTHS AGO</span><span>1 MONTH AGO</span><span>1 WEEK AGO</span></div>
   <div class="trow" style="justify-content:center"><button class="what-changed-btn" onclick="openChangeSheet()">What changed?</button></div>
 </div>
 

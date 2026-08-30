@@ -78,6 +78,12 @@ export interface RelationView {
   reason: string;
 }
 
+export interface TimelineEntryView {
+  label: string;
+  headline: string;
+  perspectives: Record<string, { theme: string; changed: string }>;
+}
+
 export interface TopicView {
   slug: string;
   title: string;
@@ -89,6 +95,7 @@ export interface TopicView {
   states: StateView[];
   perspectives: PerspectiveView[];
   relations: RelationView[];
+  timeline?: TimelineEntryView[];
 }
 
 export interface ArticleCacheView {

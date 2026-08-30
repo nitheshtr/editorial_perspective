@@ -30,6 +30,7 @@ interface SourceLite { publisher: string; title: string; description: string; ur
 export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>): string {
   const corpusReal = [...byId.values()].filter((s) => !s.url.includes("migrated.editorial.local")).length;
   const corpusLine = `const corpus={total:${byId.size},real:${corpusReal}};\n`;
+  const timeline = buildTimeline(topic);
   const names = topic.perspectives.map((p) => p.name);
 
   // ---- states ----
@@ -107,7 +108,37 @@ export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>): 
   });
   const details = `const details={\n${detailBlocks.join("\n")}\n};\n`;
 
-  return corpusLine + states + nodeOrder + relations + perspectiveBodies + details;
+  return corpusLine + timeline + states + nodeOrder + relations + perspectiveBodies + details;
+}
+
+function buildTimeline(topic: TopicView): string {
+  const entries = topic.states.map((s, i) => {
+    const prev = i > 0 ? topic.states[i - 1] : null;
+    const perspectiveLines = topic.perspectives.map((p, pi) => {
+      const sep = pi < topic.perspectives.length - 1 ? "," : "";
+      const theme = q(p.bodies[i]);
+      let changed: string;
+      if (i === 0) {
+        changed = "Baseline period — initial snapshot of the conversation.";
+      } else {
+        const cur = s.nodes[p.name].metrics.sourceVolume;
+        const prevVol = prev!.nodes[p.name].metrics.sourceVolume;
+        const status = s.nodes[p.name].metrics.status;
+        changed = `Sources ${cur >= prevVol ? "rose" : "fell"} from ${prevVol} to ${cur}. Status: ${status}.`;
+      }
+      return `    ${q(p.id)}:{theme:${theme},changed:${q(changed)}}${sep}`;
+    });
+    return [
+      "  {",
+      `    label:${q(s.label)},`,
+      `    headline:${q(s.question)},`,
+      "    perspectives:{",
+      ...perspectiveLines,
+      "    }",
+      "  }",
+    ].join("\n");
+  });
+  return `const timeline=[\n${entries.join(",\n")}\n];\n`;
 }
 
 export interface GenerateInputs {

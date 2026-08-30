@@ -2,8 +2,7 @@ let current=2;
 let currentFraction=current;
 let continuousState=null;
 let currentLineStrength=null;
-let railSelection=null;
-let railHoverName=null;
+let activePerspective='technology';
 
 const categoryColors={
   'Technology':'#0071e3',
@@ -33,13 +32,6 @@ function lerp(a,b,t){ return a+(b-a)*t; }
 
 function setBlobTransitions(enabled){
   document.querySelectorAll('.blob').forEach(el=>{ el.style.transition=enabled?'':'none'; });
-}
-
-function positionLabel(fraction){
-  const idx=Math.round(fraction);
-  if(Math.abs(fraction-idx)<0.001) return states[idx].label;
-  const i=Math.min(2,Math.floor(fraction));
-  return `${states[i].label} → ${states[i+1].label}`;
 }
 
 function buildInterpolatedState(fraction){
@@ -92,8 +84,7 @@ function applyState(idx,initial){
   setBlobTransitions(true);
   const s=states[current];
   const isMobile=window.innerWidth<=560;
-  document.getElementById('state').textContent=s.label;
-  document.getElementById('range').value=current;
+  document.getElementById('timelineSlider').value=current;
   const q=document.getElementById('question');
   if(q && q.textContent!==s.question){
     if(initial){ q.textContent=s.question; q.style.opacity=0.72; }
@@ -131,8 +122,8 @@ function applyState(idx,initial){
     trend.className='trend '+meta.cls;
   });
   drawLines();
-  renderTrendRail(current);
   if(!initial) animateLines(860);
+  updateTimelineCard();
 }
 
 function applyStateContinuous(fraction){
@@ -145,8 +136,7 @@ function applyStateContinuous(fraction){
   const i=state.fromIndex;
   const t=currentFraction-i;
 
-  document.getElementById('state').textContent=positionLabel(currentFraction);
-  document.getElementById('range').value=currentFraction;
+  document.getElementById('timelineSlider').value=currentFraction;
 
   nodeOrder.forEach(k=>{
     const data=state.nodes[k];
@@ -173,16 +163,10 @@ function applyStateContinuous(fraction){
   crossfadeText(document.getElementById('synthesisText'), states[i].synthesis, states[i+1].synthesis, t, reduced);
 
   drawLines();
-  renderTrendRail(currentFraction);
+  updateTimelineCard();
 }
 
 function timeChange(v){ applyStateContinuous(v); }
-function snapTime(v){
-  const idx=Math.max(0,Math.min(3,Math.round(+v)));
-  const range=document.getElementById('range');
-  if(range) range.value=idx;
-  applyState(idx);
-}
 
 function getRect(key){
   const el=document.querySelector(`.blob[data-id="${key}"]`);
@@ -316,131 +300,59 @@ function openPerspective(name){
 }
 function toggle(id){ document.getElementById(id).classList.toggle('show'); }
 
-function truncate(str,max){
-  if(!str) return '';
-  if(str.length<=max) return str;
-  return str.slice(0,max-1).trim()+'…';
+function selectPerspective(key){
+  activePerspective=key;
+  updateTimelineCard();
 }
 
-function setRailHover(name){
-  railHoverName=name;
-  updateRailHeadline();
-}
-function toggleRailSelection(name){
-  if(railSelection===name){
-    railSelection=null;
-    renderTrendRail(currentFraction);
-  }else{
-    railSelection=name;
-    openPerspectiveLens(name);
-    renderTrendRail(currentFraction);
-  }
-}
-function getAutoSelection(items){
-  return items.reduce((max,it)=>it.volume>max.volume?it:max,items[0]).name;
-}
-function updateRailHeadline(){
-  const headline=document.getElementById('trendRailHeadline');
-  const cloud=document.getElementById('trendRailCloud');
-  if(!headline || !cloud) return;
-  let text='';
-  if(railHoverName){
-    const btn=cloud.querySelector(`.rail-bubble[data-id="${railHoverName}"]`);
-    if(btn && btn.dataset.body) text=truncate(btn.dataset.body,70);
-  }
-  if(!text){
-    const selected=cloud.querySelector('.rail-bubble.selected');
-    if(selected && selected.dataset.body) text=truncate(selected.dataset.body,70);
-  }
-  if(!text) text='Perspective evolution';
-  headline.textContent=text;
+function setStep(index){
+  const idx=Math.max(0,Math.min(states.length-1,+index));
+  const slider=document.getElementById('timelineSlider');
+  if(slider) slider.value=idx;
+  applyState(idx);
 }
 
-function renderTrendRail(fraction){
-  const container=document.getElementById('trendRail');
-  const svg=document.getElementById('trendRailSvg');
-  const cloud=document.getElementById('trendRailCloud');
-  const readout=document.getElementById('trendRailReadout');
-  const headline=document.getElementById('trendRailHeadline');
-  if(!container || !svg || !cloud || !headline) return;
+function updateTimelineCard(){
+  if(typeof timeline==='undefined' || !timeline || !timeline.length) return;
+  const step=Math.max(0,Math.min(timeline.length-1,Math.round(currentFraction)));
+  const data=timeline[step];
+  const perspectiveData=data.perspectives[activePerspective];
+  if(!perspectiveData) return;
+  const colorMap={
+    technology:'var(--color-technology)',
+    platform:'var(--color-platform)',
+    'human-impact':'var(--color-human-impact)',
+    economics:'var(--color-economics)',
+    infrastructure:'var(--color-infrastructure)'
+  };
+  const activeColor=colorMap[activePerspective]||'var(--ink)';
 
-  const rect=container.getBoundingClientRect();
-  const width=rect.width;
-  const height=rect.height;
-  svg.setAttribute('width',width);
-  svg.setAttribute('height',height);
-  svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
+  const timeBadge=document.getElementById('timeBadge');
+  const mainHeadline=document.getElementById('mainHeadline');
+  const slider=document.getElementById('timelineSlider');
+  const tickLabels=document.querySelectorAll('.tick-label');
+  const pills=document.querySelectorAll('.perspective-pill');
+  const insightCard=document.getElementById('insightCard');
+  const insightHeader=document.getElementById('insightHeader');
+  const themeText=document.getElementById('themeText');
+  const changeText=document.getElementById('changeText');
 
-  const padX=24;
-  const baselineY=height-26;
-  const plotW=Math.max(0,width-padX*2);
-  const playheadX=padX+(Math.max(0,Math.min(3,fraction))/3)*plotW;
-
-  // nearly-flat hairline baseline
-  const wave=function(x){ return Math.sin((x-padX)/plotW*Math.PI*2)*1; };
-  let baselinePath=`M${padX},${baselineY+wave(padX)}`;
-  const steps=40;
-  for(let s=1;s<=steps;s++){
-    const x=padX+(plotW*s)/steps;
-    baselinePath+=` L${x.toFixed(1)},${(baselineY+wave(x)).toFixed(1)}`;
-  }
-  svg.innerHTML=`<path class="rail-baseline" d="${baselinePath}" />`+
-    `<polygon class="rail-playhead" points="${playheadX-5},${baselineY+6} ${playheadX+5},${baselineY+6} ${playheadX},${baselineY-7}" />`;
-
-  // Interpolate volumes / status across the continuous fraction
-  const i=Math.min(2,Math.floor(fraction));
-  const t=fraction-i;
-  const a=states[i], b=states[i+1];
-  const nearest=Math.max(0,Math.min(3,Math.round(fraction)));
-
-  // Calm horizontal bubble row
-  const items=nodeOrder.map((name)=>{
-    const volA=a.nodes[name].sources;
-    const volB=b.nodes[name].sources;
-    const volume=lerp(volA,volB,t);
-    const status=t>0.5?b.nodes[name].status:a.nodes[name].status;
-    const r=Math.max(9,Math.min(22,9+2.2*Math.sqrt(volume)));
-    return {name,volume:Math.round(volume),status,r,body:perspectiveBodies[name][nearest]};
+  if(timeBadge){ timeBadge.textContent=data.label; timeBadge.style.color=activeColor; }
+  if(mainHeadline) mainHeadline.textContent=`"${data.headline}"`;
+  if(slider) slider.value=step;
+  tickLabels.forEach((label,idx)=>label.classList.toggle('active',idx===step));
+  pills.forEach(pill=>{
+    const pressed=pill.getAttribute('data-key')===activePerspective;
+    pill.classList.toggle('active',pressed);
+    pill.setAttribute('aria-pressed',String(pressed));
   });
-
-  const count=items.length;
-  const rowLeft=padX;
-  const rowRight=width-padX;
-  const avail=Math.max(0,rowRight-rowLeft);
-  const step=count>1?avail/(count-1):0;
-  const rowY=baselineY-44;
-  items.forEach((it,idx)=>{
-    it.x=count>1?rowLeft+step*idx:rowLeft+avail/2;
-    it.y=rowY;
-  });
-
-  // Update existing bubble buttons (static markup provides exactly five)
-  items.forEach(it=>{
-    const btn=cloud.querySelector(`.rail-bubble[data-id="${it.name}"]`);
-    if(!btn) return;
-    btn.style.setProperty('--bubble-color',categoryColors[it.name]);
-  });
-
-  const autoSelection=getAutoSelection(items);
-  const effectiveSelection=railSelection || autoSelection;
-
-  items.forEach(it=>{
-    const btn=cloud.querySelector(`.rail-bubble[data-id="${it.name}"]`);
-    if(!btn) return;
-    btn.style.left=it.x+'px';
-    btn.style.top=it.y+'px';
-    btn.style.width=(it.r*2)+'px';
-    btn.style.height=(it.r*2)+'px';
-    btn.dataset.body=it.body;
-    btn.classList.toggle('selected',it.name===effectiveSelection);
-    const meta=statusMeta(it.status);
-    const selectedNote=(it.name===railSelection)?' · selected':'';
-    btn.setAttribute('aria-label',`${it.name}: ${truncate(it.body,80)} · ${it.volume} sources · ${meta.text}${selectedNote}`);
-    btn.title=`${it.name} — ${it.body}\n${it.volume} sources · ${meta.text}`;
-  });
-
-  if(readout) readout.textContent=positionLabel(fraction);
-  updateRailHeadline();
+  if(insightCard) insightCard.style.borderColor=activeColor;
+  if(insightHeader){
+    insightHeader.style.color=activeColor;
+    insightHeader.textContent=`${activePerspective.replace(/-/g,' ')} perspective`;
+  }
+  if(themeText) themeText.textContent=perspectiveData.theme;
+  if(changeText) changeText.textContent=perspectiveData.changed;
 }
 
 document.addEventListener('keydown',function(e){
@@ -449,26 +361,18 @@ document.addEventListener('keydown',function(e){
     closeLens();
   }
 });
-window.addEventListener('resize',()=>{ applyState(current,true); renderTrendRail(current); animateLines(860); });
+window.addEventListener('resize',()=>{ applyState(current,true); animateLines(860); });
 document.addEventListener('DOMContentLoaded',()=>{
-  const range=document.getElementById('range');
-  if(range){
-    range.addEventListener('keydown',function(e){
+  const slider=document.getElementById('timelineSlider');
+  if(slider){
+    slider.addEventListener('keydown',function(e){
       if(e.key==='ArrowLeft' || e.key==='ArrowRight' || e.key==='ArrowUp' || e.key==='ArrowDown'){
         e.preventDefault();
         const delta=(e.key==='ArrowRight' || e.key==='ArrowUp')?1:-1;
-        const idx=Math.max(0,Math.min(3,Math.round(+range.value)+delta));
-        range.value=idx;
-        applyState(idx);
+        const idx=Math.max(0,Math.min(3,Math.round(+slider.value)+delta));
+        setStep(idx);
       }
     });
   }
-  document.querySelectorAll('#trendRailCloud .rail-bubble').forEach(btn=>{
-    const name=btn.dataset.id;
-    if(!name) return;
-    btn.addEventListener('click',()=>toggleRailSelection(name));
-    btn.addEventListener('mouseenter',()=>setRailHover(name));
-    btn.addEventListener('mouseleave',()=>setRailHover(null));
-  });
   applyState(states.length-1,true);
 });

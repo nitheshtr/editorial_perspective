@@ -1,6 +1,28 @@
 # Release Notes
 
-## 2026-08-27 — Specs v0.4 / IMPLEMENTATION v0.3
+## 2026-08-30 — Editorial "Perspective Evolution" timeline card (operator design template)
+
+- **Rebuilt timeline strip** around the supplied editorial card template:
+  cream/white card with a 4px dark left border, Playfair Display serif italic
+  headline, perspective selector pills, dual insight card, and discrete slider
+  with clickable tick labels.
+- **Adopted map category colors** for pills, insight-card accent, time badge and
+  slider thumb: technology `#0071e3`, platform `#6e6e73`, human-impact `#6c56b8`,
+  economics `#b45b00`, infrastructure `#27804f` — exposed as `--color-*` tokens
+  while keeping the template's editorial cream/card/serif treatment.
+- **Timeline data emitted from real topic state data** via a new `timeline`
+  block in `tools/generate-site.ts`: 4 entries, each keyed by perspective id,
+  containing the period question as headline, the per-period body as theme, and
+  a mechanical "What Changed" delta derived from source-volume changes and
+  status between consecutive states.
+- **Removed:** bubble-cloud rail, playhead/baseline SVG, collision code, continuous
+  fractional slider, and the old ` Perspective evolution` row. Kept the map blobs,
+  change sheet, lens modal, sources panel, and corpus chips untouched.
+- **Accessibility:** pills are `<button>` elements with `aria-pressed`; tick labels
+  are `<button>` elements with `aria-label`; headline uses `aria-live="polite"`.
+- **Served-script parse check** passes; data strings continue to flow through the
+  existing `q()` escaper.
+- Golden re-blessed per Visual Fidelity Lock (SPECv4 §11).
 
 SPECv4: editorial methodology, semantic metrics, orchestration.
 

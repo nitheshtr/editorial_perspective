@@ -1,6 +1,8 @@
   --bg:#f5f5f7;--card:#fff;--ink:#1d1d1f;--muted:#6e6e73;--line:#d2d2d7;
   --blue:#0071e3;--green:#27804f;--orange:#b45b00;--purple:#6c56b8;
-  --shadow:0 18px 55px rgba(0,0,0,.12);--blue-soft:#e9f3ff
+  --shadow:0 18px 55px rgba(0,0,0,.12);--blue-soft:#e9f3ff;
+  --color-technology:#0071e3;--color-platform:#6e6e73;--color-human-impact:#6c56b8;--color-economics:#b45b00;--color-infrastructure:#27804f;
+  --font-playfair:"Playfair Display",Georgia,serif;--font-source:"Source Sans 3",system-ui,sans-serif
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
@@ -32,8 +34,7 @@ nav button.active{background:var(--ink);color:#fff}
 .tech{--blob-bg:#e9f3ff}.human{--blob-bg:#f2edff}.econ{--blob-bg:#fff0df}.infra{--blob-bg:#eaf7ef}.platform{--blob-bg:#f4f4f5}
 
 .timeline{margin-top:15px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 22px;box-shadow:0 8px 28px rgba(0,0,0,.04)}
-.trow{display:flex;justify-content:space-between;align-items:center}.timeline b{font-size:12px}.state{font-size:11px;color:var(--blue);font-weight:700}
-input[type=range]{width:100%;accent-color:var(--blue);margin:16px 0 5px}.ticks{display:flex;justify-content:space-between;color:var(--muted);font-size:10px}
+.trow{display:flex;justify-content:space-between;align-items:center}
 .what-changed-btn{border:0;background:var(--ink);color:#fff;border-radius:999px;padding:9px 16px;font-size:11px;font-weight:700;cursor:pointer;margin-top:10px}
 .what-changed-btn:hover{opacity:.9}
 
@@ -91,31 +92,45 @@ input[type=range]{width:100%;accent-color:var(--blue);margin:16px 0 5px}.ticks{d
 .lens-windows span i{font-style:normal;font-size:8.5px;letter-spacing:1px;font-weight:750;color:var(--blue)}
 .sourcesPanel .lens-windows{margin:12px 0 6px}
 
-/* Bubble Cloud Timeline — calm / Apple News style */
-.trend-rail{position:relative;width:100%;height:132px;margin:10px 0 4px;overflow:visible}
-
-.trend-rail-headline{position:absolute;top:0;left:0;right:90px;height:26px;line-height:26px;font-size:15px;font-weight:400;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none;z-index:4}
-
-.trend-rail-readout{position:absolute;top:6px;right:0;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.2px;pointer-events:none;white-space:nowrap;z-index:5}
-
-.trend-rail-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;display:block;pointer-events:none}
-.trend-rail-svg .rail-baseline{fill:none;stroke:#d2d2d7;stroke-width:1.5;stroke-linecap:round}
-.trend-rail-svg .rail-playhead{fill:var(--blue);fill-opacity:.6}
-
-.trend-rail-cloud{position:absolute;inset:0;pointer-events:none}
-.trend-rail-cloud .rail-bubble{position:absolute;transform:translate(-50%,-50%);border-radius:50%;pointer-events:auto;border:1.5px solid #fff;background-color:var(--bubble-color,#0071e3);opacity:.9;cursor:pointer;transition:left .2s ease-out,top .2s ease-out,width .2s ease-out,height .2s ease-out,transform .2s ease,box-shadow .2s ease;will-change:left,top,width,height}
-.trend-rail-cloud .rail-bubble.selected{transform:translate(-50%,-50%) scale(1.12);box-shadow:0 0 0 2px rgba(0,113,227,.25);z-index:10}
-@media (pointer:fine){
-.trend-rail-cloud .rail-bubble:hover{transform:translate(-50%,calc(-50% - 2px)) scale(1.08);z-index:10}
-.trend-rail-cloud .rail-bubble.selected:hover{transform:translate(-50%,calc(-50% - 2px)) scale(1.12)}
-}
-.trend-rail-cloud .rail-bubble:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(0,113,227,.35);z-index:10}
+/* Perspective Evolution timeline card */
+.timeline-card{background:#fff;border-left:4px solid var(--ink);border-radius:4px;padding:2rem;width:100%;max-width:850px;margin:0 auto;font-family:var(--font-source)}
+.timeline-card .header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:.75rem;margin-bottom:1.25rem}
+.timeline-card .header h2{font-family:var(--font-playfair);font-size:1.5rem;font-weight:700;margin:0}
+.current-time-badge{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--color-technology)}
+.headline-container{margin-bottom:1.5rem;min-height:3rem}
+.headline{font-family:var(--font-playfair);font-size:1.25rem;font-style:italic;line-height:1.4;color:var(--ink);margin:0}
+.legend-title{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:.5rem}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.perspective-pill{display:inline-flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:600;color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:.4rem .8rem;border-radius:20px;cursor:pointer;transition:all .2s ease;user-select:none;font-family:var(--font-source)}
+.perspective-pill:hover{border-color:#999}
+.perspective-pill.active{background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.perspective-pill.active[data-key="technology"]{border-color:var(--color-technology)}
+.perspective-pill.active[data-key="platform"]{border-color:var(--color-platform)}
+.perspective-pill.active[data-key="human-impact"]{border-color:var(--color-human-impact)}
+.perspective-pill.active[data-key="economics"]{border-color:var(--color-economics)}
+.perspective-pill.active[data-key="infrastructure"]{border-color:var(--color-infrastructure)}
+.legend-dot{width:8px;height:8px;border-radius:50%}
+.insight-card{background-color:#f7f6f2;border-radius:6px;padding:1.25rem;margin-bottom:2rem;border-left:3px solid var(--color-technology);transition:border-color .2s ease}
+.insight-header{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;color:var(--color-technology);transition:color .2s ease}
+.insight-section{margin-bottom:.75rem}
+.insight-section:last-child{margin-bottom:0}
+.insight-label{font-size:.75rem;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem}
+.insight-text{font-size:.95rem;line-height:1.45;color:var(--ink)}
+.slider-wrapper{position:relative;margin-top:1rem}
+.ticks-container{display:flex;justify-content:space-between;position:relative;margin-bottom:.5rem}
+.tick-label{font-size:.75rem;font-weight:600;color:var(--muted);text-transform:uppercase;cursor:pointer;border:0;background:transparent;padding:0;font-family:var(--font-source)}
+.tick-label.active{color:var(--ink);font-weight:700}
+.slider{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:var(--line);outline:none;cursor:pointer}
+.slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:var(--color-technology);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3);cursor:pointer}
+.slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--color-technology);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3);cursor:pointer}
 
 @media(max-width:560px){
-  .trend-rail{height:124px}
-  .trend-rail-headline{font-size:14px;right:80px}
+  .timeline-card{padding:1.25rem}
+  .timeline-card .header h2{font-size:1.25rem}
+  .headline{font-size:1.05rem}
+  .legend{gap:.4rem}
+  .perspective-pill{font-size:.8rem;padding:.35rem .65rem}
 }
 @media(prefers-reduced-motion:reduce){
   .blob{transition:none !important}
-  .trend-rail-cloud .rail-bubble{transition:none}
 }
