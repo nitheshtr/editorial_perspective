@@ -300,6 +300,22 @@ run-duration threshold gives 3× headroom.
 - Golden re-blessed (83,021 chars) — intentional renderer change per
   Visual Fidelity Lock. 164 tests green.
 
+## 2026-08-28 — HOTFIX: runtime crash killed the entire frontend
+
+- **Root cause (found via served-script parse check):** a CFR feed
+  description contained a raw newline; the data-block emitter's string
+  escaper handled quotes/backslashes but NOT line terminators — the
+  generated `desc:'...'` literal broke across lines → **SyntaxError → the
+  entire app.js never executed** → readers saw the static template fallback
+  (single Platform card, "TODAY" label, no rail, no trend lines).
+- **Fix:** the escaper now escapes `\r\n`, `\n`, `\r`, U+2028 and U+2029 —
+  verified by extracting the served script from dist and compiling it
+  (`new Function`) — PARSE OK.
+- **Process fix:** the served-script parse check is now the definitive
+  pre-deploy verification for every generator change (tsc/bun tests cannot
+  catch browser-runtime parse errors in inlined JS).
+- Golden re-blessed (83,024 chars).
+
 ## 2026-08-28 — Historical backfill: 2025–2026 coverage (adapter upgrade)
 
 - **Search adapter upgraded:** absolute date-range support

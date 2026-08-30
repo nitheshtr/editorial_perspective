@@ -9,7 +9,16 @@ import { join } from "node:path";
 import type { TopicView, ArticleCacheView, TopicManifest } from "./types.js";
 
 // ---- string/number emitters (V3 style) ----
-const q = (s: string) => `'${s.replace(/\\/g, "\\\\").replace(/'/g, "\\'")}'`;
+// JS string-literal escaper: backslashes, quotes AND line terminators —
+// a raw newline inside a single-quoted literal is a parse error that kills
+// the whole app (found via the served-script parse check, 2026-08-28).
+const q = (s: string) =>
+  `'${s
+    .replace(/\\/g, "\\\\")
+    .replace(/'/g, "\\'")
+    .replace(/\r\n|\n|\r/g, "\\n")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029")}'`;
 const num = (n: number) => {
   const s = String(n);
   return s.startsWith("0.") ? s.slice(1) : s; // 0.35 -> .35, 1 -> 1
