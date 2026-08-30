@@ -471,7 +471,7 @@
             "h": 14
           },
           "metrics": {
-            "sourceVolume": 19,
+            "sourceVolume": 31,
             "independentSignals": 4,
             "momentum": 0.16,
             "emergence": 0.2,
@@ -498,7 +498,7 @@
             "h": 14
           },
           "metrics": {
-            "sourceVolume": 5,
+            "sourceVolume": 18,
             "independentSignals": 5,
             "momentum": 0.28,
             "emergence": 0.6,
@@ -525,7 +525,7 @@
             "h": 15
           },
           "metrics": {
-            "sourceVolume": 4,
+            "sourceVolume": 16,
             "independentSignals": 4,
             "momentum": 0.2,
             "emergence": 0.55,
@@ -552,7 +552,7 @@
             "h": 15
           },
           "metrics": {
-            "sourceVolume": 3,
+            "sourceVolume": 16,
             "independentSignals": 3,
             "momentum": 0.12,
             "emergence": 0.5,
@@ -579,7 +579,7 @@
             "h": 16
           },
           "metrics": {
-            "sourceVolume": 8,
+            "sourceVolume": 18,
             "independentSignals": 6,
             "momentum": 0.24,
             "emergence": 0.7,
@@ -636,13 +636,25 @@
         "source-054",
         "source-055",
         "source-056",
-        "source-057"
+        "source-057",
+        "source-044",
+        "source-045",
+        "source-046",
+        "source-084",
+        "source-085",
+        "source-088",
+        "source-089",
+        "source-107",
+        "source-118",
+        "source-121",
+        "source-108",
+        "source-109"
       ],
       "windows": {
-        "y": 19,
-        "q": 19,
-        "m": 16,
-        "w": 15
+        "y": 31,
+        "q": 28,
+        "m": 23,
+        "w": 21
       }
     },
     {
@@ -675,13 +687,26 @@
         "source-005",
         "source-006",
         "source-037",
-        "source-040"
+        "source-040",
+        "source-058",
+        "source-059",
+        "source-060",
+        "source-076",
+        "source-087",
+        "source-090",
+        "source-091",
+        "source-093",
+        "source-094",
+        "source-095",
+        "source-096",
+        "source-097",
+        "source-117"
       ],
       "windows": {
-        "y": 5,
-        "q": 5,
-        "m": 5,
-        "w": 5
+        "y": 18,
+        "q": 12,
+        "m": 8,
+        "w": 8
       }
     },
     {
@@ -713,13 +738,25 @@
         "source-007",
         "source-008",
         "source-009",
-        "source-042"
+        "source-042",
+        "source-047",
+        "source-066",
+        "source-068",
+        "source-069",
+        "source-070",
+        "source-071",
+        "source-111",
+        "source-112",
+        "source-113",
+        "source-114",
+        "source-115",
+        "source-116"
       ],
       "windows": {
-        "y": 4,
-        "q": 4,
-        "m": 4,
-        "w": 4
+        "y": 13,
+        "q": 11,
+        "m": 10,
+        "w": 9
       }
     },
     {
@@ -750,13 +787,26 @@
       "sources": [
         "source-010",
         "source-011",
-        "source-012"
+        "source-012",
+        "source-061",
+        "source-062",
+        "source-063",
+        "source-064",
+        "source-067",
+        "source-072",
+        "source-073",
+        "source-074",
+        "source-075",
+        "source-092",
+        "source-105",
+        "source-106",
+        "source-120"
       ],
       "windows": {
-        "y": 3,
-        "q": 3,
-        "m": 3,
-        "w": 3
+        "y": 15,
+        "q": 10,
+        "m": 7,
+        "w": 7
       }
     },
     {
@@ -792,13 +842,23 @@
         "source-035",
         "source-038",
         "source-041",
-        "source-043"
+        "source-043",
+        "source-065",
+        "source-077",
+        "source-078",
+        "source-079",
+        "source-080",
+        "source-081",
+        "source-082",
+        "source-083",
+        "source-086",
+        "source-110"
       ],
       "windows": {
-        "y": 8,
-        "q": 7,
-        "m": 6,
-        "w": 6
+        "y": 17,
+        "q": 11,
+        "m": 10,
+        "w": 10
       }
     }
   ],

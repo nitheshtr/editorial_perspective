@@ -19,6 +19,8 @@ const nameKey = (name: string) => (/\s/.test(name) ? q(name) : name);
 interface SourceLite { publisher: string; title: string; description: string; url: string }
 
 export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>): string {
+  const corpusReal = [...byId.values()].filter((s) => !s.url.includes("migrated.editorial.local")).length;
+  const corpusLine = `const corpus={total:${byId.size},real:${corpusReal}};\n`;
   const names = topic.perspectives.map((p) => p.name);
 
   // ---- states ----
@@ -96,7 +98,7 @@ export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>): 
   });
   const details = `const details={\n${detailBlocks.join("\n")}\n};\n`;
 
-  return states + nodeOrder + relations + perspectiveBodies + details;
+  return corpusLine + states + nodeOrder + relations + perspectiveBodies + details;
 }
 
 export interface GenerateInputs {

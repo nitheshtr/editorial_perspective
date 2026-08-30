@@ -258,6 +258,25 @@ run-duration threshold gives 3× headroom.
   date; undated articles are counted by discovery date.
 - Golden re-blessed (48,339 chars).
 
+## 2026-08-28 — Full-corpus curation: the map reflects all 107 articles
+
+- **Lane curation pass completed** (operator-approved mapping): all 68
+  previously uncataloged articles assigned + 8 excluded as non-AI
+  sitewide-feed noise (Atlantic Council general feed + 1 Reddit homepage).
+- **Cataloged sources: 39 → 99** across 5 perspectives — technology 31,
+  platform 18, human-impact 18, infrastructure 16, economics 16. The map
+  now reflects the full 107-article corpus (9 demo baseline + 99 real).
+- Windows + last-state volumes resynced; blobs, chips and counts rescaled
+  to the deepened corpus.
+- **Corpus transparency stat:** the data block now emits
+  `corpus:{total,real}` and the lens/panel windows strips render a
+  CORPUS REAL chip — tracked-corpus depth visible alongside per-perspective
+  counts.
+- Editorial record: scripts/apply-corrected-curation.ts (the full mapping
+  table) + scripts/curate-uncataloged.ts (heuristic audit trail).
+- Golden re-blessed (70,889 chars) — intentional data + renderer change per
+  Visual Fidelity Lock.
+
 ## 2026-08-28 — Historical backfill: 2025–2026 coverage (adapter upgrade)
 
 - **Search adapter upgraded:** absolute date-range support

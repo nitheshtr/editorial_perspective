@@ -161,7 +161,7 @@ function openPerspectiveLens(name){
   document.getElementById('lensEyebrow').textContent=`${meta.text} · ${cur.sources} SOURCES`;
   document.getElementById('lensTitle').textContent=name;
   document.getElementById('lensSummary').textContent=d.summary;
-  document.getElementById('lensWindows').innerHTML=windowsStrip(d.windows);
+  document.getElementById('lensWindows').innerHTML=windowsStrip(d.windows)+`<span><b>${corpus.real}</b><i>CORPUS REAL</i></span>`;
   drawSparkline(document.getElementById('lensSparkline'), d.sparkline);
   document.getElementById('lensSteps').innerHTML=d.history.map((txt,i)=>`<div class="lens-step"><div class="when">${i+1}</div><div class="when-label">${states[i].label}</div><p>${txt}</p></div>`).join('');
   document.getElementById('lensSources').innerHTML=d.sources.map(s=>`<div class="lens-source"><div class="pub">${s.pub}</div><h4>${s.title}</h4><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></div>`).join('');
@@ -180,7 +180,7 @@ function openPerspective(name){
   document.getElementById('panelTitle').textContent=name;
   document.getElementById('panelKicker').textContent=name.toUpperCase()+' · PERSPECTIVE';
   document.getElementById('panelSummary').textContent=(d&&d.summary)||'';
-  document.getElementById('panelWindows').innerHTML=windowsStrip(d&&d.windows);
+  document.getElementById('panelWindows').innerHTML=windowsStrip(d&&d.windows)+`<span><b>${corpus.real}</b><i>CORPUS REAL</i></span>`;
   const list=document.getElementById('panelArticles');
   list.innerHTML=(d&&d.sources?d.sources:[]).map(s=>`<article class="article"><div class="pub">${s.pub}</div><h3>${s.title}</h3><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></article>`).join('');
   const p=document.getElementById('sourcesPanel');
