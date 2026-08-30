@@ -99,3 +99,10 @@
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T05:02:21.198Z","finishedAt":"2026-08-30T05:02:21.200Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T07:15:18.129Z","finishedAt":"2026-08-30T07:15:18.130Z","totals":{}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T07:15:18.148Z","finishedAt":"2026-08-30T07:15:18.153Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"e15441e2-50a1-4ae2-abc6-b5575c1ba4b1","topic":"iran-conflict","startedAt":"2026-08-30T18:19:37.193Z","finishedAt":"2026-08-30T18:19:39.361Z","totals":{"research":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":4,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T18:20:59.024Z","finishedAt":"2026-08-30T18:20:59.026Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T18:20:59.036Z","finishedAt":"2026-08-30T18:20:59.039Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T18:23:18.001Z","finishedAt":"2026-08-30T18:23:18.002Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T18:23:18.017Z","finishedAt":"2026-08-30T18:23:18.020Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T18:46:43.050Z","finishedAt":"2026-08-30T18:46:43.052Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T18:46:43.060Z","finishedAt":"2026-08-30T18:46:43.063Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}

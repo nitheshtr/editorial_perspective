@@ -1438,6 +1438,123 @@
         "link": true,
         "pendingVerification": true
       }
+    },
+    {
+      "name": "AJC",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Center for Strategic and International Studies",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Georgetown Journal of International Affairs",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Futura Doctrina",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "YouTube",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Ibanet",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Wikimedia Foundation, Inc.",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "International Centre for Defence and Security",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
+    },
+    {
+      "name": "Facebook",
+      "tier": 3,
+      "policy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      }
     }
   ]
 }

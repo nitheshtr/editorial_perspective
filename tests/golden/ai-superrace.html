@@ -24,9 +24,15 @@ header{height:68px;display:flex;justify-content:space-between;align-items:center
 .hero{padding:62px 0 20px}.eyebrow,.kicker{font-size:11px;letter-spacing:1.4px;color:var(--blue);font-weight:750}
 h1{font-size:54px;line-height:1.02;letter-spacing:-2.7px;max-width:800px;margin:12px 0}
 .sub{font-size:19px;line-height:1.5;color:var(--muted);max-width:700px}
-nav{display:flex;gap:5px;margin:30px 0 10px;padding-bottom:12px;border-bottom:1px solid var(--line);overflow:auto}
-nav button{border:0;background:transparent;color:var(--muted);padding:9px 15px;border-radius:999px;white-space:nowrap;cursor:pointer;font-size:13px}
-nav button.active{background:var(--ink);color:#fff}
+nav{display:flex;gap:5px;margin:30px 0 10px;padding-bottom:12px;border-bottom:1px solid var(--line);overflow:visible;align-items:center}
+.nav-item,nav button,nav a{border:0;background:transparent;color:var(--muted);padding:9px 15px;border-radius:999px;white-space:nowrap;cursor:pointer;font-size:13px;text-decoration:none;font-family:inherit;display:inline-flex;align-items:center}
+.nav-item.active,nav button.active{background:var(--ink);color:#fff}
+.dropdown{position:relative;display:inline-block}
+.dropdown-menu{position:absolute;top:100%;left:0;z-index:50;display:none;min-width:160px;padding:6px 0;margin:4px 0 0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.12);list-style:none}
+.dropdown:hover .dropdown-menu,.dropdown:focus-within .dropdown-menu{display:block}
+.dropdown-item{display:block;width:100%;padding:8px 16px;color:var(--ink);text-decoration:none;font-size:13px;background:transparent;border:0;text-align:left;cursor:pointer;font-family:inherit}
+.dropdown-item:hover,.dropdown-item:focus{background:var(--bg)}
+.dropdown-item.active{background:var(--ink);color:#fff}
 .topic{margin-top:38px}.label{font-size:11px;color:var(--muted);letter-spacing:1.2px;font-weight:700}
 .topic h2{font-size:38px;letter-spacing:-1.5px;margin:6px 0}.dek{font-size:16px;color:var(--muted);line-height:1.5;max-width:780px}
 
@@ -104,10 +110,10 @@ nav button.active{background:var(--ink);color:#fff}
 .sourcesPanel .lens-windows{margin:12px 0 6px}
 
 /* Perspective Evolution timeline card */
-.timeline-card{background:#fff;border-left:4px solid var(--ink);border-radius:4px;padding:2rem;width:100%;max-width:850px;margin:0 auto;font-family:var(--font-source)}
+.timeline-card{--active-perspective-color:var(--color-technology);background:#fff;border-left:4px solid var(--ink);border-radius:4px;padding:2rem;width:100%;max-width:850px;margin:0 auto;font-family:var(--font-source)}
 .timeline-card .header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:.75rem;margin-bottom:1.25rem}
 .timeline-card .header h2{font-family:var(--font-playfair);font-size:1.5rem;font-weight:700;margin:0}
-.current-time-badge{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--color-technology)}
+.current-time-badge{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--active-perspective-color)}
 .headline-container{margin-bottom:1.5rem;min-height:3rem}
 .headline{font-family:var(--font-playfair);font-size:1.25rem;font-style:italic;line-height:1.4;color:var(--ink);margin:0}
 .legend-title{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:.5rem}
@@ -121,8 +127,8 @@ nav button.active{background:var(--ink);color:#fff}
 .perspective-pill.active[data-key="economics"]{border-color:var(--color-economics)}
 .perspective-pill.active[data-key="infrastructure"]{border-color:var(--color-infrastructure)}
 .legend-dot{width:8px;height:8px;border-radius:50%}
-.insight-card{background-color:#f7f6f2;border-radius:6px;padding:1.25rem;margin-bottom:2rem;border-left:3px solid var(--color-technology);transition:border-color .2s ease}
-.insight-header{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;color:var(--color-technology);transition:color .2s ease}
+.insight-card{background-color:#f7f6f2;border-radius:6px;padding:1.25rem;margin-bottom:2rem;border-left:3px solid var(--active-perspective-color);transition:border-color .2s ease}
+.insight-header{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;color:var(--active-perspective-color);transition:color .2s ease}
 .insight-section{margin-bottom:.75rem}
 .insight-section:last-child{margin-bottom:0}
 .insight-label{font-size:.75rem;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem}
@@ -132,8 +138,8 @@ nav button.active{background:var(--ink);color:#fff}
 .tick-label{font-size:.75rem;font-weight:600;color:var(--muted);text-transform:uppercase;cursor:pointer;border:0;background:transparent;padding:0;font-family:var(--font-source)}
 .tick-label.active{color:var(--ink);font-weight:700}
 .slider{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:var(--line);outline:none;cursor:pointer}
-.slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:var(--color-technology);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3);cursor:pointer}
-.slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--color-technology);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3);cursor:pointer}
+.slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:var(--active-perspective-color);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3);cursor:pointer}
+.slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--active-perspective-color);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3);cursor:pointer}
 
 @media(max-width:560px){
   .timeline-card{padding:1.25rem}
@@ -145,6 +151,18 @@ nav button.active{background:var(--ink);color:#fff}
 @media(prefers-reduced-motion:reduce){
   .blob{transition:none !important}
 }
+:root{
+  --color-technology:#0071e3;
+  --color-platform:#6e6e73;
+  --color-infrastructure:#27804f;
+  --color-economics:#b45b00;
+  --color-human-impact:#6c56b8;
+}
+.perspective-pill.active[data-key="technology"]{border-color:#0071e3}
+.perspective-pill.active[data-key="platform"]{border-color:#6e6e73}
+.perspective-pill.active[data-key="infrastructure"]{border-color:#27804f}
+.perspective-pill.active[data-key="economics"]{border-color:#b45b00}
+.perspective-pill.active[data-key="human-impact"]{border-color:#6c56b8}
 </style>
 </head>
 <body>
@@ -153,19 +171,29 @@ nav button.active{background:var(--ink);color:#fff}
 
 <section class="hero"><div class="eyebrow">THE OPEN EDITION</div><h1>The world, understood through its arguments.</h1><div class="sub">One topic. Different perspectives. One clear synthesis. See not only what is being discussed, but how the conversation is changing.</div></section>
 
-<nav><button class="active">Today</button><button>Conflicts</button><button>Global Economy</button><button>AI Superrace</button></nav>
+<nav><a class="nav-item active" href="../ai-superrace/">AI</a>
+<div class="dropdown">
+  <button class="nav-item" aria-haspopup="true" aria-expanded="false">Conflicts</button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a class="dropdown-item" href="../iran-conflict/" role="menuitem">Iran</a></li>
+    <li><a class="dropdown-item" href="../russia-ukraine/" role="menuitem">Russia-Ukraine</a></li>
+  </ul>
+</div>
+<button class="nav-item">Global Economy</button></nav>
 
-<section class="topic"><div class="label">AI SUPERRACE · PERSPECTIVE MAP</div><h2>The AI race is moving beyond foundation models.</h2><div class="dek">The editorial conversation is widening toward agents, distribution, infrastructure, economics and human impact.</div>
+<section class="topic"><div class="label">AI SUPERRACE · PERSPECTIVE MAP</div>
+<h2>The AI race is moving beyond foundation models.</h2>
+<div class="dek">The editorial conversation is widening toward agents, distribution, infrastructure, economics and human impact.</div>
 
 <div class="map">
   <svg class="map-lines" id="lines" xmlns="http://www.w3.org/2000/svg"></svg>
   <div class="orbit"></div><div class="orbit two"></div>
-  <button class="blob tech" data-id="Technology" onclick="openPerspectiveLens('Technology')"><span class="trend down">↓ COOLING</span><h3>Technology</h3><p>Frontier model capability remains important, but raw benchmarks are becoming a smaller part of the story.</p><div class="sources">14 SOURCES →</div></button>
-  <button class="blob human" data-id="Human Impact" onclick="openPerspectiveLens('Human Impact')"><span class="trend new">✦ EMERGING</span><h3>Human Impact</h3><p>Jobs, education and creativity are becoming a much larger part of the AI conversation.</p><div class="sources">13 SOURCES →</div></button>
-  <button class="blob econ" data-id="Economics" onclick="openPerspectiveLens('Economics')"><span class="trend up">↑ ACCELERATING</span><h3>Economics</h3><p>Falling inference costs are raising new questions about productivity, margins and value capture.</p><div class="sources">19 SOURCES →</div></button>
-  <button class="blob infra" data-id="Infrastructure" onclick="openPerspectiveLens('Infrastructure')"><span class="trend up">↑ ACCELERATING</span><h3>Infrastructure</h3><p>Chips, compute, power and data centers are becoming strategic constraints.</p><div class="sources">22 SOURCES →</div></button>
-  <button class="blob platform" data-id="Platform" onclick="openPerspectiveLens('Platform')"><span class="trend up">● DOMINANT</span><h3>Platform</h3><p>Distribution and ecosystem integration may matter more than marginal model gains.</p><div class="sources">24 SOURCES →</div></button>
-  <button class="center" onclick="document.getElementById('synthesis').scrollIntoView({behavior:'smooth'})"><small>CENTRAL TOPIC</small><span class="q-micro">THE QUESTION IS CHANGING</span><strong>AI<br>SUPERRACE</strong><span class="question" id="question">Who can deploy AI at scale—and who benefits?</span></button>
+  <button class="blob tech" data-id="Technology" onclick="openPerspectiveLens('Technology')"><span class="trend down">↓ COOLING</span><h3>Technology</h3><p>The past week turned technical: model customization, data fabrics and agent-ready infrastructure lead, as MIT Technology Review joins the source base.</p><div class="sources">31 SOURCES →</div></button>
+  <button class="blob platform" data-id="Platform" onclick="openPerspectiveLens('Platform')"><span class="trend dominant">● DOMINANT</span><h3>Platform</h3><p>Choke points and customer competition dominate this week: who owns the defaults, and what happens when AI companies compete with their own customers?</p><div class="sources">18 SOURCES →</div></button>
+  <button class="blob infra" data-id="Infrastructure" onclick="openPerspectiveLens('Infrastructure')"><span class="trend up">↑ ACCELERATING</span><h3>Infrastructure</h3><p>The data-center boom's local prosperity dividend and grid connectivity are this week's constraint story.</p><div class="sources">16 SOURCES →</div></button>
+  <button class="blob econ" data-id="Economics" onclick="openPerspectiveLens('Economics')"><span class="trend up">↑ ACCELERATING</span><h3>Economics</h3><p>Falling prices sharpen the question: token economics and commoditization analyses press on where the surplus lands.</p><div class="sources">16 SOURCES →</div></button>
+  <button class="blob human" data-id="Human Impact" onclick="openPerspectiveLens('Human Impact')"><span class="trend up">↑ GROWING</span><h3>Human Impact</h3><p>Safety diplomacy, population-scale adoption and the global AI divide widen the human lens this week.</p><div class="sources">18 SOURCES →</div></button>
+  <button class="center" onclick="document.getElementById('synthesis').scrollIntoView({behavior:'smooth'})"><small>CENTRAL TOPIC</small><span class="q-micro">THE QUESTION IS CHANGING</span><strong>AI<br>SUPERRACE</strong><span class="question" id="question">Who owns AI's choke points—and who answers for its consequences?</span></button>
 
   <div class="change-sheet" id="changeSheet" onclick="if(event.target===this)closeChangeSheet()">
     <div class="change-sheet-head"><div><div class="kicker">WHAT CHANGED</div><h2 id="sheetTitle">What changed?</h2></div><button onclick="closeChangeSheet()" aria-label="Close">×</button></div>
@@ -193,14 +221,14 @@ nav button.active{background:var(--ink);color:#fff}
       <button class="perspective-pill" type="button" data-key="platform" onclick="selectPerspective('platform')" aria-pressed="false">
         <span class="legend-dot" style="background:var(--color-platform);"></span> Platform
       </button>
-      <button class="perspective-pill" type="button" data-key="human-impact" onclick="selectPerspective('human-impact')" aria-pressed="false">
-        <span class="legend-dot" style="background:var(--color-human-impact);"></span> Human Impact
+      <button class="perspective-pill" type="button" data-key="infrastructure" onclick="selectPerspective('infrastructure')" aria-pressed="false">
+        <span class="legend-dot" style="background:var(--color-infrastructure);"></span> Infrastructure
       </button>
       <button class="perspective-pill" type="button" data-key="economics" onclick="selectPerspective('economics')" aria-pressed="false">
         <span class="legend-dot" style="background:var(--color-economics);"></span> Economics
       </button>
-      <button class="perspective-pill" type="button" data-key="infrastructure" onclick="selectPerspective('infrastructure')" aria-pressed="false">
-        <span class="legend-dot" style="background:var(--color-infrastructure);"></span> Infrastructure
+      <button class="perspective-pill" type="button" data-key="human-impact" onclick="selectPerspective('human-impact')" aria-pressed="false">
+        <span class="legend-dot" style="background:var(--color-human-impact);"></span> Human Impact
       </button>
     </div>
 
@@ -260,7 +288,7 @@ nav button.active{background:var(--ink);color:#fff}
 </div>
 
 <script>
-const corpus={total:107,real:92};
+const corpus={total:124,real:109};
 const timeline=[
   {
     label:'1 YEAR AGO',
@@ -383,6 +411,20 @@ const states=[
 ];
 const nodeOrder=['Technology','Platform','Infrastructure','Economics','Human Impact'];
 const relations=[['Infrastructure','Economics'],['Economics','Human Impact']];
+const categoryColors={
+  Technology:'#0071e3',
+  Platform:'#6e6e73',
+  Infrastructure:'#27804f',
+  Economics:'#b45b00',
+  'Human Impact':'#6c56b8'
+};
+const perspectiveColors={
+  technology:'#0071e3',
+  platform:'#6e6e73',
+  infrastructure:'#27804f',
+  economics:'#b45b00',
+  'human-impact':'#6c56b8'
+};
 const perspectiveBodies={
   Technology:['Frontier model capability and benchmark leadership dominate the editorial frame.','Model releases still matter, but coverage is shifting toward agents and integration.','Raw capability is now table stakes; the story is what models enable.','The past week turned technical: model customization, data fabrics and agent-ready infrastructure lead, as MIT Technology Review joins the source base.'],
   Platform:['Distribution is a secondary theme in the shadow of model releases.','Ecosystem lock-in and default agents rise as a source of durable advantage.','Platform control is treated as a primary axis of the AI race.','Choke points and customer competition dominate this week: who owns the defaults, and what happens when AI companies compete with their own customers?'],
@@ -535,15 +577,7 @@ let current=2;
 let currentFraction=current;
 let continuousState=null;
 let currentLineStrength=null;
-let activePerspective='technology';
-
-const categoryColors={
-  'Technology':'#0071e3',
-  'Platform':'#6e6e73',
-  'Infrastructure':'#27804f',
-  'Economics':'#b45b00',
-  'Human Impact':'#6c56b8'
-};
+let activePerspective=typeof perspectiveColors!=='undefined'?Object.keys(perspectiveColors)[0]:'technology';
 
 function statusMeta(status){
   switch(status){
@@ -783,7 +817,8 @@ function renderChangeSheet(){
 function openChangeSheet(){ renderChangeSheet(); document.getElementById('changeSheet').classList.add('show'); }
 function closeChangeSheet(){ document.getElementById('changeSheet').classList.remove('show'); }
 
-function drawSparkline(svg,data){
+function drawSparkline(svg,data,color){
+  color=color||'#0071e3';
   const w=200,h=50,pad=6;
   const max=Math.max(...data,1), min=Math.min(...data,0);
   const range=max-min||1;
@@ -795,7 +830,7 @@ function drawSparkline(svg,data){
   svg.setAttribute('viewBox',`0 0 ${w} ${h}`);
   const poly=pts.map(p=>p.join(',')).join(' ');
   const last=pts[pts.length-1];
-  svg.innerHTML=`<polyline points="${poly}" fill="none" stroke="#0071e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="#0071e3" stroke="#fff" stroke-width="1.5"/>`;
+  svg.innerHTML=`<polyline points="${poly}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="${color}" stroke="#fff" stroke-width="1.5"/>`;
 }
 function windowsStrip(w){w=w||{y:0,q:0,m:0,w:0};return `<span title="Counts by article date. Undated articles are counted by the day we discovered them."><b>${w.y}</b><i>LAST 1 YEAR</i></span><span title="Counts by article date."><b>${w.q}</b><i>LAST 3 MONTHS</i></span><span title="Counts by article date."><b>${w.m}</b><i>LAST 1 MONTH</i></span><span title="Counts by article date."><b>${w.w}</b><i>LAST 1 WEEK</i></span>`;}
 function openPerspectiveLens(name){
@@ -806,7 +841,7 @@ function openPerspectiveLens(name){
   document.getElementById('lensTitle').textContent=name;
   document.getElementById('lensSummary').textContent=d.summary;
   document.getElementById('lensWindows').innerHTML=windowsStrip(d.windows)+`<span><b>${corpus.real}</b><i>CORPUS REAL</i></span>`;
-  drawSparkline(document.getElementById('lensSparkline'), d.sparkline);
+  drawSparkline(document.getElementById('lensSparkline'), d.sparkline, categoryColors[name]||'#0071e3');
   document.getElementById('lensSteps').innerHTML=d.history.map((txt,i)=>`<div class="lens-step"><div class="when">${i+1}</div><div class="when-label">${states[i].label}</div><p>${txt}</p></div>`).join('');
   document.getElementById('lensSources').innerHTML=d.sources.map(s=>`<div class="lens-source"><div class="pub">${s.pub}</div><h4>${s.title}</h4><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></div>`).join('');
   const viewBtn=document.getElementById('lensView');
@@ -851,14 +886,9 @@ function updateTimelineCard(){
   const data=timeline[step];
   const perspectiveData=data.perspectives[activePerspective];
   if(!perspectiveData) return;
-  const colorMap={
-    technology:'var(--color-technology)',
-    platform:'var(--color-platform)',
-    'human-impact':'var(--color-human-impact)',
-    economics:'var(--color-economics)',
-    infrastructure:'var(--color-infrastructure)'
-  };
-  const activeColor=colorMap[activePerspective]||'var(--ink)';
+  const activeColor=(typeof perspectiveColors!=='undefined' && perspectiveColors[activePerspective])||'var(--ink)';
+  const card=document.querySelector('.timeline-card');
+  if(card) card.style.setProperty('--active-perspective-color', activeColor);
 
   const timeBadge=document.getElementById('timeBadge');
   const mainHeadline=document.getElementById('mainHeadline');

@@ -1,5 +1,34 @@
 # Release Notes
 
+## 2026-08-30 — Multi-topic site: per-topic pages, dynamic nav/map, data-driven colors
+
+- **Per-topic page emission:** `tools/generate-site.ts --all` now emits one self-
+  contained page per topic in the manifest at `dist/{slug}/index.html`, and writes
+  `dist/index.html` as a redirect to `./{activeSlug}/`. Missing topic files are
+  skipped with a logged message so generators stay safe while other lanes land
+  new topics.
+- **Dynamic nav:** "Today" relabeled to "AI"; "Conflicts" is now a hover/focus
+  dropdown containing Iran and Russia-Ukraine links; "Global Economy" remains
+  inert. Active state is set server-side for the current topic.
+- **Dynamic map & topic header:** blob buttons, central-topic circle, section
+  label, title and dek are emitted from each topic's JSON instead of hardcoded
+  AI-superrace markup. Static card text uses the current-state body and source
+  volume so the page is meaningful before JS runs.
+- **Data-driven category colors:** `tools/generate-site.ts` emits
+  `categoryColors` (name → hex) and `perspectiveColors` (id → hex) from each
+  perspective's optional `color` field, falling back to canonical category
+  colors. `src/js/app.js` dropped its hardcoded color map and now reads the
+  emitted variables; the timeline card uses a CSS custom property
+  (`--active-perspective-color`) so pills, badge, insight accent and slider
+  thumb all follow the selected perspective on any topic.
+- **Dynamic timeline pills:** the Perspective Evolution selector pills are now
+  generated per topic so they match the emitted `timeline` keys.
+- **Served-script parse check** passes for `ai-superrace`, `iran-conflict` and
+  `russia-ukraine`; `nameKey` now quotes any JS object key that is not a valid
+  identifier (e.g. hyphenated perspective ids).
+- **Golden re-blessed** for ai-superrace per Visual Fidelity Lock (intentional
+  markup change: dynamic nav, map, pills and color variables).
+
 ## 2026-08-30 — Editorial "Perspective Evolution" timeline card (operator design template)
 
 - **Rebuilt timeline strip** around the supplied editorial card template:

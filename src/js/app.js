@@ -2,15 +2,7 @@ let current=2;
 let currentFraction=current;
 let continuousState=null;
 let currentLineStrength=null;
-let activePerspective='technology';
-
-const categoryColors={
-  'Technology':'#0071e3',
-  'Platform':'#6e6e73',
-  'Infrastructure':'#27804f',
-  'Economics':'#b45b00',
-  'Human Impact':'#6c56b8'
-};
+let activePerspective=typeof perspectiveColors!=='undefined'?Object.keys(perspectiveColors)[0]:'technology';
 
 function statusMeta(status){
   switch(status){
@@ -250,7 +242,8 @@ function renderChangeSheet(){
 function openChangeSheet(){ renderChangeSheet(); document.getElementById('changeSheet').classList.add('show'); }
 function closeChangeSheet(){ document.getElementById('changeSheet').classList.remove('show'); }
 
-function drawSparkline(svg,data){
+function drawSparkline(svg,data,color){
+  color=color||'#0071e3';
   const w=200,h=50,pad=6;
   const max=Math.max(...data,1), min=Math.min(...data,0);
   const range=max-min||1;
@@ -262,7 +255,7 @@ function drawSparkline(svg,data){
   svg.setAttribute('viewBox',`0 0 ${w} ${h}`);
   const poly=pts.map(p=>p.join(',')).join(' ');
   const last=pts[pts.length-1];
-  svg.innerHTML=`<polyline points="${poly}" fill="none" stroke="#0071e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="#0071e3" stroke="#fff" stroke-width="1.5"/>`;
+  svg.innerHTML=`<polyline points="${poly}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="${color}" stroke="#fff" stroke-width="1.5"/>`;
 }
 function windowsStrip(w){w=w||{y:0,q:0,m:0,w:0};return `<span title="Counts by article date. Undated articles are counted by the day we discovered them."><b>${w.y}</b><i>LAST 1 YEAR</i></span><span title="Counts by article date."><b>${w.q}</b><i>LAST 3 MONTHS</i></span><span title="Counts by article date."><b>${w.m}</b><i>LAST 1 MONTH</i></span><span title="Counts by article date."><b>${w.w}</b><i>LAST 1 WEEK</i></span>`;}
 function openPerspectiveLens(name){
@@ -273,7 +266,7 @@ function openPerspectiveLens(name){
   document.getElementById('lensTitle').textContent=name;
   document.getElementById('lensSummary').textContent=d.summary;
   document.getElementById('lensWindows').innerHTML=windowsStrip(d.windows)+`<span><b>${corpus.real}</b><i>CORPUS REAL</i></span>`;
-  drawSparkline(document.getElementById('lensSparkline'), d.sparkline);
+  drawSparkline(document.getElementById('lensSparkline'), d.sparkline, categoryColors[name]||'#0071e3');
   document.getElementById('lensSteps').innerHTML=d.history.map((txt,i)=>`<div class="lens-step"><div class="when">${i+1}</div><div class="when-label">${states[i].label}</div><p>${txt}</p></div>`).join('');
   document.getElementById('lensSources').innerHTML=d.sources.map(s=>`<div class="lens-source"><div class="pub">${s.pub}</div><h4>${s.title}</h4><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></div>`).join('');
   const viewBtn=document.getElementById('lensView');
@@ -318,14 +311,9 @@ function updateTimelineCard(){
   const data=timeline[step];
   const perspectiveData=data.perspectives[activePerspective];
   if(!perspectiveData) return;
-  const colorMap={
-    technology:'var(--color-technology)',
-    platform:'var(--color-platform)',
-    'human-impact':'var(--color-human-impact)',
-    economics:'var(--color-economics)',
-    infrastructure:'var(--color-infrastructure)'
-  };
-  const activeColor=colorMap[activePerspective]||'var(--ink)';
+  const activeColor=(typeof perspectiveColors!=='undefined' && perspectiveColors[activePerspective])||'var(--ink)';
+  const card=document.querySelector('.timeline-card');
+  if(card) card.style.setProperty('--active-perspective-color', activeColor);
 
   const timeBadge=document.getElementById('timeBadge');
   const mainHeadline=document.getElementById('mainHeadline');

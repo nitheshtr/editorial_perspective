@@ -1,0 +1,16 @@
+{
+  "runId": "127dadbe-92d7-492d-a1c0-f6e786eb5add",
+  "topic": "russia-ukraine",
+  "startedAt": "2026-08-30T18:19:42.073Z",
+  "params": {
+    "stage": "research"
+  },
+  "models": {
+    "models.research": {
+      "provider": "openrouter",
+      "model": "z-ai/glm-5.3-flash",
+      "temperature": 0.2,
+      "reasoning": "low"
+    }
+  }
+}

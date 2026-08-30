@@ -1,0 +1,614 @@
+{
+  "slug": "iran-conflict",
+  "title": "The Iran conflict is redrawing deterrence lines across the region.",
+  "subtitle": "One year of coverage: strike exchanges, the nuclear file, sanctions pressure and the human cost of escalation.",
+  "kicker": "CONFLICTS",
+  "date": "2026-08-28",
+  "nav": [
+    "AI",
+    "Conflicts",
+    "Global Economy"
+  ],
+  "activeNav": "iran-conflict",
+  "states": [
+    {
+      "period": "2025-08",
+      "label": "1 YEAR AGO",
+      "question": "Skeleton state — pending the first editorial cycle.",
+      "synthesis": "Draft topic: the source base is being assembled; the first analysis cycle will populate this period's synthesis.",
+      "lineStrength": 0.5,
+      "nodes": {
+        "Military & Security": {
+          "position": {
+            "x": 6,
+            "y": 10
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Diplomacy & Nuclear File": {
+          "position": {
+            "x": 30,
+            "y": 4
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Sanctions & Economy": {
+          "position": {
+            "x": 52,
+            "y": 8
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Society & Human Cost": {
+          "position": {
+            "x": 72,
+            "y": 50
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Regional Dynamics": {
+          "position": {
+            "x": 20,
+            "y": 55
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        }
+      }
+    },
+    {
+      "period": "2025-11",
+      "label": "3 MONTHS AGO",
+      "question": "Skeleton state — pending the first editorial cycle.",
+      "synthesis": "Draft topic: the source base is being assembled; the first analysis cycle will populate this period's synthesis.",
+      "lineStrength": 0.5,
+      "nodes": {
+        "Military & Security": {
+          "position": {
+            "x": 6,
+            "y": 10
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Diplomacy & Nuclear File": {
+          "position": {
+            "x": 30,
+            "y": 4
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Sanctions & Economy": {
+          "position": {
+            "x": 52,
+            "y": 8
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Society & Human Cost": {
+          "position": {
+            "x": 72,
+            "y": 50
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Regional Dynamics": {
+          "position": {
+            "x": 20,
+            "y": 55
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        }
+      }
+    },
+    {
+      "period": "2026-07",
+      "label": "1 MONTH AGO",
+      "question": "Skeleton state — pending the first editorial cycle.",
+      "synthesis": "Draft topic: the source base is being assembled; the first analysis cycle will populate this period's synthesis.",
+      "lineStrength": 0.5,
+      "nodes": {
+        "Military & Security": {
+          "position": {
+            "x": 6,
+            "y": 10
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Diplomacy & Nuclear File": {
+          "position": {
+            "x": 30,
+            "y": 4
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Sanctions & Economy": {
+          "position": {
+            "x": 52,
+            "y": 8
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Society & Human Cost": {
+          "position": {
+            "x": 72,
+            "y": 50
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Regional Dynamics": {
+          "position": {
+            "x": 20,
+            "y": 55
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        }
+      }
+    },
+    {
+      "period": "2026-08",
+      "label": "1 WEEK AGO",
+      "question": "Skeleton state — pending the first editorial cycle.",
+      "synthesis": "Draft topic: the source base is being assembled; the first analysis cycle will populate this period's synthesis.",
+      "lineStrength": 0.5,
+      "nodes": {
+        "Military & Security": {
+          "position": {
+            "x": 6,
+            "y": 10
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Diplomacy & Nuclear File": {
+          "position": {
+            "x": 30,
+            "y": 4
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Sanctions & Economy": {
+          "position": {
+            "x": 52,
+            "y": 8
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Society & Human Cost": {
+          "position": {
+            "x": 72,
+            "y": 50
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Regional Dynamics": {
+          "position": {
+            "x": 20,
+            "y": 55
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        }
+      }
+    }
+  ],
+  "perspectives": [
+    {
+      "id": "military-security",
+      "name": "Military & Security",
+      "category": "infra",
+      "color": "#b45b00",
+      "summary": "The security lens now asks what deterrence means after direct exchanges.",
+      "coreArgument": "Military & Security: the defining argument of this conflict lane — pending the first analysis cycle.",
+      "counterArgument": "Counterargument pending the first analysis cycle.",
+      "bodies": [
+        "Deterrence calculus and air-defense gaps frame the security discussion.",
+        "Strike exchanges put escalation management at the center of coverage.",
+        "Attrition of air defenses and precision-strike reach dominate the frame.",
+        "The security lens now asks what deterrence means after direct exchanges."
+      ],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "history": [
+        "Deterrence calculus and air-defense gaps frame the security discussion.",
+        "Strike exchanges put escalation management at the center of coverage.",
+        "Attrition of air defenses and precision-strike reach dominate the frame.",
+        "The security lens now asks what deterrence means after direct exchanges."
+      ],
+      "sources": []
+    },
+    {
+      "id": "diplomacy-nuclear",
+      "name": "Diplomacy & Nuclear File",
+      "category": "tech",
+      "color": "#0071e3",
+      "summary": "The diplomatic question: what framework survives the current escalation?",
+      "coreArgument": "Diplomacy & Nuclear File: the defining argument of this conflict lane — pending the first analysis cycle.",
+      "counterArgument": "Counterargument pending the first analysis cycle.",
+      "bodies": [
+        "The nuclear file and sanctions diplomacy anchor the diplomatic debate.",
+        "Negotiation tracks stall while enrichment questions sharpen.",
+        "Intermediary diplomacy carries the file as formal talks stay frozen.",
+        "The diplomatic question: what framework survives the current escalation?"
+      ],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "history": [
+        "The nuclear file and sanctions diplomacy anchor the diplomatic debate.",
+        "Negotiation tracks stall while enrichment questions sharpen.",
+        "Intermediary diplomacy carries the file as formal talks stay frozen.",
+        "The diplomatic question: what framework survives the current escalation?"
+      ],
+      "sources": []
+    },
+    {
+      "id": "sanctions-economy",
+      "name": "Sanctions & Economy",
+      "category": "econ",
+      "color": "#27804f",
+      "summary": "The economic question: how long can the workaround economy absorb pressure?",
+      "coreArgument": "Sanctions & Economy: the defining argument of this conflict lane — pending the first analysis cycle.",
+      "counterArgument": "Counterargument pending the first analysis cycle.",
+      "bodies": [
+        "Sanctions, oil exports and the rial frame the economic conversation.",
+        "Enforcement tightening meets workaround trade networks.",
+        "Energy prices and subsidy strain move to the center of the lens.",
+        "The economic question: how long can the workaround economy absorb pressure?"
+      ],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "history": [
+        "Sanctions, oil exports and the rial frame the economic conversation.",
+        "Enforcement tightening meets workaround trade networks.",
+        "Energy prices and subsidy strain move to the center of the lens.",
+        "The economic question: how long can the workaround economy absorb pressure?"
+      ],
+      "sources": []
+    },
+    {
+      "id": "society-human-cost",
+      "name": "Society & Human Cost",
+      "category": "human",
+      "color": "#6c56b8",
+      "summary": "The human lens: who bears the cost of escalation and isolation?",
+      "coreArgument": "Society & Human Cost: the defining argument of this conflict lane — pending the first analysis cycle.",
+      "counterArgument": "Counterargument pending the first analysis cycle.",
+      "bodies": [
+        "Daily life, internet restrictions and displacement stay largely off-frame.",
+        "Civilian impact enters the margins of the coverage.",
+        "Human cost claims a larger share of the editorial space.",
+        "The human lens: who bears the cost of escalation and isolation?"
+      ],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "history": [
+        "Daily life, internet restrictions and displacement stay largely off-frame.",
+        "Civilian impact enters the margins of the coverage.",
+        "Human cost claims a larger share of the editorial space.",
+        "The human lens: who bears the cost of escalation and isolation?"
+      ],
+      "sources": []
+    },
+    {
+      "id": "regional-dynamics",
+      "name": "Regional Dynamics",
+      "category": "platform",
+      "color": "#6e6e73",
+      "summary": "The regional question: which alignments hold through the conflict?",
+      "coreArgument": "Regional Dynamics: the defining argument of this conflict lane — pending the first analysis cycle.",
+      "counterArgument": "Counterargument pending the first analysis cycle.",
+      "bodies": [
+        "Proxies, Gulf postures and great-power positioning frame the region.",
+        "The regional map redraws as alignments shift under escalation.",
+        "Spillover risk and alignment changes become recurring themes.",
+        "The regional question: which alignments hold through the conflict?"
+      ],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "history": [
+        "Proxies, Gulf postures and great-power positioning frame the region.",
+        "The regional map redraws as alignments shift under escalation.",
+        "Spillover risk and alignment changes become recurring themes.",
+        "The regional question: which alignments hold through the conflict?"
+      ],
+      "sources": []
+    }
+  ],
+  "relations": []
+}

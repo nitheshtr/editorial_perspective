@@ -5,6 +5,22 @@
       "title": "The AI race is moving beyond foundation models.",
       "file": "ai-superrace.json",
       "added": "2026-08-28"
+    },
+    {
+      "slug": "iran-conflict",
+      "title": "The Iran conflict is redrawing deterrence lines across the region.",
+      "file": "iran-conflict.json",
+      "added": "2026-08-28",
+      "draft": true,
+      "section": "conflicts"
+    },
+    {
+      "slug": "russia-ukraine",
+      "title": "The Russia–Ukraine war: attrition, negotiation and a reordered world.",
+      "file": "russia-ukraine.json",
+      "added": "2026-08-28",
+      "draft": true,
+      "section": "conflicts"
     }
   ],
   "active": "ai-superrace"

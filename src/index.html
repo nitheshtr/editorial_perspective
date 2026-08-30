@@ -17,19 +17,14 @@
 
 <section class="hero"><div class="eyebrow">THE OPEN EDITION</div><h1>The world, understood through its arguments.</h1><div class="sub">One topic. Different perspectives. One clear synthesis. See not only what is being discussed, but how the conversation is changing.</div></section>
 
-<nav><button class="active">Today</button><button>Conflicts</button><button>Global Economy</button><button>AI Superrace</button></nav>
+<nav><!--__NAV__--></nav>
 
-<section class="topic"><div class="label">AI SUPERRACE · PERSPECTIVE MAP</div><h2>The AI race is moving beyond foundation models.</h2><div class="dek">The editorial conversation is widening toward agents, distribution, infrastructure, economics and human impact.</div>
+<section class="topic"><!--__TOPIC_HEADER__-->
 
 <div class="map">
   <svg class="map-lines" id="lines" xmlns="http://www.w3.org/2000/svg"></svg>
   <div class="orbit"></div><div class="orbit two"></div>
-  <button class="blob tech" data-id="Technology" onclick="openPerspectiveLens('Technology')"><span class="trend down">↓ COOLING</span><h3>Technology</h3><p>Frontier model capability remains important, but raw benchmarks are becoming a smaller part of the story.</p><div class="sources">14 SOURCES →</div></button>
-  <button class="blob human" data-id="Human Impact" onclick="openPerspectiveLens('Human Impact')"><span class="trend new">✦ EMERGING</span><h3>Human Impact</h3><p>Jobs, education and creativity are becoming a much larger part of the AI conversation.</p><div class="sources">13 SOURCES →</div></button>
-  <button class="blob econ" data-id="Economics" onclick="openPerspectiveLens('Economics')"><span class="trend up">↑ ACCELERATING</span><h3>Economics</h3><p>Falling inference costs are raising new questions about productivity, margins and value capture.</p><div class="sources">19 SOURCES →</div></button>
-  <button class="blob infra" data-id="Infrastructure" onclick="openPerspectiveLens('Infrastructure')"><span class="trend up">↑ ACCELERATING</span><h3>Infrastructure</h3><p>Chips, compute, power and data centers are becoming strategic constraints.</p><div class="sources">22 SOURCES →</div></button>
-  <button class="blob platform" data-id="Platform" onclick="openPerspectiveLens('Platform')"><span class="trend up">● DOMINANT</span><h3>Platform</h3><p>Distribution and ecosystem integration may matter more than marginal model gains.</p><div class="sources">24 SOURCES →</div></button>
-  <button class="center" onclick="document.getElementById('synthesis').scrollIntoView({behavior:'smooth'})"><small>CENTRAL TOPIC</small><span class="q-micro">THE QUESTION IS CHANGING</span><strong>AI<br>SUPERRACE</strong><span class="question" id="question">Who can deploy AI at scale—and who benefits?</span></button>
+<!--__MAP__-->
 
   <div class="change-sheet" id="changeSheet" onclick="if(event.target===this)closeChangeSheet()">
     <div class="change-sheet-head"><div><div class="kicker">WHAT CHANGED</div><h2 id="sheetTitle">What changed?</h2></div><button onclick="closeChangeSheet()" aria-label="Close">×</button></div>
@@ -51,21 +46,7 @@
 
     <div class="legend-title">Select Perspective for Deep Dive</div>
     <div class="legend" id="perspectiveContainer">
-      <button class="perspective-pill active" type="button" data-key="technology" onclick="selectPerspective('technology')" aria-pressed="true">
-        <span class="legend-dot" style="background:var(--color-technology);"></span> Technology
-      </button>
-      <button class="perspective-pill" type="button" data-key="platform" onclick="selectPerspective('platform')" aria-pressed="false">
-        <span class="legend-dot" style="background:var(--color-platform);"></span> Platform
-      </button>
-      <button class="perspective-pill" type="button" data-key="human-impact" onclick="selectPerspective('human-impact')" aria-pressed="false">
-        <span class="legend-dot" style="background:var(--color-human-impact);"></span> Human Impact
-      </button>
-      <button class="perspective-pill" type="button" data-key="economics" onclick="selectPerspective('economics')" aria-pressed="false">
-        <span class="legend-dot" style="background:var(--color-economics);"></span> Economics
-      </button>
-      <button class="perspective-pill" type="button" data-key="infrastructure" onclick="selectPerspective('infrastructure')" aria-pressed="false">
-        <span class="legend-dot" style="background:var(--color-infrastructure);"></span> Infrastructure
-      </button>
+<!--__TIMELINE_PILLS__-->
     </div>
 
     <div class="insight-card" id="insightCard">

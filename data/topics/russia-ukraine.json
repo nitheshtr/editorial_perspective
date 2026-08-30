@@ -1,0 +1,614 @@
+{
+  "slug": "russia-ukraine",
+  "title": "The Russia–Ukraine war: attrition, negotiation and a reordered world.",
+  "subtitle": "Two years of coverage: battlefield attrition, peace diplomacy, humanitarian cost and the global realignment.",
+  "kicker": "CONFLICTS",
+  "date": "2026-08-28",
+  "nav": [
+    "AI",
+    "Conflicts",
+    "Global Economy"
+  ],
+  "activeNav": "russia-ukraine",
+  "states": [
+    {
+      "period": "2024-08",
+      "label": "2 YEARS AGO",
+      "question": "Skeleton state — pending the first editorial cycle.",
+      "synthesis": "Draft topic: the source base is being assembled; the first analysis cycle will populate this period's synthesis.",
+      "lineStrength": 0.5,
+      "nodes": {
+        "Battlefield & Attrition": {
+          "position": {
+            "x": 6,
+            "y": 10
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Diplomacy & Peace Talks": {
+          "position": {
+            "x": 30,
+            "y": 4
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Humanitarian Cost": {
+          "position": {
+            "x": 52,
+            "y": 8
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Sanctions & War Economy": {
+          "position": {
+            "x": 72,
+            "y": 50
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Global Reordering": {
+          "position": {
+            "x": 20,
+            "y": 55
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        }
+      }
+    },
+    {
+      "period": "2025-08",
+      "label": "1 YEAR AGO",
+      "question": "Skeleton state — pending the first editorial cycle.",
+      "synthesis": "Draft topic: the source base is being assembled; the first analysis cycle will populate this period's synthesis.",
+      "lineStrength": 0.5,
+      "nodes": {
+        "Battlefield & Attrition": {
+          "position": {
+            "x": 6,
+            "y": 10
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Diplomacy & Peace Talks": {
+          "position": {
+            "x": 30,
+            "y": 4
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Humanitarian Cost": {
+          "position": {
+            "x": 52,
+            "y": 8
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Sanctions & War Economy": {
+          "position": {
+            "x": 72,
+            "y": 50
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Global Reordering": {
+          "position": {
+            "x": 20,
+            "y": 55
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        }
+      }
+    },
+    {
+      "period": "2026-05",
+      "label": "3 MONTHS AGO",
+      "question": "Skeleton state — pending the first editorial cycle.",
+      "synthesis": "Draft topic: the source base is being assembled; the first analysis cycle will populate this period's synthesis.",
+      "lineStrength": 0.5,
+      "nodes": {
+        "Battlefield & Attrition": {
+          "position": {
+            "x": 6,
+            "y": 10
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Diplomacy & Peace Talks": {
+          "position": {
+            "x": 30,
+            "y": 4
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Humanitarian Cost": {
+          "position": {
+            "x": 52,
+            "y": 8
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Sanctions & War Economy": {
+          "position": {
+            "x": 72,
+            "y": 50
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Global Reordering": {
+          "position": {
+            "x": 20,
+            "y": 55
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        }
+      }
+    },
+    {
+      "period": "2026-08",
+      "label": "1 WEEK AGO",
+      "question": "Skeleton state — pending the first editorial cycle.",
+      "synthesis": "Draft topic: the source base is being assembled; the first analysis cycle will populate this period's synthesis.",
+      "lineStrength": 0.5,
+      "nodes": {
+        "Battlefield & Attrition": {
+          "position": {
+            "x": 6,
+            "y": 10
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Diplomacy & Peace Talks": {
+          "position": {
+            "x": 30,
+            "y": 4
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Humanitarian Cost": {
+          "position": {
+            "x": 52,
+            "y": 8
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Sanctions & War Economy": {
+          "position": {
+            "x": 72,
+            "y": 50
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        },
+        "Global Reordering": {
+          "position": {
+            "x": 20,
+            "y": 55
+          },
+          "size": {
+            "w": 20,
+            "h": 16
+          },
+          "borderRadius": "44% 56% 51% 49% / 54% 43% 57% 46%",
+          "opacity": 1,
+          "metrics": {
+            "editorialWeight": 0,
+            "sourceVolume": 0,
+            "independentSignals": 0,
+            "momentum": 0,
+            "emergence": 0,
+            "confidence": 0.3,
+            "status": "Emerging"
+          }
+        }
+      }
+    }
+  ],
+  "perspectives": [
+    {
+      "id": "battlefield-attrition",
+      "name": "Battlefield & Attrition",
+      "category": "infra",
+      "color": "#b45b00",
+      "summary": "The battlefield question: what breaks first — lines, manpower or money?",
+      "coreArgument": "Battlefield & Attrition: the defining argument of this conflict lane — pending the first analysis cycle.",
+      "counterArgument": "Counterargument pending the first analysis cycle.",
+      "bodies": [
+        "Attrition warfare, drones and fortified lines frame the battlefield debate.",
+        "Drone saturation and defensive depth redefine the front's arithmetic.",
+        "Attrition rates and mobilization pressure dominate the frame.",
+        "The battlefield question: what breaks first — lines, manpower or money?"
+      ],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "history": [
+        "Attrition warfare, drones and fortified lines frame the battlefield debate.",
+        "Drone saturation and defensive depth redefine the front's arithmetic.",
+        "Attrition rates and mobilization pressure dominate the frame.",
+        "The battlefield question: what breaks first — lines, manpower or money?"
+      ],
+      "sources": []
+    },
+    {
+      "id": "diplomacy-peace",
+      "name": "Diplomacy & Peace Talks",
+      "category": "tech",
+      "color": "#0071e3",
+      "summary": "The diplomatic question: which guarantees make a ceasefire hold?",
+      "coreArgument": "Diplomacy & Peace Talks: the defining argument of this conflict lane — pending the first analysis cycle.",
+      "counterArgument": "Counterargument pending the first analysis cycle.",
+      "bodies": [
+        "Peace-track speculation and ceasefire conditions anchor the diplomatic debate.",
+        "Negotiation formats multiply while terms stay far apart.",
+        "Mediation efforts and security-guarantee drafts move to center frame.",
+        "The diplomatic question: which guarantees make a ceasefire hold?"
+      ],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "history": [
+        "Peace-track speculation and ceasefire conditions anchor the diplomatic debate.",
+        "Negotiation formats multiply while terms stay far apart.",
+        "Mediation efforts and security-guarantee drafts move to center frame.",
+        "The diplomatic question: which guarantees make a ceasefire hold?"
+      ],
+      "sources": []
+    },
+    {
+      "id": "humanitarian-cost",
+      "name": "Humanitarian Cost",
+      "category": "human",
+      "color": "#6c56b8",
+      "summary": "The humanitarian question: what does reconstruction cost, and who pays?",
+      "coreArgument": "Humanitarian Cost: the defining argument of this conflict lane — pending the first analysis cycle.",
+      "counterArgument": "Counterargument pending the first analysis cycle.",
+      "bodies": [
+        "Displacement, strikes on cities and reconstruction costs frame the lens.",
+        "Energy-infrastructure strikes deepen the humanitarian story.",
+        "Civilian impact and reconstruction claims expand in coverage.",
+        "The humanitarian question: what does reconstruction cost, and who pays?"
+      ],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "history": [
+        "Displacement, strikes on cities and reconstruction costs frame the lens.",
+        "Energy-infrastructure strikes deepen the humanitarian story.",
+        "Civilian impact and reconstruction claims expand in coverage.",
+        "The humanitarian question: what does reconstruction cost, and who pays?"
+      ],
+      "sources": []
+    },
+    {
+      "id": "sanctions-war-economy",
+      "name": "Sanctions & War Economy",
+      "category": "econ",
+      "color": "#27804f",
+      "summary": "The economic question: whose war economy outlasts the other?",
+      "coreArgument": "Sanctions & War Economy: the defining argument of this conflict lane — pending the first analysis cycle.",
+      "counterArgument": "Counterargument pending the first analysis cycle.",
+      "bodies": [
+        "Sanctions, oil price caps and war spending frame the economic debate.",
+        "Shadow-fleet workarounds meet tightening enforcement.",
+        "Defense-industrial output and sanctions evasion dominate the lens.",
+        "The economic question: whose war economy outlasts the other?"
+      ],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "history": [
+        "Sanctions, oil price caps and war spending frame the economic debate.",
+        "Shadow-fleet workarounds meet tightening enforcement.",
+        "Defense-industrial output and sanctions evasion dominate the lens.",
+        "The economic question: whose war economy outlasts the other?"
+      ],
+      "sources": []
+    },
+    {
+      "id": "global-reordering",
+      "name": "Global Reordering",
+      "category": "platform",
+      "color": "#6e6e73",
+      "summary": "The global question: what order emerges from the realignment?",
+      "coreArgument": "Global Reordering: the defining argument of this conflict lane — pending the first analysis cycle.",
+      "counterArgument": "Counterargument pending the first analysis cycle.",
+      "bodies": [
+        "Alliances, Global-South alignment and deterrence credibility frame the lens.",
+        "Security realignments accelerate as commitments are tested.",
+        "Burden-sharing and credibility arguments become recurring themes.",
+        "The global question: what order emerges from the realignment?"
+      ],
+      "sparkline": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "history": [
+        "Alliances, Global-South alignment and deterrence credibility frame the lens.",
+        "Security realignments accelerate as commitments are tested.",
+        "Burden-sharing and credibility arguments become recurring themes.",
+        "The global question: what order emerges from the realignment?"
+      ],
+      "sources": []
+    }
+  ],
+  "relations": []
+}

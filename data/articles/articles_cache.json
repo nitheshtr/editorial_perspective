@@ -2567,6 +2567,414 @@
       "perspectives": [
         "technology"
       ]
+    },
+    {
+      "id": "source-122",
+      "publisher": "AJC",
+      "title": "The Iran Strikes, Explained: How We Got Here and What It Means",
+      "description": "The United States and Israel launched coordinated military operations against the Iranian regime on February 28, 2026. The action, focused on the regime's nuclear facilities, military infrastructure, and leadership, followed a conclusion reached in Washington and Jerusalem that diplomacy had been exhausted, and that a nuclear-armed Iran posed an unacceptable security threat to America, Israel and ",
+      "date": "2026-03-01",
+      "type": "REPORT",
+      "url": "https://www.ajc.org/news/the-iran-strikes-explained-how-we-got-here-and-what-it-means",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-122",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "military-security"
+      ]
+    },
+    {
+      "id": "source-123",
+      "publisher": "Council on Foreign Relations",
+      "title": "Conflict With Iran | Global Conflict Tracker",
+      "description": "In February 2026, the United States and Israel attacked Iran, killing Supreme Leader Ali Khamenei and targeting nuclear and military infrastructure. A Pakistan-mediated ceasefire and June MOU halted large-scale fighting, but both sides have since traded strikes over alleged violations. A durable settlement remains elusive, with core disputes over Iran’s nuclear program, the Strait of Hormuz, and s",
+      "date": "2019-07-31",
+      "type": "REPORT",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/confrontation-between-united-states-and-iran",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-123",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "military-security"
+      ]
+    },
+    {
+      "id": "source-124",
+      "publisher": "Center for Strategic and International Studies",
+      "title": "Can Iran Negotiations Survive Israel-Iran Escalation?",
+      "description": "The war with Iran marks its 100th day, and it shows no signs of abating.",
+      "date": "2026-06-12",
+      "type": "REPORT",
+      "url": "https://www.csis.org/analysis/can-iran-negotiations-survive-israel-iran-escalation",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-124",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "military-security"
+      ]
+    },
+    {
+      "id": "source-125",
+      "publisher": "Georgetown Journal of International Affairs",
+      "title": "The War Against Iran and Global Risks: “Tell Me How This Ends” - Georgetown Journal of International Affairs",
+      "description": "The 2026 U.S.–Israel war against Iran has challenged the fundamental realities that have dictated the last few decades of Middle Eastern history. It has disrupted Iran’s internal power dynamics and raised critical questions about regional stability, global energy security, and transnational terrorism. The beginning salvo, U.S.-Israeli joint strikes that took place on February 28, specifically targ",
+      "date": "2026-03-26",
+      "type": "REPORT",
+      "url": "https://gjia.georgetown.edu/conflict-security/the-war-against-iran-and-global-risks-tell-me-how-this-ends/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-125",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "military-security"
+      ]
+    },
+    {
+      "id": "source-126",
+      "publisher": "Center for Strategic and International Studies",
+      "title": "Russia’s War in Ukraine: The Next Chapter",
+      "description": "Russia’s war in Ukraine has persisted for over three years. Despite U.S. mediation attempts, from Saudi talks to a Trump-Putin summit in Anchorage, and European debates on peacekeepers, Russia continues to pummel Ukraine’s cities and engage in a brutal ground offensive.",
+      "date": "2026-08-04",
+      "type": "REPORT",
+      "url": "https://www.csis.org/analysis/russias-war-ukraine-next-chapter",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-126",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "battlefield-attrition"
+      ]
+    },
+    {
+      "id": "source-127",
+      "publisher": "RAND Corporation",
+      "title": "Consequences of the War in Ukraine",
+      "description": "One year ago, Russian ground forces, following a lengthy military buildup, invaded Ukraine. Today, the war continues, with no clear end in sight. How does this end?",
+      "date": "2023-02-24",
+      "type": "REPORT",
+      "url": "https://www.rand.org/pubs/commentary/2023/02/consequences-of-the-war-in-ukraine.html",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-127",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "battlefield-attrition"
+      ]
+    },
+    {
+      "id": "source-128",
+      "publisher": "Futura Doctrina",
+      "title": "The Learning Curve: Ukraine's Attrition Campaign and the PLA's Iran War Study",
+      "description": "My weekly update on war and strategic competition. This week, Ukraine's long-range strike & ground ops, Chinese learning from the Iran War and my Big 5 reading recommendations.",
+      "date": "2026-04-12",
+      "type": "REPORT",
+      "url": "https://mickryan.substack.com/p/the-learning-curve-ukraines-attrition",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-128",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "battlefield-attrition"
+      ]
+    },
+    {
+      "id": "source-129",
+      "publisher": "Brookings",
+      "title": "What price for peace in Ukraine? | Brookings",
+      "description": "Four years since Russia’s invasion, Brookings experts answer questions about prospects for an end to the war and support for Ukraine.",
+      "date": "2026-02-17",
+      "type": "REPORT",
+      "url": "https://www.brookings.edu/articles/what-price-for-peace-in-ukraine/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": false
+      },
+      "storyCluster": "cluster-129",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "battlefield-attrition"
+      ]
+    },
+    {
+      "id": "source-130",
+      "publisher": "YouTube",
+      "title": "Russia rains missiles, drones on Ukraine ahead of key peace negotiations",
+      "description": "Russia has carried out its largest missile and drone assault of the year on Ukraine, ending a brief, U.S.-brokered pause in attacks.The barrage came as U.S.,...",
+      "date": "2026-02-03",
+      "type": "REPORT",
+      "url": "https://www.youtube.com/watch?v=EWfGur7p5a0",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-130",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "battlefield-attrition"
+      ]
+    },
+    {
+      "id": "source-131",
+      "publisher": "Atlantic Council",
+      "title": "Ukrainian drones alone will not force Putin to the negotiating table",
+      "description": "Ukraine's escalating long-range drone strike campaign targeting military and industrial sites deep inside Russia is disrupting the Kremlin war machine but will not be enough to push Putin toward meaningful peace talks, writes Christopher Isajiw.",
+      "date": "2026-08-04",
+      "type": "REPORT",
+      "url": "https://www.atlanticcouncil.org/blogs/ukrainealert/ukrainian-drones-alone-will-not-force-putin-to-the-negotiating-table/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-131",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "battlefield-attrition"
+      ]
+    },
+    {
+      "id": "source-132",
+      "publisher": "Pbs",
+      "title": "Ukraine and Russia both claim progress on front lines while U.S.-brokered talks are on hold | PBS News",
+      "description": "",
+      "date": "2026-08-30",
+      "type": "REPORT",
+      "url": "https://www.pbs.org/newshour/world/ukraine-and-russia-both-claim-progress-on-front-lines-while-u-s-brokered-talks-are-on-hold",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-132",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "battlefield-attrition"
+      ]
+    },
+    {
+      "id": "source-133",
+      "publisher": "Ibanet",
+      "title": "Ukraine war: Russia intensifies attacks despite talk of peace negotiations",
+      "description": "In early June, the Kremlin rejected Ukrainian President Volodymyr Zelensky’s call to hold new peace talks, ending mounting speculation that negotiations may resume. Earlier public statements by Russia’s President Vladimir Putin and the Kremlin’s spokesperson, Dmitry Peskov, had hinted that Moscow was ready to talk.  ",
+      "date": "2026-08-30",
+      "type": "REPORT",
+      "url": "https://www.ibanet.org/Ukraine-war-Russia-intensifies-attacks-despite-talk-of-peace-negotiations",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-133",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "battlefield-attrition"
+      ]
+    },
+    {
+      "id": "source-134",
+      "publisher": "Wikimedia Foundation, Inc.",
+      "title": "Peace negotiations in the Russo-Ukrainian war (2022–present) - Wikipedia",
+      "description": "",
+      "date": "2022-03-08",
+      "type": "REPORT",
+      "url": "https://en.wikipedia.org/wiki/Peace_negotiations_in_the_Russo-Ukrainian_war_(2022%E2%80%93present)",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-134",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "battlefield-attrition"
+      ]
+    },
+    {
+      "id": "source-135",
+      "publisher": "International Centre for Defence and Security",
+      "title": "The Unfading Mirage of Negotiation - International Centre for Defence and Security",
+      "description": "For more than four years, the spectre of negotiation in Russia’s full-scale war against Ukraine has hovered persistently over the reality of war itself.",
+      "date": "2026-04-21",
+      "type": "REPORT",
+      "url": "https://icds.ee/en/the-unfading-mirage-of-negotiation/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-135",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "battlefield-attrition"
+      ]
+    },
+    {
+      "id": "source-136",
+      "publisher": "Council on Foreign Relations",
+      "title": "War in Ukraine | Global Conflict Tracker",
+      "description": "Russia’s February 2022 full-scale invasion of Ukraine has killed over one million people and left Russia occupying roughly 20 percent of Ukrainian territory. Ukraine has countered with long-range drone strikes that have knocked out up to 40 percent of Russia’s refining capacity, while Russia continues to bombard Ukrainian cities. U.S.-mediated talks between Russia and Ukraine have yet to produce a",
+      "date": "2015-12-02",
+      "type": "REPORT",
+      "url": "https://www.cfr.org/global-conflict-tracker/conflict/conflict-ukraine",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-136",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "battlefield-attrition"
+      ]
+    },
+    {
+      "id": "source-137",
+      "publisher": "YouTube",
+      "title": "Russia-Ukraine War: Drone Attacks, Civilian Losses and Stalled Peace Talks",
+      "description": "Ukraine claims drone strikes on two Russian oil refineries in Bashkortostan and Yaroslavl, escalating pressure on Moscow. Russia reports intercepting hundred...",
+      "date": "2026-08-06",
+      "type": "REPORT",
+      "url": "https://www.youtube.com/watch?v=aSiUv5uNDNE",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-137",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "battlefield-attrition"
+      ]
+    },
+    {
+      "id": "source-138",
+      "publisher": "Facebook",
+      "title": "1.5K views · 24 reactions | Putin's latest war cry\n\nRussian drone & missile barrage hits Ukraine on eve of war anniversary\n\nSusan Tehrani has more | WION",
+      "description": "Putin's latest war cry\n\nRussian drone & missile barrage hits Ukraine on eve of war anniversary\n\nSusan Tehrani has more",
+      "date": "2026-08-30",
+      "type": "REPORT",
+      "url": "https://www.facebook.com/reel/1359412735986320/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-138",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "battlefield-attrition"
+      ]
     }
   ],
   "migratedFrom": "editorial_perspective_evolution_v3.html"

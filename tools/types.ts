@@ -61,6 +61,7 @@ export interface PerspectiveView {
   id: string;
   name: string;
   category: string;
+  color?: string;
   summary: string;
   coreArgument: string;
   counterArgument: string;
