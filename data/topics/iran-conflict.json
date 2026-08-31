@@ -415,7 +415,7 @@
           "opacity": 1,
           "metrics": {
             "editorialWeight": 0,
-            "sourceVolume": 0,
+            "sourceVolume": 3,
             "independentSignals": 0,
             "momentum": 0,
             "emergence": 0,
@@ -457,7 +457,7 @@
           "opacity": 1,
           "metrics": {
             "editorialWeight": 0,
-            "sourceVolume": 0,
+            "sourceVolume": 6,
             "independentSignals": 0,
             "momentum": 0,
             "emergence": 0,
@@ -569,12 +569,16 @@
         "Energy prices and subsidy strain move to the center of the lens.",
         "The economic question: how long can the workaround economy absorb pressure?"
       ],
-      "sources": [],
+      "sources": [
+        "source-142",
+        "source-144",
+        "source-146"
+      ],
       "windows": {
-        "y": 0,
-        "q": 0,
-        "m": 0,
-        "w": 0
+        "y": 3,
+        "q": 3,
+        "m": 3,
+        "w": 3
       }
     },
     {
@@ -639,12 +643,19 @@
         "Spillover risk and alignment changes become recurring themes.",
         "The regional question: which alignments hold through the conflict?"
       ],
-      "sources": [],
+      "sources": [
+        "source-150",
+        "source-151",
+        "source-152",
+        "source-153",
+        "source-154",
+        "source-155"
+      ],
       "windows": {
-        "y": 0,
-        "q": 0,
-        "m": 0,
-        "w": 0
+        "y": 5,
+        "q": 1,
+        "m": 1,
+        "w": 1
       }
     }
   ],

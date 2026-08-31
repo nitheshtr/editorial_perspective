@@ -118,3 +118,6 @@
 {"run":"5664fb17-0a9a-4f02-94ec-8b907cc9c9d4","topic":"iran-conflict","startedAt":"2026-08-30T19:14:55.257Z","finishedAt":"2026-08-30T19:14:55.277Z","totals":{"apply":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":2,"retries":0}}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T19:14:55.689Z","finishedAt":"2026-08-30T19:14:55.690Z","totals":{}}
 {"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-30T19:14:55.702Z","finishedAt":"2026-08-30T19:14:55.705Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}
+{"run":"ce6be21f-16a9-4d29-ab9c-66b79f1cb4fd","topic":"iran-conflict","startedAt":"2026-08-31T14:57:10.258Z","finishedAt":"2026-08-31T14:57:13.783Z","totals":{"research":{"tokensIn":0,"tokensOut":0,"costUsd":0,"llmCalls":0,"toolCalls":4,"retries":0}}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-31T14:58:29.635Z","finishedAt":"2026-08-31T14:58:29.636Z","totals":{}}
+{"run":"test-telemetry-run","topic":"test-topic","startedAt":"2026-08-31T14:58:29.648Z","finishedAt":"2026-08-31T14:58:29.649Z","totals":{"research":{"tokensIn":10,"tokensOut":5,"costUsd":0.001,"llmCalls":1,"toolCalls":0,"retries":0}}}

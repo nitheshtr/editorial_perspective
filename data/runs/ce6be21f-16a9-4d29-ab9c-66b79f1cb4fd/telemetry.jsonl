@@ -1,0 +1,8 @@
+{"ts":"2026-08-31T14:57:10.259Z","run":"ce6be21f-16a9-4d29-ab9c-66b79f1cb4fd","level":"info","event":"run_start","data":{"stage":"research"}}
+{"ts":"2026-08-31T14:57:10.264Z","run":"ce6be21f-16a9-4d29-ab9c-66b79f1cb4fd","level":"info","event":"stage_start","stage":"research","data":{}}
+{"ts":"2026-08-31T14:57:11.346Z","run":"ce6be21f-16a9-4d29-ab9c-66b79f1cb4fd","level":"info","event":"tool_call","stage":"research","data":{"tool":"websearch","count":10}}
+{"ts":"2026-08-31T14:57:13.769Z","run":"ce6be21f-16a9-4d29-ab9c-66b79f1cb4fd","level":"info","event":"tool_call","stage":"research","data":{"tool":"webfetch","count":8}}
+{"ts":"2026-08-31T14:57:13.775Z","run":"ce6be21f-16a9-4d29-ab9c-66b79f1cb4fd","level":"info","event":"tool_call","stage":"research","data":{"tool":"registry-append","count":6}}
+{"ts":"2026-08-31T14:57:13.779Z","run":"ce6be21f-16a9-4d29-ab9c-66b79f1cb4fd","level":"info","event":"tool_call","stage":"research","data":{"tool":"cache-append","count":8}}
+{"ts":"2026-08-31T14:57:13.782Z","run":"ce6be21f-16a9-4d29-ab9c-66b79f1cb4fd","level":"info","event":"stage_end","stage":"research","data":{"articlesAdded":8,"articlesSkipped":0,"newPublishers":6}}
+{"ts":"2026-08-31T14:57:13.783Z","run":"ce6be21f-16a9-4d29-ab9c-66b79f1cb4fd","level":"info","event":"run_end","data":{"finishedAt":"2026-08-31T14:57:13.783Z"}}

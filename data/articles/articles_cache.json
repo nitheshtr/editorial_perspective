@@ -2999,6 +2999,222 @@
       "perspectives": [
         "society-human-cost"
       ]
+    },
+    {
+      "id": "source-142",
+      "publisher": "Iranian-studies",
+      "title": "Iran’s Exports Under Sanctions: The Myth of Maximum Pressure | Iranian Studies",
+      "description": "Download Full Paper",
+      "date": "2026-08-31",
+      "type": "REPORT",
+      "url": "https://iranian-studies.stanford.edu/publications/irans-exports-under-sanctions-myth-maximum-pressure",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-142",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "sanctions-economy"
+      ]
+    },
+    {
+      "id": "source-144",
+      "publisher": "The Washington Institute",
+      "title": "Iran’s Oil Exports Are Vulnerable to Sanctions",
+      "description": "Iran continues to export significant volumes of oil, providing a key source of revenue for the regime—and a potential target for increased economic pressure.",
+      "date": "2026-08-31",
+      "type": "REPORT",
+      "url": "https://www.washingtoninstitute.org/policy-analysis/irans-oil-exports-are-vulnerable-sanctions",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-144",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "sanctions-economy"
+      ]
+    },
+    {
+      "id": "source-146",
+      "publisher": "BBC News",
+      "title": "Trump hopes sanctions will topple Iran's regime - its leaders are betting otherwise",
+      "description": "The US says new sanctions are an \"economic D-Day\", but Tehran's leaders have survived restrictions before.",
+      "date": "2026-08-25",
+      "type": "REPORT",
+      "url": "https://www.bbc.com/news/articles/cr50n9gnljgo",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-146",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "sanctions-economy"
+      ]
+    },
+    {
+      "id": "source-150",
+      "publisher": "Foreign Affairs Magazine",
+      "title": "The Gulf Goes Backward",
+      "description": "The Iran war is returning the Gulf to a more insular, conflict-prone era.",
+      "date": "2026-03-18",
+      "type": "REPORT",
+      "url": "https://www.foreignaffairs.com/persian-gulf/gulf-goes-backward",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-150",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "regional-dynamics"
+      ]
+    },
+    {
+      "id": "source-151",
+      "publisher": "Belfer Center",
+      "title": "The Degradation of Iran’s Proxy Model",
+      "description": "",
+      "date": "2026-04-01",
+      "type": "REPORT",
+      "url": "https://www.belfercenter.org/research-analysis/degradation-irans-proxy-model",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-151",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "regional-dynamics"
+      ]
+    },
+    {
+      "id": "source-152",
+      "publisher": "Globalguardian",
+      "title": "Middle East Escalation: Economic Pressure & Global Spillover",
+      "description": "In this Global Guardian briefing recap, experts analyze how widening Iran conflict is reshaping energy, travel, and operational risk.",
+      "date": "2026-08-31",
+      "type": "REPORT",
+      "url": "https://www.globalguardian.com/global-digest/middle-east-conflict-webinar-recap",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-152",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "regional-dynamics"
+      ]
+    },
+    {
+      "id": "source-153",
+      "publisher": "Global Security Review",
+      "title": "The Escalation Trajectory of U.S.-Iran Tensions After the Collapse of the Negotiations — Global Security Review",
+      "description": "Strategic Adversaries Deterrence",
+      "date": "2026-05-18",
+      "type": "REPORT",
+      "url": "https://globalsecurityreview.com/the-escalation-trajectory-of-u-s-iran-tensions-after-the-collapse-of-the-negotiations/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-153",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "regional-dynamics"
+      ]
+    },
+    {
+      "id": "source-154",
+      "publisher": "Middle East Forum",
+      "title": "The Axis of Instability: Iran, Proxy Warfare, and the Fragmenting Middle East",
+      "description": "This Geopolitical and Economic Model Turns National Territory Into a Forward Operating Base",
+      "date": "2026-02-20",
+      "type": "REPORT",
+      "url": "https://www.meforum.org/mef-online/the-axis-of-instability-iran-proxy-warfare-and-the-fragmenting-middle-east",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-154",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "regional-dynamics"
+      ]
+    },
+    {
+      "id": "source-155",
+      "publisher": "Institute for Security and Development Policy",
+      "title": "Iran's Regional Proxies: Reshaping the Middle East and Testing U.S. Policy - Institute for Security and Development Policy",
+      "description": "Nadeem Ahmed Moonakal writes on Iran’s multifaceted approach to regional influence that seeks to challenge the U.S. dominance in the region.",
+      "date": "2024-02-27",
+      "type": "REPORT",
+      "url": "https://www.isdp.eu/irans-regional-proxies-reshaping-the-middle-east-and-testing-u-s-policy/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-155",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "regional-dynamics"
+      ]
     }
   ],
   "migratedFrom": "editorial_perspective_evolution_v3.html"

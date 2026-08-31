@@ -458,3 +458,21 @@ run-duration threshold gives 3× headroom.
   independentSignals clamped) — recorded for future cycles.
 - 1-YEAR and 3-MONTH states keep draft placeholders until a backfill cycle;
   Military & Security emerges as the breakout lane (Accelerating).
+
+## 2026-08-28 — Iran gap lanes filled + admin review table
+
+- **Gap-filling pulls** for the two empty Iran lanes: 14 candidates → 9
+  cataloged (Sanctions & Economy 0→3: Iranian Studies/Stanford, Washington
+  Institute, BBC; Regional Dynamics 0→6: Foreign Affairs, Belfer, Global
+  Security Review, Middle East Forum, ISDP, GlobalGuardian) + 5 excluded
+  (YouTube video page, 2010 Wikipedia, 2016 pre-window Peterson piece, State
+  Dept policy page, Treasury press release — official/primary pages, not
+  editorial coverage).
+- Iran lanes now: military 2 · diplomacy 2 · sanctions 3 · society 1 ·
+  regional 6 = **14 cataloged sources**; Iran page regenerated (60,308B).
+- **Admin review table shipped** (operator artifact):
+  `bun scripts/generate-review-table.ts <slug>` → `data/review/{slug}-review.csv`
+  (UTF-8 BOM, Excel-ready) — columns: Sl No, Topic, Source, Link of Article,
+  Perspective Matching, Publish Date, Confidence, Source Domain. The
+  operator edits Perspective/Confidence during review; corrections are
+  re-applied to the topic in the next curation pass.
