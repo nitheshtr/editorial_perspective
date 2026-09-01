@@ -476,3 +476,25 @@ run-duration threshold gives 3× headroom.
   Perspective Matching, Publish Date, Confidence, Source Domain. The
   operator edits Perspective/Confidence during review; corrections are
   re-applied to the topic in the next curation pass.
+
+## 2026-08-30 — Mainstream-publisher pulls curated (operator-directed)
+
+- **Two domain-scoped pulls, post-Feb-2026 window:** CNN/BBC/Al Jazeera +
+  WSJ/NDTV/The Hindu/SCMP. 14 candidates → 19 lane-tagged across both
+  conflict topics (some overlap with the prior cache) → cache 140.
+- **Iran +12:** military-security 5 (BBC conflict-origin explainer, missile
+  strikes near the Israeli nuclear facility, AJ US-bases retaliation),
+  sanctions-economy 4 (economic-war retaliation, post-ceasefire sanctions
+  wave, new bank sanctions, UN-sanctions survival), regional-dynamics 2
+  (world-reaction pieces), society-human-cost 1 (CNN — Iranian Americans
+  divided six months in). Iran lanes now: military 5, diplomacy 4,
+  sanctions 7, society 2, regional 8 = 26 sources.
+- **Russia-Ukraine +7 (first-cycle prep):** battlefield-attrition 4
+  (CSIS next chapter, Futura Doctrina attrition analysis, Atlantic Council
+  drones piece, IB Media intensifying attacks), diplomacy-peace 3
+  (Brookings price-of-peace, PBS front-line/talks, ICDS negotiation
+  mirage). RU lanes now: battlefield 4, diplomacy 3 — humanitarian,
+  sanctions and global-reordering still empty (targeted pulls queued).
+- **7 excluded:** YouTube ×2, Facebook post, Wikipedia (2022), CFR tracker
+  (2015), RAND (2023, pre-window), SCMP (2022, pre-window).
+- CNN + Al Jazeera registered (tier 2, license unverified).

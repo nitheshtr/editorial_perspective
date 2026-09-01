@@ -373,7 +373,7 @@
           "opacity": 1,
           "metrics": {
             "editorialWeight": 0,
-            "sourceVolume": 0,
+            "sourceVolume": 4,
             "independentSignals": 0,
             "momentum": 0,
             "emergence": 0,
@@ -394,7 +394,7 @@
           "opacity": 1,
           "metrics": {
             "editorialWeight": 0,
-            "sourceVolume": 0,
+            "sourceVolume": 3,
             "independentSignals": 0,
             "momentum": 0,
             "emergence": 0,
@@ -495,7 +495,18 @@
         "Attrition rates and mobilization pressure dominate the frame.",
         "The battlefield question: what breaks first — lines, manpower or money?"
       ],
-      "sources": []
+      "sources": [
+        "source-126",
+        "source-128",
+        "source-131",
+        "source-133"
+      ],
+      "windows": {
+        "y": 4,
+        "q": 3,
+        "m": 3,
+        "w": 1
+      }
     },
     {
       "id": "diplomacy-peace",
@@ -523,7 +534,17 @@
         "Mediation efforts and security-guarantee drafts move to center frame.",
         "The diplomatic question: which guarantees make a ceasefire hold?"
       ],
-      "sources": []
+      "sources": [
+        "source-129",
+        "source-132",
+        "source-135"
+      ],
+      "windows": {
+        "y": 3,
+        "q": 1,
+        "m": 1,
+        "w": 1
+      }
     },
     {
       "id": "humanitarian-cost",
@@ -551,7 +572,13 @@
         "Civilian impact and reconstruction claims expand in coverage.",
         "The humanitarian question: what does reconstruction cost, and who pays?"
       ],
-      "sources": []
+      "sources": [],
+      "windows": {
+        "y": 0,
+        "q": 0,
+        "m": 0,
+        "w": 0
+      }
     },
     {
       "id": "sanctions-war-economy",
@@ -579,7 +606,13 @@
         "Defense-industrial output and sanctions evasion dominate the lens.",
         "The economic question: whose war economy outlasts the other?"
       ],
-      "sources": []
+      "sources": [],
+      "windows": {
+        "y": 0,
+        "q": 0,
+        "m": 0,
+        "w": 0
+      }
     },
     {
       "id": "global-reordering",
@@ -607,7 +640,13 @@
         "Burden-sharing and credibility arguments become recurring themes.",
         "The global question: what order emerges from the realignment?"
       ],
-      "sources": []
+      "sources": [],
+      "windows": {
+        "y": 0,
+        "q": 0,
+        "m": 0,
+        "w": 0
+      }
     }
   ],
   "relations": []

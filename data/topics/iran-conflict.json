@@ -373,7 +373,7 @@
           "opacity": 1,
           "metrics": {
             "editorialWeight": 0,
-            "sourceVolume": 2,
+            "sourceVolume": 5,
             "independentSignals": 0,
             "momentum": 0,
             "emergence": 0,
@@ -394,7 +394,7 @@
           "opacity": 1,
           "metrics": {
             "editorialWeight": 0,
-            "sourceVolume": 2,
+            "sourceVolume": 4,
             "independentSignals": 0,
             "momentum": 0,
             "emergence": 0,
@@ -415,7 +415,7 @@
           "opacity": 1,
           "metrics": {
             "editorialWeight": 0,
-            "sourceVolume": 3,
+            "sourceVolume": 7,
             "independentSignals": 0,
             "momentum": 0,
             "emergence": 0,
@@ -436,7 +436,7 @@
           "opacity": 1,
           "metrics": {
             "editorialWeight": 0,
-            "sourceVolume": 1,
+            "sourceVolume": 2,
             "independentSignals": 0,
             "momentum": 0,
             "emergence": 0,
@@ -457,7 +457,7 @@
           "opacity": 1,
           "metrics": {
             "editorialWeight": 0,
-            "sourceVolume": 6,
+            "sourceVolume": 8,
             "independentSignals": 0,
             "momentum": 0,
             "emergence": 0,
@@ -497,13 +497,16 @@
       ],
       "sources": [
         "source-122",
-        "source-125"
+        "source-125",
+        "source-156",
+        "source-159",
+        "source-160"
       ],
       "windows": {
-        "y": 2,
-        "q": 0,
-        "m": 0,
-        "w": 0
+        "y": 4,
+        "q": 1,
+        "m": 1,
+        "w": 1
       }
     },
     {
@@ -534,11 +537,13 @@
       ],
       "sources": [
         "source-124",
-        "source-140"
+        "source-140",
+        "source-165",
+        "source-167"
       ],
       "windows": {
-        "y": 1,
-        "q": 1,
+        "y": 3,
+        "q": 2,
         "m": 0,
         "w": 0
       }
@@ -572,12 +577,16 @@
       "sources": [
         "source-142",
         "source-144",
-        "source-146"
+        "source-146",
+        "source-161",
+        "source-162",
+        "source-163",
+        "source-168"
       ],
       "windows": {
-        "y": 3,
-        "q": 3,
-        "m": 3,
+        "y": 6,
+        "q": 5,
+        "m": 5,
         "w": 3
       }
     },
@@ -608,13 +617,14 @@
         "The human lens: who bears the cost of escalation and isolation?"
       ],
       "sources": [
-        "source-141"
+        "source-141",
+        "source-164"
       ],
       "windows": {
-        "y": 1,
-        "q": 0,
-        "m": 0,
-        "w": 0
+        "y": 2,
+        "q": 1,
+        "m": 1,
+        "w": 1
       }
     },
     {
@@ -649,7 +659,9 @@
         "source-152",
         "source-153",
         "source-154",
-        "source-155"
+        "source-155",
+        "source-157",
+        "source-158"
       ],
       "windows": {
         "y": 5,

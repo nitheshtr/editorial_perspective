@@ -2665,30 +2665,6 @@
       ]
     },
     {
-      "id": "source-127",
-      "publisher": "RAND Corporation",
-      "title": "Consequences of the War in Ukraine",
-      "description": "One year ago, Russian ground forces, following a lengthy military buildup, invaded Ukraine. Today, the war continues, with no clear end in sight. How does this end?",
-      "date": "2023-02-24",
-      "type": "REPORT",
-      "url": "https://www.rand.org/pubs/commentary/2023/02/consequences-of-the-war-in-ukraine.html",
-      "accessPolicy": {
-        "access": "open",
-        "license": "unknown",
-        "reuse": "link_only",
-        "fullText": false,
-        "summary": true,
-        "link": true,
-        "pendingVerification": true
-      },
-      "storyCluster": "cluster-127",
-      "originalReporting": false,
-      "stance": "neutral",
-      "perspectives": [
-        "battlefield-attrition"
-      ]
-    },
-    {
       "id": "source-128",
       "publisher": "Futura Doctrina",
       "title": "The Learning Curve: Ukraine's Attrition Campaign and the PLA's Iran War Study",
@@ -2733,31 +2709,7 @@
       "originalReporting": false,
       "stance": "neutral",
       "perspectives": [
-        "battlefield-attrition"
-      ]
-    },
-    {
-      "id": "source-130",
-      "publisher": "YouTube",
-      "title": "Russia rains missiles, drones on Ukraine ahead of key peace negotiations",
-      "description": "Russia has carried out its largest missile and drone assault of the year on Ukraine, ending a brief, U.S.-brokered pause in attacks.The barrage came as U.S.,...",
-      "date": "2026-02-03",
-      "type": "REPORT",
-      "url": "https://www.youtube.com/watch?v=EWfGur7p5a0",
-      "accessPolicy": {
-        "access": "open",
-        "license": "unknown",
-        "reuse": "link_only",
-        "fullText": false,
-        "summary": true,
-        "link": true,
-        "pendingVerification": true
-      },
-      "storyCluster": "cluster-130",
-      "originalReporting": false,
-      "stance": "neutral",
-      "perspectives": [
-        "battlefield-attrition"
+        "diplomacy-peace"
       ]
     },
     {
@@ -2805,7 +2757,7 @@
       "originalReporting": false,
       "stance": "neutral",
       "perspectives": [
-        "battlefield-attrition"
+        "diplomacy-peace"
       ]
     },
     {
@@ -2833,30 +2785,6 @@
       ]
     },
     {
-      "id": "source-134",
-      "publisher": "Wikimedia Foundation, Inc.",
-      "title": "Peace negotiations in the Russo-Ukrainian war (2022–present) - Wikipedia",
-      "description": "",
-      "date": "2022-03-08",
-      "type": "REPORT",
-      "url": "https://en.wikipedia.org/wiki/Peace_negotiations_in_the_Russo-Ukrainian_war_(2022%E2%80%93present)",
-      "accessPolicy": {
-        "access": "open",
-        "license": "unknown",
-        "reuse": "link_only",
-        "fullText": false,
-        "summary": true,
-        "link": true,
-        "pendingVerification": true
-      },
-      "storyCluster": "cluster-134",
-      "originalReporting": false,
-      "stance": "neutral",
-      "perspectives": [
-        "battlefield-attrition"
-      ]
-    },
-    {
       "id": "source-135",
       "publisher": "International Centre for Defence and Security",
       "title": "The Unfading Mirage of Negotiation - International Centre for Defence and Security",
@@ -2877,79 +2805,7 @@
       "originalReporting": false,
       "stance": "neutral",
       "perspectives": [
-        "battlefield-attrition"
-      ]
-    },
-    {
-      "id": "source-136",
-      "publisher": "Council on Foreign Relations",
-      "title": "War in Ukraine | Global Conflict Tracker",
-      "description": "Russia’s February 2022 full-scale invasion of Ukraine has killed over one million people and left Russia occupying roughly 20 percent of Ukrainian territory. Ukraine has countered with long-range drone strikes that have knocked out up to 40 percent of Russia’s refining capacity, while Russia continues to bombard Ukrainian cities. U.S.-mediated talks between Russia and Ukraine have yet to produce a",
-      "date": "2015-12-02",
-      "type": "REPORT",
-      "url": "https://www.cfr.org/global-conflict-tracker/conflict/conflict-ukraine",
-      "accessPolicy": {
-        "access": "open",
-        "license": "unknown",
-        "reuse": "link_only",
-        "fullText": false,
-        "summary": true,
-        "link": true,
-        "pendingVerification": true
-      },
-      "storyCluster": "cluster-136",
-      "originalReporting": false,
-      "stance": "neutral",
-      "perspectives": [
-        "battlefield-attrition"
-      ]
-    },
-    {
-      "id": "source-137",
-      "publisher": "YouTube",
-      "title": "Russia-Ukraine War: Drone Attacks, Civilian Losses and Stalled Peace Talks",
-      "description": "Ukraine claims drone strikes on two Russian oil refineries in Bashkortostan and Yaroslavl, escalating pressure on Moscow. Russia reports intercepting hundred...",
-      "date": "2026-08-06",
-      "type": "REPORT",
-      "url": "https://www.youtube.com/watch?v=aSiUv5uNDNE",
-      "accessPolicy": {
-        "access": "open",
-        "license": "unknown",
-        "reuse": "link_only",
-        "fullText": false,
-        "summary": true,
-        "link": true,
-        "pendingVerification": true
-      },
-      "storyCluster": "cluster-137",
-      "originalReporting": false,
-      "stance": "neutral",
-      "perspectives": [
-        "battlefield-attrition"
-      ]
-    },
-    {
-      "id": "source-138",
-      "publisher": "Facebook",
-      "title": "1.5K views · 24 reactions | Putin's latest war cry\n\nRussian drone & missile barrage hits Ukraine on eve of war anniversary\n\nSusan Tehrani has more | WION",
-      "description": "Putin's latest war cry\n\nRussian drone & missile barrage hits Ukraine on eve of war anniversary\n\nSusan Tehrani has more",
-      "date": "2026-08-30",
-      "type": "REPORT",
-      "url": "https://www.facebook.com/reel/1359412735986320/",
-      "accessPolicy": {
-        "access": "open",
-        "license": "unknown",
-        "reuse": "link_only",
-        "fullText": false,
-        "summary": true,
-        "link": true,
-        "pendingVerification": true
-      },
-      "storyCluster": "cluster-138",
-      "originalReporting": false,
-      "stance": "neutral",
-      "perspectives": [
-        "battlefield-attrition"
+        "diplomacy-peace"
       ]
     },
     {
@@ -3214,6 +3070,294 @@
       "stance": "neutral",
       "perspectives": [
         "regional-dynamics"
+      ]
+    },
+    {
+      "id": "source-156",
+      "publisher": "BBC News",
+      "title": "Israel-Iran: How did latest conflict start and where could it lead?",
+      "description": "The exchange of fire continues as Donald Trump reportedly considers joining Israel's campaign against Iran.",
+      "date": "2025-06-13",
+      "type": "REPORT",
+      "url": "https://www.bbc.com/news/articles/cdj9vj8glg2o",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-156",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "military-security"
+      ]
+    },
+    {
+      "id": "source-157",
+      "publisher": "Al Jazeera",
+      "title": "How the world is reacting to Israel’s attacks on Iran",
+      "description": "The Israeli military says 200 jets struck more than 100 sites across Iran in large-scale attack.",
+      "date": "2025-06-13",
+      "type": "REPORT",
+      "url": "https://www.aljazeera.com/news/2025/6/13/how-the-world-is-reacting-to-israel-attacks-on-iran-nuclear-military-sites",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-157",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "regional-dynamics"
+      ]
+    },
+    {
+      "id": "source-158",
+      "publisher": "Al Jazeera",
+      "title": "‘Everlasting consequences’: World reacts to US attacks on Iran",
+      "description": "A roundup of reactions as US joins Israel's war and attacks three Iranian nuclear sites.",
+      "date": "2025-06-22",
+      "type": "REPORT",
+      "url": "https://www.aljazeera.com/news/2025/6/22/everlasting-consequences-world-reacts-to-us-attacks-on-iran",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-158",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "regional-dynamics"
+      ]
+    },
+    {
+      "id": "source-159",
+      "publisher": "BBC News",
+      "title": "Iranian missile strikes near Israeli nuclear facility, after Tehran says one of its sites targeted",
+      "description": "The UN nuclear watchdog reported \"no increase in off-site radiation level\" at the Natanz nuclear plant in Iran and \"no indication of damage\" at the Israeli centre in Dimona.",
+      "date": "2026-03-20",
+      "type": "REPORT",
+      "url": "https://www.bbc.com/news/live/ce84073mr06t",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-159",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "military-security"
+      ]
+    },
+    {
+      "id": "source-160",
+      "publisher": "Al Jazeera",
+      "title": "Iran targets American bases in Jordan in retaliation to US strikes",
+      "description": "The exchange of attacks is the first flare-up in violence between the two sides since late July.",
+      "date": "2026-08-30",
+      "type": "REPORT",
+      "url": "https://www.aljazeera.com/news/2026/8/30/us-strikes-irans-lark-island-in-first-attack-in-weeks",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-160",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "military-security"
+      ]
+    },
+    {
+      "id": "source-161",
+      "publisher": "Al Jazeera",
+      "title": "Can Iran retaliate against countries that join US ‘economic war’?",
+      "description": "Iran warns that countries backing US economic sanctions will be considered an enemy of Tehran.",
+      "date": "2026-08-23",
+      "type": "REPORT",
+      "url": "https://www.aljazeera.com/news/2026/8/23/can-iran-retaliate-against-countries-that-join-us-economic-war",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-161",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "sanctions-economy"
+      ]
+    },
+    {
+      "id": "source-162",
+      "publisher": "Al Jazeera",
+      "title": "US issues first wave of Iran sanctions after ceasefire in 12-day war",
+      "description": "Washington imposes financial penalties on an Iraqi businessman who it says helped smuggle Iranian oil.",
+      "date": "2025-07-03",
+      "type": "REPORT",
+      "url": "https://www.aljazeera.com/news/2025/7/3/us-issues-first-wave-of-iran-sanctions-after-ceasefire-in-12-day-war",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-162",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "sanctions-economy"
+      ]
+    },
+    {
+      "id": "source-163",
+      "publisher": "Al Jazeera",
+      "title": "US plans to sanction another bank to keep economic pressure on Iran",
+      "description": "Washington has recently stepped up efforts to economically pressure Tehran amid the deadlocked truce talks.",
+      "date": "2026-08-31",
+      "type": "REPORT",
+      "url": "https://www.aljazeera.com/news/2026/8/31/us-plans-to-sanction-another-bank-to-keep-economic-pressure-on-iran",
+      "accessPolicy": {
+        "access": "open",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-163",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "sanctions-economy"
+      ]
+    },
+    {
+      "id": "source-164",
+      "publisher": "CNN",
+      "title": "Six months into the Iran war, Iranian Americans remain divided over what comes next | CNN",
+      "description": "The Iranian community in the US has been divided with varying opinions on how the war started and what is has – or hasn’t – accomplished.",
+      "date": "2026-08-29",
+      "type": "REPORT",
+      "url": "https://www.cnn.com/2026/08/29/us/iran-war-iranian-americans-six-months-hnk",
+      "accessPolicy": {
+        "access": "metered",
+        "license": "copyright",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-164",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "society-human-cost"
+      ]
+    },
+    {
+      "id": "source-165",
+      "publisher": "South China Morning Post",
+      "title": "2 wars later, US-Iran nuclear diplomacy returns to square one",
+      "description": "Analysts say the new agreement returns to a familiar trade-off: nuclear curbs in exchange for sanctions relief and oil waivers.",
+      "date": "2026-06-19",
+      "type": "REPORT",
+      "url": "https://www.scmp.com/week-asia/politics/article/3357683/2-wars-later-us-iran-nuclear-diplomacy-returns-square-one",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-165",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "diplomacy-nuclear"
+      ]
+    },
+    {
+      "id": "source-167",
+      "publisher": "South China Morning Post",
+      "title": "China calls for fresh talks on Iran’s nuclear programme to end ‘deadlock’",
+      "description": "Foreign Minister Wang Yi expresses support for Tehran after Britain, France and Germany’s decision to reimpose sanctions.",
+      "date": "2025-11-07",
+      "type": "REPORT",
+      "url": "https://www.scmp.com/news/china/diplomacy/article/3331883/china-calls-fresh-talks-irans-nuclear-programme-end-deadlock",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-167",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "diplomacy-nuclear"
+      ]
+    },
+    {
+      "id": "source-168",
+      "publisher": "South China Morning Post",
+      "title": "‘How are we going to survive?’: Iran in a bind as UN sanctions return",
+      "description": "The clerical establishment faces existential crisis as concerns grow over economic collapse and potential Israeli strikes on nuclear sites.",
+      "date": "2025-09-28",
+      "type": "REPORT",
+      "url": "https://www.scmp.com/news/world/middle-east/article/3327123/iran-peril-un-sanctions-return-pushing-leadership-tough-corner",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-168",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "sanctions-economy"
       ]
     }
   ],
