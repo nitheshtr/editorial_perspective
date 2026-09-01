@@ -373,7 +373,7 @@
           "opacity": 1,
           "metrics": {
             "editorialWeight": 0,
-            "sourceVolume": 5,
+            "sourceVolume": 6,
             "independentSignals": 0,
             "momentum": 0,
             "emergence": 0,
@@ -436,7 +436,7 @@
           "opacity": 1,
           "metrics": {
             "editorialWeight": 0,
-            "sourceVolume": 2,
+            "sourceVolume": 5,
             "independentSignals": 0,
             "momentum": 0,
             "emergence": 0,
@@ -500,7 +500,8 @@
         "source-125",
         "source-156",
         "source-159",
-        "source-160"
+        "source-160",
+        "source-170"
       ],
       "windows": {
         "y": 4,
@@ -618,7 +619,10 @@
       ],
       "sources": [
         "source-141",
-        "source-164"
+        "source-164",
+        "source-169",
+        "source-171",
+        "source-172"
       ],
       "windows": {
         "y": 2,

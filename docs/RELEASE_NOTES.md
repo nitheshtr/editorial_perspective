@@ -388,6 +388,23 @@ run-duration threshold gives 3× headroom.
   catch browser-runtime parse errors in inlined JS).
 - Golden re-blessed (83,024 chars).
 
+## 2026-08-30 — Operator import cleanup: proper publisher names + policies
+
+- The operator's CSV import revealed a gap: when the Source column contains
+  a domain or URL ("cnn.com", "https://www.chinadaily.com"), the publisher
+  resolves wrong — auto-adding domain-style tier-3 entries and bypassing
+  CNN's registered tier-2 policy.
+- **Cleanup applied:** 4 imported articles re-published under proper
+  publisher names (CNN ×2, The Washington Post, China Daily); policies
+  re-resolved (CNN metered tier-2 applied; WaPo + China Daily added as
+  proper entries); source-171 re-typed OPINION (WaPo /opinions/ URL);
+  3 domain-style junk registry entries removed (135 → 134); review CSV
+  Source cells corrected.
+- **Import script hardened for future runs:** publisher normalization map
+  applied at ingest + skip-reason reporting for dropped rows.
+- Golden re-blessed (90,060 chars — publisher strings flow into the emitted
+  data).
+
 ## 2026-08-28 — Historical backfill: 2025–2026 coverage (adapter upgrade)
 
 - **Search adapter upgraded:** absolute date-range support

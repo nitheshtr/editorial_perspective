@@ -3359,6 +3359,102 @@
       "perspectives": [
         "sanctions-economy"
       ]
+    },
+    {
+      "id": "source-169",
+      "publisher": "cnn.com",
+      "title": "A power struggle in Iran could decide when Trump’s war ends | CNN",
+      "description": "Iran’s internal power struggle could decide when Trump’s war ends",
+      "date": "2026-08-28",
+      "type": "REPORT",
+      "url": "https://www.cnn.com/2026/08/30/middleeast/iran-trump-power-struggle-war-intl",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-169",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "society-human-cost"
+      ]
+    },
+    {
+      "id": "source-170",
+      "publisher": "cnn.com",
+      "title": "No, Tehran is not winning | CNN Politics",
+      "description": "As the latest phase of the war unfolds, Iran is losing its leverage in Hormuz",
+      "date": "2026-08-30",
+      "type": "REPORT",
+      "url": "https://www.cnn.com/2026/08/30/politics/iran-losing-leverage-hormuz-mcgurk",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-170",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "military-security"
+      ]
+    },
+    {
+      "id": "source-171",
+      "publisher": "www.washingtonpost.com",
+      "title": "Opinion | The true cost of the Iran war",
+      "description": "The generals clearly have good reasons to worry about resources being stretched thin.",
+      "date": "2026-08-30",
+      "type": "REPORT",
+      "url": "https://www.washingtonpost.com/opinions/2026/08/31/americans-have-right-know-costs-iran-war/",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-171",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "society-human-cost"
+      ]
+    },
+    {
+      "id": "source-172",
+      "publisher": "https://www.chinadaily.com",
+      "title": "US needs an exit ramp for itself, not an 'economic D-Day' for Iran: China Daily editorial",
+      "description": "",
+      "date": "2026-08-25",
+      "type": "REPORT",
+      "url": "https://www.chinadaily.com.cn/a/202608/25/WS6a8d857ee4b057c97e209ac1.html",
+      "accessPolicy": {
+        "access": "open",
+        "license": "unknown",
+        "reuse": "link_only",
+        "fullText": false,
+        "summary": true,
+        "link": true,
+        "pendingVerification": true
+      },
+      "storyCluster": "cluster-172",
+      "originalReporting": false,
+      "stance": "neutral",
+      "perspectives": [
+        "society-human-cost"
+      ]
     }
   ],
   "migratedFrom": "editorial_perspective_evolution_v3.html"

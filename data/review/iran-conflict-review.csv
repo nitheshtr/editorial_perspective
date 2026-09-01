@@ -1,15 +1,19 @@
 ﻿Sl No,Topic,Source,Link of Article,Perspective Matching,Publish Date,Confidence,Source Domain
-"1","Conflict/Iran","AJC","https://www.ajc.org/news/the-iran-strikes-explained-how-we-got-here-and-what-it-means","Military & Security","2026-03-01","Medium","ajc.org"
-"2","Conflict/Iran","Georgetown Journal of International Affairs","https://gjia.georgetown.edu/conflict-security/the-war-against-iran-and-global-risks-tell-me-how-this-ends/","Military & Security","2026-03-26","High","gjia.georgetown.edu"
-"3","Conflict/Iran","Center for Strategic and International Studies","https://www.csis.org/analysis/can-iran-negotiations-survive-israel-iran-escalation","Diplomacy & Nuclear File","2026-06-12","Medium","csis.org"
-"4","Conflict/Iran","INSS","https://www.inss.org.il/publication/iran-nuclear-program/","Diplomacy & Nuclear File","2025-07-22","High","inss.org.il"
-"5","Conflict/Iran","Iranian-studies","https://iranian-studies.stanford.edu/publications/irans-exports-under-sanctions-myth-maximum-pressure","Sanctions & Economy","2026-08-31","Medium","iranian-studies.stanford.edu"
-"6","Conflict/Iran","The Washington Institute","https://www.washingtoninstitute.org/policy-analysis/irans-oil-exports-are-vulnerable-sanctions","Sanctions & Economy","2026-08-31","Medium","washingtoninstitute.org"
-"7","Conflict/Iran","BBC News","https://www.bbc.com/news/articles/cr50n9gnljgo","Sanctions & Economy","2026-08-25","High","bbc.com"
-"8","Conflict/Iran","The Polis Project","https://thepolisprojectinc.substack.com/p/what-you-should-know-as-the-us-israel","Society & Human Cost","2026-03-04","Medium","thepolisprojectinc.substack.com"
-"9","Conflict/Iran","Foreign Affairs Magazine","https://www.foreignaffairs.com/persian-gulf/gulf-goes-backward","Regional Dynamics","2026-03-18","Medium","foreignaffairs.com"
-"10","Conflict/Iran","Belfer Center","https://www.belfercenter.org/research-analysis/degradation-irans-proxy-model","Regional Dynamics","2026-04-01","Medium","belfercenter.org"
-"11","Conflict/Iran","Globalguardian","https://www.globalguardian.com/global-digest/middle-east-conflict-webinar-recap","Regional Dynamics","2026-08-31","Medium","globalguardian.com"
-"12","Conflict/Iran","Global Security Review","https://globalsecurityreview.com/the-escalation-trajectory-of-u-s-iran-tensions-after-the-collapse-of-the-negotiations/","Regional Dynamics","2026-05-18","Medium","globalsecurityreview.com"
-"13","Conflict/Iran","Middle East Forum","https://www.meforum.org/mef-online/the-axis-of-instability-iran-proxy-warfare-and-the-fragmenting-middle-east","Regional Dynamics","2026-02-20","Medium","meforum.org"
-"14","Conflict/Iran","Institute for Security and Development Policy","https://www.isdp.eu/irans-regional-proxies-reshaping-the-middle-east-and-testing-u-s-policy/","Regional Dynamics","2024-02-27","Medium","isdp.eu"
+1,Conflict/Iran,AJC,https://www.ajc.org/news/the-iran-strikes-explained-how-we-got-here-and-what-it-means,Military & Security,2026-03-01,Medium,ajc.org
+2,Conflict/Iran,Georgetown Journal of International Affairs,https://gjia.georgetown.edu/conflict-security/the-war-against-iran-and-global-risks-tell-me-how-this-ends/,Military & Security,2026-03-26,High,gjia.georgetown.edu
+3,Conflict/Iran,Center for Strategic and International Studies,https://www.csis.org/analysis/can-iran-negotiations-survive-israel-iran-escalation,Diplomacy & Nuclear File,2026-06-12,Medium,csis.org
+4,Conflict/Iran,INSS,https://www.inss.org.il/publication/iran-nuclear-program/,Diplomacy & Nuclear File,2025-07-22,High,inss.org.il
+5,Conflict/Iran,Iranian-studies,https://iranian-studies.stanford.edu/publications/irans-exports-under-sanctions-myth-maximum-pressure,Sanctions & Economy,2026-08-31,Medium,iranian-studies.stanford.edu
+6,Conflict/Iran,The Washington Institute,https://www.washingtoninstitute.org/policy-analysis/irans-oil-exports-are-vulnerable-sanctions,Sanctions & Economy,2026-08-31,Medium,washingtoninstitute.org
+7,Conflict/Iran,BBC News,https://www.bbc.com/news/articles/cr50n9gnljgo,Sanctions & Economy,2026-08-25,High,bbc.com
+8,Conflict/Iran,The Polis Project,https://thepolisprojectinc.substack.com/p/what-you-should-know-as-the-us-israel,Society & Human Cost,2026-03-04,Medium,thepolisprojectinc.substack.com
+9,Conflict/Iran,Foreign Affairs Magazine,https://www.foreignaffairs.com/persian-gulf/gulf-goes-backward,Regional Dynamics,2026-03-18,Medium,foreignaffairs.com
+10,Conflict/Iran,Belfer Center,https://www.belfercenter.org/research-analysis/degradation-irans-proxy-model,Regional Dynamics,2026-04-01,Medium,belfercenter.org
+11,Conflict/Iran,Globalguardian,https://www.globalguardian.com/global-digest/middle-east-conflict-webinar-recap,Regional Dynamics,2026-08-31,Medium,globalguardian.com
+12,Conflict/Iran,Global Security Review,https://globalsecurityreview.com/the-escalation-trajectory-of-u-s-iran-tensions-after-the-collapse-of-the-negotiations/,Regional Dynamics,2026-05-18,Medium,globalsecurityreview.com
+13,Conflict/Iran,Middle East Forum,https://www.meforum.org/mef-online/the-axis-of-instability-iran-proxy-warfare-and-the-fragmenting-middle-east,Regional Dynamics,2026-02-20,Medium,meforum.org
+14,Conflict/Iran,Institute for Security and Development Policy,https://www.isdp.eu/irans-regional-proxies-reshaping-the-middle-east-and-testing-u-s-policy/,Regional Dynamics,2024-02-27,Medium,isdp.eu
+15,Conflict/Iran,CNN,https://www.CNN/2026/08/30/middleeast/iran-trump-power-struggle-war-intl,Society & Human Cost,2026-08-28,High,CNN
+16,Conflict/Iran,CNN,https://www.CNN/2026/08/30/politics/iran-losing-leverage-hormuz-mcgurk,Military & Security,2026-08-30,High,CNN
+17,Conflict/Iran,The Washington Post,https://The Washington Post/opinions/2026/08/31/americans-have-right-know-costs-iran-war/,Society & Human Cost,2026-08-30,High,The Washington Post
+18,Conflict/Iran,China Daily,China Daily.cn/a/202608/25/WS6a8d857ee4b057c97e209ac1.html,Society & Human Cost,2026-08-25,High,China Daily
