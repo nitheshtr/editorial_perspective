@@ -35,6 +35,8 @@ for (const a of cache.articles as Array<any>) {
   if (a.id === "source-171") a.type = "OPINION";
   fixed++;
 }
+// The missing write that caused the first fix to silently no-op:
+writeFileSync("data/articles/articles_cache.json", `${JSON.stringify(cache, null, 2)}\n`);
 
 // ── 2. registry: drop domain-style junk, add proper entries ──
 const reg = JSON.parse(readFileSync("data/config/publishers.json", "utf8"));

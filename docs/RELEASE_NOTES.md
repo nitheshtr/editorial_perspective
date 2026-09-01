@@ -404,6 +404,11 @@ run-duration threshold gives 3× headroom.
   applied at ingest + skip-reason reporting for dropped rows.
 - Golden re-blessed (90,060 chars — publisher strings flow into the emitted
   data).
+- **Follow-up fix:** the first cleanup pass mutated the cache in memory but
+  never wrote it back (registry + CSV writes only) — the renames silently
+  no-opped. Cache write added; re-run verified: source-169/170 → CNN,
+  source-171 → The Washington Post (OPINION), source-172 → China Daily.
+  Iran page regenerated (65,283 chars) with proper publisher names.
 
 ## 2026-08-28 — Historical backfill: 2025–2026 coverage (adapter upgrade)
 
