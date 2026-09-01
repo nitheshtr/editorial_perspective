@@ -89,9 +89,11 @@ export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>): 
       const nd = s.nodes[n];
       if (!nd) throw new Error(`state "${s.label}" is missing node "${n}"`);
       const sep = i < names.length - 1 ? "," : "";
+      const safeW = Math.max(nd.size.w, 22);
+      const safeH = Math.max(nd.size.h, 18);
       const head =
         `      ${nameKey(n)}:{x:${num(nd.position.x)},y:${num(nd.position.y)},` +
-        `w:${num(nd.size.w)},h:${num(nd.size.h)},br:${q(nd.borderRadius)},` +
+        `w:${num(safeW)},h:${num(safeH)},br:${q(nd.borderRadius)},` +
         `sources:${num(nd.metrics.sourceVolume)},status:${q(nd.metrics.status)},` +
         `opacity:${num(nd.opacity)},`;
       if (nd.mobile) {

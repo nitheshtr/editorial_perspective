@@ -1,5 +1,26 @@
 # Release Notes
 
+## 2026-08-31 — Map blob overflow fix for conflict topics
+
+- **Root cause:** conflict topics (Iran, Russia-Ukraine) use perspective names
+  and bodies that are longer than the AI-superrace baseline, but the blob
+  dimensions emitted from topic JSON were as small as 20% × 16% and the
+  `.blob` CSS had no `overflow` or flex containment, so text spilled past the
+  organic border-radius boundary.
+- **CSS fix (`src/css/main.css`):** `.blob` now uses `display: flex;
+  flex-direction: column; justify-content: center; overflow: hidden;` plus
+  `min-width: 220px; min-height: 170px;` so multi-line editorial titles and
+  descriptions stay clipped inside the rounded shape. Padding is slightly
+  adjusted to `22px 20px`, and `.blob h3` gets `word-break: break-word`. The
+  mobile breakpoint resets the min sizes to `0` so horizontal strip blobs keep
+  their compact layout.
+- **Emitter fix (`tools/generate-site.ts`):** emitted blob `w`/`h` now have
+  safe minimum floors (`Math.max(w, 28)` and `Math.max(h, 24)`) so small topic
+  JSON sizes cannot under-size the bubble below what the editorial text needs.
+- **Golden re-blessed** for ai-superrace per Visual Fidelity Lock (intentional
+  CSS + emitter change). Verification: tsc clean, 164 tests green, topic
+  validation green, golden parity OK after bless, dist output generated.
+
 ## 2026-08-30 — Multi-topic site: per-topic pages, dynamic nav/map, data-driven colors
 
 - **Per-topic page emission:** `tools/generate-site.ts --all` now emits one self-
