@@ -1,5 +1,35 @@
 # Release Notes
 
+## 2026-08-31 — Map blob organic-shape + legibility fix (follow-up)
+
+- **Root cause:** the original organic `border-radius` values (40–57% corner
+  radii) cut too far into the bubble, so even `padding:22px 24px` could not
+  keep the first glyphs of perspective names inside the clip shape; at the
+  floor sizes the body text also overflowed the bottom edge.
+- **Emitter fix (`tools/generate-site.ts`):**
+  - Raised blob size floors to `Math.max(w,30)` / `Math.max(h,28)` to give
+    long editorial titles and bodies enough room.
+  - Added `softenBorderRadius()` which compresses emitted corner percentages
+    toward a safer 22–40% band using `round(25 + (v-25)*0.5)`; the topic JSON
+    keeps the original organic values, so the rendered bubbles stay organic
+    but no longer clip content.
+- **CSS fix (`src/css/main.css`):**
+  - Kept `border-radius:var(--br)` so each blob uses the emitted softened
+    organic shape.
+  - Rebalanced padding to `26px 24px` (desktop) and `20px` (mobile) with a
+    mobile `min-height:260px` guard so content clears the corners and the
+    bottom edge.
+  - Removed `.blob p` `max-width:230px` so bodies use the full safe content
+    width and wrap to fewer lines.
+  - Tightened line-heights and vertical margins to keep multi-line bodies
+    inside the box with ≥10px slack at floor sizes.
+  - Adjusted `.blob .trend` offsets to stay inside the new padding.
+- **Golden re-blessed** for ai-superrace per Visual Fidelity Lock (intentional
+  CSS + emitter change). Verified via headless Chrome screenshots at
+  1280×1000, 850×900, and 375×900 for ai-superrace, iran-conflict, and
+  russia-ukraine; every blob shows full h3 text, full body, full
+  "N SOURCES →" link, and fully contained trend badges.
+
 ## 2026-08-31 — Map blob overflow fix for conflict topics
 
 - **Root cause:** conflict topics (Iran, Russia-Ukraine) use perspective names

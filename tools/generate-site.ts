@@ -25,6 +25,21 @@ const num = (n: number) => {
 };
 const nameKey = (name: string) => (/^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(name) ? name : q(name));
 
+// Soften emitted border-radius percentages: the stored topic JSON keeps its
+// full organic range, but the rendered bubble corners are compressed toward
+// a safer 22–40% band so `overflow:hidden` does not clip content.
+// Formula: v -> round(25 + (v - 25) * 0.5), clamped to [22, 40].
+function softenBorderRadius(br: string): string {
+  const [hGroup, vGroup] = br.split(" / ");
+  const soften = (value: string) => {
+    const n = parseFloat(value);
+    const s = 25 + (n - 25) * 0.5;
+    const clamped = Math.max(22, Math.min(40, Math.round(s)));
+    return `${clamped}%`;
+  };
+  return `${hGroup.split(" ").map(soften).join(" ")} / ${vGroup.split(" ").map(soften).join(" ")}`;
+}
+
 interface SourceLite { publisher: string; title: string; description: string; url: string }
 
 // ---- canonical category fallbacks ----
@@ -89,11 +104,11 @@ export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>): 
       const nd = s.nodes[n];
       if (!nd) throw new Error(`state "${s.label}" is missing node "${n}"`);
       const sep = i < names.length - 1 ? "," : "";
-      const safeW = Math.max(nd.size.w, 22);
-      const safeH = Math.max(nd.size.h, 18);
+      const safeW = Math.max(nd.size.w, 30);
+      const safeH = Math.max(nd.size.h, 28);
       const head =
         `      ${nameKey(n)}:{x:${num(nd.position.x)},y:${num(nd.position.y)},` +
-        `w:${num(safeW)},h:${num(safeH)},br:${q(nd.borderRadius)},` +
+        `w:${num(safeW)},h:${num(safeH)},br:${q(softenBorderRadius(nd.borderRadius))},` +
         `sources:${num(nd.metrics.sourceVolume)},status:${q(nd.metrics.status)},` +
         `opacity:${num(nd.opacity)},`;
       if (nd.mobile) {
