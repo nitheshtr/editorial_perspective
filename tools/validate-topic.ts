@@ -226,6 +226,90 @@ export async function validateTopic(input: ValidateTopicInput): Promise<Validati
     checks.push(check);
   }
 
+  // ── Check (e): Keywords & periodSummary ──────────────────────────────────
+  {
+    const check: ValidationCheck = { name: "node-content", status: "pass", details: [] };
+    const result = Topic.safeParse(input.topic);
+    const topic = result.success ? result.data : null;
+
+    if (!topic) {
+      check.status = "skipped";
+      check.details.push("Skipped (topic schema invalid)");
+    } else {
+      let anyFailure = false;
+      for (const stateIdx in topic.states) {
+        const state = topic.states[stateIdx];
+        for (const [nodeId, node] of Object.entries(state.nodes)) {
+          const path = `states[${stateIdx}].nodes.${nodeId}`;
+
+          // keywords validation (optional — only when present)
+          if (node.keywords) {
+            const kw = node.keywords;
+
+            // Count check (zod already enforces 2-6, but this gives better messages)
+            if (kw.length < 2) {
+              check.details.push(`${path}.keywords: minimum 2 keywords required`);
+              anyFailure = true;
+            } else if (kw.length > 6) {
+              check.details.push(`${path}.keywords: maximum 6 keywords allowed, got ${kw.length}`);
+              anyFailure = true;
+            }
+
+            // Each keyword check
+            for (let i = 0; i < kw.length; i++) {
+              const k = kw[i];
+              if (k.length === 0) {
+                check.details.push(`${path}.keywords[${i}]: empty keyword`);
+                anyFailure = true;
+              }
+              if (k.length > 24) {
+                check.details.push(`${path}.keywords[${i}]: '${k}' exceeds 24 characters`);
+                anyFailure = true;
+              }
+              const wordCount = k.trim().split(/\s+/).length;
+              if (wordCount > 4) {
+                check.details.push(`${path}.keywords[${i}]: '${k}' has ${wordCount} words (max 4)`);
+                anyFailure = true;
+              }
+            }
+
+            // Duplicate check (case-insensitive)
+            const lowerKeywords = kw.map((k) => k.toLowerCase());
+            const seen = new Set<string>();
+            for (let i = 0; i < lowerKeywords.length; i++) {
+              if (seen.has(lowerKeywords[i])) {
+                check.details.push(`${path}.keywords[${i}]: duplicate keyword '${kw[i]}' (case-insensitive)`);
+                anyFailure = true;
+              }
+              seen.add(lowerKeywords[i]);
+            }
+          }
+
+          // periodSummary validation (optional — only when present)
+          if (node.periodSummary) {
+            const summary = node.periodSummary;
+            const wordCount = summary.trim().split(/\s+/).length;
+            if (wordCount < 10) {
+              check.details.push(`${path}.periodSummary: ${wordCount} words (minimum 10)`);
+              anyFailure = true;
+            }
+            if (wordCount > 40) {
+              check.details.push(`${path}.periodSummary: ${wordCount} words (maximum 40)`);
+              anyFailure = true;
+            }
+          }
+        }
+      }
+      if (anyFailure) {
+        check.status = "fail";
+        overallOk = false;
+      } else {
+        check.details.push("Keywords and periodSummary checks passed (or absent)");
+      }
+    }
+    checks.push(check);
+  }
+
   // ── Check (d): Manifest sync ─────────────────────────────────────────────
   if (input.schemaOnly || !input.manifest) {
     checks.push({

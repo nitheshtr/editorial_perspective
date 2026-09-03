@@ -25,17 +25,23 @@ WORKFLOW
 1. Read the topic JSON and article cache provided in the invocation.
 2. Cluster cached articles by semantic similarity of titles and descriptions;
    reuse existing storyCluster assignments before forming new clusters.
-3. Distinguish themes from arguments; identify candidate perspectives.
-4. Identify supporting and counterarguments per perspective.
-5. Count independence from story clusters (one cluster = one independent
+3. For each perspective × period, extract 4–6 dominant keywords (from that
+   period's cached article titles/descriptions; 1–4 words each, lowercase except
+   proper nouns) and write a one-sentence period summary (15–35 words) of what
+   that period's coverage is about. Emit them as `keywords` and `periodSummary`
+   proposals (path e.g. `states[2].nodes.Technology.keywords`), each with
+   cluster-ID evidence and a confidence value.
+4. Distinguish themes from arguments; identify candidate perspectives.
+5. Identify supporting and counterarguments per perspective.
+6. Count independence from story clusters (one cluster = one independent
    signal, regardless of republication count).
-6. Calculate metrics: sourceVolume, independentSignals, momentum, emergence,
+7. Calculate metrics: sourceVolume, independentSignals, momentum, emergence,
    editorialWeight, confidence (0-1 scales; SPECv4 Section 5.1).
-7. Assign one status per perspective: Dominant, Accelerating, Growing,
+8. Assign one status per perspective: Dominant, Accelerating, Growing,
    Cooling, Emerging, or Invisible.
-8. Compare current vs previous state; produce a structural change report.
-9. Suggest central-question evolution (8-15 words, action-oriented) and draft
-   a synthesis referencing at least 3 distinct perspectives.
+9. Compare current vs previous state; produce a structural change report.
+10. Suggest central-question evolution (8-15 words, action-oriented) and draft
+    a synthesis referencing at least 3 distinct perspectives.
 
 CONSTRAINTS
 - sourceVolume is DERIVED, never estimated: the pipeline syncs the current

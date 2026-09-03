@@ -39,7 +39,7 @@ describe("validateTopic", () => {
     });
     expect(report.ok).toBe(true);
     expect(report.checks.every((c) => c.status === "pass")).toBe(true);
-    expect(report.checks.length).toBe(4); // schema, source-resolve, licensing, manifest-sync
+    expect(report.checks.length).toBe(5); // schema, source-resolve, licensing, node-content, manifest-sync
   });
 
   // ── Unresolved source ID → fail ──────────────────────────────────────────
@@ -125,13 +125,12 @@ describe("validateTopic", () => {
       schemaOnly: true,
     });
     expect(report.ok).toBe(true);
-    for (const check of report.checks) {
-      if (check.name !== "schema") {
-        expect(check.status).toBe("skipped");
-      } else {
-        expect(check.status).toBe("pass");
-      }
-    }
+    // node-content is not cross-file — it validates data within the topic JSON
+    expect(report.checks.find((c) => c.name === "schema")?.status).toBe("pass");
+    expect(report.checks.find((c) => c.name === "source-resolve")?.status).toBe("skipped");
+    expect(report.checks.find((c) => c.name === "licensing")?.status).toBe("skipped");
+    expect(report.checks.find((c) => c.name === "manifest-sync")?.status).toBe("skipped");
+    expect(report.checks.find((c) => c.name === "node-content")?.status).toBe("pass");
   });
 
   // ── Missing articles cache → skipped source-resolve + licensing parts ───
@@ -182,5 +181,72 @@ describe("validateTopic", () => {
     expect(report.ok).toBe(true);
     const licCheck = report.checks.find((c) => c.name === "licensing");
     expect(licCheck?.details.some((d) => d.includes("not found in registry"))).toBe(true);
+  });
+
+  // ── Node content: valid keywords + periodSummary → pass ──────────────────
+
+  it("passes node-content check with valid keywords and periodSummary", async () => {
+    const topic = clone(VALID_TOPIC) as any;
+    topic.states[0].nodes.technology.keywords = ["ai", "machine learning", "automation"];
+    topic.states[0].nodes.technology.periodSummary = "This period covers the rapid growth of AI technologies across multiple sectors and industries.";
+    // 13 words ^
+
+    const report = await validateTopic({
+      topic,
+      schemaOnly: true,
+    });
+    expect(report.ok).toBe(true);
+    const ncCheck = report.checks.find((c) => c.name === "node-content");
+    expect(ncCheck?.status).toBe("pass");
+  });
+
+  // ── Node content: too many keywords → fail ───────────────────────────────
+
+  it("fails schema check when a node has more than 6 keywords (zod catches max(6))", async () => {
+    const topic = clone(VALID_TOPIC) as any;
+    topic.states[0].nodes.technology.keywords = [
+      "one", "two", "three", "four", "five", "six", "seven",
+    ];
+
+    const report = await validateTopic({
+      topic,
+      schemaOnly: true,
+    });
+    expect(report.ok).toBe(false);
+    const schemaCheck = report.checks.find((c) => c.name === "schema");
+    expect(schemaCheck?.status).toBe("fail");
+    expect(schemaCheck?.details.some((d) => d.includes("keywords"))).toBe(true);
+  });
+
+  // ── Node content: duplicate keyword → fail ───────────────────────────────
+
+  it("fails node-content check when keywords contain a duplicate (case-insensitive)", async () => {
+    const topic = clone(VALID_TOPIC) as any;
+    topic.states[0].nodes.technology.keywords = ["AI", "machine learning", "ai"];
+
+    const report = await validateTopic({
+      topic,
+      schemaOnly: true,
+    });
+    expect(report.ok).toBe(false);
+    const ncCheck = report.checks.find((c) => c.name === "node-content");
+    expect(ncCheck?.status).toBe("fail");
+    expect(ncCheck?.details.some((d) => d.includes("duplicate"))).toBe(true);
+  });
+
+  // ── Node content: too-short periodSummary → fail ─────────────────────────
+
+  it("fails node-content check when periodSummary has fewer than 10 words", async () => {
+    const topic = clone(VALID_TOPIC) as any;
+    topic.states[0].nodes.technology.periodSummary = "Too short."; // 2 words
+
+    const report = await validateTopic({
+      topic,
+      schemaOnly: true,
+    });
+    expect(report.ok).toBe(false);
+    const ncCheck = report.checks.find((c) => c.name === "node-content");
+    expect(ncCheck?.status).toBe("fail");
+    expect(ncCheck?.details.some((d) => d.includes("minimum 10"))).toBe(true);
   });
 });

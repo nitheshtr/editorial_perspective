@@ -286,7 +286,16 @@
             "emergence": 0,
             "confidence": 0.3,
             "status": "Emerging"
-          }
+          },
+          "keywords": [
+            "Ukraine",
+            "Brookings",
+            "Negotiation",
+            "war",
+            "Centre",
+            "Defence"
+          ],
+          "periodSummary": "Coverage this period centers on Ukraine, Brookings and Negotiation across 2 cataloged sources."
         },
         "Humanitarian Cost": {
           "position": {
@@ -379,7 +388,16 @@
             "emergence": 0,
             "confidence": 0.3,
             "status": "Emerging"
-          }
+          },
+          "keywords": [
+            "Russia",
+            "Ukraine",
+            "war",
+            "peace",
+            "Putin",
+            "Kremlin"
+          ],
+          "periodSummary": "Coverage this period centers on Russia, Ukraine and war across 3 cataloged sources."
         },
         "Diplomacy & Peace Talks": {
           "position": {

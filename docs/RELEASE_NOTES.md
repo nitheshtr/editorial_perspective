@@ -1,5 +1,47 @@
 # Release Notes
 
+## 2026-08-31 — Period keywords + summaries on the Perspective Evolution card
+
+- **Operator ask:** two new data elements — (1) the current-period (slider
+  position) theme/keywords summary of a perspective's articles, and (2) the
+  previous-period summary with a natural-language comparison of the two.
+  Design decision: NO new agent — extraction extends the Analysis Agent's
+  existing contract, the comparison prose extends the Writing Assistant's;
+  both flow through the existing proposal → approval → apply gate.
+- **Schema (additive, `schema/src/node.ts` + `proposal.ts`):** optional
+  `keywords` (2–6 items, each ≤4 words / 24 chars) and `periodSummary`
+  (10–40 words) on every perspective node; proposal kinds extended with
+  `keywords | periodSummary | changeNarrative`. `tools/validate-topic.ts`
+  gained a `node-content` check + 4 unit tests.
+- **Agent contracts:** `agents/analysis-agent.md` now extracts per
+  perspective × period keywords + one-sentence summary from that period's
+  cached articles (with cluster evidence); `agents/writing-assistant.md`
+  drafts `changeNarrative` proposals (1–2 sentence prev→current comparison)
+  and audits their quality.
+- **Emitter (`tools/generate-site.ts`):** timeline entries now emit
+  `keywords:[...]` and `summary:'...'` per perspective per period;
+  `changed` prefers an approved `changeNarrative` (threaded optional
+  `approvedChanges` map for the pipeline runner) before the existing
+  fallback chain.
+- **Deterministic seed (`scripts/seed-keywords.ts`):** conflict topics have
+  no Analysis run yet, so a no-LLM backfill buckets each cataloged source by
+  publish month into state windows and extracts 4–6 keywords (title tokens
+  weighted 2×, stopword-filtered, most frequent surface casing preserved —
+  CNN/GPT- stay acronymic) plus a template summary. 23 perspective-periods
+  seeded across 3 topics; thin buckets (<2 sources) left empty — the card
+  hides the rows. Placeholders are flagged for Analysis replacement in the
+  next editorial cycle; the seeder never overwrites non-template data.
+- **UI (timeline card, `src/index.html` + `main.css` + `app.js`):** PERIOD
+  SUMMARY (italic serif lead-in) above CURRENT THEME; PERIOD KEYWORDS chip
+  row under the theme, tinted with `--active-perspective-color` (read-only
+  list, aria-labelled, DOM-built for string safety). Both re-render from
+  `timeline[step]` — current period always equals the slider position — and
+  collapse without gaps when a period has no data.
+- Golden re-blessed (96137B) per Visual Fidelity Lock. Verified: tsc clean,
+  golden parity green, overlap audit ALL CLEAR, topic validation green
+  (incl. node-content), card screenshots on desktop + mobile for
+  ai-superrace and iran-conflict.
+
 ## 2026-08-31 — Descriptive "What Changed" in the Perspective Evolution card
 
 - **Operator feedback:** the "What Changed Since Prior Unit" line was a bare

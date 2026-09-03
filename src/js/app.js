@@ -329,7 +329,11 @@ function updateTimelineCard(){
   const pills=document.querySelectorAll('.perspective-pill');
   const insightCard=document.getElementById('insightCard');
   const insightHeader=document.getElementById('insightHeader');
+  const summarySection=document.getElementById('summarySection');
+  const summaryText=document.getElementById('summaryText');
   const themeText=document.getElementById('themeText');
+  const keywordsSection=document.getElementById('keywordsSection');
+  const keywordList=document.getElementById('keywordList');
   const changeText=document.getElementById('changeText');
 
   if(timeBadge){ timeBadge.textContent=data.label; timeBadge.style.color=activeColor; }
@@ -346,7 +350,20 @@ function updateTimelineCard(){
     insightHeader.style.color=activeColor;
     insightHeader.textContent=`${activePerspective.replace(/-/g,' ')} perspective`;
   }
+  if(summaryText) summaryText.textContent=perspectiveData.summary||'';
+  if(summarySection) summarySection.hidden=!perspectiveData.summary;
   if(themeText) themeText.textContent=perspectiveData.theme;
+  if(keywordList){
+    keywordList.innerHTML='';
+    const keywords=perspectiveData.keywords||[];
+    keywords.forEach(k=>{
+      const li=document.createElement('li');
+      li.className='keyword-chip';
+      li.textContent=k;
+      keywordList.appendChild(li);
+    });
+    if(keywordsSection) keywordsSection.hidden=keywords.length===0;
+  }
   if(changeText) changeText.textContent=perspectiveData.changed;
 }
 

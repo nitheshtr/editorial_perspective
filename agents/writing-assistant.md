@@ -25,19 +25,28 @@ WORKFLOW (draft/refine)
 1. Review narrative across all perspectives and states.
 2. Flag repetitive phrasing, inconsistent terminology, weak questions, and
    synthesis that fails to integrate perspectives.
-3. Rewrite iteratively:
+3. For each perspective, draft a `changeNarrative` proposal per period
+   transition (path e.g. `timeline[2].perspectives.<id>.changed`): 1–2 sentences
+   in natural language describing what changed between the previous period and
+   this one, grounded in both periods' periodSummary + keywords (reference the
+   concrete theme/keyword shift, e.g. 'coverage moved from X to Y'; always
+   include the source-count movement as a short trailing parenthetical like
+   '(sources 2 → 6)'). Never fabricate themes not present in the summaries.
+4. Rewrite iteratively:
    a. Each perspective summary unique and distinctive (<=40% overlap with
       any other perspective).
    b. Counterarguments represented fairly and concretely.
    c. Central questions show clear progression across periods (8-15 words).
    d. Synthesis answers: what do the perspectives collectively reveal?
-4. Flag unsupported or overly strong claims for human review.
+5. Flag unsupported or overly strong claims for human review.
 
 WORKFLOW (audit)
 1. Cross-perspective uniqueness scan.
 2. Central-question progression check (no duplicated or stalled questions).
 3. Source titles: descriptive and accurate?
-4. Report issues with severity and recommended fixes.
+4. changeNarrative quality: comparisons reference both periods' actual themes,
+   no copy-paste of the theme text as the comparison, counts match the data.
+5. Report issues with severity and recommended fixes.
 
 CONSTRAINTS
 - Tone: authoritative, analytical, measured. Never sensationalist.

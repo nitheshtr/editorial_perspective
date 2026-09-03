@@ -23,6 +23,8 @@ export const PerspectiveNode = z.object({
   opacity: z.number().min(0).max(1),
   mobile: MobileOverride.optional(),
   metrics: SemanticMetrics,
+  keywords: z.array(z.string().min(1).max(24)).min(2).max(6).optional(),
+  periodSummary: z.string().min(10).max(240).optional(),
 });
 
 export type PerspectiveNodeT = z.infer<typeof PerspectiveNode>;

@@ -227,10 +227,10 @@ export function resolveBlobOverlaps(s: TopicView["states"][number], names: strin
   }
 }
 
-export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>): string {
+export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>, approvedChanges?: Map<string, string>): string {
   const corpusReal = [...byId.values()].filter((s) => !s.url.includes("migrated.editorial.local")).length;
   const corpusLine = `const corpus={total:${byId.size},real:${corpusReal}};\n`;
-  const timeline = buildTimeline(topic);
+  const timeline = buildTimeline(topic, approvedChanges);
   const names = topic.perspectives.map((p) => p.name);
 
   // ---- category colors ----
@@ -327,7 +327,7 @@ export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>): 
   return corpusLine + timeline + states + nodeOrder + relations + categoryColors + perspectiveColors + perspectiveBodies + details;
 }
 
-function buildTimeline(topic: TopicView): string {
+function buildTimeline(topic: TopicView, approvedChanges?: Map<string, string>): string {
   const entries = topic.states.map((s, i) => {
     const prev = i > 0 ? topic.states[i - 1] : null;
     const perspectiveLines = topic.perspectives.map((p, pi) => {
@@ -335,20 +335,32 @@ function buildTimeline(topic: TopicView): string {
       const theme = q(p.bodies[i]);
       let changed: string;
       if (i === 0) {
-        changed = "Baseline period — initial snapshot of the conversation.";
+        // Approved narrative takes precedence even for the baseline.
+        const approved = approvedChanges?.get(p.id);
+        if (approved) {
+          changed = approved;
+        } else {
+          changed = "Baseline period — initial snapshot of the conversation.";
+        }
       } else {
         // Lead with the thematic shift; counts are secondary context.
         const prevBody = p.bodies[i - 1];
         const curBody = p.bodies[i];
-        // An authored per-period history step that differs from the current
-        // body is already a delta description — prefer it verbatim.
-        const historyStep = p.history?.[i];
-        if (historyStep && historyStep !== curBody) {
-          changed = historyStep;
-        } else if (prevBody === curBody) {
-          changed = "Theme unchanged from the prior period.";
+        // 1. Approved narrative overrides all automatic derivation.
+        const approved = approvedChanges?.get(p.id);
+        if (approved) {
+          changed = approved;
         } else {
-          changed = `Theme shift: "${prevBody}" → "${curBody}".`;
+          const historyStep = p.history?.[i];
+          // 2. An authored per-period history step that differs from the current
+          //    body is already a delta description — prefer it verbatim.
+          if (historyStep && historyStep !== curBody) {
+            changed = historyStep;
+          } else if (prevBody === curBody) {
+            changed = "Theme unchanged from the prior period.";
+          } else {
+            changed = `Theme shift: "${prevBody}" → "${curBody}".`;
+          }
         }
         // Demote the mechanical signal to a compact trailing stat.
         const cur = s.nodes[p.name].metrics.sourceVolume;
@@ -358,7 +370,16 @@ function buildTimeline(topic: TopicView): string {
         const statusPart = prevStatus !== status ? `${prevStatus} → ${status}` : status;
         changed += ` (Sources ${prevVol} → ${cur} · ${statusPart})`;
       }
-      return `    ${q(p.id)}:{theme:${theme},changed:${q(changed)}}${sep}`;
+      // Emit keywords + periodSummary defensively (schema lane may not have landed yet).
+      const nd = s.nodes[p.name];
+      // TODO: replace (nd as any) access with typed fields once schema/src/* lands
+      const rawKeywords = (nd as any).keywords;
+      const keywordsStr = Array.isArray(rawKeywords)
+        ? `keywords:[${rawKeywords.map((k: string) => q(k)).join(",")}]`
+        : "keywords:[]";
+      const rawSummary = (nd as any).periodSummary;
+      const summaryStr = `summary:${rawSummary ? q(rawSummary) : "''"}`;
+      return `    ${q(p.id)}:{theme:${theme},changed:${q(changed)},${keywordsStr},${summaryStr}}${sep}`;
     });
     return [
       "  {",
@@ -468,7 +489,7 @@ export interface GenerateInputs {
   appJs: string;
 }
 
-export function generateHtml(inputs: GenerateInputs): string {
+export function generateHtml(inputs: GenerateInputs, approvedChanges?: Map<string, string>): string {
   const byId = new Map<string, SourceLite>(
     inputs.articles.articles.map((a) => [a.id, { publisher: a.publisher, title: a.title, description: a.description, url: a.url }]),
   );
@@ -479,7 +500,7 @@ export function generateHtml(inputs: GenerateInputs): string {
     .replace("<!--__TOPIC_HEADER__-->", () => buildTopicHeader(inputs.topic))
     .replace("<!--__MAP__-->", () => buildMap(inputs.topic))
     .replace("<!--__TIMELINE_PILLS__-->", () => buildTimelinePills(inputs.topic))
-    .replace("/*__DATA__*/", () => emitDataBlock(inputs.topic, byId))
+    .replace("/*__DATA__*/", () => emitDataBlock(inputs.topic, byId, approvedChanges))
     .replace("/*__APP__*/", () => inputs.appJs);
 }
 
@@ -492,12 +513,12 @@ export function loadAssets(root: string) {
   };
 }
 
-export function generateHtmlFromFile(slug: string, root = process.cwd()): string {
+export function generateHtmlFromFile(slug: string, root = process.cwd(), approvedChanges?: Map<string, string>): string {
   const topic = JSON.parse(readFileSync(join(root, "data/topics", `${slug}.json`), "utf8")) as TopicView;
   const articles = JSON.parse(
     readFileSync(join(root, "data/articles/articles_cache.json"), "utf8"),
   ) as ArticleCacheView;
-  return generateHtml({ topic, articles, ...loadAssets(root) });
+  return generateHtml({ topic, articles, ...loadAssets(root) }, approvedChanges);
 }
 
 function firstDiff(a: string, b: string): number {

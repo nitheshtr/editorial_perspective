@@ -121,7 +121,16 @@
             "emergence": 0,
             "confidence": 0.3,
             "status": "Emerging"
-          }
+          },
+          "keywords": [
+            "Iran",
+            "attacks",
+            "Policy",
+            "world",
+            "Regional",
+            "consequences"
+          ],
+          "periodSummary": "Coverage this period centers on Iran, attacks and Policy across 3 cataloged sources."
         }
       }
     },
@@ -265,7 +274,16 @@
             "confidence": 0.75,
             "status": "Accelerating",
             "sourceVolume": 2
-          }
+          },
+          "keywords": [
+            "Iran",
+            "nuclear",
+            "strikes",
+            "Israeli",
+            "Global",
+            "Iranian"
+          ],
+          "periodSummary": "Coverage this period centers on Iran, nuclear and strikes across 3 cataloged sources."
         },
         "Diplomacy & Nuclear File": {
           "position": {
@@ -286,7 +304,16 @@
             "confidence": 0.7,
             "status": "Growing",
             "sourceVolume": 2
-          }
+          },
+          "keywords": [
+            "Iran",
+            "nuclear",
+            "returns",
+            "diplomacy",
+            "Escalation",
+            "israel-iran"
+          ],
+          "periodSummary": "Coverage this period centers on Iran, nuclear and returns across 2 cataloged sources."
         },
         "Sanctions & Economy": {
           "position": {
@@ -349,7 +376,16 @@
             "confidence": 0.5,
             "status": "Emerging",
             "sourceVolume": 0
-          }
+          },
+          "keywords": [
+            "Iran",
+            "Proxy",
+            "Gulf",
+            "Model",
+            "Axis",
+            "Backward"
+          ],
+          "periodSummary": "Coverage this period centers on Iran, Proxy and Gulf across 4 cataloged sources."
         }
       }
     },
@@ -379,7 +415,16 @@
             "emergence": 0,
             "confidence": 0.3,
             "status": "Emerging"
-          }
+          },
+          "keywords": [
+            "Iran",
+            "American",
+            "bases",
+            "CNN",
+            "Jordan",
+            "Politics"
+          ],
+          "periodSummary": "Coverage this period centers on Iran, American and bases across 2 cataloged sources."
         },
         "Diplomacy & Nuclear File": {
           "position": {
@@ -421,7 +466,16 @@
             "emergence": 0,
             "confidence": 0.3,
             "status": "Emerging"
-          }
+          },
+          "keywords": [
+            "Iran",
+            "sanctions",
+            "economic",
+            "pressure",
+            "Exports",
+            "countries"
+          ],
+          "periodSummary": "Coverage this period centers on Iran, sanctions and economic across 5 cataloged sources."
         },
         "Society & Human Cost": {
           "position": {
@@ -442,7 +496,16 @@
             "emergence": 0,
             "confidence": 0.3,
             "status": "Emerging"
-          }
+          },
+          "keywords": [
+            "Iran",
+            "war",
+            "CNN",
+            "decide",
+            "divided",
+            "ends"
+          ],
+          "periodSummary": "Coverage this period centers on Iran, war and CNN across 4 cataloged sources."
         },
         "Regional Dynamics": {
           "position": {

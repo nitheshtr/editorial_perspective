@@ -98,7 +98,16 @@
             "emergence": 0.5,
             "confidence": 0.5,
             "status": "Growing"
-          }
+          },
+          "keywords": [
+            "Infrastructure",
+            "Race",
+            "global",
+            "Home",
+            "Big",
+            "Capital"
+          ],
+          "periodSummary": "Coverage this period centers on Infrastructure, Race and global across 3 cataloged sources."
         },
         "Economics": {
           "position": {
@@ -189,7 +198,16 @@
             "emergence": 0.5,
             "confidence": 0.5,
             "status": "Cooling"
-          }
+          },
+          "keywords": [
+            "Model",
+            "Frontier",
+            "GPT-",
+            "Google",
+            "tech",
+            "Back"
+          ],
+          "periodSummary": "Coverage this period centers on Model, Frontier and GPT- across 3 cataloged sources."
         },
         "Platform": {
           "position": {
@@ -216,7 +234,16 @@
             "emergence": 0.5,
             "confidence": 0.5,
             "status": "Accelerating"
-          }
+          },
+          "keywords": [
+            "Council",
+            "Foreign",
+            "Relations",
+            "intelligence",
+            "artificial",
+            "China"
+          ],
+          "periodSummary": "Coverage this period centers on Council, Foreign and Relations across 6 cataloged sources."
         },
         "Infrastructure": {
           "position": {
@@ -243,7 +270,16 @@
             "emergence": 0.5,
             "confidence": 0.5,
             "status": "Accelerating"
-          }
+          },
+          "keywords": [
+            "center",
+            "data",
+            "infrastructure",
+            "Power",
+            "Growth",
+            "Problem"
+          ],
+          "periodSummary": "Coverage this period centers on center, data and infrastructure across 2 cataloged sources."
         },
         "Economics": {
           "position": {
@@ -270,7 +306,16 @@
             "emergence": 0.5,
             "confidence": 0.5,
             "status": "Growing"
-          }
+          },
+          "keywords": [
+            "Agents",
+            "bubble",
+            "deciphering",
+            "economic",
+            "phenomenon",
+            "playbook"
+          ],
+          "periodSummary": "Coverage this period centers on Agents, bubble and deciphering across 5 cataloged sources."
         },
         "Human Impact": {
           "position": {
@@ -298,7 +343,16 @@
             "emergence": 0.5,
             "confidence": 0.5,
             "status": "Emerging"
-          }
+          },
+          "keywords": [
+            "Job",
+            "deepseek",
+            "Antitrust",
+            "Apple",
+            "CAISI",
+            "Gemini"
+          ],
+          "periodSummary": "Coverage this period centers on Job, deepseek and Antitrust across 6 cataloged sources."
         }
       }
     },
@@ -334,7 +388,16 @@
             "editorialWeight": 0.4,
             "confidence": 0.7,
             "status": "Cooling"
-          }
+          },
+          "keywords": [
+            "models",
+            "Race",
+            "Cloud",
+            "foundation",
+            "Nebius",
+            "Self-improving"
+          ],
+          "periodSummary": "Coverage this period centers on models, Race and Cloud across 5 cataloged sources."
         },
         "Platform": {
           "position": {
@@ -361,7 +424,16 @@
             "editorialWeight": 0.9,
             "confidence": 0.9,
             "status": "Dominant"
-          }
+          },
+          "keywords": [
+            "Council",
+            "Foreign",
+            "Relations",
+            "agent",
+            "PODCAST",
+            "war"
+          ],
+          "periodSummary": "Coverage this period centers on Council, Foreign and Relations across 4 cataloged sources."
         },
         "Infrastructure": {
           "position": {
@@ -415,7 +487,16 @@
             "editorialWeight": 0.7,
             "confidence": 0.75,
             "status": "Accelerating"
-          }
+          },
+          "keywords": [
+            "agents",
+            "Autorit",
+            "commoditization",
+            "competitive",
+            "compute",
+            "concurrence"
+          ],
+          "periodSummary": "Coverage this period centers on agents, Autorit and commoditization across 3 cataloged sources."
         },
         "Human Impact": {
           "position": {
@@ -478,7 +559,16 @@
             "editorialWeight": 0.4,
             "confidence": 0.7,
             "status": "Cooling"
-          }
+          },
+          "keywords": [
+            "data",
+            "Foundation",
+            "models",
+            "China",
+            "enterprise",
+            "race"
+          ],
+          "periodSummary": "Coverage this period centers on data, Foundation and models across 23 cataloged sources."
         },
         "Platform": {
           "position": {
@@ -505,7 +595,16 @@
             "editorialWeight": 0.9,
             "confidence": 0.9,
             "status": "Dominant"
-          }
+          },
+          "keywords": [
+            "agents",
+            "Brookings",
+            "Default",
+            "Agentic",
+            "Brand",
+            "chatgpt"
+          ],
+          "periodSummary": "Coverage this period centers on agents, Brookings and Default across 8 cataloged sources."
         },
         "Infrastructure": {
           "position": {
@@ -532,7 +631,16 @@
             "editorialWeight": 0.75,
             "confidence": 0.85,
             "status": "Accelerating"
-          }
+          },
+          "keywords": [
+            "Data",
+            "Infrastructure",
+            "Race",
+            "Center",
+            "centers",
+            "Global"
+          ],
+          "periodSummary": "Coverage this period centers on Data, Infrastructure and Race across 10 cataloged sources."
         },
         "Economics": {
           "position": {
@@ -559,7 +667,16 @@
             "editorialWeight": 0.7,
             "confidence": 0.75,
             "status": "Accelerating"
-          }
+          },
+          "keywords": [
+            "Digital",
+            "Travel",
+            "Artificial",
+            "intelligence",
+            "Models",
+            "Economic"
+          ],
+          "periodSummary": "Coverage this period centers on Digital, Travel and Artificial across 7 cataloged sources."
         },
         "Human Impact": {
           "position": {
@@ -586,7 +703,16 @@
             "editorialWeight": 0.65,
             "confidence": 0.8,
             "status": "Growing"
-          }
+          },
+          "keywords": [
+            "Brookings",
+            "future",
+            "jobs",
+            "work",
+            "artificial",
+            "intelligence"
+          ],
+          "periodSummary": "Coverage this period centers on Brookings, future and jobs across 10 cataloged sources."
         }
       }
     }

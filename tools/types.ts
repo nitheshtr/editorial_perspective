@@ -82,7 +82,7 @@ export interface RelationView {
 export interface TimelineEntryView {
   label: string;
   headline: string;
-  perspectives: Record<string, { theme: string; changed: string }>;
+  perspectives: Record<string, { theme: string; changed: string; keywords: string[]; summary: string }>;
 }
 
 export interface TopicView {
