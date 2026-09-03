@@ -337,10 +337,26 @@ function buildTimeline(topic: TopicView): string {
       if (i === 0) {
         changed = "Baseline period — initial snapshot of the conversation.";
       } else {
+        // Lead with the thematic shift; counts are secondary context.
+        const prevBody = p.bodies[i - 1];
+        const curBody = p.bodies[i];
+        // An authored per-period history step that differs from the current
+        // body is already a delta description — prefer it verbatim.
+        const historyStep = p.history?.[i];
+        if (historyStep && historyStep !== curBody) {
+          changed = historyStep;
+        } else if (prevBody === curBody) {
+          changed = "Theme unchanged from the prior period.";
+        } else {
+          changed = `Theme shift: "${prevBody}" → "${curBody}".`;
+        }
+        // Demote the mechanical signal to a compact trailing stat.
         const cur = s.nodes[p.name].metrics.sourceVolume;
         const prevVol = prev!.nodes[p.name].metrics.sourceVolume;
         const status = s.nodes[p.name].metrics.status;
-        changed = `Sources ${cur >= prevVol ? "rose" : "fell"} from ${prevVol} to ${cur}. Status: ${status}.`;
+        const prevStatus = prev!.nodes[p.name].metrics.status;
+        const statusPart = prevStatus !== status ? `${prevStatus} → ${status}` : status;
+        changed += ` (Sources ${prevVol} → ${cur} · ${statusPart})`;
       }
       return `    ${q(p.id)}:{theme:${theme},changed:${q(changed)}}${sep}`;
     });

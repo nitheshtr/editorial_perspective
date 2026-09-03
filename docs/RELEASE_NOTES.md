@@ -1,5 +1,26 @@
 # Release Notes
 
+## 2026-08-31 — Descriptive "What Changed" in the Perspective Evolution card
+
+- **Operator feedback:** the "What Changed Since Prior Unit" line was a bare
+  mechanical stat ("Sources rose from 2 to 6. Status: Emerging.") with no
+  description of the keyword/theme change between periods.
+- **Emitter fix (`tools/generate-site.ts`, `buildTimeline()`):** the change
+  line now leads with the thematic shift:
+  1. If the perspective has an authored per-period `history[i]` step that
+     differs from the current body, it is used verbatim (it is already a
+     delta description — e.g. AI Technology's "Agents and product integration
+     begin to rival raw capability").
+  2. Otherwise the prior→current theme shift is quoted explicitly:
+     `Theme shift: "<prev body>" → "<current body>".`
+  3. Unchanged bodies render `Theme unchanged from the prior period.`
+  4. The mechanical signal is demoted to a compact trailing stat:
+     `(Sources 2 → 6 · Accelerating → Emerging)` — status shown as a
+     transition only when it actually changed.
+- Golden re-blessed (91615B) per Visual Fidelity Lock. Verified: tsc clean,
+  golden parity green, overlap audit ALL CLEAR, topic validation green, and
+  the rendered card screenshot shows the descriptive change text.
+
 ## 2026-08-31 — Map blob organic-shape + legibility fix (follow-up)
 
 - **Root cause:** the original organic `border-radius` values (40–57% corner
