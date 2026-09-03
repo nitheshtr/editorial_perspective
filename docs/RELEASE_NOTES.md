@@ -5,30 +5,62 @@
 - **Root cause:** the original organic `border-radius` values (40–57% corner
   radii) cut too far into the bubble, so even `padding:22px 24px` could not
   keep the first glyphs of perspective names inside the clip shape; at the
-  floor sizes the body text also overflowed the bottom edge.
+  floor sizes the body text also overflowed the bottom edge. A subsequent
+  review found the trend badge was still clipped by the top-right curve and
+  the larger floor sizes increased blob overlap.
 - **Emitter fix (`tools/generate-site.ts`):**
   - Raised blob size floors to `Math.max(w,30)` / `Math.max(h,28)` to give
-    long editorial titles and bodies enough room.
+    long editorial titles and bodies enough room. Lower floors were tested
+    but reintroduced clipping at tablet/mobile, so 30/28 is kept as the
+    minimum viable safe size.
   - Added `softenBorderRadius()` which compresses emitted corner percentages
     toward a safer 22–40% band using `round(25 + (v-25)*0.5)`; the topic JSON
     keeps the original organic values, so the rendered bubbles stay organic
     but no longer clip content.
+  - Added `resolveBlobOverlaps()` with a radial nudge pass
+    (`nudgeBoxesApart()`): overlapping blob rects are pushed apart along the
+    line connecting their centers across up to 12 iterations, then clamped to
+    `[0,100]` bounds. Positions are rounded to one decimal place. The nudge is
+    applied uniformly to all timeline states so the scrub animation stays
+    coherent.
+  - Added a central-topic-circle keep-out to the resolver
+    (`pushOutFromCenter()`): the circle paints above every blob (z 20), so the
+    nudge pass could previously push a blob (Iran: Sanctions & Economy) under
+    it and hide its text. Blobs are now pushed radially out of the circle's
+    inflated ellipse (desktop 190px ≈ 8.5%×12.8% at map center; mobile variant
+    at top:72%), alternating with the blob-blob pass until stable.
+  - Added `scripts/check-blob-overlaps.ts` — numeric audit over every state of
+    every topic asserting no blob-blob overlap > 0.5% and no center-circle
+    intrusion (run: `bun scripts/check-blob-overlaps.ts`).
 - **CSS fix (`src/css/main.css`):**
   - Kept `border-radius:var(--br)` so each blob uses the emitted softened
     organic shape.
   - Rebalanced padding to `26px 24px` (desktop) and `20px` (mobile) with a
     mobile `min-height:260px` guard so content clears the corners and the
     bottom edge.
+  - Moved `.blob .trend` out of absolute positioning and into the flex flow
+    with `align-self:flex-end`, so the badge sits inside the padding box and
+    cannot be clipped by any corner curve. The DOMINANT dark-pill variant
+    keeps its pill styling.
+  - Added a prominence-based z-index stack for blobs: Dominant >
+    Accelerating/Growing > Emerging/Cooling, tie-broken by source volume.
+    Each blob exposes `--z` (set in emitted HTML and updated by
+    `src/js/app.js` per state), so editorially larger blobs paint on top and
+    their text/badge are not occluded by neighbors. `.center` raised to
+    `z-index:20` and `.change-sheet` to `z-index:30` so the center and modal
+    stay above the stacked blobs; hovered/focused blobs pop to `z-index:25`.
   - Removed `.blob p` `max-width:230px` so bodies use the full safe content
     width and wrap to fewer lines.
   - Tightened line-heights and vertical margins to keep multi-line bodies
-    inside the box with ≥10px slack at floor sizes.
-  - Adjusted `.blob .trend` offsets to stay inside the new padding.
+    inside the box with slack.
 - **Golden re-blessed** for ai-superrace per Visual Fidelity Lock (intentional
-  CSS + emitter change). Verified via headless Chrome screenshots at
-  1280×1000, 850×900, and 375×900 for ai-superrace, iran-conflict, and
-  russia-ukraine; every blob shows full h3 text, full body, full
-  "N SOURCES →" link, and fully contained trend badges.
+  CSS + emitter + JS change). Verified via headless Chrome screenshots at
+  1280×1000, 800×900, and 375×900 for ai-superrace, iran-conflict, and
+  russia-ukraine; every visible blob shows full h3 text, full body, full
+  "N SOURCES →" link, and fully contained trend badges with no neighbor
+  occlusion. Bounding-box analysis shows only sub-6% × 1.2% diagonal corner
+  slivers remain on Iran/Russia-Ukraine; these sit in the heavily rounded
+  background corners and do not cover any text or badges.
 
 ## 2026-08-31 — Map blob overflow fix for conflict topics
 

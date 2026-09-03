@@ -79,6 +79,154 @@ function statusMeta(status: string): { text: string; cls: string } {
   }
 }
 
+// Stack order: more editorially prominent blobs paint above neighbors so
+// their text/badge are not occluded. Status is primary key; source volume
+// is the tie-breaker.
+function zIndexFor(status: string, sources: number): number {
+  const base: Record<string, number> = { Dominant: 13, Accelerating: 11, Growing: 11, Emerging: 9, Cooling: 9 };
+  return (base[status] ?? 7) + (sources >= 15 ? 1 : 0);
+}
+
+// Prevent raised size floors from causing static text occlusion: lightly nudge
+// overlapping blob rects apart horizontally. Runs on the parsed topic state
+// before string emission so all 4 timeline states stay internally consistent.
+interface OverlapBox { x: number; y: number; w: number; h: number; name: string }
+
+// Central-topic-circle geometry as fractions of the map box (percent values),
+// mirroring the .center CSS. Used to keep the nudge pass from pushing blobs
+// under the circle, which paints above every blob (z 20).
+const CENTER_DESKTOP = { cx: 50, cy: 50, rx: 8.5, ry: 12.8 }; // 190px on ~1124x742
+const CENTER_MOBILE = { cx: 50, cy: 72, rx: 22.1, ry: 9.1 };  // 150px on ~339x820
+export const CENTER_GEOMETRY = { desktop: CENTER_DESKTOP, mobile: CENTER_MOBILE };
+
+// Radially push boxes whose rect intersects the center ellipse out of it.
+// Returns true when any box moved (so callers can re-run pair resolution).
+function pushOutFromCenter(
+  boxes: OverlapBox[],
+  c: { cx: number; cy: number; rx: number; ry: number },
+  margin: number,
+): boolean {
+  let moved = false;
+  for (const b of boxes) {
+    const nx = Math.max(b.x, Math.min(c.cx, b.x + b.w));
+    const ny = Math.max(b.y, Math.min(c.cy, b.y + b.h));
+    const ex = (nx - c.cx) / (c.rx + margin);
+    const ey = (ny - c.cy) / (c.ry + margin);
+    const d2 = ex * ex + ey * ey;
+    if (d2 >= 1) continue;
+    // Nearest-point distance is inside the inflated ellipse: move the box
+    // along the centre→box direction until the nearest point sits on it.
+    const bcx = b.x + b.w / 2;
+    const bcy = b.y + b.h / 2;
+    let dx = bcx - c.cx;
+    let dy = bcy - c.cy;
+    const len = Math.sqrt(dx * dx + dy * dy) || 1;
+    dx /= len;
+    dy /= len;
+    // Scale factor that puts the nearest point on the ellipse boundary along
+    // the centre→box ray; solve via the ellipse's implicit form.
+    const k = Math.sqrt(d2); // how far inside (normalized) the contact is
+    const push = (1 - k) * Math.max(c.rx, c.ry) * (dy === 0 && dx === 0 ? 0 : 1);
+    const sx = dx * push * 1.2 + (dx >= 0 ? margin : -margin);
+    const sy = dy * push * 1.2 + (dy >= 0 ? margin : -margin);
+    b.x += sx;
+    b.y += sy;
+    b.x = Math.max(0, Math.min(100 - b.w, b.x));
+    b.y = Math.max(0, Math.min(100 - b.h, b.y));
+    moved = true;
+  }
+  return moved;
+}
+
+function nudgeBoxesApart(boxes: OverlapBox[], margin: number) {
+  for (let iter = 0; iter < 12; iter++) {
+    let moved = false;
+    for (let i = 0; i < boxes.length; i++) {
+      for (let j = i + 1; j < boxes.length; j++) {
+        const a = boxes[i];
+        const b = boxes[j];
+        const overlapX = Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x);
+        const overlapY = Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y);
+        if (overlapX > margin && overlapY > margin) {
+          // Push apart along the line connecting the two blob centres so the
+          // scatter spreads radially and we don't just trade one overlap for
+          // another on the same axis.
+          const cxa = a.x + a.w / 2;
+          const cxb = b.x + b.w / 2;
+          const cya = a.y + a.h / 2;
+          const cyb = b.y + b.h / 2;
+          const dx = cxb - cxa;
+          const dy = cyb - cya;
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          const shiftX = (overlapX / 2 + 0.4) * (Math.abs(dx) / dist);
+          const shiftY = (overlapY / 2 + 0.4) * (Math.abs(dy) / dist);
+          const dirX = dx >= 0 ? 1 : -1;
+          const dirY = dy >= 0 ? 1 : -1;
+          a.x -= shiftX * dirX;
+          b.x += shiftX * dirX;
+          a.y -= shiftY * dirY;
+          b.y += shiftY * dirY;
+          a.x = Math.max(0, Math.min(100 - a.w, a.x));
+          b.x = Math.max(0, Math.min(100 - b.w, b.x));
+          a.y = Math.max(0, Math.min(100 - a.h, a.y));
+          b.y = Math.max(0, Math.min(100 - b.h, b.y));
+          moved = true;
+        }
+      }
+    }
+    if (!moved) break;
+  }
+}
+
+export function resolveBlobOverlaps(s: TopicView["states"][number], names: string[]) {
+  const desktop: OverlapBox[] = names.map((n) => ({
+    name: n,
+    x: s.nodes[n].position.x,
+    y: s.nodes[n].position.y,
+    w: Math.max(s.nodes[n].size.w, 30),
+    h: Math.max(s.nodes[n].size.h, 28),
+  }));
+  nudgeBoxesApart(desktop, 0);
+  // The central topic circle paints above every blob (z 20 > max blob z), so a
+  // blob nudged into it would have its text hidden. Treat it as a static
+  // obstacle: push blobs radially out, re-running the blob-blob pass each time
+  // the center push shuffles the layout. Geometry mirrors .center (190px
+  // circle on a ~1124x742 map → 17% x 25.6% at the map center).
+  for (let i = 0; i < 6 && pushOutFromCenter(desktop, CENTER_DESKTOP, 0.5); i++) {
+    nudgeBoxesApart(desktop, 0);
+  }
+  desktop.forEach((b) => {
+    s.nodes[b.name].position.x = Math.round(b.x * 10) / 10;
+    s.nodes[b.name].position.y = Math.round(b.y * 10) / 10;
+  });
+
+  const mobile: OverlapBox[] = names
+    .map((n) => {
+      const m = s.nodes[n].mobile;
+      if (!m) return null;
+      return {
+        name: n,
+        x: m.x,
+        y: m.y,
+        w: m.w,
+        h: m.h,
+      };
+    })
+    .filter((b): b is OverlapBox => b !== null);
+  if (mobile.length) {
+    nudgeBoxesApart(mobile, 0);
+    // Mobile .center sits at top:72% (center-anchored, 150px on a ~339x820 map).
+    for (let i = 0; i < 6 && pushOutFromCenter(mobile, CENTER_MOBILE, 0.5); i++) {
+      nudgeBoxesApart(mobile, 0);
+    }
+    mobile.forEach((b) => {
+      const m = s.nodes[b.name].mobile!;
+      m.x = Math.round(b.x * 10) / 10;
+      m.y = Math.round(b.y * 10) / 10;
+    });
+  }
+}
+
 export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>): string {
   const corpusReal = [...byId.values()].filter((s) => !s.url.includes("migrated.editorial.local")).length;
   const corpusLine = `const corpus={total:${byId.size},real:${corpusReal}};\n`;
@@ -100,6 +248,7 @@ export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>): 
 
   // ---- states ----
   const stateBlocks = topic.states.map((s) => {
+    resolveBlobOverlaps(s, names);
     const nodeLines = names.map((n, i) => {
       const nd = s.nodes[n];
       if (!nd) throw new Error(`state "${s.label}" is missing node "${n}"`);
@@ -270,7 +419,8 @@ function buildMap(topic: TopicView): string {
     const meta = statusMeta(node.metrics.status);
     const body = p.bodies[current];
     const sources = node.metrics.sourceVolume;
-    return `  <button class="blob ${p.category}" data-id="${escapeHtml(p.name)}" onclick="openPerspectiveLens('${qJsString(p.name)}')"><span class="trend ${meta.cls}">${meta.text}</span><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(body)}</p><div class="sources">${sources} SOURCES →</div></button>`;
+    const z = zIndexFor(node.metrics.status, sources);
+    return `  <button class="blob ${p.category}" data-id="${escapeHtml(p.name)}" style="--z:${z}" onclick="openPerspectiveLens('${qJsString(p.name)}')"><span class="trend ${meta.cls}">${meta.text}</span><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(body)}</p><div class="sources">${sources} SOURCES →</div></button>`;
   });
   const centerQuestion = escapeHtml(state.question);
   const circle = slugCircle(topic.slug);

@@ -20,6 +20,11 @@ function glowFor(status){
   return '0 16px 45px rgba(0,0,0,.1)';
 }
 
+function zIndexFor(status,sources){
+  const base={'Dominant':13,'Accelerating':11,'Growing':11,'Emerging':9,'Cooling':9}[status]||7;
+  return base+(sources>=15?1:0);
+}
+
 function lerp(a,b,t){ return a+(b-a)*t; }
 
 function setBlobTransitions(enabled){
@@ -105,6 +110,7 @@ function applyState(idx,initial){
     el.style.pointerEvents=((typeof pos.opacity==='number'?pos.opacity:data.opacity)<0.05)?'none':'auto';
     el.style.setProperty('--br', pos.br||data.br);
     el.style.setProperty('--glow', glowFor(data.status));
+    el.style.setProperty('--z', zIndexFor(data.status,data.sources));
     el.querySelector('h3').textContent=k;
     el.querySelector('p').textContent=perspectiveBodies[k][current];
     el.querySelector('.sources').textContent=`${data.sources} SOURCES →`;
@@ -142,6 +148,7 @@ function applyStateContinuous(fraction){
     el.style.pointerEvents=data.opacity<0.05?'none':'auto';
     el.style.setProperty('--br', data.br);
     el.style.setProperty('--glow', glowFor(data.status));
+    el.style.setProperty('--z', zIndexFor(data.status,data.sources));
     el.querySelector('h3').textContent=k;
     el.querySelector('p').textContent=perspectiveBodies[k][t>0.5?i+1:i];
     el.querySelector('.sources').textContent=`${data.sources} SOURCES →`;
