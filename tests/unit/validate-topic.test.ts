@@ -39,7 +39,7 @@ describe("validateTopic", () => {
     });
     expect(report.ok).toBe(true);
     expect(report.checks.every((c) => c.status === "pass")).toBe(true);
-    expect(report.checks.length).toBe(5); // schema, source-resolve, licensing, node-content, manifest-sync
+    expect(report.checks.length).toBe(6); // schema, source-resolve, licensing, node-content, manifest-sync, arguments
   });
 
   // ── Unresolved source ID → fail ──────────────────────────────────────────
@@ -131,6 +131,7 @@ describe("validateTopic", () => {
     expect(report.checks.find((c) => c.name === "licensing")?.status).toBe("skipped");
     expect(report.checks.find((c) => c.name === "manifest-sync")?.status).toBe("skipped");
     expect(report.checks.find((c) => c.name === "node-content")?.status).toBe("pass");
+    expect(report.checks.find((c) => c.name === "arguments")?.status).toBe("pass");
   });
 
   // ── Missing articles cache → skipped source-resolve + licensing parts ───
@@ -248,5 +249,61 @@ describe("validateTopic", () => {
     const ncCheck = report.checks.find((c) => c.name === "node-content");
     expect(ncCheck?.status).toBe("fail");
     expect(ncCheck?.details.some((d) => d.includes("minimum 10"))).toBe(true);
+  });
+
+  // ── Arguments: valid arguments → pass ────────────────────────────────────
+
+  it("passes arguments check with valid argument groups", async () => {
+    const topic = clone(VALID_TOPIC) as any;
+    topic.perspectives[0].arguments = [
+      { id: "arg-regulation", statement: "Regulatory frameworks are tightening across major markets.", momentum: "up", sources: ["source-001"] },
+      { id: "arg-innovation", statement: "Private sector innovation continues to outpace policy development.", momentum: "down", sources: ["source-002"] },
+    ];
+
+    const report = await validateTopic({
+      topic,
+      schemaOnly: true,
+    });
+    expect(report.ok).toBe(true);
+    const argCheck = report.checks.find((c) => c.name === "arguments");
+    expect(argCheck?.status).toBe("pass");
+  });
+
+  // ── Arguments: orphan source ID → fail ──────────────────────────────────
+
+  it("fails arguments check when an argument sources a source not in the perspective", async () => {
+    const topic = clone(VALID_TOPIC) as any;
+    topic.perspectives[0].arguments = [
+      { id: "arg-rule", statement: "New rules will reshape the landscape significantly.", momentum: "up", sources: ["source-001"] },
+      { id: "arg-unknown", statement: "Unknown source used in this argument context.", momentum: "up", sources: ["source-999"] },
+    ];
+
+    const report = await validateTopic({
+      topic,
+      schemaOnly: true,
+    });
+    expect(report.ok).toBe(false);
+    const argCheck = report.checks.find((c) => c.name === "arguments");
+    expect(argCheck?.status).toBe("fail");
+    expect(argCheck?.details.some((d) => d.includes("not in perspective's sources"))).toBe(true);
+  });
+
+  // ── Arguments: duplicate argument id → fail ──────────────────────────────
+
+  it("fails arguments check when argument ids are duplicated within a perspective", async () => {
+    const topic = clone(VALID_TOPIC) as any;
+    topic.perspectives[0].arguments = [
+      { id: "arg-duplicate", statement: "First argument with a unique statement.", momentum: "up", sources: ["source-001"] },
+      { id: "arg-duplicate", statement: "Second argument sharing the same id.", momentum: "down", sources: ["source-002"] },
+    ];
+
+    const report = await validateTopic({
+      topic,
+      schemaOnly: true,
+    });
+    expect(report.ok).toBe(false);
+    const argCheck = report.checks.find((c) => c.name === "arguments");
+    expect(argCheck?.status).toBe("fail");
+    expect(argCheck?.details.some((d) => d.includes("duplicate"))).toBe(true);
   });
 });

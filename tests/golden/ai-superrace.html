@@ -80,7 +80,40 @@ nav{display:flex;gap:5px;margin:30px 0 10px;padding-bottom:12px;border-bottom:1p
 .lens-close{position:absolute;top:16px;right:16px;width:34px;height:34px;border:0;border-radius:50%;background:#f1f1f3;font-size:20px;cursor:pointer}
 .lens-eyebrow{font-size:10px;letter-spacing:1.2px;color:var(--blue);font-weight:800;text-transform:uppercase}
 .lens-title{font-size:32px;letter-spacing:-1px;margin:6px 0 16px}
-.lens-summary{font-size:14px;line-height:1.5;color:var(--muted);margin-bottom:22px}
+.lens-summary{font-size:15px;line-height:1.55;color:var(--ink);margin-bottom:10px;font-weight:500}
+.lens-changed{font-size:13px;line-height:1.5;color:var(--muted);font-style:italic;margin-bottom:18px}
+.lens-diversity{margin-bottom:18px}
+.diversity-strip{display:flex;flex-wrap:wrap;gap:8px}
+.diversity-chip{display:inline-flex;align-items:center;gap:5px;background:#f7f7f8;border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:12px;font-weight:600;color:var(--ink)}
+.diversity-chip b{font-weight:700;color:var(--ink)}
+.region-chip{border-left:3px solid var(--region-color,#999)}
+.region-chip--us{--region-color:var(--blue)}
+.region-chip--eu{--region-color:var(--purple)}
+.region-chip--asia{--region-color:#e85d75}
+.region-chip--middle-east{--region-color:var(--orange)}
+.region-chip--latam{--region-color:var(--green)}
+.region-chip--global{--region-color:var(--muted)}
+.region-chip--unknown{--region-color:#999}
+.lens-sources.has-arguments{display:block}
+.thesis-card{background:#f7f7f8;border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:14px}
+.thesis-headline{font-size:15px;line-height:1.4;color:var(--ink);font-weight:700;margin:0 0 6px}
+.thesis-subhead{font-size:13px;line-height:1.5;color:var(--muted);font-style:italic;margin:0}
+.argument-card{background:#fbfbfc;border:1px solid #e0e0e3;border-radius:16px;margin-bottom:10px;overflow:hidden}
+.argument-header{display:flex;align-items:flex-start;gap:12px;width:100%;border:0;background:transparent;padding:14px 16px;text-align:left;cursor:pointer;font-family:inherit}
+.argument-header:hover{background:#f5f5f7}
+.argument-momentum{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+.argument-momentum--up{background:#e8f5ec;color:var(--green)}
+.argument-momentum--down{background:#fff2e8;color:var(--orange)}
+.argument-body{display:flex;flex-direction:column;gap:5px;flex:1}
+.argument-statement{font-size:14px;line-height:1.45;color:var(--ink);font-weight:600}
+.argument-count{align-self:flex-start;font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 8px}
+.evidence-chain{display:none;padding:0 16px 14px 54px;flex-direction:column;gap:8px}
+.argument-card.open .evidence-chain{display:flex}
+.evidence-link{display:flex;flex-direction:column;gap:3px;background:#fff;border:1px solid #e8e8ea;border-radius:12px;padding:11px 13px;text-decoration:none;transition:background .15s ease,border-color .15s ease}
+.evidence-link:hover{background:#f7f7f8;border-color:#d2d2d7}
+.evidence-pub{font-size:9px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
+.evidence-title{font-size:12px;line-height:1.35;color:var(--ink);font-weight:600}
+.evidence-icon{align-self:flex-end;font-size:11px;color:var(--blue);margin-top:-16px}
 .sparkline{width:100%;height:64px;background:#fbfbfc;border:1px solid #ececee;border-radius:14px;padding:10px;margin-bottom:22px}.sparkline svg{width:100%;height:100%;overflow:visible}
 .lens-steps{margin-bottom:22px}.lens-step{position:relative;padding:0 0 20px 24px;border-left:2px solid #e1e1e4}.lens-step:last-child{padding-bottom:0;border-left-color:transparent}.lens-step .when{position:absolute;left:-28px;top:0;width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid var(--blue);font-size:8px;color:var(--blue);font-weight:800;display:flex;align-items:center;justify-content:center}.lens-step .when-label{font-size:9px;letter-spacing:1px;color:var(--blue);font-weight:800;text-transform:uppercase;margin-bottom:2px}.lens-step p{margin:4px 0 0;font-size:13px;line-height:1.5;color:#4b4b4d}
 .lens-sources{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}.lens-source{border:1px solid #e0e0e3;border-radius:16px;padding:16px;background:#fbfbfc}.lens-source .pub{font-size:9px;font-weight:700;letter-spacing:1px;color:var(--muted)}.lens-source h4{font-size:14px;line-height:1.25;margin:8px 0}.lens-source p{font-size:11px;line-height:1.45;color:var(--muted);margin:0 0 8px}.lens-source a{color:var(--blue);font-size:10px;font-weight:700;text-decoration:none}
@@ -102,6 +135,9 @@ nav{display:flex;gap:5px;margin:30px 0 10px;padding-bottom:12px;border-bottom:1p
   .blob{padding:20px;min-width:0;min-height:260px}.blob h3{font-size:clamp(12px,3.6vw,14px);margin:0 0 3px}.blob p{font-size:9px;max-width:none;line-height:1.26}.blob .sources{font-size:9px;margin-top:6px}.blob .trend{font-size:8px;margin:0 0 4px}
   .change-sheet{padding:18px}.change-sheet h2{font-size:23px}.question-shift p{font-size:15px}
   .synthesis{padding:22px}.synthesis h2{font-size:23px}
+  .argument-header{padding:12px 14px;gap:10px}
+  .argument-statement{font-size:13px}
+  .evidence-chain{padding:0 14px 12px 48px}
 }
 
 /* Recency windows — per-perspective article counts (1y / 3m / 1w) */
@@ -295,6 +331,8 @@ nav{display:flex;gap:5px;margin:30px 0 10px;padding-bottom:12px;border-bottom:1p
     <div class="lens-eyebrow" id="lensEyebrow">EMERGING · 13 SOURCES</div>
     <h2 class="lens-title" id="lensTitle">Human Impact</h2>
     <div class="lens-summary" id="lensSummary"></div>
+    <div class="lens-changed" id="lensChanged"></div>
+    <div class="lens-diversity" id="lensDiversity"></div>
     <div class="lens-windows" id="lensWindows"></div>
     <div class="sparkline"><svg id="lensSparkline"></svg></div>
     <div class="lens-steps" id="lensSteps"></div>
@@ -453,6 +491,7 @@ const perspectiveBodies={
 };
 const details={
   Technology:{
+    coreArgument:'Raw capability is now table stakes; the story is what models enable.',
     summary:'The technology perspective has retreated from leaderboard dominance to a quieter premise: capability still matters, but benchmarks no longer decide outcomes. Coverage now treats model performance as table stakes, framing frontier gains as background conditions rather than headline events. The open question is which capabilities—reasoning, reliability, autonomy—translate into durable advantage once parity becomes the norm.',
     windows:{y:31,q:28,m:23,w:21},
     sparkline:[24,18,4,19],
@@ -489,9 +528,17 @@ const details={
       {pub:'Hai',title:'The 2026 AI Index Report | Stanford HAI',desc:'',url:'https://hai.stanford.edu/ai-index/2026-ai-index-report'},
       {pub:'Amazon Web Services, Inc.',title:'What are Foundation Models? - Foundation Models in Generative AI Explained - AWS',desc:'Learn why Foundation Models are essential. Discover its benefits and how you can use it to create new content and ideas including text, conversations, images, video, and audio with Generative AI.',url:'https://aws.amazon.com/what-is/foundation-models/'},
       {pub:'Cleverse',title:'The Next Battlefield After the Foundation Model War',desc:'The Four Themes defining Enterprise AI Success in 2026. Where AI value is actually  being created.',url:'https://cleverse.com/blog/foundation-model-race-is-over'}
-    ]
+    ],
+    arguments:[
+    {id:'arg-technology-1',statement:'AI benchmarks are losing credibility as the primary signal of progress.',momentum:'up',sources:[{pub:'MIT Technology Review',title:'AI benchmarks are broken. Here’s what we need instead.',url:'https://www.technologyreview.com/2026/03/31/1134833/ai-benchmarks-are-broken-heres-what-we-need-instead/'},{pub:'MIT TECHNOLOGY REVIEW · ANALYSIS',title:'After the benchmark boom'},{pub:'Hai',title:'AI Index: State of AI in 13 Charts | Stanford HAI',url:'https://hai.stanford.edu/news/ai-index-state-ai-13-charts'}]},
+    {id:'arg-technology-2',statement:'China is narrowing the frontier-AI capability gap with the United States.',momentum:'up',sources:[{pub:'Brookings',title:'China is running multiple AI races | Brookings',url:'https://www.brookings.edu/articles/china-is-running-multiple-ai-races/'},{pub:'Brookings',title:'Competing AI strategies for the US and China | Brookings',url:'https://www.brookings.edu/articles/competing-ai-strategies-for-the-us-and-china/'},{pub:'CNBC',title:'China is gaining ground in AI. But the U.S. still has a major advantage',url:'https://www.cnbc.com/2026/08/07/china-us-ai-race-hugging-face-models.html'},{pub:'Brownstone Research',title:'Google Is Back in the AI Race - Brownstone Research',url:'https://www.brownstoneresearch.com/bleeding-edge/google-is-back-in-the-ai-race/'}]},
+    {id:'arg-technology-3',statement:'Self-improving and world models are becoming the next capability frontier.',momentum:'up',sources:[{pub:'Investor\'s Business Daily',title:'AI Stocks: Will Self-Improving Models Decide Who Wins Superintelligence Race?',url:'https://www.investors.com/news/technology/ai-stocks-google-self-improving-models-superintelligence-race/'},{pub:'TIME',title:'Inside the Race to Make AI Build Itself',url:'https://time.com/article/2026/08/07/ai-recursive-self-improvement-anthropic-openai/'},{pub:'TIME',title:'World Models Are AI’s Next Frontier',url:'https://time.com/article/2026/07/15/world-models-are-ai-s-next-frontier/'},{pub:'Goldmansachs',title:'When AI Learns How the World Works',url:'https://www.goldmansachs.com/insights/articles/when-ai-learns-how-the-world-works'}]},
+    {id:'arg-technology-4',statement:'Raw frontier-model scale is fading as the headline contest; customization and data fabrics now matter more.',momentum:'down',sources:[{pub:'CNBC',title:'The AI race is shifting from bigger models to cheaper, smarter systems',url:'https://www.cnbc.com/2026/07/10/the-ai-race-is-shifting-from-bigger-models-to-cheaper-smarter-systems.html'},{pub:'IBM',title:'The trends that will shape AI and tech in 2026 | IBM',url:'https://www.ibm.com/think/news/ai-tech-trends-predictions-2026'},{pub:'MIT Technology Review',title:'Shifting to AI model customization is an architectural imperative',url:'https://www.technologyreview.com/2026/03/31/1134762/shifting-to-ai-model-customization-is-an-architectural-imperative/'},{pub:'MIT Technology Review',title:'AI needs a strong data fabric to deliver business value',url:'https://www.technologyreview.com/2026/04/22/1135295/ai-needs-a-strong-data-fabric-to-deliver-business-value/'}]}
+    ],
+    diversity:{total:31,pubs:17,regions:{US:28,Unknown:2,EU:1}}
   },
   Platform:{
+    coreArgument:'Platform control is treated as a primary axis of the AI race.',
     summary:'The platform perspective has matured from supporting argument into the race\'s central thesis. Coverage concentrates on distribution, defaults and ecosystems: agent interfaces, API moats and app-store analogies dominate the current conversation. The argument is that whoever owns the default entry point to AI—where users and developers actually land—captures the value that raw capability alone cannot secure.',
     windows:{y:18,q:12,m:8,w:8},
     sparkline:[15,20,7,5],
@@ -515,9 +562,16 @@ const details={
       {pub:'Cfr',title:'AI Is Facing a Crisis of Control—and the Industry Knows It | Council on Foreign Relations',desc:'Washington appears to be years away from consensus on the expanding security risks posed by advanced artificial intelligence (AI). Concrete international agreements also do not yet exist. There is a tenuous potential path forward to avoid a disaster, but it will require out-of-the-box thinking, intense determination, and unprecedented cooperation.',url:'https://www.cfr.org/articles/artificial-intelligence-is-facing-a-crisis-of-control-and-the-industry-knows-it'},
       {pub:'Cfr',title:'The U.S. Is Losing the AI Credibility War—to Itself | Council on Foreign Relations',desc:'Recent restrictions on advanced AI models are undermining critical U.S. cybersecurity outcomes. The administration needs a coherent strategy to work with the private sector, stay ahead of adversaries, keep allies on board, and maintain trust in the U.S. AI stack.',url:'https://www.cfr.org/articles/the-u-s-is-losing-the-ai-credibility-war-to-itself'},
       {pub:'Arxiv',title:'An Economy of AI Agents',desc:'',url:'https://arxiv.org/html/2509.01063v1'}
-    ]
+    ],
+    arguments:[
+    {id:'arg-platform-1',statement:'The battle for the default AI interface is replacing the foundation-model race.',momentum:'up',sources:[{pub:'WIRED · STRATEGY',title:'The operating system for AI'},{pub:'THE INFORMATION · ANALYSIS',title:'The app store moment'},{pub:'Morningconsult',title:'ChatGPT Brand Advantage as the Default Consumer AI',url:'https://morningconsult.com/articles/chatgpt-brand-strengths-and-challenges'}]},
+    {id:'arg-platform-2',statement:'Agent ecosystems and distribution control are becoming the new platform moat.',momentum:'up',sources:[{pub:'BLOOMBERG · TECH',title:'APIs, agents and moats'},{pub:'Brookings',title:'To unleash AI innovation, stop model providers from picking the winners | Brookings',url:'https://www.brookings.edu/articles/to-unleash-ai-innovation-stop-model-providers-from-picking-the-winners/'},{pub:'Startup Fortune',title:'Tencent\'s plan to embed a full AI agent inside WeChat puts 1.4 billion users at the center of China\'s platform war - Startup Fortune',url:'https://startupfortune.com/tencents-plan-to-embed-a-full-ai-agent-inside-wechat-puts-14-billion-users-at-the-center-of-chinas-platform-war/'},{pub:'Arxiv',title:'An Economy of AI Agents',url:'https://arxiv.org/html/2509.01063v1'}]},
+    {id:'arg-platform-3',statement:'Antitrust and control concerns are rising as AI platform power concentrates.',momentum:'up',sources:[{pub:'Brookings',title:'What happens when AI companies compete with their customers? | Brookings',url:'https://www.brookings.edu/articles/what-happens-when-ai-companies-compete-with-their-customers/'},{pub:'Cfr',title:'AI Is Facing a Crisis of Control—and the Industry Knows It | Council on Foreign Relations',url:'https://www.cfr.org/articles/artificial-intelligence-is-facing-a-crisis-of-control-and-the-industry-knows-it'},{pub:'Cfr',title:'The U.S. Is Losing the AI Credibility War—to Itself | Council on Foreign Relations',url:'https://www.cfr.org/articles/the-u-s-is-losing-the-ai-credibility-war-to-itself'}]}
+    ],
+    diversity:{total:18,pubs:10,regions:{US:15,Unknown:1,EU:1,Global:1}}
   },
   Infrastructure:{
+    coreArgument:'Infrastructure scarcity is seen as a strategic lever that shapes who can compete.',
     summary:'The infrastructure perspective has moved from background context to binding constraint. Coverage focuses on physical limits: grid capacity, semiconductor supply and data-center buildouts now determine what deployment is feasible and at what pace. The argument is that compute access, not model access, separates serious competitors from aspirants—and that these constraints favor incumbents with capital and land.',
     windows:{y:13,q:11,m:10,w:9},
     sparkline:[12,19,5,4],
@@ -539,9 +593,16 @@ const details={
       {pub:'Coreweave',title:'How We Win the AI Race: A U.S. Infrastructure Strategy on Our Home Soil',desc:'Mike Intrator testifies before the U.S. Senate on the AI infrastructure imperative—why America’s global leadership depends on compute built at home.',url:'https://www.coreweave.com/blog/how-we-win-the-ai-race-a-u-s-infrastructure-strategy-on-our-home-soil'},
       {pub:'LinkedIn',title:'AI Economics Shifts Focus from Model Intelligence to Architecture and Infrastructure | Sharat Chandra posted on the topic | LinkedIn',desc:'The #AI race is entering a new phase — from “Which model is best?” to “Which model is best for this job?” AI economics are not simply about model intelligence. They are about architecture, infrastructure and unit economics.\nThat shift is particularly relevant for India Inc.The Economic Times reports that Indian enterprises are increasingly adopting a hybrid AI strategy, combining proprietary front',url:'https://www.linkedin.com/posts/sharatchandratechevangelist_ai-artificialintelligence-ai-activity-7493197305345359873-DIRD'},
       {pub:'AI Now Institute',title:'1.2: Too Big to Fail: Infrastructure and Capital Push - AI Now Institute',desc:'The “common sense” around artificial intelligence has become potent over the past two years, imbuing the technology with a sense of agency and momentum that make the current trajectory of AI appear inevitable, and certainly essential for economic prosperity and global dominance for the US. In this section, we break down the narratives propping up […]',url:'https://ainowinstitute.org/publications/research/1-2-too-big-to-fail-infrastructure-and-capital-push'}
-    ]
+    ],
+    arguments:[
+    {id:'arg-infrastructure-1',statement:'Power and data-center capacity are now the binding constraints of AI expansion.',momentum:'up',sources:[{pub:'FINANCIAL TIMES · ENERGY',title:'AI’s power problem'},{pub:'POWER Magazine',title:'AI Data Center Growth Is Now a Power Infrastructure Problem',url:'https://www.powermag.com/ai-data-center-growth-is-now-a-power-infrastructure-problem/'},{pub:'Jll',title:'Global data center sector to nearly double to 200GW amid AI infrastructure boom',url:'https://www.jll.com/en-us/newsroom/global-data-center-sector-to-nearly-double-to-200gw-amid-ai-infrastructure-boom'},{pub:'The Economy',title:'Time-to-Power: The Hidden Economics of AI Infrastructure',url:'https://economy.ac/research/2026/06/202606289366'},{pub:'Epicsemi',title:'Big Ideas 2026: The AI Race Is Becoming an Infrastructure Race',url:'https://www.epicsemi.com/blog/big-ideas-2026-the-ai-race-is-becoming-an-infrastructure-race/'}]},
+    {id:'arg-infrastructure-2',statement:'AI infrastructure buildout is attracting geopolitical and industrial-policy attention.',momentum:'up',sources:[{pub:'Brookings',title:'Turning the data center boom into long-term, local prosperity | Brookings',url:'https://www.brookings.edu/articles/turning-the-data-center-boom-into-long-term-local-prosperity/'},{pub:'Coreweave',title:'How We Win the AI Race: A U.S. Infrastructure Strategy on Our Home Soil',url:'https://www.coreweave.com/blog/how-we-win-the-ai-race-a-u-s-infrastructure-strategy-on-our-home-soil'},{pub:'LinkedIn',title:'AI Economics Shifts Focus from Model Intelligence to Architecture and Infrastructure | Sharat Chandra posted on the topic | LinkedIn',url:'https://www.linkedin.com/posts/sharatchandratechevangelist_ai-artificialintelligence-ai-activity-7493197305345359873-DIRD'},{pub:'AI Now Institute',title:'1.2: Too Big to Fail: Infrastructure and Capital Push - AI Now Institute',url:'https://ainowinstitute.org/publications/research/1-2-too-big-to-fail-infrastructure-and-capital-push'}]},
+    {id:'arg-infrastructure-3',statement:'Hyperscale data-center growth is running into local cost and regulatory backlash.',momentum:'down',sources:[{pub:'DataCenterKnowledge',title:'North Carolina Targets Hyperscale Costs AI Infrastructure Bill',url:'https://www.datacenterknowledge.com/regulations/north-carolina-targets-hyperscale-costs-with-proposed-ai-infrastructure-bill'},{pub:'Brookings',title:'Global energy demands within the AI regulatory landscape | Brookings',url:'https://www.brookings.edu/articles/global-energy-demands-within-the-ai-regulatory-landscape/'}]}
+    ],
+    diversity:{total:16,pubs:15,regions:{US:11,EU:2,Unknown:2,Global:1}}
   },
   Economics:{
+    coreArgument:'Value capture is the central unanswered economic question.',
     summary:'The economics perspective has accelerated around a single unresolved question: as inference costs collapse, where does durable value accrue? Coverage weighs a productivity paradox, competing theories of surplus capture, and cost-driven model selection. The through-line is that cheap intelligence may compress margins everywhere except at the choke points—distribution, compute and trust—where scarcity persists.',
     windows:{y:15,q:10,m:7,w:7},
     sparkline:[10,16,3,3],
@@ -563,9 +624,16 @@ const details={
       {pub:'Researchandmarkets',title:'Foundation AI Models Market Report 2026 - Research and Markets',desc:'The Foundation AI Models Market, valued at USD 12B in 2026, is projected to reach USD 19.89B by 2030, growing at a 13.5% CAGR.',url:'https://www.researchandmarkets.com/reports/6231691/foundation-ai-models-market-report'},
       {pub:'Growthmarketreports',title:'Foundation Models Market Research Report 2033',desc:'\nAs per our latest research, the global foundation models market size in 2024 stands at USD 14.2 billion, with a robust CAGR of 28.4% projected from 2025 to 2033. ',url:'https://growthmarketreports.com/report/foundation-models-market'},
       {pub:'RAND Corporation',title:'Quantifying AI’s Economic Potential',desc:'The author models the economic implications of two scenarios for artificial intelligence (AI) development: restricting AI to assistive tools for human productivity or enabling AI agents that can autonomously perform tasks and self-replicate.',url:'https://www.rand.org/pubs/research_reports/RRA4220-1.html'}
-    ]
+    ],
+    arguments:[
+    {id:'arg-economics-1',statement:'AI value capture is shifting from model labs toward application and distribution layers.',momentum:'up',sources:[{pub:'BLOOMBERG OPINION · ECONOMICS',title:'Who captures the surplus?'},{pub:'PYMNTS.com',title:'Why OpenAI, Amazon and Apple Want to Be the Smartphone in Your Pocket | PYMNTS.com',url:'https://www.pymnts.com/news/artificial-intelligence/2026/why-openai-amazon-and-apple-want-to-be-the-smartphone-in-your-pocket/'},{pub:'Bessemer Venture Partners',title:'The AI pricing and monetization playbook',url:'https://www.bvp.com/atlas/the-ai-pricing-and-monetization-playbook'},{pub:'Cfr',title:'AI’s Economic Winners | Council on Foreign Relations',url:'https://www.cfr.org/articles/ais-economic-winners'}]},
+    {id:'arg-economics-2',statement:'Model commoditization is intensifying pricing pressure across the stack.',momentum:'up',sources:[{pub:'FT ALPHAVILLE · ANALYSIS',title:'Cheap inference, expensive questions'},{pub:'RBC Wealth Management - Asia',title:'The commoditization of AI models and compute',url:'https://www.rbcwealthmanagement.com/en-asia/insights/the-commoditization-of-ai-models-and-compute'},{pub:'Researchandmarkets',title:'Foundation AI Models Market Report 2026 - Research and Markets',url:'https://www.researchandmarkets.com/reports/6231691/foundation-ai-models-market-report'},{pub:'Growthmarketreports',title:'Foundation Models Market Research Report 2033',url:'https://growthmarketreports.com/report/foundation-models-market'}]},
+    {id:'arg-economics-3',statement:'The productivity paradox and bubble concerns are tempering near-term economic optimism.',momentum:'down',sources:[{pub:'THE ECONOMIST · BUSINESS',title:'The productivity paradox'},{pub:'Polytechnique Insights',title:'The AI bubble: deciphering an economic phenomenon',url:'https://www.polytechnique-insights.com/en/columns/digital/the-ai-bubble-deciphering-an-economic-phenomenon/'},{pub:'RAND Corporation',title:'Quantifying AI’s Economic Potential',url:'https://www.rand.org/pubs/research_reports/RRA4220-1.html'}]}
+    ],
+    diversity:{total:16,pubs:16,regions:{US:8,EU:5,Unknown:2,Asia:1}}
   },
   'Human Impact':{
+    coreArgument:'Who benefits and who is displaced is now a recurring editorial lens.',
     summary:'The human-impact perspective has emerged from near-invisibility into a recurring editorial lens. Coverage now spans the future of work, education and creative attribution, asking who benefits from scaled deployment and who is displaced. Though still the newest perspective by volume, it increasingly supplies the evaluative standard against which the rest of the race is judged.',
     windows:{y:17,q:11,m:10,w:10},
     sparkline:[0,6,6,8],
@@ -589,7 +657,13 @@ const details={
       {pub:'Harvard Business School',title:'Enhance or Eliminate? How AI Will Likely Change These Jobs | Working Knowledge',desc:'Research by Suraj Srinivasan finds that employers are seeking more AI-related skills in certain fields, while demand for structured and repetitive tasks is waning. ',url:'https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs'},
       {pub:'NIST',title:'CAISI Evaluation of DeepSeek V4 Pro',desc:'In April 2026, the Center for AI Standards and Innovation (CAISI) evaluated the open-weight AI model DeepSeek V4 Pro (“DeepSeek V4”).',url:'https://www.nist.gov/news-events/news/2026/05/caisi-evaluation-deepseek-v4-pro'},
       {pub:'Ada Lovelace Institute',title:'What is a foundation model?',desc:'How shared language supports understanding, effective decision-making and regulation of AI',url:'https://www.adalovelaceinstitute.org/resource/explainer-foundation-models/'}
-    ]
+    ],
+    arguments:[
+    {id:'arg-humanimpact-1',statement:'Evidence of AI labor-market displacement is moving from opinion to empirical research.',momentum:'up',sources:[{pub:'Brookings',title:'Measuring US workers’ capacity to adapt to AI-driven job displacement | Brookings',url:'https://www.brookings.edu/articles/measuring-us-workers-capacity-to-adapt-to-ai-driven-job-displacement/'},{pub:'Yale Insights',title:'The Real Job Destruction from AI Is Hitting Before Careers Can Start',url:'https://insights.som.yale.edu/insights/the-real-job-destruction-from-ai-is-hitting-before-careers-can-start'},{pub:'MIT Sloan',title:'How artificial intelligence impacts the US labor market | MIT Sloan',url:'https://mitsloan.mit.edu/ideas-made-to-matter/how-artificial-intelligence-impacts-us-labor-market'},{pub:'Harvard Business School',title:'Enhance or Eliminate? How AI Will Likely Change These Jobs | Working Knowledge',url:'https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs'}]},
+    {id:'arg-humanimpact-2',statement:'AI safety and governance are becoming focal points for U.S.-China and global coordination.',momentum:'up',sources:[{pub:'Carnegie Endowment for International Peace',title:'A Path Forward on AI Safety for the United States and China',url:'https://carnegieendowment.org/emissary/2026/07/ai-safety-parallel-us-china'},{pub:'Brookings',title:'Governing the AI transition: Lessons from the 1996 Telecommunications Act | Brookings',url:'https://www.brookings.edu/articles/governing-the-ai-transition-lessons-from-the-1996-telecommunications-act/'},{pub:'Brookings',title:'What national AI plans get wrong and how to fix them | Brookings',url:'https://www.brookings.edu/articles/what-national-ai-plans-get-wrong-and-how-to-fix-them/'},{pub:'NIST',title:'CAISI Evaluation of DeepSeek V4 Pro',url:'https://www.nist.gov/news-events/news/2026/05/caisi-evaluation-deepseek-v4-pro'}]},
+    {id:'arg-humanimpact-3',statement:'Education and workforce adaptation are emerging as the critical equity questions.',momentum:'up',sources:[{pub:'EDUCATION WEEK · OPINION',title:'The classroom after ChatGPT'},{pub:'Nationalacademies',title:'Navigating the Turbulent Future of AI and Work',url:'https://www.nationalacademies.org/news/navigating-the-turbulent-future-of-ai-and-work'},{pub:'Stjohns',title:'How AI Impacts Students Entering the Job Market',url:'https://www.stjohns.edu/news-media/johnnies-blog/ai-impact-students-entering-job-market'},{pub:'Built In',title:'What Jobs Will AI Replace? | Built In',url:'https://builtin.com/artificial-intelligence/ai-replacing-jobs-creating-jobs'}]}
+    ],
+    diversity:{total:18,pubs:14,regions:{US:13,EU:2,Global:2,Unknown:1}}
   }
 };
 let current=2;
@@ -859,17 +933,120 @@ function drawSparkline(svg,data,color){
   svg.innerHTML=`<polyline points="${poly}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="${color}" stroke="#fff" stroke-width="1.5"/>`;
 }
 function windowsStrip(w){w=w||{y:0,q:0,m:0,w:0};return `<span title="Counts by article date. Undated articles are counted by the day we discovered them."><b>${w.y}</b><i>LAST 1 YEAR</i></span><span title="Counts by article date."><b>${w.q}</b><i>LAST 3 MONTHS</i></span><span title="Counts by article date."><b>${w.m}</b><i>LAST 1 MONTH</i></span><span title="Counts by article date."><b>${w.w}</b><i>LAST 1 WEEK</i></span>`;}
+function renderDiversityStrip(diversity){
+  if(!diversity) return '';
+  const regions=diversity.regions||{};
+  const order=['US','EU','Asia','Middle East','LATAM','Global','Unknown'];
+  let html='<div class="diversity-strip">';
+  html+=`<span class="diversity-chip diversity-chip--total"><b>${diversity.total}</b> sources</span>`;
+  html+=`<span class="diversity-chip diversity-chip--pubs"><b>${diversity.pubs}</b> pubs</span>`;
+  order.forEach(region=>{
+    const count=regions[region];
+    if(typeof count==='number' && count>0){
+      const cls='region-chip region-chip--'+region.toLowerCase().replace(/\s+/g,'-');
+      html+=`<span class="diversity-chip ${cls}"><b>${count}</b> ${region}</span>`;
+    }
+  });
+  html+='</div>';
+  return html;
+}
+function renderArgumentCard(arg){
+  const card=document.createElement('div');
+  card.className='argument-card';
+  const header=document.createElement('button');
+  header.className='argument-header';
+  header.type='button';
+  header.setAttribute('aria-expanded','false');
+  const momentum=document.createElement('span');
+  const isDown=arg.momentum==='down';
+  momentum.className='argument-momentum '+(isDown?'argument-momentum--down':'argument-momentum--up');
+  momentum.textContent=isDown?'↓':'↑';
+  const body=document.createElement('span');
+  body.className='argument-body';
+  const stmt=document.createElement('span');
+  stmt.className='argument-statement';
+  stmt.textContent=arg.statement||'';
+  const count=document.createElement('span');
+  count.className='argument-count';
+  const srcs=arg.sources||[];
+  count.textContent=`${srcs.length} source${srcs.length===1?'':'s'}`;
+  body.appendChild(stmt);
+  body.appendChild(count);
+  header.appendChild(momentum);
+  header.appendChild(body);
+  const chain=document.createElement('div');
+  chain.className='evidence-chain';
+  srcs.forEach(s=>{
+    const a=document.createElement('a');
+    a.className='evidence-link';
+    a.href=s.url||'#';
+    a.target='_blank';
+    a.rel='noopener';
+    const pub=document.createElement('span');
+    pub.className='evidence-pub';
+    pub.textContent=s.pub||'';
+    const title=document.createElement('span');
+    title.className='evidence-title';
+    title.textContent=s.title||'';
+    const icon=document.createElement('span');
+    icon.className='evidence-icon';
+    icon.textContent='↗';
+    a.appendChild(pub);
+    a.appendChild(title);
+    a.appendChild(icon);
+    chain.appendChild(a);
+  });
+  card.appendChild(header);
+  card.appendChild(chain);
+  header.addEventListener('click',()=>{
+    const open=card.classList.toggle('open');
+    header.setAttribute('aria-expanded',String(open));
+  });
+  return card;
+}
+function renderThesisCard(d){
+  if(!d || !d.coreArgument) return null;
+  const card=document.createElement('div');
+  card.className='thesis-card';
+  const headline=document.createElement('h3');
+  headline.className='thesis-headline';
+  headline.textContent=d.coreArgument;
+  card.appendChild(headline);
+  if(d.changed){
+    const subhead=document.createElement('p');
+    subhead.className='thesis-subhead';
+    subhead.textContent=d.changed;
+    card.appendChild(subhead);
+  }
+  return card;
+}
 function openPerspectiveLens(name){
   const d=details[name];
   const cur=states[current].nodes[name];
   const meta=statusMeta(cur.status);
   document.getElementById('lensEyebrow').textContent=`${meta.text} · ${cur.sources} SOURCES`;
   document.getElementById('lensTitle').textContent=name;
-  document.getElementById('lensSummary').textContent=d.summary;
+  document.getElementById('lensSummary').textContent=(d&&d.summary)||'';
+  const changedText=(d&&d.changed)||(typeof timeline!=='undefined' && timeline && timeline[current] && timeline[current].perspectives && timeline[current].perspectives[name] && timeline[current].perspectives[name].changed)||'';
+  const changedEl=document.getElementById('lensChanged');
+  if(changedEl){ changedEl.textContent=changedText; changedEl.hidden=!changedText; }
+  const diversityEl=document.getElementById('lensDiversity');
+  if(diversityEl) diversityEl.innerHTML=renderDiversityStrip(d&&d.diversity);
   document.getElementById('lensWindows').innerHTML=windowsStrip(d.windows)+`<span><b>${corpus.real}</b><i>CORPUS REAL</i></span>`;
   drawSparkline(document.getElementById('lensSparkline'), d.sparkline, categoryColors[name]||'#0071e3');
   document.getElementById('lensSteps').innerHTML=d.history.map((txt,i)=>`<div class="lens-step"><div class="when">${i+1}</div><div class="when-label">${states[i].label}</div><p>${txt}</p></div>`).join('');
-  document.getElementById('lensSources').innerHTML=d.sources.map(s=>`<div class="lens-source"><div class="pub">${s.pub}</div><h4>${s.title}</h4><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></div>`).join('');
+  const sourcesEl=document.getElementById('lensSources');
+  const args=(d&&d.arguments)||[];
+  if(args.length){
+    sourcesEl.classList.add('has-arguments');
+    sourcesEl.innerHTML='';
+    const thesis=renderThesisCard(d);
+    if(thesis) sourcesEl.appendChild(thesis);
+    args.forEach(arg=>sourcesEl.appendChild(renderArgumentCard(arg)));
+  }else{
+    sourcesEl.classList.remove('has-arguments');
+    sourcesEl.innerHTML=(d.sources||[]).map(s=>`<div class="lens-source"><div class="pub">${s.pub}</div><h4>${s.title}</h4><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></div>`).join('');
+  }
   const viewBtn=document.getElementById('lensView');
   viewBtn.textContent=`View all ${cur.sources} sources`;
   viewBtn.onclick=()=>{ closeLens(); openPerspective(name); };

@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const Proposal = z.object({
   id: z.string().regex(/^P-\d{3}$/),
-  kind: z.enum(["metrics", "status", "question", "synthesis", "perspective", "narrative", "keywords", "periodSummary", "changeNarrative"]),
+  kind: z.enum(["metrics", "status", "question", "synthesis", "perspective", "narrative", "keywords", "periodSummary", "changeNarrative", "arguments"]),
   path: z.string(),
   value: z.unknown(),
   confidence: z.number().min(0).max(1),

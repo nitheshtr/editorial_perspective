@@ -152,6 +152,28 @@ describe("Full apply flow", () => {
     expect(getByPath(topic, "states.0.nodes.technology.metrics.sourceVolume")).toBe(10);
   });
 
+  it("applies approved proposals of new kinds (keywords, periodSummary, arguments)", async () => {
+    const topic = JSON.parse(JSON.stringify(FIXTURE_TOPIC)) as Record<string, unknown>;
+
+    const proposals = [
+      { id: "P-010", kind: "keywords", path: "states.0.nodes.technology.keywords", value: ["ai", "regulation"], confidence: 0.8, evidence: "Test" },
+      { id: "P-011", kind: "periodSummary", path: "states.0.nodes.technology.periodSummary", value: "This period covers rapid AI growth across sectors.", confidence: 0.8, evidence: "Test" },
+      { id: "P-012", kind: "changeNarrative", path: "timeline.1.perspectives.technology.changed", value: "Shift from regulation to innovation focus", confidence: 0.8, evidence: "Test" },
+      { id: "P-013", kind: "arguments", path: "perspectives.0.arguments", value: [{ id: "arg-test", statement: "A concrete test argument statement here.", momentum: "up", sources: ["source-001"] }], confidence: 0.8, evidence: "Test" },
+    ];
+
+    const kindAllowList = ["metrics", "status", "question", "synthesis", "narrative", "keywords", "periodSummary", "changeNarrative", "arguments"];
+
+    for (const proposal of proposals) {
+      if (kindAllowList.includes(proposal.kind)) {
+        setByPath(topic, proposal.path, proposal.value);
+      }
+    }
+
+    expect(getByPath(topic, "states.0.nodes.technology.keywords")).toEqual(["ai", "regulation"]);
+    expect(getByPath(topic, "perspectives.0.arguments")).toEqual([{ id: "arg-test", statement: "A concrete test argument statement here.", momentum: "up", sources: ["source-001"] }]);
+  });
+
   it("edit approval applies editedPayload instead of original value", () => {
     const topic = JSON.parse(JSON.stringify(FIXTURE_TOPIC)) as Record<string, unknown>;
     const proposal = { id: "P-001", kind: "narrative", path: "perspectives.0.summary", value: "Original", confidence: 0.8, evidence: "Test" };

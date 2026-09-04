@@ -70,6 +70,7 @@ export interface PerspectiveView {
   history: string[];
   sources: string[];
   windows?: { y: number; q: number; m: number; w: number };
+  arguments?: Array<{ id: string; statement: string; momentum: "up" | "down"; sources: string[] }>;
 }
 
 export interface RelationView {
@@ -109,6 +110,7 @@ export interface PublisherEntry {
   tier: number;
   policy: AccessPolicyView;
   notes?: string;
+  region?: string;
 }
 
 export interface PublishersView {

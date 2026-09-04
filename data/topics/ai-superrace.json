@@ -776,6 +776,32 @@
         "source-108",
         "source-109"
       ],
+      "arguments": [
+        {
+          "id": "arg-technology-1",
+          "statement": "AI benchmarks are losing credibility as the primary signal of progress.",
+          "momentum": "up",
+          "sources": ["source-056", "source-001", "source-107"]
+        },
+        {
+          "id": "arg-technology-2",
+          "statement": "China is narrowing the frontier-AI capability gap with the United States.",
+          "momentum": "up",
+          "sources": ["source-036", "source-039", "source-085", "source-088"]
+        },
+        {
+          "id": "arg-technology-3",
+          "statement": "Self-improving and world models are becoming the next capability frontier.",
+          "momentum": "up",
+          "sources": ["source-020", "source-021", "source-025", "source-089"]
+        },
+        {
+          "id": "arg-technology-4",
+          "statement": "Raw frontier-model scale is fading as the headline contest; customization and data fabrics now matter more.",
+          "momentum": "down",
+          "sources": ["source-016", "source-046", "source-048", "source-055"]
+        }
+      ],
       "windows": {
         "y": 31,
         "q": 28,
@@ -828,6 +854,26 @@
         "source-097",
         "source-117"
       ],
+      "arguments": [
+        {
+          "id": "arg-platform-1",
+          "statement": "The battle for the default AI interface is replacing the foundation-model race.",
+          "momentum": "up",
+          "sources": ["source-004", "source-006", "source-058"]
+        },
+        {
+          "id": "arg-platform-2",
+          "statement": "Agent ecosystems and distribution control are becoming the new platform moat.",
+          "momentum": "up",
+          "sources": ["source-005", "source-037", "source-059", "source-117"]
+        },
+        {
+          "id": "arg-platform-3",
+          "statement": "Antitrust and control concerns are rising as AI platform power concentrates.",
+          "momentum": "up",
+          "sources": ["source-040", "source-096", "source-097"]
+        }
+      ],
       "windows": {
         "y": 18,
         "q": 12,
@@ -878,6 +924,26 @@
         "source-115",
         "source-116"
       ],
+      "arguments": [
+        {
+          "id": "arg-infrastructure-1",
+          "statement": "Power and data-center capacity are now the binding constraints of AI expansion.",
+          "momentum": "up",
+          "sources": ["source-007", "source-069", "source-071", "source-111", "source-113"]
+        },
+        {
+          "id": "arg-infrastructure-2",
+          "statement": "AI infrastructure buildout is attracting geopolitical and industrial-policy attention.",
+          "momentum": "up",
+          "sources": ["source-042", "source-114", "source-115", "source-116"]
+        },
+        {
+          "id": "arg-infrastructure-3",
+          "statement": "Hyperscale data-center growth is running into local cost and regulatory backlash.",
+          "momentum": "down",
+          "sources": ["source-066", "source-070"]
+        }
+      ],
       "windows": {
         "y": 13,
         "q": 11,
@@ -927,6 +993,26 @@
         "source-105",
         "source-106",
         "source-120"
+      ],
+      "arguments": [
+        {
+          "id": "arg-economics-1",
+          "statement": "AI value capture is shifting from model labs toward application and distribution layers.",
+          "momentum": "up",
+          "sources": ["source-011", "source-061", "source-073", "source-092"]
+        },
+        {
+          "id": "arg-economics-2",
+          "statement": "Model commoditization is intensifying pricing pressure across the stack.",
+          "momentum": "up",
+          "sources": ["source-012", "source-074", "source-105", "source-106"]
+        },
+        {
+          "id": "arg-economics-3",
+          "statement": "The productivity paradox and bubble concerns are tempering near-term economic optimism.",
+          "momentum": "down",
+          "sources": ["source-010", "source-075", "source-120"]
+        }
       ],
       "windows": {
         "y": 15,
@@ -979,6 +1065,26 @@
         "source-083",
         "source-086",
         "source-110"
+      ],
+      "arguments": [
+        {
+          "id": "arg-humanimpact-1",
+          "statement": "Evidence of AI labor-market displacement is moving from opinion to empirical research.",
+          "momentum": "up",
+          "sources": ["source-077", "source-079", "source-080", "source-083"]
+        },
+        {
+          "id": "arg-humanimpact-2",
+          "statement": "AI safety and governance are becoming focal points for U.S.-China and global coordination.",
+          "momentum": "up",
+          "sources": ["source-031", "source-038", "source-043", "source-086"]
+        },
+        {
+          "id": "arg-humanimpact-3",
+          "statement": "Education and workforce adaptation are emerging as the critical equity questions.",
+          "momentum": "up",
+          "sources": ["source-014", "source-078", "source-081", "source-082"]
+        }
       ],
       "windows": {
         "y": 17,

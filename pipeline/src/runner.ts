@@ -1059,7 +1059,7 @@ async function stageApply(ctx: RunContext): Promise<void> {
     const path = proposal.path as string;
 
     // Only overwrite for certain kinds
-    if (!["metrics", "status", "question", "synthesis", "narrative"].includes(kind)) continue;
+    if (!["metrics", "status", "question", "synthesis", "narrative", "keywords", "periodSummary", "changeNarrative", "arguments"].includes(kind)) continue;
 
     const value = decision.decision === "edit" && decision.editedPayload !== undefined
       ? decision.editedPayload

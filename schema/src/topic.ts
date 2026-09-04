@@ -12,6 +12,12 @@ export const Perspective = z.object({
   sparkline: z.array(z.number()),
   history: z.array(z.string()),
   sources: z.array(z.string().regex(/^source-\d{3,}$/)),
+  arguments: z.array(z.object({
+    id: z.string().regex(/^arg-[a-z0-9-]+$/),
+    statement: z.string().min(10).max(200),
+    momentum: z.enum(["up", "down"]),
+    sources: z.array(z.string().regex(/^source-\d{3,}$/)).min(1),
+  })).max(8).optional(),
 });
 
 export const Relation = z.object({

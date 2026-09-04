@@ -265,17 +265,120 @@ function drawSparkline(svg,data,color){
   svg.innerHTML=`<polyline points="${poly}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="${color}" stroke="#fff" stroke-width="1.5"/>`;
 }
 function windowsStrip(w){w=w||{y:0,q:0,m:0,w:0};return `<span title="Counts by article date. Undated articles are counted by the day we discovered them."><b>${w.y}</b><i>LAST 1 YEAR</i></span><span title="Counts by article date."><b>${w.q}</b><i>LAST 3 MONTHS</i></span><span title="Counts by article date."><b>${w.m}</b><i>LAST 1 MONTH</i></span><span title="Counts by article date."><b>${w.w}</b><i>LAST 1 WEEK</i></span>`;}
+function renderDiversityStrip(diversity){
+  if(!diversity) return '';
+  const regions=diversity.regions||{};
+  const order=['US','EU','Asia','Middle East','LATAM','Global','Unknown'];
+  let html='<div class="diversity-strip">';
+  html+=`<span class="diversity-chip diversity-chip--total"><b>${diversity.total}</b> sources</span>`;
+  html+=`<span class="diversity-chip diversity-chip--pubs"><b>${diversity.pubs}</b> pubs</span>`;
+  order.forEach(region=>{
+    const count=regions[region];
+    if(typeof count==='number' && count>0){
+      const cls='region-chip region-chip--'+region.toLowerCase().replace(/\s+/g,'-');
+      html+=`<span class="diversity-chip ${cls}"><b>${count}</b> ${region}</span>`;
+    }
+  });
+  html+='</div>';
+  return html;
+}
+function renderArgumentCard(arg){
+  const card=document.createElement('div');
+  card.className='argument-card';
+  const header=document.createElement('button');
+  header.className='argument-header';
+  header.type='button';
+  header.setAttribute('aria-expanded','false');
+  const momentum=document.createElement('span');
+  const isDown=arg.momentum==='down';
+  momentum.className='argument-momentum '+(isDown?'argument-momentum--down':'argument-momentum--up');
+  momentum.textContent=isDown?'↓':'↑';
+  const body=document.createElement('span');
+  body.className='argument-body';
+  const stmt=document.createElement('span');
+  stmt.className='argument-statement';
+  stmt.textContent=arg.statement||'';
+  const count=document.createElement('span');
+  count.className='argument-count';
+  const srcs=arg.sources||[];
+  count.textContent=`${srcs.length} source${srcs.length===1?'':'s'}`;
+  body.appendChild(stmt);
+  body.appendChild(count);
+  header.appendChild(momentum);
+  header.appendChild(body);
+  const chain=document.createElement('div');
+  chain.className='evidence-chain';
+  srcs.forEach(s=>{
+    const a=document.createElement('a');
+    a.className='evidence-link';
+    a.href=s.url||'#';
+    a.target='_blank';
+    a.rel='noopener';
+    const pub=document.createElement('span');
+    pub.className='evidence-pub';
+    pub.textContent=s.pub||'';
+    const title=document.createElement('span');
+    title.className='evidence-title';
+    title.textContent=s.title||'';
+    const icon=document.createElement('span');
+    icon.className='evidence-icon';
+    icon.textContent='↗';
+    a.appendChild(pub);
+    a.appendChild(title);
+    a.appendChild(icon);
+    chain.appendChild(a);
+  });
+  card.appendChild(header);
+  card.appendChild(chain);
+  header.addEventListener('click',()=>{
+    const open=card.classList.toggle('open');
+    header.setAttribute('aria-expanded',String(open));
+  });
+  return card;
+}
+function renderThesisCard(d){
+  if(!d || !d.coreArgument) return null;
+  const card=document.createElement('div');
+  card.className='thesis-card';
+  const headline=document.createElement('h3');
+  headline.className='thesis-headline';
+  headline.textContent=d.coreArgument;
+  card.appendChild(headline);
+  if(d.changed){
+    const subhead=document.createElement('p');
+    subhead.className='thesis-subhead';
+    subhead.textContent=d.changed;
+    card.appendChild(subhead);
+  }
+  return card;
+}
 function openPerspectiveLens(name){
   const d=details[name];
   const cur=states[current].nodes[name];
   const meta=statusMeta(cur.status);
   document.getElementById('lensEyebrow').textContent=`${meta.text} · ${cur.sources} SOURCES`;
   document.getElementById('lensTitle').textContent=name;
-  document.getElementById('lensSummary').textContent=d.summary;
+  document.getElementById('lensSummary').textContent=(d&&d.summary)||'';
+  const changedText=(d&&d.changed)||(typeof timeline!=='undefined' && timeline && timeline[current] && timeline[current].perspectives && timeline[current].perspectives[name] && timeline[current].perspectives[name].changed)||'';
+  const changedEl=document.getElementById('lensChanged');
+  if(changedEl){ changedEl.textContent=changedText; changedEl.hidden=!changedText; }
+  const diversityEl=document.getElementById('lensDiversity');
+  if(diversityEl) diversityEl.innerHTML=renderDiversityStrip(d&&d.diversity);
   document.getElementById('lensWindows').innerHTML=windowsStrip(d.windows)+`<span><b>${corpus.real}</b><i>CORPUS REAL</i></span>`;
   drawSparkline(document.getElementById('lensSparkline'), d.sparkline, categoryColors[name]||'#0071e3');
   document.getElementById('lensSteps').innerHTML=d.history.map((txt,i)=>`<div class="lens-step"><div class="when">${i+1}</div><div class="when-label">${states[i].label}</div><p>${txt}</p></div>`).join('');
-  document.getElementById('lensSources').innerHTML=d.sources.map(s=>`<div class="lens-source"><div class="pub">${s.pub}</div><h4>${s.title}</h4><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></div>`).join('');
+  const sourcesEl=document.getElementById('lensSources');
+  const args=(d&&d.arguments)||[];
+  if(args.length){
+    sourcesEl.classList.add('has-arguments');
+    sourcesEl.innerHTML='';
+    const thesis=renderThesisCard(d);
+    if(thesis) sourcesEl.appendChild(thesis);
+    args.forEach(arg=>sourcesEl.appendChild(renderArgumentCard(arg)));
+  }else{
+    sourcesEl.classList.remove('has-arguments');
+    sourcesEl.innerHTML=(d.sources||[]).map(s=>`<div class="lens-source"><div class="pub">${s.pub}</div><h4>${s.title}</h4><p>${s.desc}</p><a href="${s.url||"#"}" target="_blank" rel="noopener">READ ORIGINAL ↗</a></div>`).join('');
+  }
   const viewBtn=document.getElementById('lensView');
   viewBtn.textContent=`View all ${cur.sources} sources`;
   viewBtn.onclick=()=>{ closeLens(); openPerspective(name); };

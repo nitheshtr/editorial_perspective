@@ -1,0 +1,145 @@
+/**
+ * add-publisher-regions — operator-directed publisher→region mapping for the
+ * Wave-2 diversity metrics. Region taxonomy: US | EU | Asia | Middle East |
+ * LATAM | Global. Names NOT in the map stay region-less; the emitter's
+ * diversity tally falls back to "Unknown" for them. Auto-derived junk names
+ * (News, Newsletter, Patmcguinness, …) are deliberately left unmapped.
+ *
+ * Usage: bun scripts/add-publisher-regions.ts
+ */
+import { readFileSync, writeFileSync } from "node:fs";
+
+const REGIONS: Record<string, string> = {
+  "The Conversation": "Global",
+  "Public Knowledge": "US",
+  "Brookings": "US",
+  "Carnegie Endowment": "Global",
+  "Carnegie Endowment for International Peace": "Global",
+  "Chatham House": "EU",
+  "Reuters": "EU",
+  "Associated Press": "US",
+  "BBC": "EU",
+  "NPR": "US",
+  "The Guardian": "EU",
+  "MIT TECHNOLOGY REVIEW · ANALYSIS": "US",
+  "ARS TECHNICA · TECH": "US",
+  "THE VERGE · REPORT": "US",
+  "WIRED · STRATEGY": "US",
+  "BLOOMBERG · TECH": "US",
+  "THE INFORMATION · ANALYSIS": "US",
+  "FINANCIAL TIMES · ENERGY": "EU",
+  "REUTERS · SEMICONDUCTORS": "EU",
+  "WALL STREET JOURNAL · TECH": "US",
+  "THE ECONOMIST · BUSINESS": "EU",
+  "BLOOMBERG OPINION · ECONOMICS": "US",
+  "FT ALPHAVILLE · ANALYSIS": "EU",
+  "THE GUARDIAN · SOCIETY": "EU",
+  "EDUCATION WEEK · OPINION": "US",
+  "VOX · CULTURE": "US",
+  "CNBC": "US",
+  "Forbes": "US",
+  "Business Insider": "US",
+  "Fortune": "US",
+  "Investor's Business Daily": "US",
+  "TIME": "US",
+  "McKinsey & Company": "Global",
+  "SemiAnalysis": "US",
+  "Council on Foreign Relations": "US",
+  "Cfr": "US",
+  "Atlantic Council": "US",
+  "World Economic Forum": "Global",
+  "Goldman Sachs Research": "US",
+  "Goldmansachs": "US",
+  "Pew Research Center": "US",
+  "Bipartisan Policy Center": "US",
+  "Interconnects": "US",
+  "Astral Codex Ten": "US",
+  "Works in Progress": "EU",
+  "The New York Times": "US",
+  "The Wall Street Journal": "US",
+  "Gradient Flow": "US",
+  "Nebius AI": "EU",
+  "IBM": "US",
+  "Neuberger Berman": "US",
+  "MIT Technology Review": "US",
+  "Folha de S.Paulo": "LATAM",
+  "PBS": "US",
+  "CBS News": "US",
+  "NDTV": "Asia",
+  "The Hindu": "Asia",
+  "South China Morning Post": "Asia",
+  "Stanford News": "US",
+  "University of Oxford": "EU",
+  "VentureBeat": "US",
+  "Online News Association": "US",
+  "Journal of Artificial Intelligence Research (JAIR)": "Global",
+  "Bloomberg": "US",
+  "Morningconsult": "US",
+  "Nelson Advisors": "EU",
+  "PYMNTS.com": "US",
+  "Autorité de la concurrence": "EU",
+  "Oag": "US",
+  "TradingView": "US",
+  "DataCenterKnowledge": "US",
+  "Moodys": "US",
+  "Bessemer Venture Partners": "US",
+  "POWER Magazine": "US",
+  "Jll": "Global",
+  "RBC Wealth Management - Asia": "Asia",
+  "Polytechnique Insights": "EU",
+  "MIT Sloan": "US",
+  "Nationalacademies": "US",
+  "Yale Insights": "US",
+  "Stjohns": "US",
+  "Built In": "US",
+  "Harvard Business School": "US",
+  "NIST": "US",
+  "Brownstone Research": "US",
+  "Researchandmarkets": "EU",
+  "Hai": "US",
+  "Amazon Web Services, Inc.": "US",
+  "Ada Lovelace Institute": "EU",
+  "DDN": "US",
+  "Coreweave": "US",
+  "LinkedIn": "US",
+  "AI Now Institute": "US",
+  "Arxiv": "Global",
+  "Globalxetfs": "US",
+  "Reddit": "US",
+  "RAND Corporation": "US",
+  "AJC": "US",
+  "Center for Strategic and International Studies": "US",
+  "Georgetown Journal of International Affairs": "US",
+  "International Centre for Defence and Security": "EU",
+  "INSS": "Middle East",
+  "The Polis Project": "Asia",
+  "Iranian-studies": "US",
+  "The Washington Institute": "US",
+  "BBC News": "EU",
+  "Peterson Institute for International Economics": "US",
+  "United States Department of State": "US",
+  "U.S. Department of the Treasury": "US",
+  "Foreign Affairs Magazine": "US",
+  "Belfer Center": "US",
+  "Middle East Forum": "US",
+  "Institute for Security and Development Policy": "EU",
+  "CNN": "US",
+  "Al Jazeera": "Middle East",
+  "The Washington Post": "US",
+  "China Daily": "Asia",
+};
+
+const path = "data/config/publishers.json";
+const registry = JSON.parse(readFileSync(path, "utf8"));
+let assigned = 0;
+for (const entry of registry.publishers) {
+  const region = REGIONS[entry.name];
+  if (region) {
+    entry.region = region;
+    assigned++;
+  }
+}
+writeFileSync(path, JSON.stringify(registry, null, 2) + "\n");
+console.log(`regions assigned: ${assigned}/${registry.publishers.length}`);
+const leftover = registry.publishers.filter((p: any) => !p.region).length;
+console.log(`left region-less (will tally as Unknown): ${leftover}`);

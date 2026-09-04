@@ -6,7 +6,7 @@
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import type { TopicView, ArticleCacheView, TopicManifest, PerspectiveView } from "./types.js";
+import type { TopicView, ArticleCacheView, TopicManifest, PerspectiveView, PublishersView } from "./types.js";
 
 // ---- string/number emitters (V3 style) ----
 // JS string-literal escaper: backslashes, quotes AND line terminators —
@@ -227,7 +227,7 @@ export function resolveBlobOverlaps(s: TopicView["states"][number], names: strin
   }
 }
 
-export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>, approvedChanges?: Map<string, string>): string {
+export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>, approvedChanges?: Map<string, string>, publisherRegions?: Map<string, string | undefined>): string {
   const corpusReal = [...byId.values()].filter((s) => !s.url.includes("migrated.editorial.local")).length;
   const corpusLine = `const corpus={total:${byId.size},real:${corpusReal}};\n`;
   const timeline = buildTimeline(topic, approvedChanges);
@@ -310,15 +310,57 @@ export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>, a
       const urlField = s.url && !s.url.includes("migrated.editorial.local") ? `,url:${q(s.url)}` : "";
       return `      {pub:${q(s.publisher)},title:${q(s.title)},desc:${q(s.description)}${urlField}}${sSep}`;
     });
+
+    // ---- arguments emission (Wave-2 Argument DNA) ----
+    // Defensive access: schema lane may not have landed yet.
+    const rawArgs = (p as any).arguments;
+    let argsStr: string;
+    if (Array.isArray(rawArgs) && rawArgs.length > 0) {
+      const argLines = rawArgs.map((arg: { id: string; statement: string; momentum: string; sources: string[] }, ai: number) => {
+        const aSep = ai < rawArgs.length - 1 ? "," : "";
+        const srcParts = (arg.sources ?? []).map((sid: string) => {
+          const s = byId.get(sid);
+          if (!s) return null; // skip missing source IDs
+          const urlField = s.url && !s.url.includes("migrated.editorial.local") ? `,url:${q(s.url)}` : "";
+          return `{pub:${q(s.publisher)},title:${q(s.title)}${urlField}}`;
+        }).filter(Boolean);
+        return `    {id:${q(arg.id)},statement:${q(arg.statement)},momentum:${q(arg.momentum)},sources:[${srcParts.join(",")}]}${aSep}`;
+      });
+      argsStr = `    arguments:[\n${argLines.join("\n")}\n    ],`;
+    } else {
+      argsStr = "    arguments:[]" + ",";
+    }
+
+    // ---- diversity block ----
+    const totalSrcs = p.sources.length;
+    const uniquePublishers = new Set<string>();
+    const regionTally = new Map<string, number>();
+    for (const id of p.sources) {
+      const s = byId.get(id);
+      if (!s) continue;
+      const norm = normalizePublisherName(s.publisher);
+      uniquePublishers.add(norm);
+      const region = publisherRegions?.get(norm);
+      const regionKey = region ?? "Unknown";
+      regionTally.set(regionKey, (regionTally.get(regionKey) ?? 0) + 1);
+    }
+    const pubs = uniquePublishers.size;
+    const sortedRegions = [...regionTally.entries()].sort((a, b) => b[1] - a[1]);
+    const regionParts = sortedRegions.map(([rk, rv]) => `${nameKey(rk)}:${rv}`);
+    const diversityStr = `    diversity:{total:${totalSrcs},pubs:${pubs},regions:{${regionParts.join(",")}}}`;
+
     return [
       `  ${nameKey(p.name)}:{`,
+      `    coreArgument:${q(String((p as any).coreArgument ?? ""))},`,
       `    summary:${q(p.summary)},`,
       `    windows:{y:${p.windows?.y ?? 0},q:${p.windows?.q ?? 0},m:${p.windows?.m ?? 0},w:${p.windows?.w ?? 0}},`,
       `    sparkline:[${p.sparkline.map(num).join(",")}],`,
       `    history:[${p.history.map(q).join(",")}],`,
       "    sources:[",
       ...srcLines,
-      "    ]",
+      "    ],",
+      argsStr,
+      diversityStr,
       `  }${sep}`,
     ].join("\n");
   });
@@ -487,6 +529,7 @@ export interface GenerateInputs {
   variablesCss: string;
   mainCss: string;
   appJs: string;
+  publisherRegions: Map<string, string | undefined>;
 }
 
 export function generateHtml(inputs: GenerateInputs, approvedChanges?: Map<string, string>): string {
@@ -500,16 +543,43 @@ export function generateHtml(inputs: GenerateInputs, approvedChanges?: Map<strin
     .replace("<!--__TOPIC_HEADER__-->", () => buildTopicHeader(inputs.topic))
     .replace("<!--__MAP__-->", () => buildMap(inputs.topic))
     .replace("<!--__TIMELINE_PILLS__-->", () => buildTimelinePills(inputs.topic))
-    .replace("/*__DATA__*/", () => emitDataBlock(inputs.topic, byId, approvedChanges))
+    .replace("/*__DATA__*/", () => emitDataBlock(inputs.topic, byId, approvedChanges, inputs.publisherRegions))
     .replace("/*__APP__*/", () => inputs.appJs);
 }
 
+function normalizePublisherName(raw: string): string {
+  // Normalize cataloged publisher names to match registry keys:
+  // lowercase, trim, strip everything from first ·/| onward, collapse whitespace.
+  return raw
+    .toLowerCase()
+    .trim()
+    .split("·")[0]!
+    .split("|")[0]!
+    .trim()
+    .replace(/\s+/g, " ");
+}
+
+function buildPublisherRegionLookup(publishersPath: string): Map<string, string | undefined> {
+  const raw = JSON.parse(readFileSync(publishersPath, "utf8")) as PublishersView;
+  const lookup = new Map<string, string | undefined>();
+  for (const entry of raw.publishers) {
+    const key = normalizePublisherName(entry.name);
+    // Only set the first match; region may be undefined (schema lane adds it later).
+    if (!lookup.has(key)) {
+      lookup.set(key, entry.region);
+    }
+  }
+  return lookup;
+}
+
 export function loadAssets(root: string) {
+  const publisherRegions = buildPublisherRegionLookup(join(root, "data/config/publishers.json"));
   return {
     template: readFileSync(join(root, "src/index.html"), "utf8"),
     variablesCss: readFileSync(join(root, "src/css/variables.css"), "utf8"),
     mainCss: readFileSync(join(root, "src/css/main.css"), "utf8"),
     appJs: readFileSync(join(root, "src/js/app.js"), "utf8"),
+    publisherRegions,
   };
 }
 
@@ -632,3 +702,4 @@ function main(): void {
 }
 
 if ((import.meta as unknown as { main?: boolean }).main) main();
+

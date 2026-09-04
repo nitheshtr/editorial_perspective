@@ -12,7 +12,8 @@
         "link": true,
         "pendingVerification": false
       },
-      "notes": "VERIFIED 2026-08-28 via theconversation.com/republishing-guidelines: CC BY-ND 4.0 — free republication with attribution (authors + The Conversation link-back), no derivative edits, verbatim quotes allowed. fullText remains disabled per project v0.3 policy (excerpt handling not built)."
+      "notes": "VERIFIED 2026-08-28 via theconversation.com/republishing-guidelines: CC BY-ND 4.0 — free republication with attribution (authors + The Conversation link-back), no derivative edits, verbatim quotes allowed. fullText remains disabled per project v0.3 policy (excerpt handling not built).",
+      "region": "Global"
     },
     {
       "name": "Public Knowledge",
@@ -26,7 +27,8 @@
         "link": true,
         "pendingVerification": false
       },
-      "notes": "VERIFIED 2026-08-28 via publicknowledge.org (privacy/terms pages): no explicit content license found; default copyright applies (© 2026 Public Knowledge). Link + summarize only."
+      "notes": "VERIFIED 2026-08-28 via publicknowledge.org (privacy/terms pages): no explicit content license found; default copyright applies (© 2026 Public Knowledge). Link + summarize only.",
+      "region": "US"
     },
     {
       "name": "Brookings",
@@ -40,7 +42,8 @@
         "link": true,
         "pendingVerification": false
       },
-      "notes": "VERIFIED 2026-08-28 via brookings.edu/terms-of-use: no CC license; content is Brookings property; personal non-commercial use only; reuse requires express written consent. Link + summarize only."
+      "notes": "VERIFIED 2026-08-28 via brookings.edu/terms-of-use: no CC license; content is Brookings property; personal non-commercial use only; reuse requires express written consent. Link + summarize only.",
+      "region": "US"
     },
     {
       "name": "Carnegie Endowment",
@@ -54,7 +57,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Freely readable ≠ CC-licensed; verify per article."
+      "notes": "Freely readable ≠ CC-licensed; verify per article.",
+      "region": "Global"
     },
     {
       "name": "Chatham House",
@@ -68,7 +72,8 @@
         "link": true,
         "pendingVerification": false
       },
-      "notes": "VERIFIED 2026-08-28 via chathamhouse.org/terms-and-conditions + publications page: all rights reserved (Royal Institute of International Affairs); reuse licensed via PLSclear (charges >400 words). Link + summarize only."
+      "notes": "VERIFIED 2026-08-28 via chathamhouse.org/terms-and-conditions + publications page: all rights reserved (Royal Institute of International Affairs); reuse licensed via PLSclear (charges >400 words). Link + summarize only.",
+      "region": "EU"
     },
     {
       "name": "Reuters",
@@ -82,7 +87,8 @@
         "link": true,
         "pendingVerification": false
       },
-      "notes": "Explicitly commercializing content access; IP protection emphasized."
+      "notes": "Explicitly commercializing content access; IP protection emphasized.",
+      "region": "EU"
     },
     {
       "name": "Associated Press",
@@ -96,7 +102,8 @@
         "link": true,
         "pendingVerification": false
       },
-      "notes": "Terms forbid copying/display/transmission except as permitted."
+      "notes": "Terms forbid copying/display/transmission except as permitted.",
+      "region": "US"
     },
     {
       "name": "BBC",
@@ -109,7 +116,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": false
-      }
+      },
+      "region": "EU"
     },
     {
       "name": "NPR",
@@ -122,7 +130,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": false
-      }
+      },
+      "region": "US"
     },
     {
       "name": "The Guardian",
@@ -135,7 +144,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": false
-      }
+      },
+      "region": "EU"
     },
     {
       "name": "MIT TECHNOLOGY REVIEW · ANALYSIS",
@@ -149,7 +159,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "US"
     },
     {
       "name": "ARS TECHNICA · TECH",
@@ -163,7 +174,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "US"
     },
     {
       "name": "THE VERGE · REPORT",
@@ -177,7 +189,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "US"
     },
     {
       "name": "WIRED · STRATEGY",
@@ -191,7 +204,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "US"
     },
     {
       "name": "BLOOMBERG · TECH",
@@ -205,7 +219,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "US"
     },
     {
       "name": "THE INFORMATION · ANALYSIS",
@@ -219,7 +234,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "US"
     },
     {
       "name": "FINANCIAL TIMES · ENERGY",
@@ -233,7 +249,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "EU"
     },
     {
       "name": "REUTERS · SEMICONDUCTORS",
@@ -247,7 +264,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "EU"
     },
     {
       "name": "WALL STREET JOURNAL · TECH",
@@ -261,7 +279,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "US"
     },
     {
       "name": "THE ECONOMIST · BUSINESS",
@@ -275,7 +294,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "EU"
     },
     {
       "name": "BLOOMBERG OPINION · ECONOMICS",
@@ -289,7 +309,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "US"
     },
     {
       "name": "FT ALPHAVILLE · ANALYSIS",
@@ -303,7 +324,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "EU"
     },
     {
       "name": "THE GUARDIAN · SOCIETY",
@@ -317,7 +339,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "EU"
     },
     {
       "name": "EDUCATION WEEK · OPINION",
@@ -331,7 +354,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "US"
     },
     {
       "name": "VOX · CULTURE",
@@ -345,7 +369,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Migrated from v3 mock data."
+      "notes": "Migrated from v3 mock data.",
+      "region": "US"
     },
     {
       "name": "CNBC",
@@ -358,7 +383,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Forbes",
@@ -371,7 +397,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Business Insider",
@@ -384,7 +411,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Fortune",
@@ -397,7 +425,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Investor's Business Daily",
@@ -410,7 +439,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "TIME",
@@ -423,7 +453,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "McKinsey & Company",
@@ -437,7 +468,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28: 4 appearances in live AI-Superrace scan (agentic orgs, $7T data-center buildout, State of AI 2026). License unverified."
+      "notes": "Curated 2026-08-28: 4 appearances in live AI-Superrace scan (agentic orgs, $7T data-center buildout, State of AI 2026). License unverified.",
+      "region": "Global"
     },
     {
       "name": "SemiAnalysis",
@@ -451,7 +483,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28: premier AI industry analysis ('AI Value Capture — The Shift To Model Labs'). License unverified."
+      "notes": "Curated 2026-08-28: premier AI industry analysis ('AI Value Capture — The Shift To Model Labs'). License unverified.",
+      "region": "US"
     },
     {
       "name": "Council on Foreign Relations",
@@ -465,7 +498,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28: U.S.-China AI rivalry analysis (2 results). License unverified."
+      "notes": "Curated 2026-08-28: U.S.-China AI rivalry analysis (2 results). License unverified.",
+      "region": "US"
     },
     {
       "name": "Atlantic Council",
@@ -479,7 +513,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28: 'Powering AI' — AI energy/infrastructure analysis. License unverified."
+      "notes": "Curated 2026-08-28: 'Powering AI' — AI energy/infrastructure analysis. License unverified.",
+      "region": "US"
     },
     {
       "name": "World Economic Forum",
@@ -493,7 +528,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28: grid bottleneck + AI workforce education (2 lanes). License unverified."
+      "notes": "Curated 2026-08-28: grid bottleneck + AI workforce education (2 lanes). License unverified.",
+      "region": "Global"
     },
     {
       "name": "Goldman Sachs Research",
@@ -507,7 +543,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28: 'Assumptions Shaping the Scale of the AI Build-Out'. License unverified."
+      "notes": "Curated 2026-08-28: 'Assumptions Shaping the Scale of the AI Build-Out'. License unverified.",
+      "region": "US"
     },
     {
       "name": "Pew Research Center",
@@ -521,7 +558,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28: 'Views of AI Around the World' — public-opinion data. License unverified."
+      "notes": "Curated 2026-08-28: 'Views of AI Around the World' — public-opinion data. License unverified.",
+      "region": "US"
     },
     {
       "name": "Bipartisan Policy Center",
@@ -535,7 +573,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28: 'AI and the Workforce' — jobs/displacement analysis. License unverified."
+      "notes": "Curated 2026-08-28: 'AI and the Workforce' — jobs/displacement analysis. License unverified.",
+      "region": "US"
     },
     {
       "name": "Interconnects",
@@ -549,7 +588,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28: independent specialist (Nathan Lambert) on AI labs/geopolitics. License unverified."
+      "notes": "Curated 2026-08-28: independent specialist (Nathan Lambert) on AI labs/geopolitics. License unverified.",
+      "region": "US"
     },
     {
       "name": "Astral Codex Ten",
@@ -563,7 +603,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28: independent analysis ('If Anyone Builds It, Everyone Dies' review). License unverified."
+      "notes": "Curated 2026-08-28: independent analysis ('If Anyone Builds It, Everyone Dies' review). License unverified.",
+      "region": "US"
     },
     {
       "name": "Works in Progress",
@@ -577,7 +618,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28: 'Why American data centers can't plug in' — infrastructure essays. License unverified."
+      "notes": "Curated 2026-08-28: 'Why American data centers can't plug in' — infrastructure essays. License unverified.",
+      "region": "EU"
     },
     {
       "name": "The New York Times",
@@ -591,7 +633,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28 (operator): mainstream AI-race opinion/coverage. Paywalled — research fetch skips non-open pages automatically; metadata + link only. License unverified."
+      "notes": "Curated 2026-08-28 (operator): mainstream AI-race opinion/coverage. Paywalled — research fetch skips non-open pages automatically; metadata + link only. License unverified.",
+      "region": "US"
     },
     {
       "name": "The Wall Street Journal",
@@ -605,7 +648,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28 (operator): mainstream AI-race coverage. Legacy mock entry \"WALL STREET JOURNAL · TECH\" exists from v3 migration; this clean entry is for live ingestion. License unverified."
+      "notes": "Curated 2026-08-28 (operator): mainstream AI-race coverage. Legacy mock entry \"WALL STREET JOURNAL · TECH\" exists from v3 migration; this clean entry is for live ingestion. License unverified.",
+      "region": "US"
     },
     {
       "name": "Carnegie Endowment for International Peace",
@@ -618,7 +662,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "Global"
     },
     {
       "name": "Gradient Flow",
@@ -631,7 +676,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Nebius AI",
@@ -644,7 +690,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "EU"
     },
     {
       "name": "IBM",
@@ -657,7 +704,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Neuberger Berman",
@@ -670,7 +718,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "MIT Technology Review",
@@ -684,7 +733,8 @@
         "link": true,
         "pendingVerification": false
       },
-      "notes": "VERIFIED 2026-08-28 via technologyreview.com/terms-of-service + /republishing/: all rights reserved; no open license; reuse only via paid syndication/single-use licensing (licensing@technologyreview.com, Copyright Clearance Center). Link + summarize only. Metered access — paywalled pages auto-skipped by research."
+      "notes": "VERIFIED 2026-08-28 via technologyreview.com/terms-of-service + /republishing/: all rights reserved; no open license; reuse only via paid syndication/single-use licensing (licensing@technologyreview.com, Copyright Clearance Center). Link + summarize only. Metered access — paywalled pages auto-skipped by research.",
+      "region": "US"
     },
     {
       "name": "Folha de S.Paulo",
@@ -698,7 +748,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28 (operator): leading Brazilian newspaper — Latin American AI-race coverage. License unverified."
+      "notes": "Curated 2026-08-28 (operator): leading Brazilian newspaper — Latin American AI-race coverage. License unverified.",
+      "region": "LATAM"
     },
     {
       "name": "PBS",
@@ -712,7 +763,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28 (operator): US public broadcaster — accessible AI explainers and workforce coverage. License unverified."
+      "notes": "Curated 2026-08-28 (operator): US public broadcaster — accessible AI explainers and workforce coverage. License unverified.",
+      "region": "US"
     },
     {
       "name": "CBS News",
@@ -726,7 +778,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28 (operator): US mainstream AI-race coverage. License unverified."
+      "notes": "Curated 2026-08-28 (operator): US mainstream AI-race coverage. License unverified.",
+      "region": "US"
     },
     {
       "name": "NDTV",
@@ -740,7 +793,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28 (operator): Indian mainstream — India's AI-strategy coverage. License unverified."
+      "notes": "Curated 2026-08-28 (operator): Indian mainstream — India's AI-strategy coverage. License unverified.",
+      "region": "Asia"
     },
     {
       "name": "The Hindu",
@@ -754,7 +808,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28 (operator): Indian mainstream — India AI-policy analysis. License unverified."
+      "notes": "Curated 2026-08-28 (operator): Indian mainstream — India AI-policy analysis. License unverified.",
+      "region": "Asia"
     },
     {
       "name": "South China Morning Post",
@@ -768,7 +823,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28 (operator): Hong Kong/China perspective — the China side of the AI race. License unverified."
+      "notes": "Curated 2026-08-28 (operator): Hong Kong/China perspective — the China side of the AI race. License unverified.",
+      "region": "Asia"
     },
     {
       "name": "Stanford News",
@@ -782,7 +838,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28 (operator): Stanford + HAI (Human-Centered AI Institute) — academic AI research coverage. License unverified."
+      "notes": "Curated 2026-08-28 (operator): Stanford + HAI (Human-Centered AI Institute) — academic AI research coverage. License unverified.",
+      "region": "US"
     },
     {
       "name": "University of Oxford",
@@ -796,7 +853,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28 (operator): Oxford research news — academic AI analysis. License unverified."
+      "notes": "Curated 2026-08-28 (operator): Oxford research news — academic AI analysis. License unverified.",
+      "region": "EU"
     },
     {
       "name": "VentureBeat",
@@ -810,7 +868,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28 (operator): AI trade press (also surfaced in the live source scan). License unverified."
+      "notes": "Curated 2026-08-28 (operator): AI trade press (also surfaced in the live source scan). License unverified.",
+      "region": "US"
     },
     {
       "name": "Online News Association",
@@ -824,7 +883,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28 (operator): industry case studies — journalism practice lens. License unverified."
+      "notes": "Curated 2026-08-28 (operator): industry case studies — journalism practice lens. License unverified.",
+      "region": "US"
     },
     {
       "name": "Journal of Artificial Intelligence Research (JAIR)",
@@ -838,7 +898,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-28 (operator): peer-reviewed AI research — open-access academic journal. License unverified."
+      "notes": "Curated 2026-08-28 (operator): peer-reviewed AI research — open-access academic journal. License unverified.",
+      "region": "Global"
     },
     {
       "name": "Bloomberg",
@@ -852,7 +913,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Editorial Bloomberg is a legitimate future target (tier 3 pending license check). EXCLUSION RULE (verified 2026-08-28): sponsored.bloomberg.com URLs are paid advertorials (Salesforce/ServiceNow/Global X campaigns) — excluded from the corpus per SPECv4 §2.4; research stage auto-skips sponsored.* hostnames. Ingest only www.bloomberg.com/news/ editorial."
+      "notes": "Editorial Bloomberg is a legitimate future target (tier 3 pending license check). EXCLUSION RULE (verified 2026-08-28): sponsored.bloomberg.com URLs are paid advertorials (Salesforce/ServiceNow/Global X campaigns) — excluded from the corpus per SPECv4 §2.4; research stage auto-skips sponsored.* hostnames. Ingest only www.bloomberg.com/news/ editorial.",
+      "region": "US"
     },
     {
       "name": "Custom Events |",
@@ -891,7 +953,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Startup Fortune",
@@ -917,7 +980,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "EU"
     },
     {
       "name": "PYMNTS.com",
@@ -930,7 +994,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Autorité de la concurrence",
@@ -943,7 +1008,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "EU"
     },
     {
       "name": "Oag",
@@ -956,7 +1022,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "TradingView",
@@ -969,7 +1036,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "News",
@@ -995,7 +1063,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Moodys",
@@ -1008,7 +1077,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Bessemer Venture Partners",
@@ -1021,7 +1091,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "POWER Magazine",
@@ -1034,7 +1105,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Jll",
@@ -1047,7 +1119,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "Global"
     },
     {
       "name": "Newsletter",
@@ -1073,7 +1146,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "Asia"
     },
     {
       "name": "Polytechnique Insights",
@@ -1086,7 +1160,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "EU"
     },
     {
       "name": "MIT Sloan",
@@ -1099,7 +1174,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Nationalacademies",
@@ -1112,7 +1188,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Yale Insights",
@@ -1125,7 +1202,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Stjohns",
@@ -1138,7 +1216,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Built In",
@@ -1151,7 +1230,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Harvard Business School",
@@ -1164,7 +1244,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Patmcguinness",
@@ -1190,7 +1271,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Cfr",
@@ -1203,7 +1285,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Brownstone Research",
@@ -1216,7 +1299,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Goldmansachs",
@@ -1229,7 +1313,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Researchandmarkets",
@@ -1242,7 +1327,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "EU"
     },
     {
       "name": "Growthmarketreports",
@@ -1268,7 +1354,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Amazon Web Services, Inc.",
@@ -1281,7 +1368,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Cleverse",
@@ -1307,7 +1395,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "EU"
     },
     {
       "name": "The Economy",
@@ -1333,7 +1422,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Epicsemi",
@@ -1359,7 +1449,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "LinkedIn",
@@ -1372,7 +1463,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "AI Now Institute",
@@ -1385,7 +1477,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Arxiv",
@@ -1398,7 +1491,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "Global"
     },
     {
       "name": "Globalxetfs",
@@ -1411,7 +1505,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Reddit",
@@ -1424,7 +1519,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "RAND Corporation",
@@ -1437,7 +1533,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "AJC",
@@ -1450,7 +1547,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Center for Strategic and International Studies",
@@ -1463,7 +1561,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Georgetown Journal of International Affairs",
@@ -1476,7 +1575,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Futura Doctrina",
@@ -1541,7 +1641,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "EU"
     },
     {
       "name": "Facebook",
@@ -1567,7 +1668,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "Middle East"
     },
     {
       "name": "The Polis Project",
@@ -1580,7 +1682,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "Asia"
     },
     {
       "name": "Iranian-studies",
@@ -1593,7 +1696,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "The Washington Institute",
@@ -1606,7 +1710,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "BBC News",
@@ -1619,7 +1724,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "EU"
     },
     {
       "name": "Peterson Institute for International Economics",
@@ -1632,7 +1738,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "United States Department of State",
@@ -1645,7 +1752,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "U.S. Department of the Treasury",
@@ -1658,7 +1766,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Foreign Affairs Magazine",
@@ -1671,7 +1780,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Belfer Center",
@@ -1684,7 +1794,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Globalguardian",
@@ -1723,7 +1834,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "US"
     },
     {
       "name": "Institute for Security and Development Policy",
@@ -1736,7 +1848,8 @@
         "summary": true,
         "link": true,
         "pendingVerification": true
-      }
+      },
+      "region": "EU"
     },
     {
       "name": "CNN",
@@ -1750,7 +1863,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-30 (operator): mainstream US/International AI + conflict coverage. Metered — paywalled pages auto-skipped. License unverified."
+      "notes": "Curated 2026-08-30 (operator): mainstream US/International AI + conflict coverage. Metered — paywalled pages auto-skipped. License unverified.",
+      "region": "US"
     },
     {
       "name": "Al Jazeera",
@@ -1764,7 +1878,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Curated 2026-08-30 (operator): Middle East + Global coverage — strong Iran/Gulf lens. License unverified."
+      "notes": "Curated 2026-08-30 (operator): Middle East + Global coverage — strong Iran/Gulf lens. License unverified.",
+      "region": "Middle East"
     },
     {
       "name": "The Washington Post",
@@ -1778,7 +1893,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Proper entry added during operator-import cleanup 2026-08-30; license unverified."
+      "notes": "Proper entry added during operator-import cleanup 2026-08-30; license unverified.",
+      "region": "US"
     },
     {
       "name": "China Daily",
@@ -1792,7 +1908,8 @@
         "link": true,
         "pendingVerification": true
       },
-      "notes": "Proper entry added during operator-import cleanup 2026-08-30; license unverified."
+      "notes": "Proper entry added during operator-import cleanup 2026-08-30; license unverified.",
+      "region": "Asia"
     }
   ]
 }

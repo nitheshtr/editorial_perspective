@@ -1,0 +1,245 @@
+{
+  "proposals": [
+    {
+      "id": "P-001",
+      "kind": "metrics",
+      "path": "states.2.nodes.Technology.metrics",
+      "value": {
+        "sourceVolume": 20,
+        "independentSignals": 20,
+        "momentum": 0.15,
+        "emergence": 0.1,
+        "editorialWeight": 0.4,
+        "confidence": 0.8
+      },
+      "confidence": 0.8,
+      "evidence": "20 cached articles across 20 distinct clusters (cluster-1, 20, 21, 25, 36, 39, 48, 50, 51, 56, 84, 85, 86, 87, 88, 89, 105, 106, 107, 118) treat capability as table stakes; benchmarks 'broken' (cluster-56) and China closing gap (cluster-85, 87) show fading headline value."
+    },
+    {
+      "id": "P-002",
+      "kind": "status",
+      "path": "states.2.nodes.Technology.status",
+      "value": "Cooling",
+      "confidence": 0.85,
+      "evidence": "Capability coverage persists (clusters 1, 21, 36, 39, 84-89, 107) but is framed as background: 'raw model performance is becoming background noise' (cluster-1). No new capability-led narrative emerged this period."
+    },
+    {
+      "id": "P-003",
+      "kind": "metrics",
+      "path": "states.2.nodes.Platform.metrics",
+      "value": {
+        "sourceVolume": 16,
+        "independentSignals": 16,
+        "momentum": 0.27,
+        "emergence": 0.5,
+        "editorialWeight": 0.9,
+        "confidence": 0.9
+      },
+      "confidence": 0.9,
+      "evidence": "16 articles in 16 distinct clusters (cluster-2, 3, 4, 5, 6, 37, 40, 58, 59, 60, 61, 62, 64, 65, 76, 109) on agents, interfaces, defaults and moats; antitrust attention (cluster-62, 65) confirms platform centrality."
+    },
+    {
+      "id": "P-004",
+      "kind": "status",
+      "path": "states.2.nodes.Platform.status",
+      "value": "Dominant",
+      "confidence": 0.9,
+      "evidence": "Largest coherent cluster block (cluster-2-6, 37, 40) plus new entrants: ChatGPT as default consumer brand (cluster-58), Tencent WeChat agent (cluster-59), smartphone-in-your-pocket framing (cluster-61)."
+    },
+    {
+      "id": "P-005",
+      "kind": "metrics",
+      "path": "states.2.nodes.Infrastructure.metrics",
+      "value": {
+        "sourceVolume": 21,
+        "independentSignals": 21,
+        "momentum": 0.28,
+        "emergence": 0.45,
+        "editorialWeight": 0.85,
+        "confidence": 0.9
+      },
+      "confidence": 0.9,
+      "evidence": "21 articles in 21 distinct clusters (cluster-7, 8, 9, 42, 47, 49, 52, 54, 55, 57, 66, 68, 69, 70, 71, 100, 111, 112, 113, 114, 116): power, chips, data centers, edge hardware; $3T investment supercycle (cluster-71)."
+    },
+    {
+      "id": "P-006",
+      "kind": "status",
+      "path": "states.2.nodes.Infrastructure.status",
+      "value": "Accelerating",
+      "confidence": 0.88,
+      "evidence": "Highest source count this period; new regulatory angle (cluster-66 North Carolina cost bill) and edge shift (cluster-47) show the constraint narrative still widening."
+    },
+    {
+      "id": "P-007",
+      "kind": "metrics",
+      "path": "states.2.nodes.Economics.metrics",
+      "value": {
+        "sourceVolume": 13,
+        "independentSignals": 13,
+        "momentum": 0.17,
+        "emergence": 0.4,
+        "editorialWeight": 0.7,
+        "confidence": 0.85
+      },
+      "confidence": 0.85,
+      "evidence": "13 articles in 13 distinct clusters (cluster-10, 11, 12, 44, 53, 67, 72, 73, 74, 75, 115, 117, 120) on surplus capture, pricing playbooks, commoditization and the AI bubble."
+    },
+    {
+      "id": "P-008",
+      "kind": "status",
+      "path": "states.2.nodes.Economics.status",
+      "value": "Accelerating",
+      "confidence": 0.8,
+      "evidence": "Sustained cluster-10-12 core plus new monetization and agent-economy angles (cluster-73, 117, 120); commoditization thesis (cluster-74) directly challenges platform surplus claims."
+    },
+    {
+      "id": "P-009",
+      "kind": "metrics",
+      "path": "states.2.nodes.Human Impact.metrics",
+      "value": {
+        "sourceVolume": 14,
+        "independentSignals": 14,
+        "momentum": 0.2,
+        "emergence": 0.55,
+        "editorialWeight": 0.65,
+        "confidence": 0.85
+      },
+      "confidence": 0.85,
+      "evidence": "14 articles in 14 distinct clusters (cluster-13, 14, 15, 31, 35, 41, 43, 77, 78, 79, 80, 81, 82, 83) spanning work displacement, education, global divide and safety."
+    },
+    {
+      "id": "P-010",
+      "kind": "status",
+      "path": "states.2.nodes.Human Impact.status",
+      "value": "Growing",
+      "confidence": 0.82,
+      "evidence": "Labor-market evidence base expanded sharply (cluster-77, 79, 80, 82, 83); entry-level job impact (cluster-79) gives the perspective concrete new support beyond editorial opinion."
+    },
+    {
+      "id": "P-011",
+      "kind": "narrative",
+      "path": "states.2.nodes.Technology.keywords",
+      "value": [
+        "benchmarks",
+        "capability parity",
+        "frontier models",
+        "china",
+        "reasoning"
+      ],
+      "confidence": 0.8,
+      "evidence": "Derived from cluster-1, 56, 84-89, 107 titles/descriptions."
+    },
+    {
+      "id": "P-012",
+      "kind": "narrative",
+      "path": "states.2.nodes.Technology.periodSummary",
+      "value": "Capability coverage persists as table stakes, with benchmark skepticism, China's narrowing gap, and self-improving models as the remaining open questions.",
+      "confidence": 0.8,
+      "evidence": "Clusters 1, 21, 36, 39, 56, 84-89, 107."
+    },
+    {
+      "id": "P-013",
+      "kind": "narrative",
+      "path": "states.2.nodes.Platform.keywords",
+      "value": [
+        "agents",
+        "default interfaces",
+        "moats",
+        "antitrust",
+        "distribution"
+      ],
+      "confidence": 0.9,
+      "evidence": "Derived from cluster-2-6, 37, 40, 58-62, 65, 76, 109."
+    },
+    {
+      "id": "P-014",
+      "kind": "narrative",
+      "path": "states.2.nodes.Platform.periodSummary",
+      "value": "Coverage centers on who owns the default AI entry point—agent interfaces, app-store analogies and regulator scrutiny of platform power.",
+      "confidence": 0.9,
+      "evidence": "Clusters 2-6, 37, 40, 58-62, 65, 76, 109."
+    },
+    {
+      "id": "P-015",
+      "kind": "narrative",
+      "path": "states.2.nodes.Infrastructure.keywords",
+      "value": [
+        "power grid",
+        "data centers",
+        "chips",
+        "edge hardware",
+        "buildout"
+      ],
+      "confidence": 0.9,
+      "evidence": "Derived from cluster-7-9, 42, 47, 66, 68, 69, 71, 100, 111-114."
+    },
+    {
+      "id": "P-016",
+      "kind": "narrative",
+      "path": "states.2.nodes.Infrastructure.periodSummary",
+      "value": "Physical constraints—power, chips, data-center capacity and edge devices—now set the pace and geography of the AI race.",
+      "confidence": 0.9,
+      "evidence": "Clusters 7-9, 42, 47, 66, 68, 69, 71, 100, 111-114."
+    },
+    {
+      "id": "P-017",
+      "kind": "narrative",
+      "path": "states.2.nodes.Economics.keywords",
+      "value": [
+        "surplus capture",
+        "commoditization",
+        "pricing",
+        "productivity paradox",
+        "inference costs"
+      ],
+      "confidence": 0.85,
+      "evidence": "Derived from cluster-10-12, 72-75, 115, 117, 120."
+    },
+    {
+      "id": "P-018",
+      "kind": "narrative",
+      "path": "states.2.nodes.Economics.periodSummary",
+      "value": "Economics coverage asks where value lands as models commoditize: margins, pricing models, bubble risk and the agent economy.",
+      "confidence": 0.85,
+      "evidence": "Clusters 10-12, 72-75, 115, 117, 120."
+    },
+    {
+      "id": "P-019",
+      "kind": "narrative",
+      "path": "states.2.nodes.Human Impact.keywords",
+      "value": [
+        "job displacement",
+        "education",
+        "future of work",
+        "global divide",
+        "safety"
+      ],
+      "confidence": 0.85,
+      "evidence": "Derived from cluster-13-15, 31, 35, 41, 43, 77-83."
+    },
+    {
+      "id": "P-020",
+      "kind": "narrative",
+      "path": "states.2.nodes.Human Impact.periodSummary",
+      "value": "Human-impact coverage broadens from opinion to evidence: labor-market research, classroom effects, global inclusion and US-China safety dialogue.",
+      "confidence": 0.85,
+      "evidence": "Clusters 13-15, 31, 35, 41, 43, 77-83."
+    },
+    {
+      "id": "P-021",
+      "kind": "question",
+      "path": "states.2",
+      "value": "Who captures AI's value as platforms, power and people become the binding constraints?",
+      "confidence": 0.8,
+      "evidence": "Synthesizes Platform dominance (clusters 2-6, 37, 40), Infrastructure acceleration (clusters 7-9, 66-71) and Human Impact growth (clusters 77-83); suggested as candidate question for the next period, pending human approval."
+    },
+    {
+      "id": "P-022",
+      "kind": "synthesis",
+      "path": "states.2",
+      "value": "The race's competitive axes have settled: platforms own the default entry point (clusters 2-6, 58, 59), infrastructure owns the physical ceiling (clusters 7-9, 69, 71), and economics asks whether either can hold surplus as models commoditize (clusters 10-12, 74). Capability is now table stakes (clusters 1, 56, 107), while a fast-maturing human-impact lens (clusters 77-83) is becoming the scoreboard on which platform and infrastructure claims will be judged.",
+      "confidence": 0.85,
+      "evidence": "Draws on Platform (16 sources), Infrastructure (21 sources), Economics (13 sources), Technology (20 sources) and Human Impact (14 sources) cluster evidence as listed above."
+    }
+  ]
+}

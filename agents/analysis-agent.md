@@ -31,16 +31,24 @@ WORKFLOW
    that period's coverage is about. Emit them as `keywords` and `periodSummary`
    proposals (path e.g. `states[2].nodes.Technology.keywords`), each with
    cluster-ID evidence and a confidence value.
-4. Distinguish themes from arguments; identify candidate perspectives.
-5. Identify supporting and counterarguments per perspective.
-6. Count independence from story clusters (one cluster = one independent
+4. Argument grouping: propose 3–5 argument groups per perspective for the
+   current period. Each group: a crisp standalone statement (10–200 chars) the
+   coverage supports, momentum `up` or `down` (rising vs fading attention across
+   the period's clusters — cite the evidence), and 1–6 supporting source IDs
+   drawn ONLY from the perspective's cataloged sources. Emit as `arguments`
+   proposals (path `perspectives[<index>].arguments`, whole-array value), with
+   cluster-ID evidence per group. Never invent sources not in the perspective's
+   catalog.
+5. Distinguish themes from arguments; identify candidate perspectives.
+6. Identify supporting and counterarguments per perspective.
+7. Count independence from story clusters (one cluster = one independent
    signal, regardless of republication count).
-7. Calculate metrics: sourceVolume, independentSignals, momentum, emergence,
+8. Calculate metrics: sourceVolume, independentSignals, momentum, emergence,
    editorialWeight, confidence (0-1 scales; SPECv4 Section 5.1).
-8. Assign one status per perspective: Dominant, Accelerating, Growing,
+9. Assign one status per perspective: Dominant, Accelerating, Growing,
    Cooling, Emerging, or Invisible.
-9. Compare current vs previous state; produce a structural change report.
-10. Suggest central-question evolution (8-15 words, action-oriented) and draft
+10. Compare current vs previous state; produce a structural change report.
+11. Suggest central-question evolution (8-15 words, action-oriented) and draft
     a synthesis referencing at least 3 distinct perspectives.
 
 CONSTRAINTS

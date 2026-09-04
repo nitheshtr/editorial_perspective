@@ -332,6 +332,69 @@ export async function validateTopic(input: ValidateTopicInput): Promise<Validati
     checks.push(check);
   }
 
+  // ── Check (f): Arguments ──────────────────────────────────────────────────
+  {
+    const check: ValidationCheck = { name: "arguments", status: "pass", details: [] };
+    const result = Topic.safeParse(input.topic);
+    const topic = result.success ? result.data : null;
+
+    if (!topic) {
+      check.status = "skipped";
+      check.details.push("Skipped (topic schema invalid)");
+    } else {
+      let anyFailure = false;
+      for (let pi = 0; pi < topic.perspectives.length; pi++) {
+        const pers = topic.perspectives[pi];
+        const path = `perspectives[${pi}]`;
+        const args = pers.arguments;
+        if (!args) continue; // optional — absence is fine
+
+        // Argument IDs must be unique within this perspective
+        const seenIds = new Set<string>();
+        for (let ai = 0; ai < args.length; ai++) {
+          const arg = args[ai];
+          if (seenIds.has(arg.id)) {
+            check.details.push(`${path}.arguments[${ai}]: duplicate argument id '${arg.id}'`);
+            anyFailure = true;
+          }
+          seenIds.add(arg.id);
+
+          // Statement length (schema enforces 10-200, but we report nicely)
+          if (arg.statement.length < 10) {
+            check.details.push(`${path}.arguments[${ai}]: statement '${arg.statement}' too short (min 10 chars)`);
+            anyFailure = true;
+          }
+          if (arg.statement.length > 200) {
+            check.details.push(`${path}.arguments[${ai}]: statement exceeds 200 characters`);
+            anyFailure = true;
+          }
+
+          // Every argument source ID must be a member of the perspective's sources array
+          for (let si = 0; si < arg.sources.length; si++) {
+            const sid = arg.sources[si];
+            if (!pers.sources.includes(sid)) {
+              check.details.push(`${path}.arguments[${ai}].sources[${si}]: '${sid}' not in perspective's sources`);
+              anyFailure = true;
+            }
+          }
+        }
+
+        // Max 8 (schema-enforced, but report clearly)
+        if (args.length > 8) {
+          check.details.push(`${path}.arguments: ${args.length} arguments (max 8)`);
+          anyFailure = true;
+        }
+      }
+      if (anyFailure) {
+        check.status = "fail";
+        overallOk = false;
+      } else {
+        check.details.push("Arguments checks passed (or absent)");
+      }
+    }
+    checks.push(check);
+  }
+
   return { slug, ok: overallOk, checks };
 }
 
