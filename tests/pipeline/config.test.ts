@@ -5,7 +5,7 @@
  * Reads the live config/pipeline.json file.
  */
 
-import { describe, it, expect } from "bun:test";
+import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 
 const config = JSON.parse(readFileSync("config/pipeline.json", "utf-8"));

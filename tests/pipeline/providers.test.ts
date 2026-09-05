@@ -48,7 +48,7 @@ describe("OpenRouterProvider", () => {
 
     const provider = new OpenRouterProvider({ apiKey: "test-key", fetchImpl });
     const result = await provider.complete({
-      model: "models.research",
+      model: "research",
       messages: [{ role: "user", content: "Hello" }],
     });
 
@@ -74,7 +74,7 @@ describe("OpenRouterProvider", () => {
 
     const provider = new OpenRouterProvider({ apiKey: "test-key", fetchImpl, retry: { maxAttempts: 3, backoffMs: 1 } });
     const result = await provider.complete({
-      model: "models.research",
+      model: "research",
       messages: [{ role: "user", content: "Hello" }],
     });
 
@@ -90,7 +90,7 @@ describe("OpenRouterProvider", () => {
 
     const provider = new OpenRouterProvider({ apiKey: "test-key", fetchImpl, retry: { maxAttempts: 3, backoffMs: 1 } });
     await expect(
-      provider.complete({ model: "models.research", messages: [{ role: "user", content: "Hello" }] })
+      provider.complete({ model: "research", messages: [{ role: "user", content: "Hello" }] })
     ).rejects.toThrow();
   });
 
@@ -101,7 +101,7 @@ describe("OpenRouterProvider", () => {
 
     const provider = new OpenRouterProvider();
     await expect(
-      provider.complete({ model: "models.research", messages: [{ role: "user", content: "Hello" }] })
+      provider.complete({ model: "research", messages: [{ role: "user", content: "Hello" }] })
     ).rejects.toThrow("OPENROUTER_API_KEY");
 
     process.env.OPENROUTER_API_KEY = origKey;
@@ -117,7 +117,7 @@ describe("AnthropicProvider", () => {
 
     const provider = new AnthropicProvider({ apiKey: "test-key", fetchImpl });
     const result = await provider.complete({
-      model: "models.analysis",
+      model: "analysis",
       system: "You are helpful",
       messages: [{ role: "user", content: "Hello" }],
     });
@@ -143,7 +143,7 @@ describe("AnthropicProvider", () => {
 
     const provider = new AnthropicProvider({ apiKey: "test-key", fetchImpl, retry: { maxAttempts: 3, backoffMs: 1 } });
     const result = await provider.complete({
-      model: "models.analysis",
+      model: "analysis",
       messages: [{ role: "user", content: "Hello" }],
     });
 
@@ -157,7 +157,7 @@ describe("AnthropicProvider", () => {
 
     const provider = new AnthropicProvider();
     await expect(
-      provider.complete({ model: "models.analysis", messages: [{ role: "user", content: "Hello" }] })
+      provider.complete({ model: "analysis", messages: [{ role: "user", content: "Hello" }] })
     ).rejects.toThrow("ANTHROPIC_API_KEY");
 
     process.env.ANTHROPIC_API_KEY = origKey;
@@ -173,7 +173,7 @@ describe("OpenAIProvider", () => {
 
     const provider = new OpenAIProvider({ apiKey: "test-key", fetchImpl });
     const result = await provider.complete({
-      model: "models.writing",
+      model: "writing",
       messages: [{ role: "user", content: "Hello" }],
     });
 
