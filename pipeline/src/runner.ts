@@ -444,7 +444,8 @@ async function stageResearch(ctx: RunContext): Promise<void> {
   }
 
   // ── Get search config ─────────────────────────────────────────────────
-  const searchCfg = ctx.config.search as Record<string, unknown> | undefined;
+  const sourcesCfg = ctx.config.sources as Record<string, unknown> | undefined;
+  const searchCfg = sourcesCfg?.search as Record<string, unknown> | undefined;
   const maxResults = (searchCfg?.maxResults as number) ?? 10;
 
   // ── (a) Build query from topic title (or explicit query= override) ────
@@ -478,13 +479,26 @@ async function stageResearch(ctx: RunContext): Promise<void> {
   const rssSkippedFeeds: string[] = [];
 
   if (ctx.feeds) {
+    // Read registry path from config (default: config/sources.json)
+    const sourcesCfg = ctx.config.sources as Record<string, unknown> | undefined;
+    const rssCfg = sourcesCfg?.rss as Record<string, unknown> | undefined;
+    const registryPath = (rssCfg?.registry as string) ?? "config/sources.json";
+    const registryFullPath = join(ROOT, registryPath);
+
     let feedsConfig: { feeds: Array<{ publisher: string; url: string; lane: string }> };
-    try {
-      feedsConfig = JSON.parse(readFileSync(join(ROOT, "data", "config", "feeds.json"), "utf-8")) as {
+    if (existsSync(registryFullPath)) {
+      feedsConfig = JSON.parse(readFileSync(registryFullPath, "utf-8")) as {
         feeds: Array<{ publisher: string; url: string; lane: string }>;
       };
-    } catch {
-      feedsConfig = { feeds: [] };
+    } else {
+      // Fall back to existing feeds.json
+      try {
+        feedsConfig = JSON.parse(readFileSync(join(ROOT, "data", "config", "feeds.json"), "utf-8")) as {
+          feeds: Array<{ publisher: string; url: string; lane: string }>;
+        };
+      } catch {
+        feedsConfig = { feeds: [] };
+      }
     }
 
     const rssReader = createRssReader();
@@ -798,7 +812,7 @@ ${cacheExcerpt}`;
 
   // Budget check
   const budget = ctx.config.budget as Record<string, unknown> | undefined;
-  const maxCost = (budget?.maxCostUsdPerRun as number) ?? Infinity;
+  const maxCost = (budget?.maxCostPerRun as number) ?? Infinity;
   const spent = telemetry.costSoFar();
   if (spent >= maxCost * 0.2 && spent < maxCost) {
     telemetry.emit({ level: "warn", event: "budget", data: { spentUsd: spent, limitUsd: maxCost, action: "warn" } });
@@ -915,7 +929,7 @@ ${JSON.stringify({ proposals })}`;
   const modelName = modelCfg.model as string ?? agent.model;
 
   const budget = ctx.config.budget as Record<string, unknown> | undefined;
-  const maxCost = (budget?.maxCostUsdPerRun as number) ?? Infinity;
+  const maxCost = (budget?.maxCostPerRun as number) ?? Infinity;
   const spent = telemetry.costSoFar();
   if (spent >= maxCost * 0.2 && spent < maxCost) {
     telemetry.emit({ level: "warn", event: "budget", data: { spentUsd: spent, limitUsd: maxCost, action: "warn" } });

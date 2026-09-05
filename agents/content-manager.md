@@ -1,7 +1,7 @@
 ---
 id: content-manager
 stage: apply
-model: models.apply
+model: apply
 tools: [store-write, validate, backup]
 writeScope:
   - data/topics/

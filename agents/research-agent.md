@@ -1,7 +1,7 @@
 ---
 id: research-agent
 stage: research
-model: models.research
+model: research
 tools: [websearch, webfetch, cache-append, registry-append]
 writeScope:
   - data/articles/articles_cache.json

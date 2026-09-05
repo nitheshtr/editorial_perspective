@@ -1,7 +1,7 @@
 ---
 id: analysis-agent
 stage: analysis
-model: models.analysis
+model: analysis
 tools: []                      # reads cache + topic via runner context; writes nothing
 writeScope: []                 # proposals are persisted by the runner, not by the agent
 inputs: [topic JSON, article cache, previous state]

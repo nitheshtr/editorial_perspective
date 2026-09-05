@@ -1,7 +1,7 @@
 ---
 id: writing-assistant
 stage: writing
-model: models.writing
+model: writing
 tools: []
 writeScope: []                 # narrative persisted by the runner
 inputs: [topic JSON, analysis proposals, mode (draft|refine|audit)]

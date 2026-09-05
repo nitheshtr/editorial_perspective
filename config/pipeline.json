@@ -1,22 +1,29 @@
 {
   "models": {
-    "models.research": { "provider": "openrouter", "model": "z-ai/glm-5.3-flash", "temperature": 0.2, "reasoning": "low" },
-    "models.analysis": { "provider": "openrouter", "model": "z-ai/glm-5.3-flash", "temperature": 0.3, "reasoning": "low" },
-    "models.writing": { "provider": "openrouter", "model": "z-ai/glm-5.3-flash", "temperature": 0.4, "reasoning": "low" },
-    "models.apply": { "provider": "openrouter", "model": "z-ai/glm-5.3-flash", "temperature": 0.1, "reasoning": "low" }
+    "research": { "provider": "openrouter", "model": "z-ai/glm-5.3-flash", "temperature": 0.2, "reasoning": "low" },
+    "analysis": { "provider": "openrouter", "model": "z-ai/glm-5.3-flash", "temperature": 0.3, "reasoning": "low" },
+    "writing": { "provider": "openrouter", "model": "z-ai/glm-5.3-flash", "temperature": 0.4, "reasoning": "low" },
+    "apply": { "provider": "openrouter", "model": "z-ai/glm-5.3-flash", "temperature": 0.1, "reasoning": "low" }
   },
   "defaults": { "maxTokens": 32768, "timeoutMs": 120000 },
-  "retry": { "maxAttempts": 3, "backoffMs": 2000 },
-  "failover": {
-    "models.analysis": ["z-ai/glm-5.3-flash"]
+  "failover": { "z-ai/glm-5.3-flash": ["z-ai/glm-5.3-flash"] },
+  "sources": {
+    "rss": { "enabled": true, "registry": "config/sources.json" },
+    "search": { "provider": "tavily", "maxResults": 10 }
   },
-  "budget": { "maxCostUsdPerRun": 0.05, "actionOnExceed": "halt" },
-  "search": { "provider": "tavily", "maxResults": 10 },
-  "concurrency": { "maxParallelFetches": 4 },
+  "quality": {
+    "minimumConfidence": 0.70,
+    "minimumIndependentSources": 3,
+    "maximumSinglePerspectiveShare": 0.45,
+    "maximumSinglePerspectiveShareBasis": "independentSignals",
+    "requireEvidenceForPerspective": true,
+    "requireCounterargument": false
+  },
+  "budget": { "maxCostPerRun": 0.10, "actionOnExceed": "halt", "flagDegradedAnalysis": true },
+  "retry": { "maxAttempts": 3, "backoffMs": 2000 },
+  "concurrency": { "maxParallel": 4 },
+  "cache": { "enabled": true, "rssTtlMinutes": 30, "searchTtlHours": 6, "analysisTtlHours": 24 },
+  "publication": { "requireHumanApproval": true, "autoPublish": false },
   "telemetry": { "sink": "jsonl", "dir": "data/telemetry" },
-  "artifacts": {
-    "sink": "git",
-    "rawToS3": false,
-    "s3": { "bucket": "", "prefix": "runs/" }
-  }
+  "artifacts": { "sink": "git", "readOnly": false, "dirs": { "bucket": "", "prefix": "runs/" } }
 }
