@@ -7,6 +7,7 @@ export const TelemetryEvent = z.object({
   event: z.enum([
     "run_start", "stage_start", "llm_call", "tool_call", "stage_end",
     "proposal", "approval", "apply", "validation", "budget", "run_end", "error",
+    "quality_gate", "publication_gate",
   ]),
   stage: z.string().optional(),
   agent: z.string().optional(),

@@ -36,6 +36,7 @@ import { generateHtmlFromFile } from "../../tools/generate-site.js";
 import { createTavilySearch, type SearchResult } from "./tools/websearch.js";
 import { createRssReader, type RssItem } from "./tools/rss.js";
 import { createWebFetch, type PageMeta } from "./tools/webfetch.js";
+import { runQualityGate } from "./quality.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..", "..");
@@ -1144,6 +1145,14 @@ async function stageValidate(ctx: RunContext): Promise<void> {
   const telemetry = ctx.telemetry;
   telemetry.stageStart("validate");
 
+  // Publication gate (v0.2 §3: publication is approval-gated)
+  const publication = (ctx.config.publication ?? {}) as Record<string, unknown>;
+  if (publication.autoPublish === true) {
+    console.error("publication.autoPublish=true is not permitted (v0.2 §3: publication is approval-gated)");
+    process.exit(1);
+  }
+  telemetry.emit({ event: "publication_gate", stage: "validate", data: { requireHumanApproval: publication.requireHumanApproval !== false } });
+
   const topic = loadTopic<Record<string, unknown>>(ctx.topic);
   const articles = loadArticles();
   const registry = loadRegistry();
@@ -1162,9 +1171,21 @@ async function stageValidate(ctx: RunContext): Promise<void> {
     data: { ok: result.ok, checks: result.checks.length, failures: result.checks.filter((c) => c.status === "fail").length },
   });
 
-  telemetry.stageEnd("validate", { ok: result.ok });
+  const qualityCfg = ctx.config.quality as Record<string, unknown> | undefined;
+  const gate = runQualityGate(topic as Record<string, unknown>, qualityCfg);
+  telemetry.emit({
+    event: "quality_gate",
+    stage: "validate",
+    data: { ok: gate.ok, violations: gate.violations.map((v) => v.message) },
+  });
 
-  if (!result.ok) {
+  const failed = !result.ok || !gate.ok;
+  telemetry.stageEnd("validate", { ok: !failed });
+
+  if (failed) {
+    if (!gate.ok) {
+      console.error(gate.violations.map((v) => v.message).join("\n"));
+    }
     process.exit(1);
   }
 }
