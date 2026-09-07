@@ -150,6 +150,43 @@ describe("Topic schema", () => {
     expect(Topic.safeParse(data).success).toBe(false);
   });
 
+  // ── Arguments: momentumScore ──────────────────────────────────────────────
+
+  it("accepts valid momentumScore on argument", () => {
+    const data = clone(VALID_TOPIC) as Record<string, unknown>;
+    (data as any).perspectives[0].arguments = [
+      { id: "arg-x-1", statement: "Valid argument statement here.", momentum: "up", momentumScore: 0.8, sources: ["source-001"] },
+    ];
+    const result = Topic.safeParse(data);
+    if (!result.success) console.error(JSON.stringify(result.error.issues, null, 2));
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects momentumScore < 0", () => {
+    const data = clone(VALID_TOPIC) as Record<string, unknown>;
+    (data as any).perspectives[0].arguments = [
+      { id: "arg-x-1", statement: "Valid argument statement here.", momentum: "up", momentumScore: -0.1, sources: ["source-001"] },
+    ];
+    expect(Topic.safeParse(data).success).toBe(false);
+  });
+
+  it("rejects momentumScore > 1", () => {
+    const data = clone(VALID_TOPIC) as Record<string, unknown>;
+    (data as any).perspectives[0].arguments = [
+      { id: "arg-x-1", statement: "Valid argument statement here.", momentum: "up", momentumScore: 1.5, sources: ["source-001"] },
+    ];
+    expect(Topic.safeParse(data).success).toBe(false);
+  });
+
+  it("accepts argument without momentumScore (optional)", () => {
+    const data = clone(VALID_TOPIC) as Record<string, unknown>;
+    (data as any).perspectives[0].arguments = [
+      { id: "arg-x-1", statement: "Valid argument statement here.", momentum: "up", sources: ["source-001"] },
+    ];
+    const result = Topic.safeParse(data);
+    expect(result.success).toBe(true);
+  });
+
   it("rejects bad slug format (uppercase)", () => {
     const data = clone(VALID_TOPIC) as Record<string, unknown>;
     (data as any).slug = "Bad-Slug";

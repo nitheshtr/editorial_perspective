@@ -377,6 +377,19 @@ export async function validateTopic(input: ValidateTopicInput): Promise<Validati
               anyFailure = true;
             }
           }
+
+          // momentumScore consistency check (optional field — when present)
+          if (typeof arg.momentumScore === "number") {
+            const ok =
+              (arg.momentum === "up" && arg.momentumScore >= 0.5) ||
+              (arg.momentum === "down" && arg.momentumScore < 0.5);
+            if (!ok) {
+              check.details.push(
+                `${path}.arguments[${ai}]: momentumScore ${arg.momentumScore} contradicts momentum "${arg.momentum}"`,
+              );
+              anyFailure = true;
+            }
+          }
         }
 
         // Max 8 (schema-enforced, but report clearly)

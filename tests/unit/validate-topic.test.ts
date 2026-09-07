@@ -306,4 +306,57 @@ describe("validateTopic", () => {
     expect(argCheck?.status).toBe("fail");
     expect(argCheck?.details.some((d) => d.includes("duplicate"))).toBe(true);
   });
+
+  // ── Arguments: valid momentumScore → pass ──────────────────────────────────
+
+  it("passes arguments check with valid momentumScore", async () => {
+    const topic = clone(VALID_TOPIC) as any;
+    topic.perspectives[0].arguments = [
+      { id: "arg-x-1", statement: "Valid statement here.", momentum: "up", momentumScore: 0.8, sources: ["source-001"] },
+    ];
+
+    const report = await validateTopic({
+      topic,
+      schemaOnly: true,
+    });
+    const result = report.checks.find((c) => c.name === "arguments");
+    expect(result?.status).toBe("pass");
+  });
+
+  // ── Arguments: momentumScore out of range → schema fails ──────────────────
+
+  it("fails schema check when momentumScore out of range (zod catches max(1))", async () => {
+    const topic = clone(VALID_TOPIC) as any;
+    topic.perspectives[0].arguments = [
+      { id: "arg-x-2", statement: "Valid statement here too.", momentum: "up", momentumScore: 1.5, sources: ["source-001"] },
+    ];
+
+    const report = await validateTopic({
+      topic,
+      schemaOnly: true,
+    });
+    expect(report.ok).toBe(false);
+    const schemaCheck = report.checks.find((c) => c.name === "schema");
+    expect(schemaCheck?.status).toBe("fail");
+    expect(schemaCheck?.details.some((d) => d.includes("momentumScore"))).toBe(true);
+  });
+
+  // ── Arguments: momentumScore contradicts label → fail ──────────────────────
+
+  it("fails arguments check when momentumScore contradicts label", async () => {
+    const topic = clone(VALID_TOPIC) as any;
+    topic.perspectives[0].arguments = [
+      { id: "arg-x-3", statement: "Score says down but label says up.", momentum: "up", momentumScore: 0.2, sources: ["source-001"] },
+      { id: "arg-x-4", statement: "Score says up but label says down.", momentum: "down", momentumScore: 0.9, sources: ["source-002"] },
+    ];
+
+    const report = await validateTopic({
+      topic,
+      schemaOnly: true,
+    });
+    expect(report.ok).toBe(false);
+    const argCheck = report.checks.find((c) => c.name === "arguments");
+    expect(argCheck?.status).toBe("fail");
+    expect(argCheck?.details.some((d) => d.includes("contradicts"))).toBe(true);
+  });
 });

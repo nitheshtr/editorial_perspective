@@ -39,6 +39,9 @@ WORKFLOW
    proposals (path `perspectives[<index>].arguments`, whole-array value), with
    cluster-ID evidence per group. Never invent sources not in the perspective's
    catalog.
+   Also emit `momentumScore` (float 0–1) per argument: the cluster attention
+   delta across the period, normalized. Score is the source of truth; the up/down
+   label must agree with it (score ≥ 0.5 ⇒ up).
 5. Distinguish themes from arguments; identify candidate perspectives.
 6. Identify supporting and counterarguments per perspective.
 7. Count independence from story clusters (one cluster = one independent

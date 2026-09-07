@@ -316,7 +316,7 @@ export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>, a
     const rawArgs = (p as any).arguments;
     let argsStr: string;
     if (Array.isArray(rawArgs) && rawArgs.length > 0) {
-      const argLines = rawArgs.map((arg: { id: string; statement: string; momentum: string; sources: string[] }, ai: number) => {
+      const argLines = rawArgs.map((arg: { id: string; statement: string; momentum: string; momentumScore?: number; sources: string[] }, ai: number) => {
         const aSep = ai < rawArgs.length - 1 ? "," : "";
         const srcParts = (arg.sources ?? []).map((sid: string) => {
           const s = byId.get(sid);
@@ -324,7 +324,8 @@ export function emitDataBlock(topic: TopicView, byId: Map<string, SourceLite>, a
           const urlField = s.url && !s.url.includes("migrated.editorial.local") ? `,url:${q(s.url)}` : "";
           return `{pub:${q(s.publisher)},title:${q(s.title)}${urlField}}`;
         }).filter(Boolean);
-        return `    {id:${q(arg.id)},statement:${q(arg.statement)},momentum:${q(arg.momentum)},sources:[${srcParts.join(",")}]}${aSep}`;
+        const scoreField = typeof arg.momentumScore === "number" ? `,momentumScore:${arg.momentumScore}` : "";
+        return `    {id:${q(arg.id)},statement:${q(arg.statement)},momentum:${q(arg.momentum)}${scoreField},sources:[${srcParts.join(",")}]}${aSep}`;
       });
       argsStr = `    arguments:[\n${argLines.join("\n")}\n    ],`;
     } else {

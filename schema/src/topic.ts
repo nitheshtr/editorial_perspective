@@ -16,6 +16,7 @@ export const Perspective = z.object({
     id: z.string().regex(/^arg-[a-z0-9-]+$/),
     statement: z.string().min(10).max(200),
     momentum: z.enum(["up", "down"]),
+    momentumScore: z.number().min(0).max(1).optional(),
     sources: z.array(z.string().regex(/^source-\d{3,}$/)).min(1),
   })).max(8).optional(),
 });
