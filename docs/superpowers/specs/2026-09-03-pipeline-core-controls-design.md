@@ -1,7 +1,7 @@
 # Pipeline Core Controls — Design
 
 **Date:** 2026-09-03
-**Status:** Approved in chat, pending final review
+**Status:** Implemented (core slice)
 **Source spec:** `pipeline-recommendation-v0.2.md` (§8 budget/quality fixes, §11 config, §12 priorities)
 **Scope decision:** "Core controls first" — the spec's three named defect-fixes plus the missing editorial controls. Full §12 P1–P6 deferred (see §8).
 
@@ -99,6 +99,7 @@ Before each LLM call the runner consults spend (telemetry totals) against `budge
 
 ## 8. Deferred (not this slice)
 
+- **P1/P4/P6:** see §12 of the source spec — complete source registry (`config/sources.json`), temporal analysis stage, cache TTL enforcement, per-stage concurrency, and model-routing tuning remain deferred.
 - **P1:** `config/sources.json` full registry (per-source RSS URLs, access policy, health metadata) — config block lands thin; reader falls back to `feeds.json`.
 - **P4:** `temporal_analysis` stage + git-snapshot comparison.
 - **P6:** cache TTL enforcement, per-stage concurrency, model-routing tuning.
