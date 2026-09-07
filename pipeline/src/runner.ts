@@ -36,7 +36,7 @@ import { generateHtmlFromFile } from "../../tools/generate-site.js";
 import { createTavilySearch, type SearchResult } from "./tools/websearch.js";
 import { createRssReader, type RssItem } from "./tools/rss.js";
 import { createWebFetch, type PageMeta } from "./tools/webfetch.js";
-import { runQualityGate } from "./quality.js";
+import { runQualityGate, checkDegradedArtifact, resolveBudgetAction } from "./quality.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..", "..");
@@ -811,22 +811,34 @@ ${cacheExcerpt}`;
   const { provider, config: modelCfg } = getProviderForModel(agent.model);
   const modelName = modelCfg.model as string ?? agent.model;
 
-  // Budget check
+  // Budget check with fallback support
   const budget = ctx.config.budget as Record<string, unknown> | undefined;
-  const maxCost = (budget?.maxCostPerRun as number) ?? Infinity;
   const spent = telemetry.costSoFar();
-  if (spent >= maxCost * 0.2 && spent < maxCost) {
-    telemetry.emit({ level: "warn", event: "budget", data: { spentUsd: spent, limitUsd: maxCost, action: "warn" } });
-  }
-  if (spent >= maxCost) {
-    telemetry.emit({ event: "budget", data: { spentUsd: spent, limitUsd: maxCost, action: "halt" } });
-    throw new GuardError(`Budget exceeded: ${spent} >= ${maxCost}`);
+  const budgetAction = resolveBudgetAction(budget, spent);
+  let degradedRun = false;
+  let effectiveModel = modelName;
+  if (budgetAction === "warn") {
+    telemetry.emit({ level: "warn", event: "budget", data: { spentUsd: spent, limitUsd: (budget?.maxCostPerRun as number) ?? Infinity, action: "warn" } });
+  } else if (budgetAction === "halt") {
+    telemetry.emit({ event: "budget", data: { spentUsd: spent, limitUsd: (budget?.maxCostPerRun as number) ?? Infinity, action: "halt" } });
+    throw new GuardError(`Budget exceeded: ${spent} >= ${(budget?.maxCostPerRun as number) ?? Infinity}`);
+  } else if (budgetAction === "fallback") {
+    const failoverModels = (ctx.config.failover as Record<string, string[]> | undefined)?.[modelName];
+    const failoverModel = (failoverModels && failoverModels.length > 0) ? failoverModels[0] : undefined;
+    if (!failoverModel) {
+      // No failover route — fall through to halt
+      telemetry.emit({ event: "budget", data: { spentUsd: spent, limitUsd: (budget?.maxCostPerRun as number) ?? Infinity, action: "halt" } });
+      throw new GuardError(`Budget exceeded: ${spent} >= ${(budget?.maxCostPerRun as number) ?? Infinity} (no failover model)`);
+    }
+    degradedRun = true;
+    effectiveModel = failoverModel;
+    telemetry.emit({ event: "llm_degraded", stage: "analysis", data: { spentUsd: spent, limitUsd: (budget?.maxCostPerRun as number) ?? Infinity, routedTo: failoverModel } });
   }
 
   let response: LlmCompleteResponse;
   try {
     response = await provider.complete({
-      model: modelName,
+      model: effectiveModel,
       system: systemPrompt,
       messages: [{ role: "user", content: `Analyze topic "${ctx.topic}" and return proposals.` }],
       temperature: (modelCfg.temperature as number) ?? 0.3,
@@ -888,10 +900,19 @@ ${cacheExcerpt}`;
     // Still persist but flag as invalid
   }
 
-  // Persist validated proposal set
+  // Persist validated proposal set (with degraded marker if applicable)
+  let proposalsPayload: Record<string, unknown>;
+  if (result.success) {
+    proposalsPayload = result.data as Record<string, unknown>;
+  } else {
+    proposalsPayload = { proposals };
+  }
+  if (degradedRun && budget?.flagDegradedAnalysis !== false) {
+    proposalsPayload.degraded = true;
+  }
   writeFileSync(
     join(runDir, "analysis", "proposals.json"),
-    JSON.stringify(result.success ? result.data : { proposals }, null, 2) + "\n",
+    JSON.stringify(proposalsPayload, null, 2) + "\n",
     "utf-8",
   );
 
@@ -930,20 +951,29 @@ ${JSON.stringify({ proposals })}`;
   const modelName = modelCfg.model as string ?? agent.model;
 
   const budget = ctx.config.budget as Record<string, unknown> | undefined;
-  const maxCost = (budget?.maxCostPerRun as number) ?? Infinity;
   const spent = telemetry.costSoFar();
-  if (spent >= maxCost * 0.2 && spent < maxCost) {
-    telemetry.emit({ level: "warn", event: "budget", data: { spentUsd: spent, limitUsd: maxCost, action: "warn" } });
-  }
-  if (spent >= maxCost) {
-    telemetry.emit({ event: "budget", data: { spentUsd: spent, limitUsd: maxCost, action: "halt" } });
-    throw new GuardError(`Budget exceeded: ${spent} >= ${maxCost}`);
+  const budgetAction = resolveBudgetAction(budget, spent);
+  let effectiveModel = modelName;
+  if (budgetAction === "warn") {
+    telemetry.emit({ level: "warn", event: "budget", data: { spentUsd: spent, limitUsd: (budget?.maxCostPerRun as number) ?? Infinity, action: "warn" } });
+  } else if (budgetAction === "halt") {
+    telemetry.emit({ event: "budget", data: { spentUsd: spent, limitUsd: (budget?.maxCostPerRun as number) ?? Infinity, action: "halt" } });
+    throw new GuardError(`Budget exceeded: ${spent} >= ${(budget?.maxCostPerRun as number) ?? Infinity}`);
+  } else if (budgetAction === "fallback") {
+    const failoverModels = (ctx.config.failover as Record<string, string[]> | undefined)?.[modelName];
+    const failoverModel = (failoverModels && failoverModels.length > 0) ? failoverModels[0] : undefined;
+    if (!failoverModel) {
+      telemetry.emit({ event: "budget", data: { spentUsd: spent, limitUsd: (budget?.maxCostPerRun as number) ?? Infinity, action: "halt" } });
+      throw new GuardError(`Budget exceeded: ${spent} >= ${(budget?.maxCostPerRun as number) ?? Infinity} (no failover model)`);
+    }
+    effectiveModel = failoverModel;
+    telemetry.emit({ event: "llm_degraded", stage: "writing", data: { spentUsd: spent, limitUsd: (budget?.maxCostPerRun as number) ?? Infinity, routedTo: failoverModel } });
   }
 
   let response: LlmCompleteResponse;
   try {
     response = await provider.complete({
-      model: modelName,
+      model: effectiveModel,
       system: systemPrompt,
       messages: [{ role: "user", content: `Write narrative for topic "${ctx.topic}".` }],
       temperature: (modelCfg.temperature as number) ?? 0.4,
@@ -1173,6 +1203,34 @@ async function stageValidate(ctx: RunContext): Promise<void> {
 
   const qualityCfg = ctx.config.quality as Record<string, unknown> | undefined;
   const gate = runQualityGate(topic as Record<string, unknown>, qualityCfg);
+
+  // Degraded-artifact check: if the run's proposals have degraded:true and no approval
+  // record accepts it, block validation.
+  const runDir = getRunDir(ctx.runId);
+  const degradedQuality = checkDegradedArtifact(runDir);
+  if (degradedQuality) {
+    const approvalDir = join(DATA_DIR, "approvals");
+    const approvalPath = join(approvalDir, `${ctx.runId}.json`);
+    let degradedAccepted = false;
+    if (existsSync(approvalPath)) {
+      try {
+        const approvalRecord = JSON.parse(readFileSync(approvalPath, "utf-8")) as Record<string, unknown>;
+        const decisions = (approvalRecord.decisions as Array<Record<string, unknown>>) ?? [];
+        degradedAccepted = decisions.some((d) => d.acceptDegraded === true);
+      } catch {
+        // malformed approval — treat as not accepted
+      }
+    }
+    if (!degradedAccepted) {
+      gate.violations.push({
+        rule: "degraded_analysis",
+        value: 1,
+        threshold: 0,
+        message: "Run artifacts contain budget-degraded analysis; blocked from publish (accept with acceptDegraded in approval record)",
+      });
+    }
+  }
+
   telemetry.emit({
     event: "quality_gate",
     stage: "validate",

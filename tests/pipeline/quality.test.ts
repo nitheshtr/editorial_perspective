@@ -6,7 +6,10 @@
  */
 
 import { describe, it, expect } from "vitest";
-import { runQualityGate } from "../../pipeline/src/quality.js";
+import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { runQualityGate, checkDegradedArtifact } from "../../pipeline/src/quality.js";
 
 const node = (confidence: number, signals: number) => ({
   metrics: { confidence, independentSignals: signals },
@@ -108,5 +111,37 @@ describe("runQualityGate", () => {
 
   it("missing quality config passes by default", () => {
     expect(runQualityGate(topic({ A: node(0.1, 0) }), undefined).ok).toBe(true);
+  });
+});
+
+describe("checkDegradedArtifact", () => {
+  const withRun = (body: string | null, fn: (dir: string) => void) => {
+    const dir = mkdtempSync(join(tmpdir(), "run-"));
+    if (body !== null) {
+      mkdirSync(join(dir, "analysis"), { recursive: true });
+      writeFileSync(join(dir, "analysis", "proposals.json"), body, "utf-8");
+    }
+    try { fn(dir); } finally { rmSync(dir, { recursive: true, force: true }); }
+  };
+
+  it("detects degraded flag in proposals.json", () => {
+    withRun(JSON.stringify({ degraded: true, proposals: [] }), (dir) => {
+      expect(checkDegradedArtifact(dir)).toBe(true);
+    });
+  });
+  it("returns false when not marked", () => {
+    withRun(JSON.stringify({ proposals: [] }), (dir) => {
+      expect(checkDegradedArtifact(dir)).toBe(false);
+    });
+  });
+  it("returns false when no artifact exists", () => {
+    withRun(null, (dir) => {
+      expect(checkDegradedArtifact(dir)).toBe(false);
+    });
+  });
+  it("returns false on malformed JSON", () => {
+    withRun("{not json", (dir) => {
+      expect(checkDegradedArtifact(dir)).toBe(false);
+    });
   });
 });

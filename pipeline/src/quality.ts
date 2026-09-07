@@ -1,7 +1,11 @@
 /**
  * pipeline/src/quality.ts — editorial quality gate (spec v0.2 §8)
  * Pure functions; no I/O. Invoked by the validate stage after validateTopic.
+ * checkDegradedArtifact uses fs to read the artifact (validate-stage helper).
  */
+
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 
 export interface QualityViolation {
   rule: string;
@@ -86,4 +90,26 @@ export function runQualityGate(
   }
 
   return { ok: violations.length === 0, violations };
+}
+
+/**
+ * Check whether a run's proposals.json artifact has the degraded flag.
+ * Returns true if the file exists, parseable, and has `"degraded": true`.
+ */
+export function checkDegradedArtifact(runDir: string): boolean {
+  try {
+    const p = join(runDir, "analysis", "proposals.json");
+    if (!existsSync(p)) return false;
+    const parsed = JSON.parse(readFileSync(p, "utf-8"));
+    return parsed?.degraded === true;
+  } catch { return false; }
+}
+
+export type BudgetAction = "ok" | "warn" | "halt" | "fallback";
+export function resolveBudgetAction(budget: Record<string, unknown> | undefined, spent: number): BudgetAction {
+  const maxCost = (budget?.maxCostPerRun as number) ?? Infinity;
+  const action = (budget?.actionOnExceed as string) ?? "halt";
+  if (spent >= maxCost) return action === "fallback_to_fast_model" ? "fallback" : "halt";
+  if (maxCost !== Infinity && spent >= maxCost * 0.2) return "warn";
+  return "ok";
 }

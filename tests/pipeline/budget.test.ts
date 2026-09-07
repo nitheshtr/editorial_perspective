@@ -11,6 +11,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { GuardError } from "../../pipeline/src/guards.js";
 import { TelemetryEmitter } from "../../pipeline/src/telemetry.js";
+import { resolveBudgetAction } from "../../pipeline/src/quality.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, "..", "..", "data");
@@ -74,5 +75,20 @@ describe("Budget enforcement", () => {
     const parsed = JSON.parse(lastLine);
     expect(parsed.event).toBe("budget");
     expect(parsed.data.spentUsd).toBeGreaterThan(maxCost);
+  });
+});
+
+describe("budget fallback_to_fast_model", () => {
+  it("resolveBudgetAction returns halt above limit when action is halt", () => {
+    expect(resolveBudgetAction({ maxCostPerRun: 0.1, actionOnExceed: "halt" }, 0.2)).toBe("halt");
+  });
+  it("resolveBudgetAction returns fallback when configured and over limit", () => {
+    expect(resolveBudgetAction({ maxCostPerRun: 0.1, actionOnExceed: "fallback_to_fast_model" }, 0.2)).toBe("fallback");
+  });
+  it("returns warn between 20% and 100%, ok below", () => {
+    const b = { maxCostPerRun: 0.1, actionOnExceed: "halt" };
+    expect(resolveBudgetAction(b, 0.015)).toBe("ok");
+    expect(resolveBudgetAction(b, 0.019)).toBe("ok");
+    expect(resolveBudgetAction(b, 0.021)).toBe("warn");
   });
 });
