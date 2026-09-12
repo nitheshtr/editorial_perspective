@@ -379,6 +379,53 @@ function ingestCandidates(
   };
 }
 
+// ── RSS activation helper ────────────────────────────────────────────────────
+
+/**
+ * Resolve whether RSS feeds should be active for a topic and which registry
+ * file to read. Pure function — no I/O by default; accepts injectable existsFn
+ * for testability.
+ *
+ * Activation (tri-state `feeds` param):
+ * - feeds=true → RSS on, best registry resolved (topic file > sources.json > legacy)
+ * - feeds=false → RSS off (explicit)
+ * - feeds=undefined → RSS on IFF config/feeds/<topic>.json exists
+ *
+ * Registry precedence when active:
+ * 1. config/feeds/<topic-slug>.json (per-topic)
+ * 2. config/sources.json (global, does not exist today)
+ * 3. data/config/feeds.json (legacy fallback)
+ */
+function resolveRssActivation(opts: {
+  feeds: boolean | undefined;
+  topic: string;
+  existsFn?: (p: string) => boolean;
+}): { active: boolean; registryPath: string | null } {
+  const exists = opts.existsFn ?? existsSync;
+  const topicFeedFile = join(ROOT, "config", "feeds", `${opts.topic}.json`);
+
+  // Explicit off
+  if (opts.feeds === false) {
+    return { active: false, registryPath: null };
+  }
+
+  // feeds=true or (feeds=undefined + topic file exists)
+  if (opts.feeds === true || (opts.feeds === undefined && exists(topicFeedFile))) {
+    // Resolve registry with precedence
+    if (exists(topicFeedFile)) {
+      return { active: true, registryPath: topicFeedFile };
+    }
+    const sourcesPath = join(ROOT, "config", "sources.json");
+    if (exists(sourcesPath)) {
+      return { active: true, registryPath: sourcesPath };
+    }
+    return { active: true, registryPath: join(ROOT, "data", "config", "feeds.json") };
+  }
+
+  // feeds=undefined, no topic file → inactive
+  return { active: false, registryPath: null };
+}
+
 // ── Stage execution functions ────────────────────────────────────────────────
 
 interface RunContext {
@@ -392,7 +439,8 @@ interface RunContext {
   queryOverride?: string;
   /** Optional absolute date range for the research stage (historical backfill). */
   dateRange?: { start: string; end: string };
-  /** If true, also pull candidate articles from configured RSS feeds. */
+  /** If true, also pull candidate articles from configured RSS feeds.
+   *  Tri-state: true → RSS on; false → RSS off; undefined → on only if per-topic feed file exists. */
   feeds?: boolean;
 }
 
@@ -479,27 +527,15 @@ async function stageResearch(ctx: RunContext): Promise<void> {
   let rssItemCount = 0;
   const rssSkippedFeeds: string[] = [];
 
-  if (ctx.feeds) {
-    // Read registry path from config (default: config/sources.json)
-    const sourcesCfg = ctx.config.sources as Record<string, unknown> | undefined;
-    const rssCfg = sourcesCfg?.rss as Record<string, unknown> | undefined;
-    const registryPath = (rssCfg?.registry as string) ?? "config/sources.json";
-    const registryFullPath = join(ROOT, registryPath);
-
+  const rssActivation = resolveRssActivation({ feeds: ctx.feeds, topic: ctx.topic });
+  if (rssActivation.active) {
     let feedsConfig: { feeds: Array<{ publisher: string; url: string; lane: string }> };
-    if (existsSync(registryFullPath)) {
-      feedsConfig = JSON.parse(readFileSync(registryFullPath, "utf-8")) as {
+    try {
+      feedsConfig = JSON.parse(readFileSync(rssActivation.registryPath!, "utf-8")) as {
         feeds: Array<{ publisher: string; url: string; lane: string }>;
       };
-    } else {
-      // Fall back to existing feeds.json
-      try {
-        feedsConfig = JSON.parse(readFileSync(join(ROOT, "data", "config", "feeds.json"), "utf-8")) as {
-          feeds: Array<{ publisher: string; url: string; lane: string }>;
-        };
-      } catch {
-        feedsConfig = { feeds: [] };
-      }
+    } catch {
+      feedsConfig = { feeds: [] };
     }
 
     const rssReader = createRssReader();
@@ -672,10 +708,12 @@ async function stageResearch(ctx: RunContext): Promise<void> {
     `- **Pages fetched:** ${fetchedCount}`,
     `- **Candidates:** ${ingestResult.stats.total} (added: ${ingestResult.stats.added}, skipped: ${ingestResult.stats.skipped})`,
     `- **New publishers (tier 3):** ${ingestResult.stats.newPublishers}`,
-    ctx.feeds
+    rssActivation.active
       ? `- **RSS pulls:** ${rssFeedCount} feeds, ${rssItemCount} items` +
         (rssSkippedFeeds.length > 0 ? ` (skipped: ${rssSkippedFeeds.join(", ")})` : "")
-      : `- **RSS pulls:** disabled (use feeds=true to enable)`,
+      : ctx.feeds === false
+        ? `- **RSS pulls:** disabled via feeds=false`
+        : `- **RSS pulls:** no feed registry for topic "${ctx.topic}" (create config/feeds/${ctx.topic}.json)`,
     ``,
     `## Sources`,
     ``,
@@ -701,7 +739,7 @@ async function stageResearch(ctx: RunContext): Promise<void> {
   console.log(
     `research complete: ${searchResults.length} search results | ${candidates.length} candidates` +
       (domainScope.length ? ` | domain scope: ${domainScope.join(", ")}` : " | scope: all sources") +
-      (ctx.feeds ? ` | rss: ${rssFeedCount} feeds, ${rssItemCount} items` : ""),
+      (rssActivation.active ? ` | rss: ${rssFeedCount} feeds, ${rssItemCount} items` : ""),
   );
 
   telemetry.stageEnd("research", {
@@ -1462,7 +1500,11 @@ async function main(): Promise<void> {
           : undefined;
       })()
     : undefined;
-  const feedsParam = params.feeds === "true" || params.feeds === "1";
+  const feedsParam = params.feeds === "true" || params.feeds === "1"
+    ? true
+    : params.feeds === "false" || params.feeds === "0"
+      ? false
+      : undefined;
 
   // ── replay command ─────────────────────────────────────────────────────
   if (flags.includes("run") && args.includes("replay")) {
@@ -1595,6 +1637,7 @@ export {
   RunContext, stageResearch, stageAnalysis, stageWriting, stageApply, stageValidate, stagePublish,
   cmdReplay, cmdRerun, cmdReport, cmdApprove, getByPath, setByPath,
   CandidateInput, IngestContext, IngestResult, ingestCandidates, derivePublisherFromUrl, ogTypeToSourceType,
+  resolveRssActivation,
 };
 
 const isMain = import.meta.url === `file://${process.argv[1]?.replace(/\\/g, "/")}` || process.argv[1]?.endsWith("runner.ts");

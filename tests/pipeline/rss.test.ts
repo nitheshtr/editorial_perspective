@@ -11,6 +11,7 @@
 
 import { describe, it, expect, vi } from "vitest";
 import { createRssReader, type RssItem } from "../../pipeline/src/tools/rss.js";
+import { resolveRssActivation } from "../../pipeline/src/runner.js";
 
 // ── Mock helpers ─────────────────────────────────────────────────────────────
 
@@ -201,5 +202,95 @@ describe("createRssReader — error handling", () => {
     const reader = createRssReader({ fetchImpl });
     const items = await reader("https://example.com/unknown");
     expect(items).toEqual([]);
+  });
+});
+
+// ── resolveRssActivation ──────────────────────────────────────────────────────
+
+describe("resolveRssActivation", () => {
+  const topic = "ai-trends";
+
+  // Normalize Windows backslashes so path assertions are platform-agnostic.
+  const normPath = (p: string | null) => (p ?? "").replace(/\\/g, "/");
+
+  it("feeds=true, topic file exists → active, registry = topic file", () => {
+    const result = resolveRssActivation({
+      feeds: true,
+      topic,
+      existsFn: (p) => normPath(p).includes(`config/feeds/${topic}.json`),
+    });
+    expect(result.active).toBe(true);
+    expect(result.registryPath).not.toBeNull();
+    expect(normPath(result.registryPath)).toContain(`config/feeds/${topic}.json`);
+  });
+
+  it("feeds=true, topic file missing, sources.json exists → active, registry = sources.json", () => {
+    const result = resolveRssActivation({
+      feeds: true,
+      topic,
+      existsFn: (p) => normPath(p).includes("config/sources.json"),
+    });
+    expect(result.active).toBe(true);
+    expect(result.registryPath).not.toBeNull();
+    expect(normPath(result.registryPath)).toContain("config/sources.json");
+  });
+
+  it("feeds=true, nothing exists → active, registry = legacy feeds.json", () => {
+    const result = resolveRssActivation({
+      feeds: true,
+      topic,
+      existsFn: () => false,
+    });
+    expect(result.active).toBe(true);
+    expect(result.registryPath).not.toBeNull();
+    expect(normPath(result.registryPath)).toContain("data/config/feeds.json");
+  });
+
+  it("feeds=undefined, topic file exists → active with topic file", () => {
+    const result = resolveRssActivation({
+      feeds: undefined,
+      topic,
+      existsFn: (p) => normPath(p).includes(`config/feeds/${topic}.json`),
+    });
+    expect(result.active).toBe(true);
+    expect(normPath(result.registryPath)).toContain(`config/feeds/${topic}.json`);
+  });
+
+  it("feeds=undefined, topic file missing → inactive", () => {
+    const result = resolveRssActivation({
+      feeds: undefined,
+      topic,
+      existsFn: () => false,
+    });
+    expect(result.active).toBe(false);
+    expect(result.registryPath).toBeNull();
+  });
+
+  it("feeds=false, topic file exists → inactive (explicit override)", () => {
+    const result = resolveRssActivation({
+      feeds: false,
+      topic,
+      existsFn: (p) => normPath(p).includes(`config/feeds/${topic}.json`),
+    });
+    expect(result.active).toBe(false);
+    expect(result.registryPath).toBeNull();
+  });
+
+  it("precedence: topic file > sources.json > legacy feeds.json when all exist", () => {
+    const topicPathPattern = `config/feeds/${topic}.json`;
+    let callCount = 0;
+    const result = resolveRssActivation({
+      feeds: true,
+      topic,
+      existsFn: (p) => {
+        callCount++;
+        // All three exist — first check should find topic file
+        return normPath(p).includes(topicPathPattern) || normPath(p).includes("config/sources.json");
+      },
+    });
+    expect(result.active).toBe(true);
+    expect(normPath(result.registryPath)).toContain(topicPathPattern);
+    // First existence check should have been for the topic file
+    expect(callCount).toBeGreaterThanOrEqual(1);
   });
 });
