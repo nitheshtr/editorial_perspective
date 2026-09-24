@@ -4,6 +4,8 @@
     { "publisher": "Ars Technica AI", "url": "https://arstechnica.com/ai/feed/", "lane": "technology" },
     { "publisher": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "lane": "technology" },
     { "publisher": "VentureBeat AI", "url": "https://venturebeat.com/category/ai/feed/", "lane": "technology" },
-    { "publisher": "The Verge AI", "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "lane": "technology" }
+    { "publisher": "The Verge AI", "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "lane": "technology" },
+    { "publisher": "France 24", "url": "https://www.france24.com/en/rss", "lane": "news" },
+    { "publisher": "DW Europe", "url": "https://rss.dw.com/xml/rss-en-eu", "lane": "news" }
   ]
 }

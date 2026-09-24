@@ -4,6 +4,8 @@
     { "publisher": "The Guardian Russia", "url": "https://www.theguardian.com/world/russia/rss", "lane": "policy" },
     { "publisher": "The Guardian Ukraine", "url": "https://www.theguardian.com/world/ukraine/rss", "lane": "policy" },
     { "publisher": "Atlantic Council", "url": "https://www.atlanticcouncil.org/feed/", "lane": "policy" },
-    { "publisher": "NPR World", "url": "https://feeds.npr.org/1004/rss.xml", "lane": "policy" }
+    { "publisher": "NPR World", "url": "https://feeds.npr.org/1004/rss.xml", "lane": "policy" },
+    { "publisher": "France 24 Europe", "url": "https://www.france24.com/en/europe/rss", "lane": "policy" },
+    { "publisher": "DW Europe", "url": "https://rss.dw.com/xml/rss-en-eu", "lane": "policy" }
   ]
 }

@@ -3,6 +3,7 @@
     { "publisher": "BBC Middle East", "url": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml", "lane": "policy" },
     { "publisher": "The Guardian Middle East", "url": "https://www.theguardian.com/world/middleeast/rss", "lane": "policy" },
     { "publisher": "The Guardian Iran", "url": "https://www.theguardian.com/world/iran/rss", "lane": "policy" },
-    { "publisher": "Foreign Affairs", "url": "https://www.foreignaffairs.com/rss.xml", "lane": "policy" }
+    { "publisher": "Foreign Affairs", "url": "https://www.foreignaffairs.com/rss.xml", "lane": "policy" },
+    { "publisher": "France 24 Middle East", "url": "https://www.france24.com/en/middle-east/rss", "lane": "policy" }
   ]
 }
