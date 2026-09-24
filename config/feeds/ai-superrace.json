@@ -1,0 +1,9 @@
+{
+  "feeds": [
+    { "publisher": "MIT Technology Review", "url": "https://www.technologyreview.com/feed/", "lane": "technology" },
+    { "publisher": "Ars Technica AI", "url": "https://arstechnica.com/ai/feed/", "lane": "technology" },
+    { "publisher": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "lane": "technology" },
+    { "publisher": "VentureBeat AI", "url": "https://venturebeat.com/category/ai/feed/", "lane": "technology" },
+    { "publisher": "The Verge AI", "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "lane": "technology" }
+  ]
+}

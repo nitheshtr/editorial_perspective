@@ -1,0 +1,9 @@
+{
+  "feeds": [
+    { "publisher": "BBC Europe", "url": "https://feeds.bbci.co.uk/news/world/europe/rss.xml", "lane": "policy" },
+    { "publisher": "The Guardian Russia", "url": "https://www.theguardian.com/world/russia/rss", "lane": "policy" },
+    { "publisher": "The Guardian Ukraine", "url": "https://www.theguardian.com/world/ukraine/rss", "lane": "policy" },
+    { "publisher": "Atlantic Council", "url": "https://www.atlanticcouncil.org/feed/", "lane": "policy" },
+    { "publisher": "NPR World", "url": "https://feeds.npr.org/1004/rss.xml", "lane": "policy" }
+  ]
+}
