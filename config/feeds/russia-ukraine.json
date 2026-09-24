@@ -6,6 +6,7 @@
     { "publisher": "Atlantic Council", "url": "https://www.atlanticcouncil.org/feed/", "lane": "policy" },
     { "publisher": "NPR World", "url": "https://feeds.npr.org/1004/rss.xml", "lane": "policy" },
     { "publisher": "France 24 Europe", "url": "https://www.france24.com/en/europe/rss", "lane": "policy" },
-    { "publisher": "DW Europe", "url": "https://rss.dw.com/xml/rss-en-eu", "lane": "policy" }
+    { "publisher": "DW Europe", "url": "https://rss.dw.com/xml/rss-en-eu", "lane": "policy" },
+    { "publisher": "TRT World", "url": "https://www.trtworld.com/feed/rss.xml", "lane": "policy" }
   ]
 }
