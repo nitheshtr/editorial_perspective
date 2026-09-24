@@ -34,11 +34,15 @@ jobs:
         run: bun scripts/refresh-perspective-sources.ts
       - name: validate
         run: bun tools/validate-topic.ts --all
+      - name: re-bless golden lock from refreshed corpus
+        run: |
+          rm -f tests/golden/ai-superrace.html
+          bun test tests/golden
       - name: commit corpus growth
         run: |
           git config user.name "editorial-pipeline"
           git config user.email "pipeline@users.noreply.github.com"
-          git add data/
+          git add data/ tests/golden/
           if git diff --cached --quiet; then
             echo "no corpus changes — nothing to commit"
           else
